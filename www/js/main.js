@@ -6,4 +6,4 @@ let app = new App();
 app.navigation();
 
 //Call changePage when click back and forward
-window.addEventListener('popstate',app.navigation);
+window.addEventListener('popstate',nav.changePage);

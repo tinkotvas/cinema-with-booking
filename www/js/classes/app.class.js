@@ -1,6 +1,6 @@
 class App{
   constructor(){
-
+    
   }
 
   navigation(){
