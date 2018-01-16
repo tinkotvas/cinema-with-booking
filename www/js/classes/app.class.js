@@ -1,17 +1,22 @@
-class App{
+class App {
+
   constructor(){
-    
+
+    // Tell jsonflex to recreate instances of the class Garment
+    JSON._classes(Garment);
+
+    // Load garments, add as a property, then start the app
+    JSON._load('garments').then((garments)=>{
+      this.garments = garments;
+      this.start();
+    });
+
   }
 
-  navigation(){
-    $(document).on('click','a.pop',function(e){
-      //Create a push state preventDefault
-      let href = $(this).attr('href');
-      history.pushState(null, null, href);
-      //Call the change page function
-      nav.changePage();
-      //Stop the browers from starting a page reload
-      e.preventDefault();
-    });
+  start(){
+    // Empty main element, then render auditoriums to main
+    $('main').empty();
+    this.garments.render('main');
   }
+
 }
