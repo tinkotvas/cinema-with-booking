@@ -43,7 +43,8 @@
         "stars": 4,
         "max": 5
       }
-    ]
+    ],
+    "⚙": "Film"
   },
   {
     "title": "Gisslan",
@@ -83,7 +84,8 @@
         "stars": 4,
         "max": 5
       }
-    ]
+    ],
+    "⚙": "Film"
   },
   {
     "title": "Let the sunshine in",
@@ -122,7 +124,8 @@
         "stars": 5,
         "max": 6
       }
-    ]
+    ],
+    "⚙": "Film"
   },
   {
     "title": "Nattskuggor",
@@ -159,7 +162,8 @@
         "stars": 4,
         "max": 5
       }
-    ]
+    ],
+    "⚙": "Film"
   },
   {
     "title": "The Party",
@@ -198,6 +202,7 @@
         "stars": 6,
         "max": 6
       }
-    ]
+    ],
+    "⚙": "Film"
   }
 ]
