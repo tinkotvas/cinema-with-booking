@@ -3,6 +3,7 @@ class Nav {
     this.renderNav();
     this.changePage();
   }
+  
 
   renderNav(){
     $('header').html(this.htmlNav());
