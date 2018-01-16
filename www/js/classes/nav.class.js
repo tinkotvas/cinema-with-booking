@@ -5,10 +5,8 @@ class Nav {
   }
 
   renderNav(){
-      //$('header').html(this.htmlNav());
+    $('header').html(this.htmlNav());
   }
-
-
 
   changePage(){
     //React on page changed, replace parts of DOM
@@ -48,6 +46,4 @@ class Nav {
         `)
     }
   }
-
-
 }
