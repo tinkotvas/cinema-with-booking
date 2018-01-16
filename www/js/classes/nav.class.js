@@ -3,7 +3,6 @@ class Nav {
     this.renderNav();
     this.changePage();
   }
-  
 
 
   renderNav(){
