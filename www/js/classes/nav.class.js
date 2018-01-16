@@ -4,6 +4,7 @@ class Nav {
     this.changePage();
   }
 
+
   renderNav(){
     $('header').html(this.htmlNav());
   }
