@@ -5,6 +5,7 @@ class Nav {
   }
   
 
+
   renderNav(){
     $('header').html(this.htmlNav());
   }
