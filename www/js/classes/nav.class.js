@@ -36,6 +36,7 @@ class Nav extends Base{
         `);
     }
     if (url == '/biograf') {
+      $('main').empty();
       let biograf=new Biograf();
       biograf.render('main');
     }
