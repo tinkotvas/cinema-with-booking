@@ -46,7 +46,7 @@ footer .social-media {
   }
 }
 .biograf {
-  margin-bottom: 60px;
+  padding-bottom: 10vw;
 }
 .adv {
   margin-top: 10px;
@@ -68,6 +68,16 @@ footer .social-media {
 }
 .regler {
   margin-top: 40px;
+}
+@media screen and (min-width: 769px) and (max-width: 937px) {
+  .biograf {
+    height: 120px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .biograf {
+    height: 210px;
+  }
 }
 .auditorium h1 {
   text-align: center;
