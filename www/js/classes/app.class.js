@@ -22,7 +22,7 @@ class App {
     let nav = new Nav();
     $('header').empty();
     nav.render('header');
-     // chagePage() has to be called to make the navBar active
+     // chagePage() has to be called to make the navBar active, and I don't know why it only works this way
     nav.changePage();
    
     window.addEventListener('popstate',nav.changePage);
