@@ -48,6 +48,14 @@ footer .social-media {
     height: 185px;
   }
 }
+.adv {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.kino {
+  margin-left: 40px;
+  margin-right: 10px;
+}
 .auditorium h1 {
   text-align: center;
 }
