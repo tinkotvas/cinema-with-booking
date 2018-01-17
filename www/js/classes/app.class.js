@@ -2,6 +2,7 @@ class App {
 
   constructor(){
     this.renderNav();
+    this.renderFooter();
     // Tell jsonflex to recreate instances of the class Garment
     JSON._classes(Film);
     // Load garments, add as a property, then start the app
@@ -25,6 +26,13 @@ class App {
     nav.changePage();
    
     window.addEventListener('popstate',nav.changePage);
+  }
+
+  renderFooter(){
+    let footer = new Footer();
+    $('footer').empty();
+    console.log('träff');
+    footer.render('footer');
   }
 
 }
