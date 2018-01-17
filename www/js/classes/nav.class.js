@@ -26,9 +26,8 @@ class Nav extends Base{
         `)
     }
     if (url == '/biograf') {
-      $('main').html(`
-          <h1 class="text-center mt-5">Bio Page</h1>
-        `)
+      let biograf=new Biograf();
+      biograf.render('main');
     }
     if (url == '/regler') {
       $('main').html(`

@@ -21,6 +21,9 @@ class App {
     let nav = new Nav();
     $('header').empty();
     nav.render('header');
+     // chagePage() has to be called to make the navBar active
+    nav.changePage();
+   
     window.addEventListener('popstate',nav.changePage);
   }
 
