@@ -1,0 +1,3 @@
+class Regler extends Base{
+
+}

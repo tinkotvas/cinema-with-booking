@@ -41,14 +41,14 @@ class Nav extends Base{
       biograf.render('main');
     }
     if (url == '/regler') {
-      $('main').html(`
-          <h1 class="text-center mt-5">Regler Page</h1>
-        `)
+      $('main').empty();
+      let regler=new Regler();
+      regler.render('main');
     }
     if (url == '/godis') {
-      $('main').html(`
-          <h1 class="text-center mt-5">Godis Page</h1>
-        `)
+      $('main').empty();
+      let godis=new Godis();
+      godis.render('main');
     }
     if (url == '/minasidor') {
       $('main').html(`
