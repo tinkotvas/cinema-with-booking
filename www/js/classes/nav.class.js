@@ -1,12 +1,22 @@
 class Nav extends Base{
-  // constructor(){
-  //   this.renderNav();
-  //   this.changePage();
-  // }
 
-  // renderNav(){
-  //   $('header').html(this.htmlNav());
-  // }
+  constructor(){
+    super();
+    this.clickEvents();
+  }
+
+  clickEvents(){
+    let that = this;
+    $(document).on('click','nav a',function(e){
+      //Create a push state preventDefault
+      let href = $(this).attr('href');
+      history.pushState(null, null, href);
+      //Call the change page function
+      that.changePage();
+      //Stop the browers from starting a page reload
+      e.preventDefault();
+    });
+  }
 
   changePage(){
     //React on page changed, replace parts of DOM
@@ -23,7 +33,7 @@ class Nav extends Base{
     if (url == '/filmer') {
       $('main').html(`
           <h1 class="text-center mt-5">Filmer Page</h1>
-        `)
+        `);
     }
     if (url == '/biograf') {
       $('main').html(`
