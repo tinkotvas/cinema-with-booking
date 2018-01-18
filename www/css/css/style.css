@@ -81,6 +81,9 @@ footer .social-media {
     height: 210px;
   }
 }
+.mainbanner {
+  width: 100%;
+}
 .auditorium h1 {
   text-align: center;
 }
