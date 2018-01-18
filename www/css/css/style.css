@@ -15,7 +15,9 @@ body {
   margin-bottom: 120px;
 }
 footer {
-  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
   background-color: lightgray;
   bottom: 0;
   width: 100%;
