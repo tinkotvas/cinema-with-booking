@@ -31,9 +31,9 @@ class Nav extends Base{
       mainpage.render('main');
     }
     if (url == '/filmer') {
-      $('main').html(`
-          <h1 class="text-center mt-5">Filmer Page</h1>
-        `);
+      $('main').empty();
+      let moviepage=new MoviePage();
+      moviepage.render('main');
     }
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen

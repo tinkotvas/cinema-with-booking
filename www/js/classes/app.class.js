@@ -31,7 +31,6 @@ class App {
   renderFooter(){
     let footer = new Footer();
     $('footer').empty();
-    console.log('träff');
     footer.render('footer');
   }
 
