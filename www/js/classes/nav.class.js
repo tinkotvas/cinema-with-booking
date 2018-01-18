@@ -26,9 +26,9 @@ class Nav extends Base{
     $('header a').removeClass('active');
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
-      $('main').html(`
-          <h1 class="text-center mt-5">Home Page</h1>
-        `)
+      $('main').empty();
+      let mainpage=new MainPage();
+      mainpage.render('main');
     }
     if (url == '/filmer') {
       $('main').html(`
