@@ -45,13 +45,39 @@ footer .social-media {
     height: 185px;
   }
 }
+.biograf {
+  padding-bottom: 10vw;
+}
 .adv {
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .kino {
   margin-left: 40px;
   margin-right: 10px;
+}
+.godis {
+  margin-top: 10px;
+}
+.godis .kiosk {
+  width: 80%;
+}
+.godis .text {
+  margin-top: 20px;
+  padding-bottom: 60px;
+}
+.regler {
+  margin-top: 40px;
+}
+@media screen and (min-width: 769px) and (max-width: 937px) {
+  .biograf {
+    height: 120px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .biograf {
+    height: 210px;
+  }
 }
 .auditorium h1 {
   text-align: center;

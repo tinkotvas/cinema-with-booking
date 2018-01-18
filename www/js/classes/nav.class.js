@@ -36,7 +36,9 @@ class Nav extends Base{
         `);
     }
     if (url == '/biograf') {
+      //empty 'main', so that only one render will showen
       $('main').empty();
+      // create instance here and render
       let biograf=new Biograf();
       biograf.render('main');
     }
