@@ -57,5 +57,11 @@ class Nav extends Base{
           <h1 class="text-center mt-5">Mina Sidor Page</h1>
         `)
     }
+    if (url == '/modalBoka') {
+      let modalBoka = new Modal();
+      $('main').empty();
+      modalBoka.render('main');
+      $('.modal').modal('show');
+    }
   }
 }
