@@ -3,6 +3,32 @@
 .godis {
   margin-bottom: 120px;
 }
+.biograf h1,
+.regler h1,
+.godis h1 {
+  font-size: 3rem;
+}
+.biograf h6,
+.regler h6,
+.godis h6 {
+  font-size: 2rem;
+}
+.biograf p,
+.regler p,
+.godis p {
+  font-size: 1.5rem;
+}
+.biograf h1,
+.biograf h6 {
+  font-family: 'IM Fell English SC', serif;
+}
+.biograf p {
+  font-family: 'Harmattan', sans-serif;
+}
+.regler,
+.godis {
+  font-family: 'Harmattan', sans-serif;
+}
 .adv {
   margin-top: 10px;
   margin-bottom: 30px;
