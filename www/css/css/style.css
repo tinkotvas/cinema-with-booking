@@ -1,4 +1,10 @@
-body .modal img {
+.modal-footer {
+  height: 200px;
+}
+#bookingModal {
+  max-width: 1200px;
+}
+.modal img {
   max-width: 300px;
   min-width: 150px;
 }
@@ -18,7 +24,7 @@ footer {
   position: fixed;
   left: 0;
   right: 0;
-  background-color: lightgray;
+  background-color: yellow;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
