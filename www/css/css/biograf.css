@@ -1,13 +1,14 @@
-.biograf {
-  padding-bottom: 10vw;
+.biograf,
+.regler,
+.godis {
+  margin-bottom: 120px;
 }
 .adv {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .kino {
-  margin-left: 40px;
-  margin-right: 10px;
+  margin-bottom: 30px;
 }
 .godis {
   margin-top: 10px;
@@ -23,12 +24,16 @@
   margin-top: 40px;
 }
 @media screen and (min-width: 769px) and (max-width: 937px) {
-  .biograf {
-    height: 120px;
+  .biograf,
+  .regler,
+  .godis {
+    margin-bottom: 120px;
   }
 }
 @media screen and (max-width: 768px) {
-  .biograf {
-    height: 210px;
+  .biograf,
+  .regler,
+  .godis {
+    margin-bottom: 210px;
   }
 }
