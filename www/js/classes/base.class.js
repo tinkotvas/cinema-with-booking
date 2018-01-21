@@ -69,13 +69,5 @@ class Base {
       }
     }
   }
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/develop
-=======
-}
->>>>>>> develop

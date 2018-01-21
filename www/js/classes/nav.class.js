@@ -7,7 +7,7 @@ class Nav extends Base{
 
   clickEvents(){
     let that = this;
-    $(document).on('click','nav a',function(e){
+    $(document).on('click','a.pop',function(e){
       //Create a push state preventDefault
       let href = $(this).attr('href');
       history.pushState(null, null, href);

@@ -4,10 +4,6 @@
 #bookingModal {
   max-width: 1200px;
 }
-.modal img {
-  max-width: 300px;
-  min-width: 150px;
-}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -118,8 +114,54 @@ footer .social-media {
     margin-bottom: 210px;
   }
 }
+main {
+  margin-top: 64px;
+}
+main .list-element {
+  width: fit-content;
+  height: fit-content;
+}
 .mainbanner {
   width: 100%;
+}
+header nav {
+  height: fit-content;
+  background-color: #FB515C !important;
+}
+header nav .nav-link {
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+header nav .nav-link.active {
+  border-bottom: 1px solid black;
+}
+header nav .brand {
+  width: 80px;
+}
+header .brand-modal {
+  width: 80px;
+}
+header #login .modal-header {
+  background-color: #FB515C !important;
+}
+header #login .close {
+  cursor: pointer;
+}
+.btn-base {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 0;
+  color: black;
+  text-decoration: none;
+  transition: all 200ms cubic-bezier(1, 0, 0, 1);
+}
+.btn-base:hover {
+  cursor: pointer;
+  border: 2px solid #000;
+  background-color: #FB515C;
+  color: black;
+  text-decoration: none;
+  transition: all 400ms cubic-bezier(1, 0, 0, 1);
 }
 .auditorium h1 {
   text-align: center;

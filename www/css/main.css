@@ -1,4 +1,4 @@
-.modal-footer {
+/* .modal-footer {
   height: 200px;
 }
 #bookingModal {
@@ -7,7 +7,7 @@
 .modal img {
   max-width: 300px;
   min-width: 150px;
-}
+} */
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -15,7 +15,7 @@ html {
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height 
+  /* Margin bottom by footer height
      or slightly more for more space before footer
   */
   margin-bottom: 120px;
