@@ -1,8 +1,9 @@
-.modal-footer {
-  height: 200px;
+#bookingModal img {
+  max-width: 300px;
+  min-width: 150px;
 }
-#bookingModal {
-  max-width: 1200px;
+#bookingModal .modal-footer {
+  height: 200px;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -49,71 +50,6 @@ footer .social-media {
     height: 185px;
   }
 }
-.biograf,
-.regler,
-.godis {
-  margin-bottom: 120px;
-}
-.biograf h1,
-.regler h1,
-.godis h1 {
-  font-size: 3rem;
-}
-.biograf h6,
-.regler h6,
-.godis h6 {
-  font-size: 2rem;
-}
-.biograf p,
-.regler p,
-.godis p {
-  font-size: 1.5rem;
-}
-.biograf h1,
-.biograf h6 {
-  font-family: 'IM Fell English SC', serif;
-}
-.biograf p {
-  font-family: 'Harmattan', sans-serif;
-}
-.regler,
-.godis {
-  font-family: 'Harmattan', sans-serif;
-}
-.adv {
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-.kino {
-  margin-bottom: 30px;
-}
-.godis {
-  margin-top: 10px;
-}
-.godis .kiosk {
-  width: 80%;
-}
-.godis .text {
-  margin-top: 20px;
-  padding-bottom: 60px;
-}
-.regler {
-  margin-top: 40px;
-}
-@media screen and (min-width: 769px) and (max-width: 937px) {
-  .biograf,
-  .regler,
-  .godis {
-    margin-bottom: 120px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .biograf,
-  .regler,
-  .godis {
-    margin-bottom: 210px;
-  }
-}
 main {
   margin-top: 64px;
 }
@@ -141,10 +77,10 @@ header nav .brand {
 header .brand-modal {
   width: 80px;
 }
-header #login .modal-header {
+header #loginModal .modal-header {
   background-color: #FB515C !important;
 }
-header #login .close {
+header #loginModal .close {
   cursor: pointer;
 }
 .btn-base {
