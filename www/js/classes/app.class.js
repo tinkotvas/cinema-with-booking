@@ -6,7 +6,6 @@ class App {
     // Load garments, add as a property, then start the app
     JSON._load('movies').then((movies)=>{
       this.film = movies;
-      console.log(this.film);
       //test code. check if JSON load into the right way
       // for(let f of this.film){
       //   //console.log(f.getTitle());
