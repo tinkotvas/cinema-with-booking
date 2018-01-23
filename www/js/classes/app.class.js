@@ -20,7 +20,7 @@ class App {
     });
     this.renderNav();
     this.renderFooter();
-
+    this.clickEvents();
   }
 
   renderNav(){
@@ -30,9 +30,6 @@ class App {
     nav.changePage();
     let login = new Login();
     login.render('header');
-    $(document).on("click", '#loginModalToggle', function() {
-      $('#loginModal').modal('toggle');
-    });
     window.addEventListener('popstate',nav.changePage);
   }
 
@@ -40,6 +37,12 @@ class App {
     let footer = new Footer();
     $('footer').empty();
     footer.render('footer');
+  }
+
+  clickEvents(){
+    $(document).on("click", '#loginModalToggle', function() {
+      $('#loginModal').modal('toggle');
+    });
   }
 
 }

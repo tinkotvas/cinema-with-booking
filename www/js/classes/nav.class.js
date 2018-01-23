@@ -16,6 +16,9 @@ class Nav extends Base{
       //Stop the browers from starting a page reload
       e.preventDefault();
     });
+    $(document).on("click", '#bookingModalToggle', function() {
+      $('#bookingModal').modal('toggle');
+    });
   }
 
   changePage(){
@@ -29,13 +32,10 @@ class Nav extends Base{
       $('main').empty();
       let mainpage=new MainPage();
       mainpage.render('main');
-
       //Draw booking modal
       let bookingModal = new Modal();
       bookingModal.render('main');
-      $(document).on("click", '#bookingModalToggle', function() {
-        $('#bookingModal').modal('toggle');
-      });
+
     }
     if (url == '/filmer') {
       $('main').empty();
