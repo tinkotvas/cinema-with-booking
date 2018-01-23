@@ -18,11 +18,11 @@ class List extends Base {
         });
     }
 
-    renderMovies(length = 5) {
-        $('main').append('<div id="movieCards" class="row"></div>');
+    renderMovies() {
+        $('main').append('<div class="container"><div id="movieCards" class="row"></div></div>');
         let moviesArea = $("#movieCards");
 
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i < this.movies.length; i++) {
             if (typeof this.movies[i] != 'undefined') {
                 moviesArea.append(`
                 <div class="card" style="width: 18rem;">
@@ -84,6 +84,6 @@ let list = new List();
 
 function loadAndRender() {
 
-    list.loadJSON(() => list.renderViewings(), "viewings");
+    list.loadJSON(() => list.renderMovies(), "movies");
 
 }

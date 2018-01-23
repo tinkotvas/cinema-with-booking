@@ -44,6 +44,9 @@ class Nav extends Base{
       $('main').empty();
       let moviepage=new MoviePage();
       moviepage.render('main');
+      
+      let list = new List();
+      list.loadJSON(() => list.renderMovies(), "movies");
     }
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
