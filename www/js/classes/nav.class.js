@@ -36,6 +36,9 @@ class Nav extends Base{
       let bookingModal = new Modal();
       bookingModal.render('main');
 
+      let list = new List();
+      list.loadJSON(() => list.renderViewings(), "viewings");
+
     }
     if (url == '/filmer') {
       $('main').empty();
