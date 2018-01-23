@@ -34,7 +34,10 @@ class Nav extends Base{
       mainpage.render('main');
       //Draw booking modal
       let bookingModal = new Modal();
-      bookingModal.render('main');
+      bookingModal.render('main', 1);
+      // Draw info modal
+      let infoModal = new Modal();
+      infoModal.render('main', 2);
 
     }
     if (url == '/filmer') {
@@ -64,11 +67,6 @@ class Nav extends Base{
           <h1 class="text-center mt-5">Mina Sidor Page</h1>
         `)
     }
-    // if (url == '/modalBoka') {
-    //   let modalBoka = new Modal();
-    //   //$('main').empty();
-    //   modalBoka.render('main');
-    //   $('.bookingModal').modal('show');
-    // }
+
   }
 }
