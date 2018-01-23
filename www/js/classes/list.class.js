@@ -25,10 +25,10 @@ class List extends Base {
         for (let i = 0; i < this.movies.length; i++) {
             if (typeof this.movies[i] != 'undefined') {
                 moviesArea.append(`
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="/imgs/${this.movies[i].images}" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">${this.movies[i].title}</p>
+                <div class="card m-3">
+                    <img class="card-img-top" src="/imgs/${this.movies[i].images}" alt="">
+                    <div class="card-body p-1">
+                        <p class="card-text text-center">${this.movies[i].title}</p>
                     </div>
                 </div>
                 `);
