@@ -1,25 +1,33 @@
-Object.assign(Modal.prototype, {template1(){
-  return `
-  <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="embed-responsive embed-responsive-21by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/p_HnASrsULM?rel=0&amp;showinfo=0"></iframe>
+Object.assign(Modal.prototype, {template(){ return `
+    <div class="modal fade" id="bookingModal" tabindex="-2" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg" id="bookingModal" role="document">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </div>
-        <div class="modal-body">
-          <img src="/imgs/modalBild.jpg" class="float-left" alt="hund">
-          <h2>Scarface; Number ONe</h2>
-          <p>Lorem ipsum används ofta som exempeltext inom trycksaksframställning och grafisk design för att visa hur till exempel
-            ett dokument kommer att se ut när väl den riktiga texten är på plats. Lorem ipsum visar </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Boka</button>
+          <div class="modal-body">
+            <img src="/imgs/callmebyyourname-poster.jpg" class="float-left" alt="cmbyn-poster">
+            <h2 class="title-text text-white">Call me by your name</h2>
+          </div>
+          <div class="modal-footer bg-white col-12 justify-content-center">
+            <div class="flex-row">
+              <h4>Välj antal biljetter:</h4>
+              <div class="row mx-auto">
+                <button type="button" class="btn btn-success"> + </button>
+                <p>ADULT</p>
+                <button type="button" class="btn btn-danger"> - </button>
+                <button type="button" class="btn btn-success ml-2"> + </button>
+                <p>CHILD</p>
+                <button type="button" class="btn btn-danger"> - </button>
+                <button type="button" class="btn btn-success ml-2"> + </button>
+                <p>SENIOR</p>
+                <button type="button" class="btn btn-danger"> - </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  `;
-
-}});
+`; }});

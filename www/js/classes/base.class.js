@@ -70,8 +70,4 @@ class Base {
     }
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/develop
