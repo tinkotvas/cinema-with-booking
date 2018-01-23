@@ -19,17 +19,22 @@ class List extends Base {
     }
 
     renderMovies() {
-        $('main').append('<div class="container"><div id="movieCards" class="row"></div></div>');
+        $('main').append(`
+        <div class="container">
+            <div class="d-flex">
+                <div id="movieCards" class="d-flex flex-wrap justify-content-center">
+                    <!-- Movie cards -->
+                </div>
+            </div>
+        </div>`);
         let moviesArea = $("#movieCards");
 
         for (let i = 0; i < this.movies.length; i++) {
             if (typeof this.movies[i] != 'undefined') {
                 moviesArea.append(`
-                <div class="card m-3">
-                    <img class="card-img-top" src="/imgs/${this.movies[i].images}" alt="">
-                    <div class="card-body p-1">
-                        <p class="card-text text-center">${this.movies[i].title}</p>
-                    </div>
+                <div class="card rounded-0">
+                    <a href="#"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images}" alt=""></a>
+
                 </div>
                 `);
             }

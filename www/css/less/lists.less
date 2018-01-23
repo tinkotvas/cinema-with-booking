@@ -1,8 +1,18 @@
 //main: style.less
-
-.card{
-    width: 18rem;
-    .card-img-top{
-        height: 25rem;
+.card {
+    overflow: hidden;
+    width: 13em;
+    .card-img-top {
+        height: 18em;
+        -webkit-transition: all 2s ease-out;
+        transition: all 2s ease-out;
+    }
+    a:hover img,
+    a:focus img {
+        -webkit-transform: scale(1.04);
+        transform: scale(1.04);
+    }
+    .card-body {
+        z-index: 2;
     }
 }
