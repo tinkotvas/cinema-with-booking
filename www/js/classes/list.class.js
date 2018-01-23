@@ -40,18 +40,30 @@ class List extends Base {
         $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
-        viewingsArea.append('<div id="viewingsDate" class="col-3 p-0"><p class="m-0">Datum</p></div>')
-        viewingsArea.append('<div id="viewingsBlank" class="col-1 p-0"><p class="m-0">&nbsp;</p></div>')
-        viewingsArea.append('<div id="viewingsTitle" class="col-4 p-0"><p class="m-0">Titel</p></div>')
-        viewingsArea.append('<div id="viewingsSalong" class="col-4 p-0"><p class="m-0">Score</p></div>')
-        for (let i = 0; i < length; i++) {
-            if (typeof this.viewings[i] != 'undefined') {
-                $("#viewingsDate").append(`<p class="m-0">${this.viewings[i].date} &emsp; ${this.viewings[i].time}</p>`);
-                $("#viewingsBlank").append('<p class="m-0">&nbsp;</p>');
-                $("#viewingsTitle").append(`<p class="m-0">${this.viewings[i].film}</p>`);
-                $("#viewingsSalong").append(`<p class="m-0">${this.viewings[i].auditorium}</p>`);
-            }
+
+        for(let i = 0; i < length;i++){
+            viewingsArea.append(`
+            <div href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="list-element col-2">
+                        <h4>${this.viewings[i].time}</h4>
+                    </div>
+                    <div class="list-element col-4">
+                        <h4>${this.viewings[i].film}</h4>
+                    </div>
+                    <div class="list-element col-3">
+                        <p>${this.viewings[i].auditorium}</p>
+                    </div>
+                    <div class="list-element col-3">
+                        <a class="pop btn btn-base float-right mx-lg-2 my-1" id="bookingModalToggle">Biljetter</a>
+                        <a class="btn btn-base float-right mx-lg-2 my-1">Läs mer</a>
+                    </div>
+                </div>
+            </div>
+            `)
         }
+
+
     }
 }
 
@@ -59,6 +71,6 @@ let list = new List();
 
 function loadAndRender() {
 
-    list.loadJSON(() => list.renderMovies(), "movies");
+    list.loadJSON(() => list.renderViewings(), "viewings");
 
 }
