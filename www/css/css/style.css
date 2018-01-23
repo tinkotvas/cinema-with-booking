@@ -1,0 +1,133 @@
+#bookingModal img {
+  max-width: 300px;
+  min-width: 150px;
+}
+#bookingModal .modal-footer {
+  height: 200px;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height 
+     or slightly more for more space before footer
+  */
+  margin-bottom: 120px;
+}
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: lightgray;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+}
+footer a {
+  color: black;
+}
+footer a :hover {
+  color: black;
+}
+footer .social-media {
+  font-size: 2.5em;
+  color: grey;
+}
+@media screen and (min-width: 769px) and (max-width: 937px) {
+  footer {
+    height: 90px;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    margin-bottom: 200px;
+  }
+  footer {
+    height: 185px;
+  }
+}
+main {
+  margin-top: 64px;
+}
+main .list-element {
+  width: fit-content;
+  height: fit-content;
+}
+.mainbanner {
+  width: 100%;
+}
+header nav {
+  height: fit-content;
+  background-color: #FB515C !important;
+}
+header nav .nav-link {
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+header nav .nav-link.active {
+  border-bottom: 1px solid black;
+}
+header nav .brand {
+  width: 80px;
+}
+header .brand-modal {
+  width: 80px;
+}
+header #loginModal .modal-header {
+  background-color: #FB515C !important;
+}
+header #loginModal .close {
+  cursor: pointer;
+}
+.btn-base {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 0;
+  color: black;
+  text-decoration: none;
+  transition: all 200ms cubic-bezier(1, 0, 0, 1);
+}
+.btn-base:hover {
+  cursor: pointer;
+  border: 2px solid #000;
+  background-color: #FB515C;
+  color: black;
+  text-decoration: none;
+  transition: all 400ms cubic-bezier(1, 0, 0, 1);
+}
+.auditorium h1 {
+  text-align: center;
+}
+.seats {
+  background-color: #000;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2%;
+}
+.seat {
+  cursor: pointer;
+  padding: 0.7%;
+  float: right;
+}
+.seat-inner {
+  padding-bottom: 100%;
+  background-color: #999;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+.seat.hover .seat-inner {
+  background-color: #eee;
+}
+.seat.chosen .seat-inner {
+  background-color: #9adb99;
+}
+.seat.chosen.hover .seat-inner {
+  background-color: #aaf2a9;
+}
+.seat.taken .seat-inner {
+  background-color: #ba1a1a;
+}

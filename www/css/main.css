@@ -1,0 +1,74 @@
+/* .modal-footer {
+  height: 200px;
+}
+#bookingModal {
+  max-width: 1200px;
+}
+.modal img {
+  max-width: 300px;
+  min-width: 150px;
+} */
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height
+     or slightly more for more space before footer
+  */
+  margin-bottom: 120px;
+}
+footer {
+  position: absolute;
+  background-color: lightgray;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+}
+/*
+  Other footer height for Boostrap xs, sm
+  (for breakpoint see: https://getbootstrap.com/css/)
+*/
+@media screen and (max-width: 969px) {
+  body {
+    margin-bottom: 300px;
+  }
+  footer {
+    height: 280px;
+  }
+}
+.auditorium h1 {
+  text-align: center;
+}
+.seats {
+  background-color: #000;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2%;
+}
+.seat {
+  cursor: pointer;
+  padding: 0.7%;
+  float: right;
+}
+.seat-inner {
+  padding-bottom: 100%;
+  background-color: #999;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+.seat.hover .seat-inner {
+  background-color: #eee;
+}
+.seat.chosen .seat-inner {
+  background-color: #9adb99;
+}
+.seat.chosen.hover .seat-inner {
+  background-color: #aaf2a9;
+}
+.seat.taken .seat-inner {
+  background-color: #ba1a1a;
+}
