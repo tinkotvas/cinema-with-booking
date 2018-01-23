@@ -100,10 +100,21 @@ header #loginModal .close {
   transition: all 400ms cubic-bezier(1, 0, 0, 1);
 }
 .card {
-  width: 18rem;
+  overflow: hidden;
+  width: 13em;
 }
 .card .card-img-top {
-  height: 25rem;
+  height: 18em;
+  -webkit-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}
+.card a:hover img,
+.card a:focus img {
+  -webkit-transform: scale(1.04);
+  transform: scale(1.04);
+}
+.card .card-body {
+  z-index: 2;
 }
 .auditorium h1 {
   text-align: center;
