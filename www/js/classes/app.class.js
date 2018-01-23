@@ -29,6 +29,8 @@ class App {
     nav.changePage();
     let login = new Login();
     login.render('header');
+    let signup = new Signup();
+    signup.render('header');
     window.addEventListener('popstate',nav.changePage);
   }
 
@@ -41,6 +43,10 @@ class App {
   clickEvents(){
     $(document).on("click", '#loginModalToggle', function() {
       $('#loginModal').modal('toggle');
+    });
+    $(document).on("click", '#opSignup', function() {
+      $('#loginModal').modal('toggle');
+      $('#signupModal').modal('toggle');
     });
   }
 
