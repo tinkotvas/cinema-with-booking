@@ -47,20 +47,10 @@ class List extends Base {
         viewingsArea.empty();
 
 
-        let date = new Date();
-        let month = date.getMonth() + 1;
-        if (month < 10) {
-            month = "0" + month;
-        }
-
-        let day = date.getDate();
-        if (day < 10) {
-            day = "0" + day;
-        }
-        let dateString = `${date.getFullYear()}-${month}-${day}`
+        let date = new Date().toISOString().split("T")[0]
 
         for (let i = 0; i < this.viewings.length; i++) {
-            if (this.viewings[i].date == dateString) {
+            if (this.viewings[i].date == date) {
                 viewingsArea.append(`
                     <div href="#" class="list-group-item list-group-item-action">
                         <div class="d-flex flex-row align-items-center">
