@@ -22,8 +22,8 @@ class List extends Base {
         $('main').append('<div id="movieCards" class="row"></div>');
         let moviesArea = $("#movieCards");
 
-        for(let i = 0; i < length; i++){
-            if (typeof this.movies[i] != 'undefined'){
+        for (let i = 0; i < length; i++) {
+            if (typeof this.movies[i] != 'undefined') {
                 moviesArea.append(`
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="/imgs/${this.movies[i].images}" alt="Card image cap">
@@ -37,33 +37,46 @@ class List extends Base {
     }
 
     renderViewings(length = 5) {
-        $('main').append('<div id="viewingsList" class="row"></div>');
+        //     $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
 
-        for(let i = 0; i < length;i++){
-            viewingsArea.append(`
-            <div href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex flex-row align-items-center">
-                    <div class="list-element col-2">
-                        <h4>${this.viewings[i].time}</h4>
-                    </div>
-                    <div class="list-element col-4">
-                        <h4>${this.viewings[i].film}</h4>
-                    </div>
-                    <div class="list-element col-3">
-                        <p>${this.viewings[i].auditorium}</p>
-                    </div>
-                    <div class="list-element col-3">
-                        <a class="pop btn btn-base float-right mx-lg-2 my-1" id="bookingModalToggle">Biljetter</a>
-                        <a class="btn btn-base float-right mx-lg-2 my-1">Läs mer</a>
-                    </div>
-                </div>
-            </div>
-            `)
+
+        let date = new Date();
+        let month = date.getMonth() + 1;
+        if (month < 10) {
+            month = "0" + month;
         }
 
+        let day = date.getDate();
+        if (day < 10) {
+            day = "0" + day;
+        }
+        let dateString = `${date.getFullYear()}-${month}-${day}`
 
+        for (let i = 0; i < this.viewings.length; i++) {
+            if (this.viewings[i].date == dateString) {
+                viewingsArea.append(`
+                    <div href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="list-element col-2">
+                                <h4>${this.viewings[i].time}</h4>
+                            </div>
+                            <div class="list-element col-4">
+                                <h4>${this.viewings[i].film}</h4>
+                            </div>
+                            <div class="list-element col-3">
+                                <p>${this.viewings[i].auditorium}</p>
+                            </div>
+                            <div class="list-element col-3">
+                                <a class="pop btn btn-base float-right mx-lg-2 my-1" id="bookingModalToggle">Biljetter</a>
+                                <a class="btn btn-base float-right mx-lg-2 my-1">Läs mer</a>
+                            </div>
+                        </div>
+                    </div>
+            `)
+            }
+        }
     }
 }
 
