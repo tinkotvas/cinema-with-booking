@@ -45,9 +45,20 @@ class List extends Base {
         //     $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
-        let date = new Date().toLocaleDateString()
+  
+        let date = new Date();
+        let month = date.getMonth() + 1;
+        if (month < 10) {
+            month = "0" + month;
+        }
+        let day = date.getDate();
+        if (day < 10) {
+            day = "0" + day;
+        }
+        let dateString = `${date.getFullYear()}-${month}-${day}`
+
         for (let i = 0; i < this.viewings.length; i++) {
-            if (this.viewings[i].date == date) {
+            if (this.viewings[i].date == dateString) {
                 viewingsArea.append(`
                     <div href="#" class="list-group-item list-group-item-action">
                         <div class="d-flex flex-row align-items-center">
