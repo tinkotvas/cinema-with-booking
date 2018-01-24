@@ -19,43 +19,35 @@ class List extends Base {
     }
 
     renderMovies() {
-        $('main').append('<div class="container"><div id="movieCards" class="row"></div></div>');
+        $('main').append(`
+        <div class="d-flex mt-2">
+            <div id="movieCards" class="d-flex flex-wrap justify-content-center">
+                <!-- Movie cards -->
+            </div>
+        </div>`);
         let moviesArea = $("#movieCards");
 
-        for (let i = 0; i < this.movies.length; i++) {
-            if (typeof this.movies[i] != 'undefined') {
-                moviesArea.append(`
-                <div class="card m-3">
-                    <img class="card-img-top" src="/imgs/${this.movies[i].images}" alt="">
-                    <div class="card-body p-1">
-                        <p class="card-text text-center">${this.movies[i].title}</p>
-                    </div>
+        //gief us more to watch on screen
+        for (let x = 0; x < 3; x++) {
+            for (let i = 0; i < this.movies.length; i++) {
+                if (typeof this.movies[i] != 'undefined') {
+                    moviesArea.append(`
+                <div class="card rounded-0">
+                    <a href="#"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images}" alt=""></a>
                 </div>
                 `);
+                }
             }
         }
     }
 
-    renderViewings(length = 5) {
+    renderViewings() {
         //     $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
-
-
-        let date = new Date();
-        let month = date.getMonth() + 1;
-        if (month < 10) {
-            month = "0" + month;
-        }
-
-        let day = date.getDate();
-        if (day < 10) {
-            day = "0" + day;
-        }
-        let dateString = `${date.getFullYear()}-${month}-${day}`
-
+        let date = new Date().toLocaleDateString()
         for (let i = 0; i < this.viewings.length; i++) {
-            if (this.viewings[i].date == dateString) {
+            if (this.viewings[i].date == date) {
                 viewingsArea.append(`
                     <div href="#" class="list-group-item list-group-item-action">
                         <div class="d-flex flex-row align-items-center">
@@ -78,12 +70,4 @@ class List extends Base {
             }
         }
     }
-}
-
-let list = new List();
-
-function loadAndRender() {
-
-    list.loadJSON(() => list.renderMovies(), "movies");
-
 }
