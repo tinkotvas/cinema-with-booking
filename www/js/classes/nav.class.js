@@ -3,6 +3,7 @@ class Nav extends Base{
   constructor(){
     super();
     this.clickEvents();
+    this.test;
   }
 
   clickEvents(){
@@ -44,7 +45,7 @@ class Nav extends Base{
       $('main').empty();
       let moviepage=new MoviePage();
       moviepage.render('main');
-      
+
       let list = new List();
       list.loadJSON(() => list.renderMovies(), "movies");
     }
