@@ -73,7 +73,7 @@ class List extends Base {
                             </div>
                             <div class="list-element col-3">
                                 <a class="pop btn btn-base float-right mx-lg-2 my-1" id="bookingModalToggle">Biljetter</a>
-                                <a class="btn btn-base float-right mx-lg-2 my-1">Läs mer</a>
+                                <a class="btn btn-base float-right mx-lg-2 my-1" id="infoModalToggle">Läs mer</a>
                             </div>
                         </div>
                     </div>
