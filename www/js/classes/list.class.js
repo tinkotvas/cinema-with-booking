@@ -20,35 +20,32 @@ class List extends Base {
 
     renderMovies() {
         $('main').append(`
-        <div class="container">
-            <div class="d-flex">
-                <div id="movieCards" class="d-flex flex-wrap justify-content-center">
-                    <!-- Movie cards -->
-                </div>
+        <div class="d-flex mt-2">
+            <div id="movieCards" class="d-flex flex-wrap justify-content-center">
+                <!-- Movie cards -->
             </div>
         </div>`);
         let moviesArea = $("#movieCards");
 
-        for (let i = 0; i < this.movies.length; i++) {
-            if (typeof this.movies[i] != 'undefined') {
-                moviesArea.append(`
+        //gief us more to watch on screen
+        for (let x = 0; x < 3; x++) {
+            for (let i = 0; i < this.movies.length; i++) {
+                if (typeof this.movies[i] != 'undefined') {
+                    moviesArea.append(`
                 <div class="card rounded-0">
                     <a href="#"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images}" alt=""></a>
-
                 </div>
                 `);
+                }
             }
         }
     }
 
-    renderViewings(length = 5) {
+    renderViewings() {
         //     $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
-
-
-        let date = new Date().toISOString().split("T")[0]
-
+        let date = new Date().toLocaleDateString()
         for (let i = 0; i < this.viewings.length; i++) {
             if (this.viewings[i].date == date) {
                 viewingsArea.append(`
@@ -73,12 +70,4 @@ class List extends Base {
             }
         }
     }
-}
-
-let list = new List();
-
-function loadAndRender() {
-
-    list.loadJSON(() => list.renderMovies(), "movies");
-
 }

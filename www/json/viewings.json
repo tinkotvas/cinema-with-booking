@@ -2,26 +2,26 @@
   { 
     "auditorium": "Stora Salongen", 
     "film": "Call me by your name", 
-    "date": "2018-01-23", 
+    "date": "2018-01-24", 
     "time": "16.40" 
   }, 
   { 
     "auditorium": "Lilla Salongen", 
     "film": "Gisslan", 
-    "date": "2018-01-23", 
+    "date": "2018-01-24", 
     "time": "19.00" 
   }, 
   { 
     "auditorium": "Stora Salongen", 
     "film": "The party", 
-    "date": "2018-01-23", 
+    "date": "2018-01-24", 
     "time": "20.30" 
   }, 
  
   { 
     "auditorium": "Lilla Salongen", 
     "film": "Nattskuggor", 
-    "date": "2018-01-23", 
+    "date": "2018-01-24", 
     "time": "17.00" 
   }, 
   { 
