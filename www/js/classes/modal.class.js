@@ -7,10 +7,7 @@ class Modal extends Base{
 
   toggleModal(){
     $(document).on("click", '#bookingModalToggle', function() {
-
       $('#bookingModal').modal('toggle');
     });
-
-
   }
 }

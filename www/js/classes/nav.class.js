@@ -34,16 +34,19 @@ class Nav extends Base{
       mainpage.render('main');
       //Draw booking modal
       let bookingModal = new Modal();
-      bookingModal.render('main', 1);
+      //bookingModal.render('.modal-container', 1);
       // Draw info modal
       let infoModal = new Modal();
-      infoModal.render('main', 2);
+      infoModal.render('.modal-container', 1);
 
     }
     if (url == '/filmer') {
       $('main').empty();
       let moviepage=new MoviePage();
       moviepage.render('main');
+
+      let list = new List();
+      list.loadJSON(() => list.renderMovies(), "movies");
     }
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
