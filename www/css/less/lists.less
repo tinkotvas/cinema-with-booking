@@ -1,7 +1,10 @@
 //main: style.less
+
 .card {
     overflow: hidden;
     width: 13em;
+    -webkit-transition: all 2s ease-out;
+        transition: all 2s ease-out;
     .card-img-top {
         height: 18em;
         -webkit-transition: all 2s ease-out;
@@ -16,3 +19,19 @@
         z-index: 2;
     }
 }
+@media (min-width: 992px) {
+    .card {
+        width: 19em;
+        .card-img-top {
+            height: 27em;
+        }
+    }
+}
+@media (max-width: 576px) { 
+    .card {
+        width: 10em;
+        .card-img-top {
+            height:14.5em;
+        }
+    }
+ }
