@@ -34,7 +34,7 @@ class Nav extends Base{
       mainpage.render('main');
       //Draw booking modal
       let bookingModal = new Modal();
-      //bookingModal.render('.modal-container', 1);
+      bookingModal.render('.modal-container', 1);
       // Draw info modal
       let infoModal = new Modal();
       infoModal.render('.modal-container', 1);
