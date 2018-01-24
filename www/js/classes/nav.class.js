@@ -3,7 +3,6 @@ class Nav extends Base{
   constructor(){
     super();
     this.clickEvents();
-    this.test;
   }
 
   clickEvents(){
