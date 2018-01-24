@@ -109,6 +109,41 @@ header #signupModal .close {
   text-decoration: none;
   transition: all 400ms cubic-bezier(1, 0, 0, 1);
 }
+.card {
+  overflow: hidden;
+  width: 13em;
+  -webkit-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}
+.card .card-img-top {
+  height: 18em;
+  -webkit-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}
+.card a:hover img,
+.card a:focus img {
+  -webkit-transform: scale(1.04);
+  transform: scale(1.04);
+}
+.card .card-body {
+  z-index: 2;
+}
+@media (min-width: 992px) {
+  .card {
+    width: 19em;
+  }
+  .card .card-img-top {
+    height: 27em;
+  }
+}
+@media (max-width: 576px) {
+  .card {
+    width: 10em;
+  }
+  .card .card-img-top {
+    height: 14.5em;
+  }
+}
 .auditorium h1 {
   text-align: center;
 }
