@@ -2,12 +2,22 @@ class Modal extends Base{
 
   constructor(){
       super();
-      this.toggleModal();
+      this.toggleBookingModal();
+      this.toggleInfoModal();
   }
 
-  toggleModal(){
+  toggleBookingModal(){
     $(document).on("click", '#bookingModalToggle', function() {
       $('#bookingModal').modal('toggle');
+      console.log(this);
+      
+    });
+  }
+  toggleInfoModal(){
+    $(document).on("click", '#infoModalToggle', function() {
+      $('#infoModal').modal('toggle');
+      console.log(this);
+      
     });
   }
 }
