@@ -1,15 +1,19 @@
 Object.assign(MainPage.prototype, { template(){ return `
 
-    <div class="row">
-      <div class="col-12">
-        <img class="mainbanner" src="/imgs/lastjedi_banner.jpg" alt="Star Wars Last Jedi">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 p-0">
+          <img class="mainbanner" src="/imgs/lastjedi_banner.jpg" alt="Star Wars Last Jedi">
+        </div>
       </div>
-    
-    <div class="container mt-5">
-      <div class="col-12">
-        <h3>Idag</h3>
-        <div id="viewingsList" class="list-group list-group-flush">
+    </div>
 
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <h3>Idag</h3>
+          <div id="viewingsList" class="list-group list-group-flush">
+          </div>
         </div>
       </div>
     </div>
