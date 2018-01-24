@@ -85,10 +85,12 @@ header nav .brand {
 header .brand-modal {
   width: 80px;
 }
-header #loginModal .modal-header {
+header #loginModal .modal-header,
+header #signupModal .modal-header {
   background-color: #FB515C !important;
 }
-header #loginModal .close {
+header #loginModal .close,
+header #signupModal .close {
   cursor: pointer;
 }
 .btn-base {

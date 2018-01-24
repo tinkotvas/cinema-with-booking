@@ -1,44 +1,49 @@
 Object.assign(Signup.prototype, {template(){ return `
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <img src="imgs/brand.svg" alt="" class="brand-modal">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h5 class="modal-title text-center" id="signupLabel">Sign Up</h5>
-          <form class="mb-4">
-                <div class="container">
-                        <h1>Sign Up</h1>
-                        <p>Please fill in this form to create an account.</p>
-                        <hr>
-                        <label><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-                  
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-                  
-                        <label><b>Repeat Password</b></label>
-                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                        
-                        <label>
-                          <input type="checkbox" checked="checked" style="margin-bottom:15px"> Remember me
-                        </label>
-                  
-                        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-                  
-                        <div class="clearfix">
-                          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                          <button type="submit" class="signupbtn">Sign Up</button>
-                        </div>
-                      </div>
-          </form>
-          <button class="btn btn-base float-right pop" data-dismiss="modal" href="/minasidor">Sign Up</button>
-        </div>
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="imgs/brand.svg" alt="" class="brand-modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <h5 class="modal-title text-center" id="signupLabel">Sign Up</h5> -->
+        <form class="mb-4">
+          <div class="container">
+            <h5>Sign Up</h5>
+            <small id="emailHelp" class="form-text text-muted">Please fill in this form to create an account.</small>
+
+            <hr>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" id="signUpEmail" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" id="signUpPass" placeholder="Enter Password" name="psw" required>
+            </div>
+            <div class="form-group">
+              <label>Repeat Password</label>
+              <input type="password" class="form-control" id="signUpRePass" placeholder="Repeat Password" name="psw-repeat" required>
+            </div>
+            <div class="form-group">
+              
+            
+            <small id="emailHelp" class="form-text text-muted">By creating an account you agree to our
+              <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</small>
+            </div>
+
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-base">Cancel</button>
+              <button type="submit" class="signupbtn btn-base float-right">Sign Up</button>
+            </div>
+          </div>
+        </form>
+        <!-- <button class="btn btn-base float-right pop" data-dismiss="modal" href="/minasidor">Sign Up</button> -->
       </div>
     </div>
   </div>
+</div>
 `; }});
