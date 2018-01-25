@@ -68,18 +68,15 @@ class Signup extends Base {
             $('#signupModal').modal('toggle');
         }
         if ($(event.target).hasClass('signupbtn')) {
-            console.log(this);
             this.sign();
-            // prevent page getting reload
             event.preventDefault();
         }
     }
 
     sign() {
         this.checkPass();
-        // save info into New JSON file
-        JSON._save('user.json', { app: this });
-
+        JSON._save(this.usName, { email: this.email, password: this.password });
+        // login
     }
 
     checkPass() {
@@ -92,6 +89,7 @@ class Signup extends Base {
             alert('Please agree the Terms & Privacy!');
         }
         // check if JSON file exist
+
     }
 
 
