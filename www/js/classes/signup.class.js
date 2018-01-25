@@ -1,92 +1,104 @@
 class Signup extends Base {
     constructor() {
         super();
-        this.usName = "";
-        this.password = "";
+    }
+    get email() {
+        return `${this.usName}@${this.web}`;
+    }
+
+    get password() {
+        return `${this.pass}`;
+    }
+
+
+    set email(val) {
+        //control email address
+        val = val.split('@');
+        if (val.length == 2) {
+            // user name as JSON file name
+            this.usName = val[0];
+            this.web = val[1];
+            $(".signUpEmail").parent().removeClass("has-warning");
+            $(".signupbtn").prop("disabled", false);
+        }
+        else {
+            $(".signUpEmail").parent().addClass("has-warning");
+            $(".signupbtn").prop("disabled", true);
+        }
+    }
+
+    set password(val) {
+        //password must longer then 4 letters
+        if (val.length < 4) {
+            $(".signupbtn").prop("disabled", true);
+        } else {
+            this.pass = val;
+            $(".passControl").addClass("d-none");
+            $(".signupbtn").prop("disabled", false);
+        }
     }
 
     keyup(event) {
-        // add a new cat or owner if we press enter in the name fields
-        // (which -> the code of the key pressed, enter is 13)
-        if ($(event.target).hasClass('signUpEmail')&&event.keyup==13) {
+        if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
-            console.log("email", this.email);
         }
-        if ($(event.target).hasClass('signUpPass')&&event.keyup==13) {
+        if ($(event.target).hasClass('signUpPass')) {
             this.password = $(".signUpPass").val();
-            console.log("password", this.password);
         }
-        if ($(event.target).hasClass('signUpRePass')&&event.keyup==13) {
+        if ($(event.target).hasClass('signUpRePass')) {
             this.repass = $(".signUpRePass").val();
-            console.log("repass", this.repass);
         }
     }
 
     chenge(event) {
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
-            console.log("email", this.email);
+        }
+        if ($(event.target).hasClass('signUpPass')) {
+            this.password = $(".signUpPass").val();
+        }
+        if ($(event.target).hasClass('signUpRePass')) {
+            this.repass = $(".signUpRePass").val();
         }
     }
 
 
-    click(event) {
+    click(event, element, instance) {
         if ($(event.target).hasClass('cancelbtn')) {
             $('#signupModal').modal('toggle');
         }
         if ($(event.target).hasClass('signupbtn')) {
+            console.log(this);
             this.sign();
-
-            //this.checkPass();
-            // console.log(this);
-            // let userName=this.password;
-            // console.log(userName);
-            //JSON._save('user-name', { app: this });
-            //JSON._save('user', {app: this});
+            // prevent page getting reload
+            event.preventDefault();
         }
-
     }
-
 
     sign() {
+        this.checkPass();
+        // save info into New JSON file
+        JSON._save('user.json', { app: this });
+
+    }
+
+    checkPass() {
         //check passwords
-       
+        if (this.password !== this.repass) {
+            alert('Please check your password');
+        }
         // check box 
         if (!$('.tAndP').prop('checked')) {
-            alert('Please agree the Terms & Privacy!')
+            alert('Please agree the Terms & Privacy!');
         }
-        
-    }
-
-    get email() {
-        return `123`;
-    }
-
-    get repass() {
-        return `123`;
+        // check if JSON file exist
     }
 
 
-    set email(val) {
 
-        val = this.email.split('@');
-        if (val.length == 2) {
-            this.usName = val[0];
-            console.log(this.usName);
-        }
-        else {
-            alert('Email address required!');
-        }
-    }
 
-    set repass(val) {
-        alert(this.password, this.repass);
-        if(this.password!==this.repass){
-            
-            alert('Please check your password!');
-        }
-        
-    }
+
+
 
 
 
