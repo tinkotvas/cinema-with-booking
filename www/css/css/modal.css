@@ -1,0 +1,7 @@
+#bookingModal img {
+  max-width: 300px;
+  min-width: 150px;
+}
+#bookingModal .modal-footer {
+  height: 200px;
+}
