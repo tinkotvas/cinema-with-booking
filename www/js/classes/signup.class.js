@@ -76,6 +76,7 @@ class Signup extends Base {
     sign() {
         this.checkPass();
         JSON._save(this.usName, { email: this.email, password: this.password });
+        alert("Now you are sign up!");
         // login
     }
 
