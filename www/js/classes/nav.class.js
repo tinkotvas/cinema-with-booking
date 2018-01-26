@@ -38,20 +38,20 @@ class Nav extends Base{
       let mainpage=new MainPage();
       mainpage.render('main');
       //Draw booking modal
-      let modal = new Modal();
-      modal.render('.modal-container-info', 1);
-      // Draw info modal
-      modal.render('.modal-container-booking', 2);
+      
+      // modal.render('.modal-container-info', 1);
+      // // Draw info modal
+      // modal.render('.modal-container-booking', 2);
 
       let list = new List();
       list.loadJSON(() => list.renderViewings(), "viewings");
-
+      // let modal = new Modal(list);
     }
     if (url == '/filmer') {
       $('main').empty();
       let moviepage=new MoviePage();
       moviepage.render('main');
-      
+
       let list = new List();
       list.loadJSON(() => list.renderMovies(), "movies");
     }

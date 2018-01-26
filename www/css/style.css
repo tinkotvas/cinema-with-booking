@@ -157,9 +157,9 @@ header #signupModal .close {
   .card .card-img-top {
     height: 14.5em;
   }
-  .godis .kiosk{
+  /* .godis .kiosk{
     display:none;
-  }
+  } */
 }
 
 .regler .rulesbanner {

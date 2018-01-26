@@ -1,6 +1,8 @@
-Object.assign(Modal.prototype, {template1(){ return `
+Object.assign(Modal.prototype, {template1(){
+  console.log();
+  return `
     <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
-      <div class="modal-dialog modal-lg" id="bookingModal" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content bg-dark">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -8,8 +10,8 @@ Object.assign(Modal.prototype, {template1(){ return `
             </button>
           </div>
           <div class="modal-body">
-            <img src="/imgs/callmebyyourname-poster.jpg" class="float-left" alt="cmbyn-poster">
-            <h2 class="title-text text-white">Call me by your name</h2>
+            <img src="/imgs/callmebyyourname-poster.jpg" class="float-left w-25" alt="cmbyn-poster">
+            <h2 class="title-text text-white text-center"></h2>
           </div>
           <div class="modal-footer bg-white col-12 justify-content-center">
             <div class="flex-row">

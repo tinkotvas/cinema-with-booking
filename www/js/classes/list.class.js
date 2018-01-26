@@ -45,7 +45,7 @@ class List extends Base {
         //     $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
-  
+
         let date = new Date();
         let month = date.getMonth() + 1;
         if (month < 10) {
@@ -60,23 +60,23 @@ class List extends Base {
         for (let i = 0; i < this.viewings.length; i++) {
             if (this.viewings[i].date == dateString) {
                 viewingsArea.append(`
-                    <div href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex flex-row align-items-center">
-                            <div class="list-element col-2">
-                                <h4>${this.viewings[i].time}</h4>
-                            </div>
-                            <div class="list-element col-4">
-                                <h4>${this.viewings[i].film}</h4>
-                            </div>
-                            <div class="list-element col-3">
-                                <p>${this.viewings[i].auditorium}</p>
-                            </div>
-                            <div class="list-element col-3">
-                                <a class="pop btn btn-base float-right mx-lg-2 my-1" id="bookingModalToggle">Biljetter</a>
-                                <a class="btn btn-base float-right mx-lg-2 my-1" id="infoModalToggle">Läs mer</a>
-                            </div>
-                        </div>
-                    </div>
+                  <div href="#" class="list-group-item list-group-item-action">
+                      <div class="row">
+                          <div class="list-element col-6 col-md-2">
+                              <h4>${this.viewings[i].time}</h4>
+                          </div>
+                          <div class="list-element col-6 col-md-4">
+                              <h4 class="float-right float-md-left">${this.viewings[i].film}</h4>
+                          </div>
+                          <div class="list-element col-6 col-md-3">
+                              <p>${this.viewings[i].auditorium}</p>
+                          </div>
+                          <div class="list-element col-12 col-sm-6 col-md-3">
+                              <a class="btn btn-base btn-booking float-right mx-md-0 mx-lg-2 my-1" id="bookingModalToggle${this.viewings[i].film.replace(/\s+/g, '')}">Biljetter</a>
+                              <a class="btn btn-base btn-info float-right mx-1 mx-md-0 mx-lg-2 my-1" id="infoModalToggle${this.viewings[i].film.replace(/\s+/g, '')}">Läs mer</a>
+                          </div>
+                      </div>
+                  </div>
             `)
             }
         }
