@@ -6,27 +6,23 @@ class Modal extends Base{
       this.films = films;
       this.toggleBookingModal();
       this.toggleInfoModal();
+      this.idBtn;
+      this.indexToOpen;
   }
 
   toggleBookingModal(){
     let that = this;
     $(document).on("click", '.btn-booking', function() {
-      // let idBtn = $(this).attr('id');
-      // let index = 0;
-      // for (let film of that.films) {
-      //   let idFilm ='bookingModalToggle'+film.title.replace(/\s+/g, '');
-      //   if (idFilm == idBtn) {
-      //     $('.modal-container-booking').empty();
-      //     //console.log(index);
-      //     //that.template1(that.films[index]);
-      //     //console.log(that.films[index]);
-      //     that.clickedFilm.openFilm(that.films, index)
-      //     //film.render('.modal-container-booking', 1);
-      //   }
-      //   index++;
-      // }
-      //that.films.clickedFilm(that.films);
-      $('.modal-container-booking').empty();
+      that.idBtn = $(this).attr('id');
+      let index = 0;
+      for (let film of that.films) {
+        let idFilm ='bookingModalToggle'+film.title.replace(/\s+/g, '');
+        if (idFilm == that.idBtn) {
+          $('.modal-container-booking').empty();
+          that.indexToOpen = index;
+        }
+        index++;
+      }
       that.render('.modal-container-booking', 1);
       $('#bookingModal').modal('toggle');
 
@@ -35,10 +31,16 @@ class Modal extends Base{
   toggleInfoModal(){
     let that = this;
     $(document).on("click", '.btn-info', function() {
-      //let idBtn = $(this).attr('id');
-      //console.log('#'+idBtn);
-      //that.template2();
-      $('.modal-container-info').empty();
+      that.idBtn = $(this).attr('id');
+      let index = 0;
+      for (let film of that.films) {
+        let idFilm ='infoModalToggle'+film.title.replace(/\s+/g, '');
+        if (idFilm == that.idBtn) {
+          $('.modal-container-info').empty();
+          that.indexToOpen = index;
+        }
+        index++;
+      }
       that.render('.modal-container-info', 2);
       $('#infoModal').modal('toggle');
       //$('#'+idBtn).modal('toggle');
