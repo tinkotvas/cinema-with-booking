@@ -1,5 +1,4 @@
 Object.assign(Modal.prototype, {template1(){
-  console.log();
   return `
     <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -10,8 +9,10 @@ Object.assign(Modal.prototype, {template1(){
             </button>
           </div>
           <div class="modal-body">
-            <img src="/imgs/callmebyyourname-poster.jpg" class="float-left w-25" alt="cmbyn-poster">
-            <h2 class="title-text text-white text-center"></h2>
+            <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-25" alt="cmbyn-poster">
+            <h2 class="title-text text-white text-center">
+              ${this.films[this.indexToOpen].title}
+            </h2>
           </div>
           <div class="modal-footer bg-white col-12 justify-content-center">
             <div class="flex-row">
