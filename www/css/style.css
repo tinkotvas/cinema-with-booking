@@ -1,15 +1,3 @@
-#bookingModal img {
-  max-width: 300px;
-  min-width: 150px;
-}
-#bookingModal .modal-footer {
-  height: 200px;
-  display: block !important;
-}
-.modal img {
-  max-width: 300px;
-  min-width: 150px;
-}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -134,14 +122,6 @@ header #signupModal .close {
 .card .card-body {
   z-index: 2;
 }
-.regler{
-  padding:15px;
-}
-.godis{
-  padding:15px;
-}
-
-
 @media (min-width: 992px) {
   .card {
     width: 19em;
@@ -157,11 +137,7 @@ header #signupModal .close {
   .card .card-img-top {
     height: 14.5em;
   }
-  /* .godis .kiosk{
-    display:none;
-  } */
 }
-
 .regler .rulesbanner {
   width: 100%;
   height: 30%;
