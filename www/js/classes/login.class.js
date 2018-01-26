@@ -52,16 +52,19 @@ class Login extends Base {
     }
     checkLogin(jsonName, callbackFunc) {
         // Looking for JSON file name as this.usName
-        JSON._load(jsonName).then((data) => {
-            if (data.password == this.password) {
-                callbackFunc && callbackFunc();
-               
-            } else {
-                alert("Please check your password!");
-            }
-        }).catch((e) => {
+        try{
+            JSON._load(jsonName).then((data) => {
+                if (data.password == this.password) {
+                    callbackFunc && callbackFunc();
+                   
+                } else {
+                    alert("Please check your password!");
+                }
+            });
+        }
+        catch(e) {
             alert("User name not found!");
-        });
+        }
     }
 
 

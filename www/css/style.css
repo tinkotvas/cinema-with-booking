@@ -4,6 +4,11 @@
 }
 #bookingModal .modal-footer {
   height: 200px;
+  display: block !important;
+}
+.modal img {
+  max-width: 300px;
+  min-width: 150px;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
