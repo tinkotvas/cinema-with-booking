@@ -43,6 +43,7 @@ class App extends Base{
     $(document).on("click", '#infoModalToggle', function() {
       $('#infoModal').modal('toggle');
     });
+ 
   }
 
   changePage(){
@@ -79,18 +80,14 @@ class App extends Base{
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
       $('main').empty();
-      // create instance here and render
-      // let biograf=new Biograf();
       this.render('main','biograf');
     }
     if (url == '/regler') {
       $('main').empty();
-      // let regler=new Regler();
       this.render('main', 'regler');
     }
     if (url == '/godis') {
       $('main').empty();
-      // let godis=new Godis();
       this.render('main', 'godis');
     }
     if (url == '/minasidor') {
@@ -115,14 +112,14 @@ class App extends Base{
     this.render('footer', 'footer');
   }
 
-  clickEvents(){
-    $(document).on("click", '#loginModalToggle', function() {
-      $('#loginModal').modal('toggle');
-    });
-    $(document).on("click", '#opSignup', function() {
-      $('#loginModal').modal('toggle');
-      $('#signupModal').modal('toggle');
-    });
-  }
+  // clickEvents(){
+  //   $(document).on("click", '#loginModalToggle', function() {
+  //     $('#loginModal').modal('toggle');
+  //   });
+  //   $(document).on("click", '#opSignup', function() {
+  //     $('#loginModal').modal('toggle');
+  //     $('#signupModal').modal('toggle');
+  //   });
+  // }
 
 }
