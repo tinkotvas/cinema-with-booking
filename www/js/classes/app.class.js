@@ -80,18 +80,18 @@ class App extends Base{
       //empty 'main', so that only one render will showen
       $('main').empty();
       // create instance here and render
-      let biograf=new Biograf();
-      biograf.render('main');
+      // let biograf=new Biograf();
+      this.render('main','biograf');
     }
     if (url == '/regler') {
       $('main').empty();
-      let regler=new Regler();
-      regler.render('main');
+      // let regler=new Regler();
+      this.render('main', 'regler');
     }
     if (url == '/godis') {
       $('main').empty();
-      let godis=new Godis();
-      godis.render('main');
+      // let godis=new Godis();
+      this.render('main', 'godis');
     }
     if (url == '/minasidor') {
       $('main').html(`
