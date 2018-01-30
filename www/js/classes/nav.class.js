@@ -58,19 +58,15 @@ class Nav extends Base{
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
       $('main').empty();
-      // create instance here and render
-      let biograf=new Biograf();
-      biograf.render('main');
+      this.render('main', '2');
     }
     if (url == '/regler') {
       $('main').empty();
-      let regler=new Regler();
-      regler.render('main');
+      this.render('main', '3');
     }
     if (url == '/godis') {
       $('main').empty();
-      let godis=new Godis();
-      godis.render('main');
+      this.render('main','4');
     }
     if (url == '/minasidor') {
       $('main').html(`
