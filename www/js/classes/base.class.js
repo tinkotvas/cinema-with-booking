@@ -6,7 +6,7 @@ class Base {
       Base.renderingInProgress = false;
       Base.renderQueue = [];
     }
-  }
+  } 
 
   render(selector = '', templateNo = ''){
 

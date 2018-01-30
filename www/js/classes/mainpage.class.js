@@ -1,3 +1,0 @@
-class MainPage extends Base{
-    
-}
