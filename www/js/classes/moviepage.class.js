@@ -1,3 +1,0 @@
-class MoviePage extends Base{
-    
-}
