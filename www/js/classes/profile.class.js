@@ -3,7 +3,6 @@ class Profile extends Base {
         super();
     }
 
-
     get email() {
         return `${this.usName}`;
     }
@@ -14,6 +13,7 @@ class Profile extends Base {
 
     set email(val) {
         //email address control
+        console.log(val);
         val = val.split('@');
         if (val.length == 2) {
             // user name as JSON file name
@@ -31,17 +31,26 @@ class Profile extends Base {
     }
 
     set password(val) {
-        //password must longer then 4 letters
-        if (!validate(val)) {
-            $(".signupbtn").prop("disabled", true);
-        } else {
+        if (this.validate(val)) {
+            console.log('check');
             this.pass = val;
             $(".passControl").addClass("d-none");
             $(".signupbtn").prop("disabled", false);
+        } else { $(".signupbtn").prop("disabled", true); 
+    }
+        
+    }
+
+    keyuplogin(event) {
+        if ($(event.target).hasClass('lginEmail')) {
+            this.email = $(".lginEmail").val();
+        }
+        if ($(event.target).hasClass('lgPass')) {
+            this.password = $(".lgPass").val();
         }
     }
 
-    keyup(event) {
+    keyupsignup(event){
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
         }
@@ -51,6 +60,9 @@ class Profile extends Base {
         if ($(event.target).hasClass('signUpRePass')) {
             this.repass = $(".signUpRePass").val();
         }
+    }
+
+    changelogin(event) {
         if ($(event.target).hasClass('lginEmail')) {
             this.email = $(".lginEmail").val();
         }
@@ -58,8 +70,7 @@ class Profile extends Base {
             this.password = $(".lgPass").val();
         }
     }
-
-    chenge(event) {
+    changesignup(event){
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
         }
@@ -69,23 +80,11 @@ class Profile extends Base {
         if ($(event.target).hasClass('signUpRePass')) {
             this.repass = $(".signUpRePass").val();
         }
-        if ($(event.target).hasClass('lginEmail')) {
-            this.email = $(".lginEmail").val();
-        }
-        if ($(event.target).hasClass('lgPass')) {
-            this.password = $(".lgPass").val();
-        }
     }
 
 
-    click(event, element, instance) {
-        if ($(event.target).hasClass('cancelbtn')) {
-            $('#signupModal').modal('toggle');
-        }
-        if ($(event.target).hasClass('signupbtn')) {
-            this.sign();
-            event.preventDefault();
-        }
+    clicklogin(event, element, instance) {
+       
         if ($(event.target).hasClass('lgin')) {
             event.preventDefault();
             this.checkLogin(this.usName, function () {
@@ -93,6 +92,15 @@ class Profile extends Base {
                 //TODO: Login Succeed
             });
             console.log(this);
+        }
+    }
+    clicksignup(event, element, instance){
+        if ($(event.target).hasClass('cancelbtn')) {
+            $('#signupModal').modal('toggle');
+        }
+        if ($(event.target).hasClass('signupbtn')) {
+            this.sign();
+            event.preventDefault();
         }
     }
 
@@ -134,5 +142,22 @@ class Profile extends Base {
     }
     validate(password) {
         return /(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=\D*\d)\w{6,}$/.test(password);
+    }
+
+    toggleLoginModal() {
+        let that=this;
+        //$(document).on("click", '#loginModalToggle', function() {
+          that.render('.modal-container-login', 'login');
+          $('#loginModal').modal('toggle');
+        //});
+      }
+    
+    toggleSignupModal() {
+        let that=this;
+        //$(document).on("click", '#opSignup', function() {
+          that.render('.modal-container-signup', 'signup');
+          $('#loginModal').modal('toggle');
+          $('#signupModal').modal('toggle');
+        //});
       }
 }
