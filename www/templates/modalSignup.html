@@ -1,0 +1,53 @@
+Object.assign(Signup.prototype, {template(){ return `
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="imgs/brand.svg" alt="" class="brand-modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title text-center" id="signupLabel">Sign Up</h5>
+        <form class="mb-4">
+          <!-- <h5>Sign Up</h5> -->
+
+
+
+          <div class="form-group ">
+            <label>Email</label>
+            <input type="text" class="form-control signUpEmail" placeholder="Enter Email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control signUpPass" placeholder="Enter Password" name="pass" required>
+            <small class="passControl">Longer password!</small>
+          </div>
+          <div class="form-group">
+            <label>Repeat Password</label>
+            <input type="password" class="form-control signUpRePass" placeholder="Repeat Password" name="repass" required>
+            
+          </div>
+          <div class="form-group">
+            <label>
+              <small class="form-text text-muted">
+                <input type="checkbox" class="tAndP"> By creating an account you agree to our
+                <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</small>
+            </label>
+
+
+          </div>
+
+          <div class="clearfix">
+            <button type="button" class="cancelbtn btn-base">Cancel</button>
+            <button type="button" class="signupbtn btn-base float-right">Sign Up</button>
+          </div>
+
+        </form>
+        <!-- <button class="btn btn-base float-right pop" data-dismiss="modal" href="/minasidor">Sign Up</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+`; }});

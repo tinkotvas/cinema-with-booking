@@ -1,10 +1,3 @@
-#bookingModal img {
-  max-width: 300px;
-  min-width: 150px;
-}
-#bookingModal .modal-footer {
-  height: 200px;
-}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -18,36 +11,45 @@ body {
   margin-bottom: 120px;
 }
 footer {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
-  background-color: lightgray;
+  color: white;
+  background-color: black;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 80px;
 }
 footer a {
-  color: black;
+  color: white;
 }
-footer a :hover {
-  color: black;
+footer a:hover {
+  color: #FB515C !important;
 }
 footer .social-media {
   font-size: 2.5em;
-  color: grey;
+  color: #FB515C;
 }
 @media screen and (min-width: 769px) and (max-width: 937px) {
   footer {
     height: 90px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 540px) and (max-width: 768px) {
   body {
     margin-bottom: 200px;
   }
   footer {
     height: 185px;
+  }
+}
+@media screen and (max-width: 576px) {
+  body {
+    margin-bottom: 200px;
+  }
+  footer {
+    height: 75px;
   }
 }
 main {
@@ -77,10 +79,12 @@ header nav .brand {
 header .brand-modal {
   width: 80px;
 }
-header #loginModal .modal-header {
+header #loginModal .modal-header,
+header #signupModal .modal-header {
   background-color: #FB515C !important;
 }
-header #loginModal .close {
+header #loginModal .close,
+header #signupModal .close {
   cursor: pointer;
 }
 .btn-base {
@@ -99,35 +103,42 @@ header #loginModal .close {
   text-decoration: none;
   transition: all 400ms cubic-bezier(1, 0, 0, 1);
 }
-.auditorium h1 {
-  text-align: center;
+.card {
+  overflow: hidden;
+  width: 13em;
+  -webkit-transition: all 2s ease-out;
+  transition: all 2s ease-out;
 }
-.seats {
-  background-color: #000;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2%;
+.card .card-img-top {
+  height: 18em;
+  -webkit-transition: all 2s ease-out;
+  transition: all 2s ease-out;
 }
-.seat {
-  cursor: pointer;
-  padding: 0.7%;
-  float: right;
+.card a:hover img,
+.card a:focus img {
+  -webkit-transform: scale(1.04);
+  transform: scale(1.04);
 }
-.seat-inner {
-  padding-bottom: 100%;
-  background-color: #999;
-  border-bottom-left-radius: 25%;
-  border-bottom-right-radius: 25%;
+.card .card-body {
+  z-index: 2;
 }
-.seat.hover .seat-inner {
-  background-color: #eee;
+@media (min-width: 992px) {
+  .card {
+    width: 19em;
+  }
+  .card .card-img-top {
+    height: 27em;
+  }
 }
-.seat.chosen .seat-inner {
-  background-color: #9adb99;
+@media (max-width: 576px) {
+  .card {
+    width: 10em;
+  }
+  .card .card-img-top {
+    height: 14.5em;
+  }
 }
-.seat.chosen.hover .seat-inner {
-  background-color: #aaf2a9;
-}
-.seat.taken .seat-inner {
-  background-color: #ba1a1a;
+.regler .rulesbanner {
+  width: 100%;
+  height: 30%;
 }

@@ -13,15 +13,18 @@ Object.assign(Login.prototype, {template(){ return `
           <form class="mb-4">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <input type="email" class="form-control lginEmail"  aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">Please enter your email address.</small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" class="form-control lgPass" id="exampleInputPassword1" placeholder="Password">
             </div>
           </form>
-          <a class="btn btn-base float-right pop" data-dismiss="modal" href="/minasidor">Login</a>
+          <button class="btn btn-base float-right pop lgin" data-dismiss="modal" href="/minasidor">Login</button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-link" id="opSignup">Sign Up</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
-Object.assign(Modal.prototype, {template(){ return `
-    <div class="modal fade" id="bookingModal" tabindex="-2" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
-      <div class="modal-dialog modal-lg" id="bookingModal" role="document">
+Object.assign(Modal.prototype, {template1(){
+  return `
+    <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content bg-dark">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -8,22 +9,24 @@ Object.assign(Modal.prototype, {template(){ return `
             </button>
           </div>
           <div class="modal-body">
-            <img src="/imgs/callmebyyourname-poster.jpg" class="float-left" alt="cmbyn-poster">
-            <h2 class="title-text text-white">Call me by your name</h2>
+            <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-25" alt="cmbyn-poster">
+            <h2 class="title-text text-white text-center">
+              ${this.films[this.indexToOpen].title}
+            </h2>
           </div>
           <div class="modal-footer bg-white col-12 justify-content-center">
             <div class="flex-row">
               <h4>Välj antal biljetter:</h4>
               <div class="row mx-auto">
-                <button type="button" class="btn btn-success"> + </button>
-                <p>ADULT</p>
-                <button type="button" class="btn btn-danger"> - </button>
-                <button type="button" class="btn btn-success ml-2"> + </button>
-                <p>CHILD</p>
-                <button type="button" class="btn btn-danger"> - </button>
-                <button type="button" class="btn btn-success ml-2"> + </button>
-                <p>SENIOR</p>
-                <button type="button" class="btn btn-danger"> - </button>
+                <button type="button" class="btn btn-success mr-1"> + </button>
+                <p> VUXEN - 95kr </p>
+                <button type="button" class="btn btn-danger ml-1"> - </button>
+                <button type="button" class="btn btn-success ml-2 mr-1"> + </button>
+                <p>BARN - 55kr</p>
+                <button type="button" class="btn btn-danger ml-1"> - </button>
+                <button type="button" class="btn btn-success ml-2 mr-1"> + </button>
+                <p>SENIOR - 65kr</p>
+                <button type="button" class="btn btn-danger ml-1"> - </button>
               </div>
             </div>
           </div>

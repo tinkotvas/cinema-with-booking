@@ -16,8 +16,13 @@ class Nav extends Base{
       //Stop the browers from starting a page reload
       e.preventDefault();
     });
+
     $(document).on("click", '#bookingModalToggle', function() {
       $('#bookingModal').modal('toggle');
+    });
+
+    $(document).on("click", '#infoModalToggle', function() {
+      $('#infoModal').modal('toggle');
     });
   }
 
@@ -33,14 +38,22 @@ class Nav extends Base{
       let mainpage=new MainPage();
       mainpage.render('main');
       //Draw booking modal
-      let bookingModal = new Modal();
-      bookingModal.render('main');
+      
+      // modal.render('.modal-container-info', 1);
+      // // Draw info modal
+      // modal.render('.modal-container-booking', 2);
 
+      let list = new List();
+      list.loadJSON(() => list.renderViewings(), "viewings");
+      // let modal = new Modal(list);
     }
     if (url == '/filmer') {
       $('main').empty();
       let moviepage=new MoviePage();
       moviepage.render('main');
+
+      let list = new List();
+      list.loadJSON(() => list.renderMovies(), "movies");
     }
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
@@ -64,11 +77,6 @@ class Nav extends Base{
           <h1 class="text-center mt-5">Mina Sidor Page</h1>
         `)
     }
-    // if (url == '/modalBoka') {
-    //   let modalBoka = new Modal();
-    //   //$('main').empty();
-    //   modalBoka.render('main');
-    //   $('.bookingModal').modal('show');
-    // }
+
   }
 }
