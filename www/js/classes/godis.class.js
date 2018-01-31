@@ -1,0 +1,3 @@
+class Godis extends Base{
+    
+}
