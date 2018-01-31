@@ -71,8 +71,9 @@ class App extends Base{
     }
     if (url == '/filmer') {
       $('main').empty();
-      let moviepage=new MoviePage();
-      moviepage.render('main');
+      this.render('main', 'moviepage')
+      //let moviepage=new MoviePage();
+      //moviepage.render('main');
 
       let list = new List();
       list.loadJSON(() => list.renderMovies(), "movies");
