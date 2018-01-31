@@ -1,6 +1,6 @@
 // Not complete yet, just a start
 
-class Member {
+class User {
 
   constructor(userName, password, email){
     this.userName = userName;
