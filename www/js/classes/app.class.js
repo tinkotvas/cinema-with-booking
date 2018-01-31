@@ -1,32 +1,30 @@
-class App extends Base{
+class App extends Base {
 
-  constructor(){
+  constructor() {
     super();
     // Tell jsonflex to recreate instances of the class Garment
     JSON._classes(Film, List, Modal);
     // Load garments, add as a property, then start the app
-    JSON._load('movies').then((movies)=>{
+    JSON._load('movies').then((movies) => {
       this.film = movies;
       let modal = new Modal(this.film)
-      //test code. check if JSON load into the right way
-      // for(let f of this.film){
-      //   //console.log(f.getTitle());
-      // }
     });
-    JSON._load('viewings').then((data)=>{
+    JSON._load('viewings').then((data) => {
       this.lists = data;
 
       //console.log(this.lists);
 
     });
+    this.profile= new Profile();
+ 
     this.renderNav();
     this.renderFooter();
     this.clickEvents();
   }
 
-  clickEvents(){
+  clickEvents() {
     let that = this;
-    $(document).on('click','a.pop',function(e){
+    $(document).on('click', 'a.pop', function (e) {
       //Create a push state preventDefault
       let href = $(this).attr('href');
       history.pushState(null, null, href);
@@ -36,17 +34,28 @@ class App extends Base{
       e.preventDefault();
     });
 
-    $(document).on("click", '#bookingModalToggle', function() {
+    $(document).on("click", '#bookingModalToggle', function () {
       $('#bookingModal').modal('toggle');
     });
 
-    $(document).on("click", '#infoModalToggle', function() {
+    $(document).on("click", '#infoModalToggle', function () {
       $('#infoModal').modal('toggle');
     });
- 
+
+    $(document).on("click", '#loginModalToggle', function () {
+     
+      that.profile.toggleLoginModal();
+    });
+
+    $(document).on("click", '#opSignup', function () {
+
+      that.profile.toggleSignupModal();
+  
+    });
+
   }
 
-  changePage(){
+  changePage() {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
@@ -55,12 +64,12 @@ class App extends Base{
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
       $('main').empty();
-      
-      
+
+
       //let mainpage=new MainPage();
       this.render('main', 'mainpage');
       //Draw booking modal
-      
+
       // modal.render('.modal-container-info', 1);
       // // Draw info modal
       // modal.render('.modal-container-booking', 2);
@@ -71,8 +80,8 @@ class App extends Base{
     }
     if (url == '/filmer') {
       $('main').empty();
-      let moviepage=new MoviePage();
-      moviepage.render('main');
+      //   let moviepage=new MoviePage();
+      //   moviepage.render('main');
 
       let list = new List();
       list.loadJSON(() => list.renderMovies(), "movies");
@@ -80,7 +89,7 @@ class App extends Base{
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
       $('main').empty();
-      this.render('main','biograf');
+      this.render('main', 'biograf');
     }
     if (url == '/regler') {
       $('main').empty();
@@ -98,16 +107,16 @@ class App extends Base{
 
   }
 
-  renderNav(){
+  renderNav() {
 
     $('header').empty();
     this.render('header', 'nav');
     this.changePage();
 
-    window.addEventListener('popstate',this.changePage);
+    window.addEventListener('popstate', this.changePage);
   }
 
-  renderFooter(){
+  renderFooter() {
     $('footer').empty();
     this.render('footer', 'footer');
   }

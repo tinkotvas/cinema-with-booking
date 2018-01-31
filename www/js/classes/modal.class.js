@@ -6,8 +6,7 @@ class Modal extends Base {
     this.films = films;
     this.toggleBookingModal();
     this.toggleInfoModal();
-    this.toggleLoginModal();
-    this.toggleSignupModal();
+
     this.idBtn;
     this.indexToOpen;
   }
@@ -49,22 +48,7 @@ class Modal extends Base {
     });
   }
 
-  toggleLoginModal() {
-    let that=this;
-    $(document).on("click", '#loginModalToggle', function() {
-      that.render('.modal-container-login', 'login');
-      $('#loginModal').modal('toggle');
-    });
-  }
-
-  toggleSignupModal() {
-    let that=this;
-    $(document).on("click", '#opSignup', function() {
-      that.render('.modal-container-signup', 'signup');
-      $('#loginModal').modal('toggle');
-      $('#signupModal').modal('toggle');
-    });
-  }
+  
 
 }
 
