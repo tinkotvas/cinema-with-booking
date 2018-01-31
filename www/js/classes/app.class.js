@@ -80,8 +80,8 @@ class App extends Base {
     }
     if (url == '/filmer') {
       $('main').empty();
-        let moviepage=new MoviePage();
-        moviepage.render('main');
+       // let moviepage=new MoviePage();
+       // moviepage.render('main');
       this.render('main', 'moviepage')
   
 
