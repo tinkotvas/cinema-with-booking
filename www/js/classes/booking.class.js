@@ -1,3 +1,7 @@
 class Booking extends Base{
     
+
+	
+
+
 }

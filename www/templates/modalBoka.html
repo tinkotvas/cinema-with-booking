@@ -18,18 +18,20 @@ Object.assign(Modal.prototype, {template1(){
             <div class="flex-row">
               <h4>Välj antal biljetter:</h4>
               <div class="row mx-auto">
-                <button type="button" class="btn btn-success mr-1"> + </button>
-                <p> VUXEN - 95kr </p>
-                <button type="button" class="btn btn-danger ml-1"> - </button>
-                <button type="button" class="btn btn-success ml-2 mr-1"> + </button>
+                <button type="button" class="btn btn-success mr-1" id="add-adult"> + </button>
+                <p> VUXEN - <span id="adult-price">95</span>kr </p>
+                <button type="button" class="btn btn-danger ml-1" id="sub-adult"> - </button>
+                <button type="button" class="btn btn-success ml-2 mr-1" id="add-child"> + </button>
                 <p>BARN - 55kr</p>
-                <button type="button" class="btn btn-danger ml-1"> - </button>
-                <button type="button" class="btn btn-success ml-2 mr-1"> + </button>
+                <button type="button" class="btn btn-danger ml-1" id="sub-child"> - </button>
+                <button type="button" class="btn btn-success ml-2 mr-1" id="add-senior"> + </button>
                 <p>SENIOR - 65kr</p>
-                <button type="button" class="btn btn-danger ml-1"> - </button>     
+                <button type="button" class="btn btn-danger ml-1" id="sub-senior"> - </button>     
               </div>
-              <div class="row mx-auto justify-content-center">
-                <a class="btn btn-base btn-booking book-button mx-md-0 mx-lg-2 my-1">BOKA</a>
+              <div class="row mx-auto pull-right mt-2">
+                <p class="ticketArea d-none"> Antal biljetter <span id="adultTickets"></span><span id="childTickets"></span><span id="seniorTickets"></span></p>
+                <p class="ticketArea total-price"></p>
+                <a class="btn btn-base btn-booking confirm-booking mx-md-0 mx-lg-2 my-1" id="test ">BOKA</a>
               </div>
             </div>
           </div>
