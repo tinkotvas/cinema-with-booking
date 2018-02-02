@@ -73,9 +73,9 @@ class Nav extends Base{
       godis.render('main');
     }
     if (url == '/minasidor') {
-      $('main').html(`
-          <h1 class="text-center mt-5">Mina Sidor Page</h1>
-        `)
+      $('main').empty();
+      let mypage = new MyPage();
+      mypage.render('main');
     }
 
   }
