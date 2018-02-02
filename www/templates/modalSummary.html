@@ -1,0 +1,22 @@
+Object.assign(Modal.prototype, {template3(){
+  return `
+<div class="container">
+  <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content bg-dark">
+        <div class="modal-header p-0">
+        </div>
+        <div class="modal-body">
+          <h3>Du har bokat: </h3>
+          ${this.viewings.date}
+          <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-25" alt="cmbyn-poster">
+          <h2 class="title-text text-white text-center">
+            ${this.films[this.indexToOpen].title}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+`; }});
