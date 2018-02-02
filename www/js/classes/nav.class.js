@@ -75,7 +75,7 @@ class Nav extends Base{
     if (url == '/minasidor') {
       $('main').empty();
       let mypage = new MyPage();
-      mypage.render('main');
+      
     }
 
   }

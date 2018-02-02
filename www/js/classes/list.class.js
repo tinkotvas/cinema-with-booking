@@ -28,17 +28,17 @@ class List extends Base {
         let moviesArea = $("#movieCards");
 
         //gief us more to watch on screen
-        for (let x = 0; x < 3; x++) {
+        //for (let x = 0; x < 3; x++) {
             for (let i = 0; i < this.movies.length; i++) {
                 if (typeof this.movies[i] != 'undefined') {
                     moviesArea.append(`
                 <div class="card rounded-0">
-                    <a href="#"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images}" alt=""></a>
+                    <a href="#"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images[0]}" alt=""></a>
                 </div>
                 `);
                 }
             }
-        }
+        //}
     }
 
     renderViewings() {
