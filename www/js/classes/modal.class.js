@@ -29,7 +29,7 @@ class Modal extends Base{
       }
       that.render('.modal-container-booking', 1);
       $('#bookingModal').modal('toggle');
-
+      $(".confirm-booking").prop("disabled", true);
     });
   }
   toggleInfoModal(){
@@ -52,10 +52,16 @@ class Modal extends Base{
   }
 
   confirmBooking(){
-    $(document).on('click', '.confirm-booking', function() {
-      alert('hej din get')
+    let that = this;
+    $(document).on('click', '.confirm-booking', function(event) {
+      that.render('.modal-container-info', 3);
+      $('#summaryModal').modal('toggle');
+      $('#bookingModal').modal('toggle');
+      event.preventDefault();
+
     });
   }
+
 
   eventHandler(){
     let adultTickets = 0;
@@ -67,55 +73,51 @@ class Modal extends Base{
         adultTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#adultTickets').removeClass('d-none');
-        $('#adultTickets').text('Vuxen: ' + adultTickets + ' ');
+        $('#adultTickets').text(adultTickets);
       }
       else if(id == 'add-child'){
         childTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#childTickets').removeClass('d-none');
-        $('#childTickets').text('Barn: ' + childTickets + ' ');
+        $('#childTickets').text(childTickets);
       }
       else if(id == 'add-senior'){
         seniorTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#seniorTickets').removeClass('d-none');
-        $('#seniorTickets').text('Senior: ' + seniorTickets);
+        $('#seniorTickets').text(seniorTickets);
       }
       else if(id == 'sub-adult'){
         if(adultTickets == 0){
         return;
       }
         adultTickets--;
-        if(adultTickets == 0){
-          $('#adultTickets').addClass('d-none');
-        }
-        $('#adultTickets').text('Vuxen: ' + adultTickets + ' ');
+        $('#adultTickets').text(adultTickets);
       }
       else if(id == 'sub-child'){
         if(childTickets == 0){
         return;
       }
         childTickets--;
-        if(childTickets == 0){
-          $('#childTickets').addClass('d-none');
-        }
-        $('#childTickets').text('Barn: ' + childTickets + ' ');
+        $('#childTickets').text(childTickets);
       }
       else if(id == 'sub-senior'){
         if(seniorTickets == 0){
         return;
       }
         seniorTickets--;
-        if(seniorTickets == 0){
-          $('#seniorTickets').addClass('d-none');
-        }
-        $('#seniorTickets').text('Senior: ' + seniorTickets + ' ');
-      }
-      if(seniorTickets == 0 && adultTickets == 0 && childTickets == 0){
-        $('.ticketArea').addClass('d-none');
+        $('#seniorTickets').text(seniorTickets);
       }
       let totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
-      $('.total-price').text('Summa: ' + totalPrice);
+      $('.total-sum').empty();
+      $('#total-sum').text(totalPrice);
+
+      if(totalPrice == 0){
+        $(".confirm-booking").prop("disabled", true);
+      }
+      else{
+        $(".confirm-booking").prop("disabled", false);
+      }
     })
   }
 
