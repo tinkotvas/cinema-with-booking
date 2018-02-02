@@ -3,19 +3,19 @@
   { 
     "auditorium": "Stora Salongen", 
     "film": "Call me by your name", 
-    "date": "2018-02-02", 
+    "date": "2018-02-01", 
     "time": "16.40" 
   }, 
   { 
     "auditorium": "Lilla Salongen", 
     "film": "Gisslan", 
-    "date": "2018-02-02", 
+    "date": "2018-02-01", 
     "time": "17.00" 
   }, 
   { 
     "auditorium": "Stora Salongen", 
     "film": "The party", 
-    "date": "2018-02-02", 
+    "date": "2018-01-26", 
     "time": "19.00" 
   }, 
  
