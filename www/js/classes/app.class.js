@@ -20,7 +20,7 @@ class App {
     });
     this.renderNav();
     this.renderFooter();
-    this.clickEvents();
+    // this.clickEvents();
   }
 
   renderNav(){
@@ -28,10 +28,10 @@ class App {
     $('header').empty();
     nav.render('header');
     nav.changePage();
-    let login = new Login();
-    login.render('header');
-    let signup = new Signup();
-    signup.render('header');
+    // let login = new Login();
+    // login.render('header');
+    // let signup = new Signup();
+    // signup.render('header');
     window.addEventListener('popstate',nav.changePage);
   }
 
@@ -41,14 +41,14 @@ class App {
     footer.render('footer');
   }
 
-  clickEvents(){
-    $(document).on("click", '#loginModalToggle', function() {
-      $('#loginModal').modal('toggle');
-    });
-    $(document).on("click", '#opSignup', function() {
-      $('#loginModal').modal('toggle');
-      $('#signupModal').modal('toggle');
-    });
-  }
+  // clickEvents(){
+  //   $(document).on("click", '#loginModalToggle', function() {
+  //     $('#loginModal').modal('toggle');
+  //   });
+  //   $(document).on("click", '#opSignup', function() {
+  //     $('#loginModal').modal('toggle');
+  //     $('#signupModal').modal('toggle');
+  //   });
+  // }
 
 }
