@@ -1,5 +1,210 @@
 [
   {
+    "title": "Baby Driver",
+    "productionCountries": [
+      "USA"
+    ],
+    "productionYear": 2017,
+    "length": 113,
+    "genre": "Action",
+    "distributor": "Tristar Pictures",
+    "language": "engelska",
+    "subtitles": "svenska",
+    "director": "Edgar Wright",
+    "actors": [
+      "Ansel Elgort",
+      "Jon Bernthal",
+      "Eiza González"
+    ],
+    "description": "<p>En begåvad flyktbilsförare tar musiken till hjälp för att bli bäst på det han gör. När han en dag möter kvinnan i hans drömmar ser Baby en chans till en sista flykt, denna gång från sitt liv som kriminell. Men ledaren för ett brottssyndikat har andra planer för Baby och snart tvingas han, med livet, kärleken och friheten som insats, ta del i en stöt dömd att misslyckas.</p>",
+    "images": [
+       "baby_driver/baby_driver-poster.jpg",
+       "baby_driver/baby_driver.jpg"
+    ],
+    "youtubeTrailers": [
+      "z2z857RSfhk"
+    ],
+    "reviews": [
+      {
+        "source": "Kritiker.se",
+        "quote": "Förmodligen lär filmen bli en kultfilm – i samma anda som Quentin Tarantinos filmer",
+        "stars": 4,
+        "max": 5
+      },
+      {
+        "source": "Svenska Dagbladet",
+        "quote": "Edgar Wright lyckas inte bara med konststycket att göra biljaktsscener intressanta, utan även med att göra soundtracket till filmens pulserande hjärta. Vansinnigt underhållande. Ansel Elgort (till höger) och Jamie Foxx kör så det ryker i ”Baby driver.",
+        "stars": 5,
+        "max": 6
+      }
+    ],
+    "⚙": "Film"
+  },
+  {
+    "title": "Dunkirk",
+    "productionCountries": [
+      "Storbritannien"
+    ],
+    "productionYear": 2017,
+    "length": 106,
+    "genre": "Drama",
+    "distributor": "Warner Bros. Pictures",
+    "language": "engelska",
+    "subtitles": "svenska",
+    "director": "Christopher Nolan",
+    "actors": [
+      "Tom Hardy",
+      "Fionn Whitehead",
+      "Mark Rylance"
+    ],
+    "description": "<p>Dunkirk börjar med hundratusentals brittiska och allierade trupper omgivna av fiendestyrkor. Fångade på stranden med ryggen mot havet står de inför en omöjlig situation när fienden närmar sig.</p>",
+    "images": [
+       "dunkirk/dunkirk-poster.jpg",
+       "dunkirk/dunkirk.jpg"
+    ],
+    "youtubeTrailers": [
+      "F-eMt3SrfFU"
+    ],
+    "reviews": [
+      {
+        "source": "Sydsvenskan",
+        "quote": "Dunkirk är en överväldigande film att smälta. Christopher Nolans penetrerande studie i existentiellt kaos har fantastiskt foto, strålande musik och utmärkt skådespeleri.",
+        "stars": 4,
+        "max": 5
+      },
+      {
+        "source": "Svenska Dagbladet",
+        "quote": "Dunkirk är en överväldigande film att smälta. Christopher Nolans penetrerande studie i existentiellt kaos har fantastiskt foto, strålande musik och utmärkt skådespeleri.",
+        "stars": 5,
+        "max": 6
+      }
+    ],
+    "⚙": "Film"
+  },
+  {
+    "title": "Blade Runner 2049",
+    "productionCountries": [
+      "USA"
+    ],
+    "productionYear": 2017,
+    "length": 113,
+    "genre": "Science fiction",
+    "distributor": "Warner Bros.",
+    "language": "engelska",
+    "subtitles": "svenska",
+    "director": "Denis Villeneuve",
+    "actors": [
+      "Ryan Gosling",
+      "Harrison Ford",
+      "Robin Wright"
+    ],
+    "description": "<p>Trettio år har gått sedan sist. En ny blade runner - Los Angeles-polisen K - avslöjar en sedan länge begravd hemlighet med potential att rasera det lilla som nu återstår av samhället. K:s avslöjande leder honom ut på en jakt efter Rick Deckard, en tidigare blade runner som varit försvunnen i tre decennier.</p>",
+    "images": [
+       "blade _runner_2049/blade _runner_2049-poster.jpg",
+       "blade _runner_2049/blade_runner_2049.jpg"
+    ],
+    "youtubeTrailers": [
+      "gCcx85zbxz4"
+    ],
+    "reviews": [
+      {
+        "source": "SVT",
+        "quote": "Blade Runner 2049” levererar faktiskt. Ja mer än så, det är den första uppföljaren sedan ",
+        "stars": 4,
+        "max": 5
+      },
+      {
+        "source": "Svenska Dagbladet",
+        "quote": "Blade runner 2049 är en filmteknisk uppenbarelse som förlitar sig betydligt mer på intrig och mindre på atmosfär än originalet. Problemet är att det egentligen är ointressant vad som hände med Deckard och Rachael när hissdörren gick igen bakom dem.",
+        "stars": 4,
+        "max": 6
+      }
+    ],
+    "⚙": "Film"
+  },
+  {
+    "title": "Guardians of the Galaxy, vol. 2",
+    "productionCountries": [
+      "USA"
+    ],
+    "productionYear": 2017,
+    "length": 136,
+    "genre": "Science fiction",
+    "distributor": "Kino International",
+    "language": "engelska",
+    "subtitles": "svenska",
+    "director": "James Gunn",
+    "actors": [
+      "Chris Pratt",
+      "Zoe Saldana",
+      "Bradley Cooper"
+    ],
+    "description": "<p>Alla i Guardiansgänget är tillbaka: Chris Pratt som Peter Quill/Star Lord, Zoe Saldana som Gamora, Dave Bautista som Drax, Vin Diesel som rösten till Groot och Bradely Cooper som rösten till Rocket. Nu gäller det att nysta upp mysteriet med Peter Quills föräldrar, vilka var de?</p>",
+    "images": [
+       "guardians_galaxy/guardians_galaxy-poster.jpg",
+       "guardians_galaxy/guardians_galaxy.jpg"
+    ],
+    "youtubeTrailers": [
+      "2cv2ueYnKjg"
+    ],
+    "reviews": [
+      {
+        "source": "Metro",
+        "quote": "Den första Guardians of the galaxy visade sig vara en oväntat skojig nytändning av ett extra charmigt Marvel-gäng. Vi har Star-Lord som är en dansant jordbo, det gröna krigaresset Gamora, Rocket, en tvärilsk tvättbjörn, den hämndsökande jätten Drax samt det intergalaktiska tja, trädet Groot.",
+        "stars": 4,
+        "max": 5
+      },
+      {
+        "source": "Svenska Dagbladet",
+        "quote": "Familjerelationer och frånvarande fäder: mitt i all humor och självironi förväntar sig ”Guardians of the galaxy vol 2” att vi ska ta den på allvar. Det är inte lätt.",
+        "stars": 4,
+        "max": 6
+      }
+    ],
+    "⚙": "Film"
+  },
+  {
+    "title": "Star Wars - Last Jedi",
+    "productionCountries": [
+      "USA"
+    ],
+    "productionYear": 2017,
+    "length": 152,
+    "genre": "Science fiction",
+    "distributor": "Kino International",
+    "language": "engelska",
+    "subtitles": "svenska",
+    "director": "Rian Johnson",
+    "actors": [
+      "Daisy Ridley",
+      "John Boyega",
+      "Adam Driver"
+    ],
+    "description": "<p>Den episka Skywalker-sagan fortsätter när hjältarna från The Force Awakens ansluter sig till de galaktiska legenderna i ett storslaget äventyr som avslöjar Kraftens uråldriga mysterier och chockerande sanningar från det förflutna.</p>",
+    "images": [
+       "star_wars_last_jedi/star_wars_last_jedi-poster.jpg",
+       "star_wars_last_jedi/star_wars_last_jedi.jpg"
+    ],
+    "youtubeTrailers": [
+      "Q0CbN8sfihY"
+    ],
+    "reviews": [
+      {
+        "source": "Metro",
+        "quote": "Den första Guardians of the galaxy visade sig vara en oväntat skojig nytändning av ett extra charmigt Marvel-gäng. Vi har Star-Lord som är en dansant jordbo, det gröna krigaresset Gamora, Rocket, en tvärilsk tvättbjörn, den hämndsökande jätten Drax samt det intergalaktiska tja, trädet Groot.",
+        "stars": 4,
+        "max": 5
+      },
+      {
+        "source": "Aftonbladet",
+        "quote": "The last jedi”. Den som gillade ”The force awakens” fastnar i fortsättningen på äventyret. Mycket mörker för rebellerna. I starten känns det välbekant, sedan kommer nya inslag.",
+        "stars": 4,
+        "max": 6
+      }
+    ],
+    "⚙": "Film"
+  },
+  {
     "title": "Call me by your name",
     "productionCountries": [
       "Italien",
@@ -19,7 +224,8 @@
     ],
     "description": "<p>Filmen utspelas i norra Italien sommaren 1983. En ung amerikansk-italienare blir förälskad i en amerikansk student som kommer för att studera och bo hos hans familj.</p><p>Tillsammans upplever de en oförglömlig sommar - full av musik, mat och kärlek - som för evigt kommer att förändra dem.</p>",
     "images": [
-       "callmebyyourname-poster.jpg"
+       "callmebyyourname-poster.jpg",
+       "call_me_by_your_name/call-me-by-your-name.jpg"
     ],
     "youtubeTrailers": [
       "Z9AYPxH5NTM"
@@ -66,7 +272,8 @@
     ],
     "description": "<p>Förberedelserna inför Nika och Anas bröllopsfest håller på för fullt och det är en stor dag för bådas familjer, men för det nygifta paret och deras vänner så är firandet en del av en mörkläggning då de planerar att lämna Sovjetunionen. De ska lämna sitt klaustrofobiska vardagsliv för den fria världen genom att kapa ett inrikesflyg från Tbilisi till Batumi och tvinga det att landa i Turkiet. Men när planet lämnar marken och pressen snabbt stiger, går ingenting som planerat för dessa unga oerfarna kapare.</p><p>Baserad på verkliga händelser som tog plats i Georgien 1983.</p>",
     "images": [
-       "gisslan-poster.jpg"
+       "gisslan-poster.jpg",
+       "gisslan/hostages.jpg"
     ],
     "youtubeTrailers": [
       "apVZcaujlGs"
