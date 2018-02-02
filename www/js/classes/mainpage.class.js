@@ -13,8 +13,5 @@ class MainPage extends Base{
         that.render('.banner', 2);
         this.index++;
       }
-
-
-
     }
 }
