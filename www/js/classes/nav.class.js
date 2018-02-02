@@ -35,10 +35,10 @@ class Nav extends Base{
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
       $('main').empty();
-      let mainpage=new MainPage();
-      mainpage.render('main');
+      let mainpage=new MainPage(app.film);
+      //mainpage.render('main');
       //Draw booking modal
-      
+
       // modal.render('.modal-container-info', 1);
       // // Draw info modal
       // modal.render('.modal-container-booking', 2);

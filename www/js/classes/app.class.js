@@ -2,25 +2,20 @@ class App {
 
   constructor(){
     // Tell jsonflex to recreate instances of the class Garment
-    JSON._classes(Film, List, Modal);
+    JSON._classes(Film, List, Modal, Nav);
     // Load garments, add as a property, then start the app
     JSON._load('movies').then((movies)=>{
       this.film = movies;
-      let modal = new Modal(this.film)
-      //test code. check if JSON load into the right way
-      // for(let f of this.film){
-      //   //console.log(f.getTitle());
-      // }
+      let modal = new Modal(this.film);
+      JSON._load('viewings').then((data)=>{
+        this.lists = data;
+        this.renderNav();
+        this.renderFooter();
+        this.clickEvents();
+      });
     });
-    JSON._load('viewings').then((data)=>{
-      this.lists = data;
 
-      //console.log(this.lists);
 
-    });
-    this.renderNav();
-    this.renderFooter();
-    this.clickEvents();
   }
 
   renderNav(){
