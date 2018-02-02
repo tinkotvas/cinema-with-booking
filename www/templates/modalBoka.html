@@ -13,7 +13,7 @@ Object.assign(Modal.prototype, {template1(){
             <h2 class="title-text text-white text-center">
               ${this.films[this.indexToOpen].title}
             </h2>
-            <p>${this.viewings.time}</p>
+            <p>${this.selectDate}</p>
           </div>
           <div class="modal-footer bg-white col-12 justify-content-center">
             <div class="flex-row">
@@ -38,6 +38,11 @@ Object.assign(Modal.prototype, {template1(){
                   <p class="ticketArea total-price">Summa: <span id="total-sum">0</span> kr</p>
                 </div>
                 <div class="col-4">
+                  <div class='form-group'>
+                    <label for="exampleSelect1">Välj datum</label>
+                    <select class='form-control select-date' id='date-select'>
+                    </select>
+                  </div>
                   <a class="ticketArea btn btn-base btn-booking confirm-booking mx-md-0 mx-lg-2 my-1">BOKA</a>
                 </div>
               </div>

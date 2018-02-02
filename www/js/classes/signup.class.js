@@ -50,7 +50,7 @@ class Signup extends Base {
         }
     }
 
-    chenge(event) {
+    change(event) {
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
         }

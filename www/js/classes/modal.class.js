@@ -1,17 +1,18 @@
 class Modal extends Base{
 
-  constructor(films){
+  constructor(films, viewings){
       super();
       this.clickedFilm = new Film();
       this.films = films;
+      this.viewings = viewings;
       this.toggleBookingModal();
       this.toggleInfoModal();
       this.idBtn;
       this.indexToOpen;
       this.confirmBooking();
-      //this.addTickets();
-      //this.subTickets();
       this.eventHandler();
+      this.allMovieDates = [];
+      this.selectDate;
   }
 
   toggleBookingModal(){
@@ -22,6 +23,11 @@ class Modal extends Base{
       for (let film of that.films) {
         let idFilm ='bookingModalToggle'+film.title.replace(/\s+/g, '');
         if (idFilm == that.idBtn) {
+          for(let viewing of that.viewings){
+          if(film.title == viewing.film){
+            that.allMovieDates.push(viewing.date + ' ' + viewing.time);
+          }
+        }
           $('.modal-container-booking').empty();
           that.indexToOpen = index;
         }
@@ -30,8 +36,30 @@ class Modal extends Base{
       that.render('.modal-container-booking', 1);
       $('#bookingModal').modal('toggle');
       $(".confirm-booking").prop("disabled", true);
+      that.renderShowingTime(); 
+      that.showDateAndTime();
     });
   }
+
+  renderShowingTime(){
+    let that = this;
+    for(let i = 0; i < that.allMovieDates.length; i++){
+      $('.select-date').append(`
+          <option>${that.allMovieDates[i]}</option>
+        `)
+    }
+  }
+
+
+  showDateAndTime(){
+    let that = this;
+    $('.select-date').change(function(){
+      that.selectDate = $('#date-select option:selected').text();
+    })
+  }
+
+
+
   toggleInfoModal(){
     let that = this;
     $(document).on("click", '.btn-info', function() {
@@ -121,34 +149,5 @@ class Modal extends Base{
     })
   }
 
-/*addTickets(){
-    
-    $(document).on('click', '#add-adult', function() {
-      tickets++;
-      $('.adult').removeClass('d-none');
-      $('#adultTickets').text(tickets);
-    });
-
-  }*/
-
-  /*subTickets(){
-    $(document).on('click', '#sub-adult', function() {
-      //let tickets = $('#adultTickets').text();
-      if(tickets == 0){
-        return;
-      }
-      tickets--;
-      if(tickets < 1){
-        $('.adult').addClass('d-none');
-      }
-      //console.log(tickets);
-      $('#adultTickets').text(tickets);
-      /*tickets++;
-      $('.adult').removeClass('d-none');
-      $('#adultTickets').text(tickets);
-    });
-
-  }
-*/
 
 }
