@@ -1,3 +1,4 @@
+
 class Modal extends Base{
 
   constructor(films, viewings){
@@ -17,6 +18,7 @@ class Modal extends Base{
 
   toggleBookingModal(){
     let that = this;
+    let datesAreRendered = false;
     $(document).on("click", '.btn-booking', function() {
       that.idBtn = $(this).attr('id');
       let index = 0;
@@ -24,7 +26,7 @@ class Modal extends Base{
         let idFilm ='bookingModalToggle'+film.title.replace(/\s+/g, '');
         if (idFilm == that.idBtn) {
           for(let viewing of that.viewings){
-          if(film.title == viewing.film){
+          if(film.title == viewing.film && datesAreRendered == false){
             that.allMovieDates.push(viewing.date + ' ' + viewing.time);
           }
         }
@@ -36,7 +38,8 @@ class Modal extends Base{
       that.render('.modal-container-booking', 1);
       $('#bookingModal').modal('toggle');
       $(".confirm-booking").prop("disabled", true);
-      that.renderShowingTime(); 
+      that.renderShowingTime();
+      datesAreRendered = true; 
       that.showDateAndTime();
     });
   }
@@ -80,16 +83,10 @@ class Modal extends Base{
   }
 
   confirmBooking(){
-    let that = this;
-    $(document).on('click', '.confirm-booking', function(event) {
-      that.render('.modal-container-info', 3);
-      $('#summaryModal').modal('toggle');
-      $('#bookingModal').modal('toggle');
-      event.preventDefault();
-
+    $(document).on('click', '.confirm-booking', function() {
+      alert('hej din get')
     });
   }
-
 
   eventHandler(){
     let adultTickets = 0;
@@ -101,51 +98,55 @@ class Modal extends Base{
         adultTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#adultTickets').removeClass('d-none');
-        $('#adultTickets').text(adultTickets);
+        $('#adultTickets').text('Vuxen: ' + adultTickets + ' ');
       }
       else if(id == 'add-child'){
         childTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#childTickets').removeClass('d-none');
-        $('#childTickets').text(childTickets);
+        $('#childTickets').text('Barn: ' + childTickets + ' ');
       }
       else if(id == 'add-senior'){
         seniorTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#seniorTickets').removeClass('d-none');
-        $('#seniorTickets').text(seniorTickets);
+        $('#seniorTickets').text('Senior: ' + seniorTickets);
       }
       else if(id == 'sub-adult'){
         if(adultTickets == 0){
         return;
       }
         adultTickets--;
-        $('#adultTickets').text(adultTickets);
+        if(adultTickets == 0){
+          $('#adultTickets').addClass('d-none');
+        }
+        $('#adultTickets').text('Vuxen: ' + adultTickets + ' ');
       }
       else if(id == 'sub-child'){
         if(childTickets == 0){
         return;
       }
         childTickets--;
-        $('#childTickets').text(childTickets);
+        if(childTickets == 0){
+          $('#childTickets').addClass('d-none');
+        }
+        $('#childTickets').text('Barn: ' + childTickets + ' ');
       }
       else if(id == 'sub-senior'){
         if(seniorTickets == 0){
         return;
       }
         seniorTickets--;
-        $('#seniorTickets').text(seniorTickets);
+        if(seniorTickets == 0){
+          $('#seniorTickets').addClass('d-none');
+        }
+        $('#seniorTickets').text('Senior: ' + seniorTickets + ' ');
+      }
+      if(seniorTickets == 0 && adultTickets == 0 && childTickets == 0){
+        $('.ticketArea').addClass('d-none');
       }
       let totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
-      $('.total-sum').empty();
-      $('#total-sum').text(totalPrice);
-
-      if(totalPrice == 0){
-        $(".confirm-booking").prop("disabled", true);
-      }
-      else{
-        $(".confirm-booking").prop("disabled", false);
-      }
+      $('.total-price').text('Summa: ' + totalPrice);
     })
   }
 
