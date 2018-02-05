@@ -47,8 +47,11 @@ class Modal extends Base{
   renderShowingTime(){
     let that = this;
     for(let i = 0; i < that.allMovieDates.length; i++){
+      let index = that.allMovieDates[i].indexOf('-');
+      let slicedArr = that.allMovieDates[i].slice(index+1);
+      let changedArr = slicedArr.replace('-', '/')
       $('.select-date').append(`
-          <option>${that.allMovieDates[i]}</option>
+          <option>${changedArr}</option>
         `)
     }
   }
