@@ -59,7 +59,7 @@ class Nav extends Base{
       //empty 'main', so that only one render will showen
       $('main').empty();
       // create instance here and render
-      let biograf=new Biograf();
+      let biograf=new Auditorium();
       biograf.render('main');
     }
     if (url == '/regler') {

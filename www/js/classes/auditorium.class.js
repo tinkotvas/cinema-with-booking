@@ -1,4 +1,4 @@
-class Biograf extends Base {
+class Auditorium extends Base {
 
     constructor() {
         super();
@@ -80,7 +80,7 @@ class Biograf extends Base {
     }
 }
 
-let bio = new Biograf();
+let bio = new Auditorium();
 
 function loadAndRender() {
     bio.loadJSON(() => bio.renderAuditorium(1));
