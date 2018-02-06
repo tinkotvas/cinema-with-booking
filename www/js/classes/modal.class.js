@@ -17,17 +17,17 @@ class Modal extends Base{
   }
 
   toggleBookingModal(){
-    let that = this;
-    let datesAreRendered = false;
+    let that = this; 
     $(document).on("click", '.btn-booking', function() {
+      that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
       for (let film of that.films) {
         let idFilm ='bookingModalToggle'+film.title.replace(/\s+/g, '');
         if (idFilm == that.idBtn) {
           for(let viewing of that.viewings){
-          if(film.title == viewing.film && datesAreRendered == false){
-            that.allMovieDates.push(viewing.date + ' ' + viewing.time);
+          if(film.title == viewing.film){
+            that.allMovieDates.push(viewing.date + ' ' + viewing.time + '%' + viewing.auditorium);
           }
         }
           $('.modal-container-booking').empty();
@@ -39,7 +39,6 @@ class Modal extends Base{
       $('#bookingModal').modal('toggle');
       $(".confirm-booking").prop("disabled", true);
       that.renderShowingTime();
-      datesAreRendered = true; 
       that.showDateAndTime();
     });
   }
@@ -50,8 +49,11 @@ class Modal extends Base{
       let index = that.allMovieDates[i].indexOf('-');
       let slicedArr = that.allMovieDates[i].slice(index+1);
       let changedArr = slicedArr.replace('-', '/')
+      let secondIndex = changedArr.indexOf('%');
+      let currentAuditorium = changedArr.slice(secondIndex+1);
+      changedArr = changedArr.slice(0, secondIndex)
       $('.select-date').append(`
-          <option>${changedArr}</option>
+          <option data-auditorium='${currentAuditorium}'>${changedArr}</option>
         `)
     }
   }
@@ -59,8 +61,15 @@ class Modal extends Base{
 
   showDateAndTime(){
     let that = this;
+    that.selectDate = $('#date-select option:selected').text();
+    let currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium')
+    $('#showTime').text(that.selectDate + ' i ' + currentAuditorium);
     $('.select-date').change(function(){
       that.selectDate = $('#date-select option:selected').text();
+      let changedAuditorium = $(this).find(':selected').attr('data-auditorium')
+      let findI = that.selectDate.indexOf('i');
+      $('#showTime').empty();
+      $('#showTime').text(that.selectDate + ' i ' + changedAuditorium);
     })
   }
 
@@ -101,55 +110,44 @@ class Modal extends Base{
         adultTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#adultTickets').removeClass('d-none');
-        $('#adultTickets').text('Vuxen: ' + adultTickets + ' ');
+        $('#adultTickets').text(adultTickets);
       }
       else if(id == 'add-child'){
         childTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#childTickets').removeClass('d-none');
-        $('#childTickets').text('Barn: ' + childTickets + ' ');
+        $('#childTickets').text(childTickets);
       }
       else if(id == 'add-senior'){
         seniorTickets++;
         $('.ticketArea').removeClass('d-none');
         $('#seniorTickets').removeClass('d-none');
-        $('#seniorTickets').text('Senior: ' + seniorTickets);
+        $('#seniorTickets').text(seniorTickets);
       }
       else if(id == 'sub-adult'){
         if(adultTickets == 0){
         return;
       }
         adultTickets--;
-        if(adultTickets == 0){
-          $('#adultTickets').addClass('d-none');
-        }
-        $('#adultTickets').text('Vuxen: ' + adultTickets + ' ');
+        $('#adultTickets').text(adultTickets);
       }
       else if(id == 'sub-child'){
         if(childTickets == 0){
         return;
       }
         childTickets--;
-        if(childTickets == 0){
-          $('#childTickets').addClass('d-none');
-        }
-        $('#childTickets').text('Barn: ' + childTickets + ' ');
+        $('#childTickets').text(childTickets);
       }
       else if(id == 'sub-senior'){
         if(seniorTickets == 0){
         return;
       }
         seniorTickets--;
-        if(seniorTickets == 0){
-          $('#seniorTickets').addClass('d-none');
-        }
-        $('#seniorTickets').text('Senior: ' + seniorTickets + ' ');
+        $('#seniorTickets').text(seniorTickets);
       }
-      if(seniorTickets == 0 && adultTickets == 0 && childTickets == 0){
-        $('.ticketArea').addClass('d-none');
-      }
+      
       let totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
-      $('.total-price').text('Summa: ' + totalPrice);
+      $('.total-price').text('Summa: ' + totalPrice + ' kr');
     })
   }
 
