@@ -23,15 +23,16 @@ class Biograf extends Base {
 
 
         let maxSeatsPerRow = Math.max(...auditorium.seatsPerRow) + 2;
-
+        let seatNumber = 1;
         for (let y = 0, cy = 0; y <= auditorium.seatsPerRow.length + 1; y++) {
             for (let x = 0, cx = 0; x < maxSeatsPerRow; x++) {
 
                if (x >= Math.round((maxSeatsPerRow - auditorium.seatsPerRow[y-1]) / 2) && x < maxSeatsPerRow - Math.floor((maxSeatsPerRow - auditorium.seatsPerRow[y-1]) / 2)) {
                     seats.push(`
                     <g>
-                        <rect class="btn red" x="${cx}" y="${cy}" width="50" height="50" />
+                        <rect id="seatNr${seatNumber}" class="btn red" x="${cx}" y="${cy}" width="50" height="50" />
                     </g>`)
+                    seatNumber++;
                 }
                 cx += 50;
             }
