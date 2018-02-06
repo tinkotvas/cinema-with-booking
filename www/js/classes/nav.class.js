@@ -2,7 +2,6 @@ class Nav extends Base{
 
   constructor(){
     super();
-    this.profile=new Profile();
     this.clickEvents();
   }
 
@@ -24,15 +23,6 @@ class Nav extends Base{
 
     $(document).on("click", '#infoModalToggle', function() {
       $('#infoModal').modal('toggle');
-    });
-
-    $(document).on("click", '#loginModalToggle', function () {
-      that.profile.toggleLoginModal();
-    });
-
-    $(document).on("click", '#opSignup', function () {
-      that.profile.toggleSignupModal();
-
     });
   }
 
@@ -68,15 +58,19 @@ class Nav extends Base{
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
       $('main').empty();
-      this.render('main','biograf');
+      // create instance here and render
+      let biograf=new Biograf();
+      biograf.render('main');
     }
     if (url == '/regler') {
       $('main').empty();
-      this.render('main', 'regler');
+      let regler=new Regler();
+      regler.render('main');
     }
     if (url == '/godis') {
       $('main').empty();
-      this.render('main','godis');
+      let godis=new Godis();
+      godis.render('main');
     }
     if (url == '/minasidor') {
       $('main').html(`
