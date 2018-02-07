@@ -9,7 +9,18 @@ Object.assign(MyPage.prototype, {template3(){ return `
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <h5>Filmtitel: </h5>
+                <span>${this.dummyBooking[this.indexToOpen].filmTitle}</span>
+                <h5>Datum: </h5>
+                <span>${this.dummyBooking[this.indexToOpen].date}</span>
+                <h5>Tid: </h5>
+                <span>${this.dummyBooking[this.indexToOpen].time}</span>
+                <h5>Salong: </h5>
+                <span>${this.dummyBooking[this.indexToOpen].auditorium}</span>
+                <h5>Stolnummer: </h5>
+                <span>${this.dummyBooking[this.indexToOpen].seatID}</span>
+                <h5>Totalpris: </h5>
+                <span>${this.dummyBooking[this.indexToOpen].totalPrice}</span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
