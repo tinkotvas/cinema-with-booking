@@ -187,6 +187,7 @@ header #signupModal .close {
 .card a:focus img {
   -webkit-transform: scale(1.04);
   transform: scale(1.04);
+  cursor: pointer;
 }
 .card .card-body {
   z-index: 2;
