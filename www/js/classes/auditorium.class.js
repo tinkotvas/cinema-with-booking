@@ -17,16 +17,12 @@ class Auditorium extends Base {
     }
 
     renderAuditorium(name){
-        console.log("Rendering: ",name)
-        $()
         this.loadJSON(() => this.htmlRenderAuditorium(name));
         this.eventHandlers();
     }
 
     htmlRenderAuditorium(name) {
-
         let auditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
-        console.log(auditorium);
         let seats = [],
             seatHorizontalSpacing = 50,
             seatVerticalSpacing = 60;
@@ -80,7 +76,6 @@ class Auditorium extends Base {
         $('#board, svg').height(auditoriumHeight);
 
         this.scaleBoard();
-        console.log("done");
     }
 
 
@@ -101,6 +96,7 @@ class Auditorium extends Base {
     eventHandlers() {
         let seat;
 
+        $(document).off('click mouseenter mouseleave', '.seat')
         $(document).on({
             click: function () {
                 console.log($(this));
