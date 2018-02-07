@@ -16,6 +16,9 @@
     max-width: 60vw!important;
   }
 }
+.youtube {
+  min-height: 40vh;
+}
 #infoModal img {
   position: absolute;
   right: 0px;
