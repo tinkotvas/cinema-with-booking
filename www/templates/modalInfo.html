@@ -1,26 +1,52 @@
-Object.assign(Modal.prototype, {template2(){ return `
-<div class="container">
+Object.assign(Modal.prototype, {template2(){
+  let m = this.films[this.indexToOpen].length % 60;
+  let h = (this.films[this.indexToOpen].length-m)/60;
+  let movieRuntime = `${h.toString()} tim ${(m<10? "0": "")}${m.toString()} min`;
+  
+  return ` <div class="container">
   <div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content bg-dark">
-        <div class="modal-header p-0">
-          <div class="embed-responsive embed-responsive-21by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${this.films[this.indexToOpen].youtubeTrailers[0]}?enablejsapi=1&amp;showinfo=0&amp;autoplay=1&amp;controls=0&amp;modestbranding=0"
-              frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="modal-body">
-          <div class="container-fluid">
+        <div class="modal-body p-0">
+          <div class="container-fluid m-0">
+
             <div class="row">
-              <div class="col-md-12">
-                <h2 class="title-text text-white text-center">${this.films[this.indexToOpen].title}</h2>
+              <div class="col-12 p-0">
+                <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${this.films[this.indexToOpen].youtubeTrailers[0]}?enablejsapi=1&amp;showinfo=0&amp;autoplay=0&amp;controls=0&amp;modestbranding=0"
+                    frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                </div>
               </div>
+            </div>
+
+            <div class="row">
+              <div class="col-8 mr-auto">
+                <h2 class="title-text text-white text-center">${this.films[this.indexToOpen].title}</h2>
+                <h6 class="text-white text-center">${movieRuntime} | ${this.films[this.indexToOpen].genre} | ${this.films[this.indexToOpen].language}</h6>
+              </div>
+
+              <div class="col-3 mr-2 mt-2">
+                <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-75" alt="cmbyn-poster">
+              </div>
+
+              <div class="col-9 mr-auto">
+                ${this.films[this.indexToOpen].description}
+              </div>
+
+              <div class="col-10 mr-auto">
+                <p class="mb-1">Direktör: ${this.films[this.indexToOpen].director}</p>
+                <p class="mb-1">Skådespelare: ${this.films[this.indexToOpen].actors.join(", ")} </p>
+                <p class="mb-1">Produktionsår: ${this.films[this.indexToOpen].productionYear}</p>
+                <p class="mb-1">Ursprungsland: ${this.films[this.indexToOpen].productionCountries}</p>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  </div>
+  </div>
 
-`; }});
+  `; }});

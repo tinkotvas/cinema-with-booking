@@ -1,3 +1,6 @@
+.modal-lg p {
+  color: white;
+}
 @media (min-width: 576px) {
   .modal-lg {
     max-width: 90vw!important;
@@ -12,6 +15,12 @@
   .modal-lg {
     max-width: 60vw!important;
   }
+}
+#infoModal img {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow: hidden;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
