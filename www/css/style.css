@@ -168,3 +168,6 @@ header #signupModal .close {
   width: 100%;
   height: 30%;
 }
+main .mypage-item {
+  cursor: pointer;
+}
