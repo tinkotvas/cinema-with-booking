@@ -1,15 +1,15 @@
-class Nav extends Base{
+class Nav extends Base {
 
-  constructor(){
+  constructor() {
     super();
     this.clickEvents();
     this.userName;
-    
+    this.clickSignOut();
   }
 
-  clickEvents(){
+  clickEvents() {
     let that = this;
-    $(document).on('click','a.pop',function(e){
+    $(document).on('click', 'a.pop', function (e) {
       //Create a push state preventDefault
       let href = $(this).attr('href');
       history.pushState(null, null, href);
@@ -19,16 +19,16 @@ class Nav extends Base{
       e.preventDefault();
     });
 
-    $(document).on("click", '#bookingModalToggle', function() {
+    $(document).on("click", '#bookingModalToggle', function () {
       $('#bookingModal').modal('toggle');
     });
 
-    $(document).on("click", '#infoModalToggle', function() {
+    $(document).on("click", '#infoModalToggle', function () {
       $('#infoModal').modal('toggle');
     });
   }
 
-  changePage(){
+  changePage() {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
@@ -37,7 +37,7 @@ class Nav extends Base{
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
       $('main').empty();
-      let mainpage=new MainPage(app.film);
+      let mainpage = new MainPage(app.film);
       //mainpage.render('main');
       //Draw booking modal
 
@@ -51,7 +51,7 @@ class Nav extends Base{
     }
     if (url == '/filmer') {
       $('main').empty();
-      let moviepage=new MoviePage();
+      let moviepage = new MoviePage();
       moviepage.render('main');
 
       let list = new List();
@@ -61,7 +61,7 @@ class Nav extends Base{
       //empty 'main', so that only one render will showen
       $('main').empty();
       // create instance here and render
-      let biograf=new Auditorium();
+      let biograf = new Auditorium();
       biograf.render('main');
     }
     if (url == '/regler') {
@@ -70,20 +70,40 @@ class Nav extends Base{
     }
     if (url == '/godis') {
       $('main').empty();
-      this.render('main','godis');
+      this.render('main', 'godis');
     }
     if (url == '/minasidor') {
       $('main').empty();
       let mypage = new MyPage();
-      
     }
 
   }
 
-  showUSname(){
-    this.render('#showUSName', 'USname');
-    // that.userName=app.currentUser;
-    
+  renderLoginStatus() {
+    $('#showLoginStatus').empty();
     console.log(app.currentUser);
+    if (app.currentUser == 0) {
+      this.render('#showLoginStatus', 'lginBtn');
+    } else {
+      this.showUSname();
+    }
   }
+
+  showUSname() {
+    this.userName = app.currentUser;
+    $('#loginModalToggle').toggleClass('d-none');
+    this.render('#showLoginStatus', 'USname');
+  }
+
+  clickSignOut() {
+    let that = this;
+    $(document).on('click', '#signOut', function () {
+      let profile = new Profile();
+      profile.signOut().then(() => {
+        $('#showLoginStatus').empty();
+        that.render('#showLoginStatus', 'lginBtn');
+      });
+    });
+  }
+
 }

@@ -1,10 +1,11 @@
 class App {
   
   constructor() {
-    this.currentUser="0";
     // Tell jsonflex to recreate instances of the class Garment
-    JSON._classes(Film, List, Modal, Nav);
-    // Load garments, add as a property, then start the app
+    JSON._classes(Film, List, Modal, Nav, Profile);
+    JSON._load('currentUser').then((data)=>{
+      this.currentUser=data.userName;
+    });
     JSON._load('movies').then((movies) => {
       this.film = movies;
       let modal = new Modal(this.film);
@@ -24,6 +25,7 @@ class App {
     let nav = new Nav();
     $('header').empty();
     nav.render('header');
+    nav.renderLoginStatus();
     nav.changePage();
 
     this.profile.render('header', 'login');
