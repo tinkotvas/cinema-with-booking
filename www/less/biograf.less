@@ -11,20 +11,22 @@ html {
         svg {
             transform-origin: 0 0;
             g {
-                image {
-                    pointer-events: none;
+                .seat {
+                    fill:#a2f8a2;
+                    cursor:pointer;
+                }
+                .screen{
+                    fill:white;
+                }
+                .booked {
+                    fill: red;
+                    pointer-events:none;
+                }
+                .proposed{
+                    fill:pink;
                 }
             }
         }
     }
 }
 
-
-svg {
-    transform-origin: 50% 50% 0px;
-}
-
-.red {
-    fill: red;
-
-}
