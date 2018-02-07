@@ -16,6 +16,13 @@ class Modal extends Base{
       this.selectDate;
       //this.testArray = [];
   }
+  get selectedDate() {
+    return `${this.bookingDate}`
+  }
+
+  set selectedDate(val) {
+    this.bookingDate = val;
+  }
 
   toggleBookingModal(){
     let that = this;
@@ -108,6 +115,8 @@ class Modal extends Base{
     let that = this;
     $(document).on('click', '.confirm-booking', function() {
       // first check if logged in otherwise open the login modal
+      
+      //console.log(that.bookingDate);
       that.render('.modal-container-info', 3);
       $('#summaryModal').modal('toggle');
     });
@@ -168,6 +177,11 @@ class Modal extends Base{
         $(".confirm-booking").prop("disabled", true);
       }
     })
+    $('.select-date').change(function(){
+      console.log('träff');
+        this.selectedDate = $('#date-select option:selected').text()
+        console.log(this.selectedDate);
+      });
   }
 
 
