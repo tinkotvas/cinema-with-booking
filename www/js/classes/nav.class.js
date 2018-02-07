@@ -81,7 +81,6 @@ class Nav extends Base {
 
   renderLoginStatus() {
     $('#showLoginStatus').empty();
-    console.log(app.currentUser);
     if (app.currentUser == 0) {
       this.render('#showLoginStatus', 'lginBtn');
     } else {
@@ -103,6 +102,7 @@ class Nav extends Base {
         $('#showLoginStatus').empty();
         that.render('#showLoginStatus', 'lginBtn');
       });
+      location.pathname='/';
     });
   }
 
