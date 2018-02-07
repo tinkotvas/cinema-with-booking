@@ -64,13 +64,11 @@ class Nav extends Base{
     }
     if (url == '/regler') {
       $('main').empty();
-      let regler=new Regler();
-      regler.render('main');
+      this.render('main', 'regler');
     }
     if (url == '/godis') {
       $('main').empty();
-      let godis=new Godis();
-      godis.render('main');
+      this.render('main','godis');
     }
     if (url == '/minasidor') {
       $('main').empty();
