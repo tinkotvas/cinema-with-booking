@@ -1,3 +1,0 @@
-class Biograf extends Base{
-
-}
