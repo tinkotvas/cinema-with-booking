@@ -1,22 +1,22 @@
 .text-red {
-  color: #FB515C!important;
+  color: #FB515C !important;
 }
-.modal-lg p {
+#infoModal .modal-lg p {
   color: white;
 }
 @media (min-width: 576px) {
-  .modal-lg {
-    max-width: 90vw!important;
+  #infoModal .modal-lg {
+    max-width: 90vw !important;
   }
 }
 @media (min-width: 992px) {
-  .modal-lg {
-    max-width: 70vw!important;
+  #infoModal .modal-lg {
+    max-width: 70vw !important;
   }
 }
 @media (min-width: 1400px) {
-  .modal-lg {
-    max-width: 60vw!important;
+  #infoModal .modal-lg {
+    max-width: 60vw !important;
   }
 }
 .youtube {
