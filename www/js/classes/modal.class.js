@@ -10,11 +10,13 @@ class Modal extends Base{
       this.toggleInfoModal();
       this.idBtn;
       this.indexToOpen;
+      this.viewingToOpen;
       this.confirmBooking();
       this.eventHandler();
       this.allMovieDates = [];
       this.selectDate;
-      //this.testArray = [];
+      this.changedAuditorium;
+      this.changedArr;
   }
   get selectedDate() {
     return `${this.bookingDate}`
@@ -26,32 +28,28 @@ class Modal extends Base{
 
   toggleBookingModal(){
     let that = this;
-
-    //let testDate;
-    //let testTime;
-    //let testAuditorium;
-
     $(document).on("click", '.btn-booking', function() {
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
+      let co = 0;
       for (let film of that.films) {
         let idFilm ='bookingModalToggle'+film.title.replace(/\s+/g, '');
-        if (idFilm == that.idBtn) {
+        if (idFilm == that.idBtn) {  
           for(let viewing of that.viewings){
           if(film.title == viewing.film){
-            //testDate = viewing.date;
-            //testTime = viewing.time;
-            //testAuditorium = viewing.auditorium;
-            //that.testArray.push(testDate + testTime + testAuditorium);
+            that.viewingToOpen = co;
+            //console.log(that.viewings[that.viewingToOpen]);
             that.allMovieDates.push(viewing.date + ' ' + viewing.time + '%' + viewing.auditorium);
           }
+          co++;
         }
           $('.modal-container-booking').empty();
           that.indexToOpen = index;
         }
         index++;
       }
+
       that.render('.modal-container-booking', 1);
       $('#bookingModal').modal('toggle');
       $(".confirm-booking").prop("disabled", true);
@@ -63,15 +61,14 @@ class Modal extends Base{
   renderShowingTime(){
     let that = this;
     for(let i = 0; i < that.allMovieDates.length; i++){
-      //console.log(that.testArray);
       let index = that.allMovieDates[i].indexOf('-');
       let slicedArr = that.allMovieDates[i].slice(index+1);
-      let changedArr = slicedArr.replace('-', '/')
-      let secondIndex = changedArr.indexOf('%');
-      let currentAuditorium = changedArr.slice(secondIndex+1);
-      changedArr = changedArr.slice(0, secondIndex)
+      that.changedArr = slicedArr.replace('-', '/')
+      let secondIndex = that.changedArr.indexOf('%');
+      let currentAuditorium = that.changedArr.slice(secondIndex+1);
+      that.changedArr = that.changedArr.slice(0, secondIndex)
       $('.select-date').append(`
-          <option data-auditorium='${currentAuditorium}'>${changedArr}</option>
+          <option data-auditorium='${currentAuditorium}'>${that.changedArr}</option>
         `)
     }
   }
@@ -84,9 +81,9 @@ class Modal extends Base{
     $('#showTime').text(that.selectDate + ' i ' + currentAuditorium);
     $('.select-date').change(function(){
       that.selectDate = $('#date-select option:selected').text();
-      let changedAuditorium = $(this).find(':selected').attr('data-auditorium')
+      that.changedAuditorium = $(this).find(':selected').attr('data-auditorium')
       $('#showTime').empty();
-      $('#showTime').text(that.selectDate + ' i ' + changedAuditorium);
+      $('#showTime').text(that.selectDate + ' i ' + that.changedAuditorium);
     })
   }
 
@@ -114,9 +111,13 @@ class Modal extends Base{
   confirmBooking(){
     let that = this;
     $(document).on('click', '.confirm-booking', function() {
+      // if(app.currentuser == 0){
+      //  open login modal
+      // }
+      // else{}
       // first check if logged in otherwise open the login modal
-      
-      //console.log(that.bookingDate);
+      that.selectDate = $('#date-select option:selected').text();
+      $('.modal-container-info').empty();
       that.render('.modal-container-info', 3);
       $('#summaryModal').modal('toggle');
     });

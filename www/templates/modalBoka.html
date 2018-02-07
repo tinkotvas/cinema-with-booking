@@ -12,6 +12,7 @@ Object.assign(Modal.prototype, {template1(){
             <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-25" alt="cmbyn-poster">
             <h2 class="title-text text-white text-center">
               ${this.films[this.indexToOpen].title}
+              ${this.viewings[this.viewingToOpen].auditorium}
             </h2>
             <p id="showTime" class="text-center"></p>
           </div>
