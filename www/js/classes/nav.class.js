@@ -3,6 +3,8 @@ class Nav extends Base {
   constructor() {
     super();
     this.clickEvents();
+    this.userName;
+    this.clickSignOut();
   }
 
   clickEvents() {
@@ -38,7 +40,9 @@ class Nav extends Base {
     if (url == '/') {
       $('main').empty();
       let mainpage = new MainPage(app.film);
+
       modal = new Modal(app.film, app.lists);
+
       //mainpage.render('main');
       //Draw booking modal
 
@@ -83,4 +87,32 @@ class Nav extends Base {
     }
 
   }
+
+  renderLoginStatus() {
+    $('#showLoginStatus').empty();
+    if (app.currentUser == 0) {
+      this.render('#showLoginStatus', 'lginBtn');
+    } else {
+      this.showUSname();
+    }
+  }
+
+  showUSname() {
+    this.userName = app.currentUser;
+    $('#loginModalToggle').toggleClass('d-none');
+    this.render('#showLoginStatus', 'USname');
+  }
+
+  clickSignOut() {
+    let that = this;
+    $(document).on('click', '#signOut', function () {
+      let profile = new Profile();
+      profile.signOut().then(() => {
+        $('#showLoginStatus').empty();
+        that.render('#showLoginStatus', 'lginBtn');
+      });
+      location.pathname='/';
+    });
+  }
+
 }
