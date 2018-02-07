@@ -32,12 +32,17 @@ class Nav extends Base {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
+    let modal;
+    
     // change menu link active
     $('header a').removeClass('active');
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
       $('main').empty();
       let mainpage = new MainPage(app.film);
+
+      modal = new Modal(app.film, app.lists);
+
       //mainpage.render('main');
       //Draw booking modal
 
@@ -53,6 +58,9 @@ class Nav extends Base {
       $('main').empty();
       let moviepage = new MoviePage();
       moviepage.render('main');
+      if (typeof modal == 'undefined') {
+        modal = new Modal(app.film, app.lists);
+      }
 
       let list = new List();
       list.loadJSON(() => list.renderMovies(), "movies");
@@ -75,6 +83,7 @@ class Nav extends Base {
     if (url == '/minasidor') {
       $('main').empty();
       let mypage = new MyPage();
+
     }
 
   }

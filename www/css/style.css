@@ -1,3 +1,30 @@
+.modal-lg p {
+  color: white;
+}
+@media (min-width: 576px) {
+  .modal-lg {
+    max-width: 90vw!important;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 70vw!important;
+  }
+}
+@media (min-width: 1400px) {
+  .modal-lg {
+    max-width: 60vw!important;
+  }
+}
+.youtube {
+  min-height: 40vh;
+}
+#infoModal img {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow: hidden;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -65,14 +92,19 @@ html {
 #board-holder #board svg {
   transform-origin: 0 0;
 }
-#board-holder #board svg g image {
+#board-holder #board svg g .seat {
+  fill: #a2f8a2;
+  cursor: pointer;
+}
+#board-holder #board svg g .screen {
+  fill: white;
+}
+#board-holder #board svg g .booked {
+  fill: red;
   pointer-events: none;
 }
-svg {
-  transform-origin: 50% 50% 0px;
-}
-.red {
-  fill: red;
+#board-holder #board svg g .proposed {
+  fill: pink;
 }
 main {
   margin-top: 64px;

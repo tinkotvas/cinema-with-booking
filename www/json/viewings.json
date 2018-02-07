@@ -1,510 +1,510 @@
 [
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-01-31",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Dunkirk",
-    "date": "2018-01-31",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-01-26",
-    "time": "19.00"
-  },
-
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-01-26",
-    "time": "19.30"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-01-26",
-    "time": "22.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-01-27",
-    "time": "21.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-01-27",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-01-27",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-01-27",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-02",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-22",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-02-22",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-02-23",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-02-23",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-23",
-    "time": "21.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-02-24",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-24",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-02-24",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-25",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-25",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-02-25",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-02-26",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-02-26",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-26",
-    "time": "21.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-02-27",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-27",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-02-27",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-28",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-28",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-02-28",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-01",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-03-01",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-01",
-    "time": "21.00"
-  },
-
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-02",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-02",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-03-02",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-03",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-03",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-03-03",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-04",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-03-04",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-04",
-    "time": "21.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-05",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-05",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-03-05",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-06",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-03-06",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-06",
-    "time": "21.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-07",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-07",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-03-07",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-08",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-08",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-03-08",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-09",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-03-09",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-09",
-    "time": "21.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-10",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-10",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-03-10",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-11",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-11",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-03-11",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-12",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-03-12",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-12",
-    "time": "21.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-13",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-13",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-03-13",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-14",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-14",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-03-14",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-15",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-03-15",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-15",
-    "time": "21.00"
-  },
-
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-16",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-16",
-    "time": "20.00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-03-16",
-    "time": "20.40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-03-17",
-    "time": "16.40"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-17",
-    "time": "19.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-03-17",
-    "time": "20.30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Nattskuggor",
-    "date": "2018-03-18",
-    "time": "17.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-03-18",
-    "time": "18.00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-03-18",
-    "time": "21.00"
-  }
-
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-02-07", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-02-07", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-02-07", 
+    "time": "19.00" 
+  }, 
+ 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-01-26", 
+    "time": "19.30" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-01-26", 
+    "time": "22.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-01-27", 
+    "time": "21.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-01-27", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-01-27", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-01-27", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-02-22", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-02-22", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-02-22", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-02-23", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-02-23", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-02-23", 
+    "time": "21.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-02-24", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-02-24", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-02-24", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-02-25", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-02-25", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-02-25", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-02-26", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-02-26", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-02-26", 
+    "time": "21.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-02-27", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-02-27", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-02-27", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-02-28", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-02-28", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-02-28", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-01", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-03-01", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-01", 
+    "time": "21.00" 
+  }, 
+ 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-02", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-02", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-03-02", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-03", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-03", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-03-03", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-04", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-03-04", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-04", 
+    "time": "21.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-05", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-05", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-03-05", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-06", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-03-06", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-06", 
+    "time": "21.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-07", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-07", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-03-07", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-08", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-08", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-03-08", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-09", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-03-09", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-09", 
+    "time": "21.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-10", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-10", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-03-10", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-11", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-11", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-03-11", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-12", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-03-12", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-12", 
+    "time": "21.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-13", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-13", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-03-13", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-14", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-14", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-03-14", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-15", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-03-15", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-15", 
+    "time": "21.00" 
+  }, 
+ 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-16", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-16", 
+    "time": "20.00" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "The party", 
+    "date": "2018-03-16", 
+    "time": "20.40" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Call me by your name", 
+    "date": "2018-03-17", 
+    "time": "16.40" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-17", 
+    "time": "19.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "The party", 
+    "date": "2018-03-17", 
+    "time": "20.30" 
+  }, 
+  { 
+    "auditorium": "Lilla Salongen", 
+    "film": "Nattskuggor", 
+    "date": "2018-03-18", 
+    "time": "17.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Let the sun shine in", 
+    "date": "2018-03-18", 
+    "time": "18.00" 
+  }, 
+  { 
+    "auditorium": "Stora Salongen", 
+    "film": "Gisslan", 
+    "date": "2018-03-18", 
+    "time": "21.00" 
+  } 
+ 
 ]

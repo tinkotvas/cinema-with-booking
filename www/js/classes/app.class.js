@@ -8,8 +8,7 @@ class App {
     });
     JSON._load('movies').then((movies) => {
       this.film = movies;
-      let modal = new Modal(this.film);
-      JSON._load('viewings').then((data) => {
+      JSON._load('viewings').then((data)=>{
         this.lists = data;
         this.profile = new Profile();
         this.renderNav();
