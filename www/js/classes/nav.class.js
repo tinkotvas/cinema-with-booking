@@ -60,23 +60,21 @@ class Nav extends Base{
       //empty 'main', so that only one render will showen
       $('main').empty();
       // create instance here and render
-      let biograf=new Biograf();
+      let biograf=new Auditorium();
       biograf.render('main');
     }
     if (url == '/regler') {
       $('main').empty();
-      let regler=new Regler();
-      regler.render('main');
+      this.render('main', 'regler');
     }
     if (url == '/godis') {
       $('main').empty();
-      let godis=new Godis();
-      godis.render('main');
+      this.render('main','godis');
     }
     if (url == '/minasidor') {
-      $('main').html(`
-          <h1 class="text-center mt-5">Mina Sidor Page</h1>
-        `)
+      $('main').empty();
+      let mypage = new MyPage();
+      
     }
 
   }

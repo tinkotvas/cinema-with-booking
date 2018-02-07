@@ -52,6 +52,33 @@ footer .social-media {
     height: 75px;
   }
 }
+html {
+  position: relative;
+}
+#board-holder {
+  overflow: hidden;
+  margin: 0 auto;
+}
+#board-holder #board {
+  transform-origin: 0 0;
+}
+#board-holder #board svg {
+  transform-origin: 0 0;
+}
+#board-holder #board svg g .seat {
+  fill: #a2f8a2;
+  cursor: pointer;
+}
+#board-holder #board svg g .screen {
+  fill: white;
+}
+#board-holder #board svg g .booked {
+  fill: red;
+  pointer-events: none;
+}
+#board-holder #board svg g .proposed {
+  fill: pink;
+}
 main {
   margin-top: 64px;
 }
