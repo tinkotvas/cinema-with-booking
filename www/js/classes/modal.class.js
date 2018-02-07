@@ -80,12 +80,19 @@ class Modal extends Base {
 
   showDateAndTime() {
     let that = this;
+    let auditorium;
     that.selectDate = $('#date-select option:selected').text();
     let currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium')
     $('#showTime').text(that.selectDate + ' i ' + currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
       let changedAuditorium = $(this).find(':selected').attr('data-auditorium')
+      console.log(typeof auditorium);
+
+      typeof auditorium == 'undefined' ? auditorium = new Auditorium():null;
+      auditorium.renderAuditorium(changedAuditorium);
+
+
       $('#showTime').empty();
       $('#showTime').text(that.selectDate + ' i ' + changedAuditorium);
     })

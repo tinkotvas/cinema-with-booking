@@ -3,7 +3,7 @@ class Auditorium extends Base {
     constructor() {
         super();
         this.auditoriums;
-
+        //this.loadJSON();
     }
 
     loadJSON(callbackFunc) {
@@ -12,12 +12,21 @@ class Auditorium extends Base {
             callbackFunc && callbackFunc();
         }).
         catch((e) => {
-            console.log(`No JSON data`);
+            
         });
     }
 
-    renderAuditorium(data) {
-        let auditorium = this.auditoriums[data]
+    renderAuditorium(name){
+        console.log("Rendering: ",name)
+        $()
+        this.loadJSON(() => this.htmlRenderAuditorium(name));
+        this.eventHandlers();
+    }
+
+    htmlRenderAuditorium(name) {
+
+        let auditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
+        console.log(auditorium);
         let seats = [],
             seatHorizontalSpacing = 50,
             seatVerticalSpacing = 60;
@@ -61,22 +70,23 @@ class Auditorium extends Base {
             </div>
         </div>
         `;
+        $('#auditoriumContainer').empty();
+        $('#auditoriumContainer').append(board);
 
-        $('main').append(board);
-
-        let auditoriumWidth = maxSeatsPerRow * 100;
+        let auditoriumWidth = maxSeatsPerRow * 50;
         let auditoriumHeight = ((auditorium.seatsPerRow.length + 2) * 55);
 
         $('#board, svg').width(auditoriumWidth);
         $('#board, svg').height(auditoriumHeight);
 
         this.scaleBoard();
+        console.log("done");
     }
 
 
     scaleBoard(orgW = 700, orgH = 600) {
-        let w = $(window).width() - $("#board").offset().left;
-        let h = $(window).height();
+        let w = $('.modal-lg').width(); - $("#board").offset().left;
+        let h = $('.modal-lg').height();
         w -= 20 * 2;
         h -= (20 * 2);
         const wScale = w / orgW;
@@ -111,9 +121,10 @@ class Auditorium extends Base {
     }
 }
 
-let bio = new Auditorium();
+function stora() {
+    let bio = new Auditorium("Stora Salongen");
+}
 
-function loadAndRender() {
-    bio.loadJSON(() => bio.renderAuditorium(1));
-    bio.eventHandlers();
+function lilla() {
+    let bio = new Auditorium("Lilla Salongen");
 }
