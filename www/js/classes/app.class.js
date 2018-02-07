@@ -1,6 +1,7 @@
 class App {
 
   constructor(){
+    this.currentUser='';
     // Tell jsonflex to recreate instances of the class Garment
     JSON._classes(Film, List, Modal, Nav);
     // Load garments, add as a property, then start the app
@@ -13,6 +14,7 @@ class App {
         this.renderNav();
         this.renderFooter();
         this.clickEvents();
+       
       });
     });
 

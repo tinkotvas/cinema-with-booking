@@ -86,8 +86,7 @@ class Profile extends Base {
         if ($(event.target).hasClass('lgin')) {
             event.preventDefault();
             this.checkLogin(this.usName, function () {
-                alert('You are now Login!');
-                //TODO: Login Succeed
+            this.login();
             });
         }
     }
@@ -105,7 +104,7 @@ class Profile extends Base {
         this.checkPass();
         JSON._save(this.usName, { email: this.email, password: this.password });
         alert("Now you are sign up!");
-        // login
+        this.login();
     }
 
     checkPass() {
@@ -117,8 +116,6 @@ class Profile extends Base {
         if (!$('.tAndP').prop('checked')) {
             alert('Please agree the Terms & Privacy!');
         }
-        // check if JSON file exist
-
     }
 
     checkLogin(jsonName, callbackFunc) {
@@ -130,6 +127,7 @@ class Profile extends Base {
 
                 } else {
                     alert("Please check your password!");
+                    
                 }
             });
         }
@@ -139,6 +137,12 @@ class Profile extends Base {
     }
     validate(password) {
         return /(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=\D*\d)\w{6,}$/.test(password);
+    }
+
+    login(){
+        let that=this;
+        that.app.currentUser=that.usName;
+        console.log(that.app.currentUser);
     }
 
     toggleLoginModal() {
