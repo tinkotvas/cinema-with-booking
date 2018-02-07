@@ -175,6 +175,7 @@ header #signupModal .close {
 .card {
   overflow: hidden;
   width: 13em;
+  border: none;
   -webkit-transition: all 2s ease-out;
   transition: all 2s ease-out;
 }
