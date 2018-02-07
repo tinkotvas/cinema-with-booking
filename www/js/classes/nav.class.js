@@ -3,6 +3,8 @@ class Nav extends Base{
   constructor(){
     super();
     this.clickEvents();
+    this.userName;
+    
   }
 
   clickEvents(){
@@ -76,5 +78,12 @@ class Nav extends Base{
       
     }
 
+  }
+
+  showUSname(){
+    this.render('#showUSName', 'USname');
+    // that.userName=app.currentUser;
+    
+    console.log(app.currentUser);
   }
 }

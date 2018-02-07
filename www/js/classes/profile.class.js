@@ -86,7 +86,7 @@ class Profile extends Base {
         if ($(event.target).hasClass('lgin')) {
             event.preventDefault();
             this.checkLogin(this.usName, function () {
-            this.login();
+            //this.login();
             });
         }
     }
@@ -102,8 +102,15 @@ class Profile extends Base {
 
     sign() {
         this.checkPass();
-        JSON._save(this.usName, { email: this.email, password: this.password });
-        alert("Now you are sign up!");
+       
+        try {
+            JSON._save(this.usName, { email: this.email, password: this.password });
+            alert("Now you are sign up!");
+        }
+        catch (e) {
+            alert("Please fill in the form!");
+        }
+        
         this.login();
     }
 
@@ -141,8 +148,9 @@ class Profile extends Base {
 
     login(){
         let that=this;
-        that.app.currentUser=that.usName;
-        console.log(that.app.currentUser);
+       app.getCurrentUser(that.usName);
+       let nav=new Nav();
+       nav.showUSname();
     }
 
     toggleLoginModal() {
