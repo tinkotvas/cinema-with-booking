@@ -1,3 +1,18 @@
+@media (min-width: 576px) {
+  .modal-lg {
+    max-width: 90vw!important;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 70vw!important;
+  }
+}
+@media (min-width: 1400px) {
+  .modal-lg {
+    max-width: 60vw!important;
+  }
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
