@@ -1,3 +1,6 @@
+.text-red {
+  color: #FB515C!important;
+}
 .modal-lg p {
   color: white;
 }
@@ -23,7 +26,15 @@
   position: absolute;
   right: 0px;
   top: 0px;
-  overflow: hidden;
+}
+.checked {
+  color: orange;
+}
+.review {
+  height: 100%;
+}
+.review p {
+  font-size: 0.8em;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
