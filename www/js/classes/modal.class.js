@@ -14,10 +14,16 @@ class Modal extends Base{
       this.eventHandler();
       this.allMovieDates = [];
       this.selectDate;
+      //this.testArray = [];
   }
 
   toggleBookingModal(){
-    let that = this; 
+    let that = this;
+
+    //let testDate;
+    //let testTime;
+    //let testAuditorium;
+
     $(document).on("click", '.btn-booking', function() {
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
@@ -27,6 +33,10 @@ class Modal extends Base{
         if (idFilm == that.idBtn) {
           for(let viewing of that.viewings){
           if(film.title == viewing.film){
+            //testDate = viewing.date;
+            //testTime = viewing.time;
+            //testAuditorium = viewing.auditorium;
+            //that.testArray.push(testDate + testTime + testAuditorium);
             that.allMovieDates.push(viewing.date + ' ' + viewing.time + '%' + viewing.auditorium);
           }
         }
@@ -46,6 +56,7 @@ class Modal extends Base{
   renderShowingTime(){
     let that = this;
     for(let i = 0; i < that.allMovieDates.length; i++){
+      //console.log(that.testArray);
       let index = that.allMovieDates[i].indexOf('-');
       let slicedArr = that.allMovieDates[i].slice(index+1);
       let changedArr = slicedArr.replace('-', '/')
@@ -67,7 +78,6 @@ class Modal extends Base{
     $('.select-date').change(function(){
       that.selectDate = $('#date-select option:selected').text();
       let changedAuditorium = $(this).find(':selected').attr('data-auditorium')
-      let findI = that.selectDate.indexOf('i');
       $('#showTime').empty();
       $('#showTime').text(that.selectDate + ' i ' + changedAuditorium);
     })
@@ -95,8 +105,11 @@ class Modal extends Base{
   }
 
   confirmBooking(){
+    let that = this;
     $(document).on('click', '.confirm-booking', function() {
-      alert('hej din get')
+      // first check if logged in otherwise open the login modal
+      that.render('.modal-container-info', 3);
+      $('#summaryModal').modal('toggle');
     });
   }
 
@@ -148,6 +161,12 @@ class Modal extends Base{
       
       let totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
       $('.total-price').text('Summa: ' + totalPrice + ' kr');
+      if(totalPrice > 0){
+        $(".confirm-booking").prop("disabled", false);
+      }
+      else{
+        $(".confirm-booking").prop("disabled", true);
+      }
     })
   }
 

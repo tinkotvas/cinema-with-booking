@@ -8,8 +8,7 @@ Object.assign(Modal.prototype, {template3(){
         </div>
         <div class="modal-body">
           <h3>Du har bokat: </h3>
-          ${this.viewings.date}
-          <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-25" alt="cmbyn-poster">
+          ${this.selectDate}
           <h2 class="title-text text-white text-center">
             ${this.films[this.indexToOpen].title}
           </h2>
