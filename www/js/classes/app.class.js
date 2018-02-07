@@ -9,6 +9,7 @@ class App {
       let modal = new Modal(this.film);
       JSON._load('viewings').then((data)=>{
         this.lists = data;
+        this.profile=new Profile();
         this.renderNav();
         this.renderFooter();
         this.clickEvents();
@@ -23,10 +24,9 @@ class App {
     $('header').empty();
     nav.render('header');
     nav.changePage();
-    let login = new Login();
-    login.render('header');
-    let signup = new Signup();
-    signup.render('header');
+    
+    this.profile.render('header','login');
+    this.profile.render('header','signup');
     window.addEventListener('popstate',nav.changePage);
   }
 
@@ -37,12 +37,14 @@ class App {
   }
 
   clickEvents(){
-    $(document).on("click", '#loginModalToggle', function() {
-      $('#loginModal').modal('toggle');
+   let that=this;
+    $(document).on("click", '#loginModalToggle', function () {
+      that.profile.toggleLoginModal();
     });
-    $(document).on("click", '#opSignup', function() {
-      $('#loginModal').modal('toggle');
-      $('#signupModal').modal('toggle');
+
+    $(document).on("click", '#opSignup', function () {
+      that.profile.toggleSignupModal();
+  
     });
   }
 
