@@ -1,21 +1,21 @@
 .text-red {
   color: #FB515C !important;
 }
-#infoModal .modal-lg p {
+.modal-lg p {
   color: white;
 }
 @media (min-width: 576px) {
-  #infoModal .modal-lg {
+  .modal-lg {
     max-width: 90vw !important;
   }
 }
 @media (min-width: 992px) {
-  #infoModal .modal-lg {
+  .modal-lg {
     max-width: 70vw !important;
   }
 }
 @media (min-width: 1400px) {
-  #infoModal .modal-lg {
+  .modal-lg {
     max-width: 60vw !important;
   }
 }

@@ -85,8 +85,8 @@ class Auditorium extends Base {
 
 
     scaleBoard(orgW = 700, orgH = 600) {
-        let w = $('.modal-lg').width(); - $("#board").offset().left;
-        let h = $('.modal-lg').height();
+        let w = $('.modal-lg').width()*0.75;
+        let h = $('.modal-lg').height()*0.75;
         w -= 20 * 2;
         h -= (20 * 2);
         const wScale = w / orgW;
