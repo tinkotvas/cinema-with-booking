@@ -4,6 +4,7 @@ class MyPage extends Base {
     JSON._load('dummyBooking').then((dummyBooking)=>{
       this.dummyBooking = dummyBooking;
       this.renderBooking();
+      this.toggleOrderModal();
     });
   }
 
@@ -30,5 +31,24 @@ class MyPage extends Base {
       this.render('.pastBooking', 2);
       this.index++;
     }
+  }
+
+  toggleOrderModal(){
+    let that = this;
+    $(document).on("click", '.mypage-item', function() {
+      that.idBtn = $(this).attr('id');
+      let index = 0;
+      for (let film of app.film) {
+        let idFilm ='orderModalToggle'+film.title.replace(/\s+/g, '');
+        if (idFilm == that.idBtn) {
+          $('.modal-item').empty();
+          that.indexToOpen = index;
+        }
+        index++;
+      }
+      that.render('.modal-item', 3);
+      $('#orderModal').modal('show');
+
+    });
   }
 }
