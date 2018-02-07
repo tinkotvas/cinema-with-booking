@@ -38,8 +38,8 @@ class MyPage extends Base {
     $(document).on("click", '.mypage-item', function() {
       that.idBtn = $(this).attr('id');
       let index = 0;
-      for (let film of app.film) {
-        let idFilm ='orderModalToggle'+film.title.replace(/\s+/g, '');
+      for (let film of that.dummyBooking) {
+        let idFilm ='orderModalToggle'+film.filmTitle.replace(/\s+/g, '');
         if (idFilm == that.idBtn) {
           $('.modal-item').empty();
           that.indexToOpen = index;
