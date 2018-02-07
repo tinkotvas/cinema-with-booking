@@ -36,6 +36,7 @@ class Nav extends Base{
     if (url == '/') {
       $('main').empty();
       let mainpage=new MainPage(app.film);
+      let modal = new Modal(app.film, app.lists);
       //mainpage.render('main');
       //Draw booking modal
 

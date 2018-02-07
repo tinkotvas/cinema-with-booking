@@ -6,7 +6,6 @@ class App {
     // Load garments, add as a property, then start the app
     JSON._load('movies').then((movies)=>{
       this.film = movies;
-      let modal = new Modal(this.film);
       JSON._load('viewings').then((data)=>{
         this.lists = data;
         this.profile=new Profile();
