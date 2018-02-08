@@ -3,6 +3,8 @@ class Nav extends Base {
   constructor() {
     super();
     this.clickEvents();
+    this.modal;
+    this.list;
     this.userName;
     this.clickSignOut();
   }
@@ -32,7 +34,6 @@ class Nav extends Base {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
-    let modal;
     
     // change menu link active
     $('header a').removeClass('active');
@@ -40,9 +41,8 @@ class Nav extends Base {
     if (url == '/') {
       $('main').empty();
       let mainpage = new MainPage(app.film);
-
-      modal = new Modal(app.film, app.lists);
-
+      
+      typeof this.modal == 'undefined' ? this.modal = new Modal(app.film, app.lists):null;
       //mainpage.render('main');
       //Draw booking modal
 
@@ -50,20 +50,19 @@ class Nav extends Base {
       // // Draw info modal
       // modal.render('.modal-container-booking', 2);
 
-      let list = new List();
-      list.loadJSON(() => list.renderViewings(), "viewings");
+      typeof this.list == 'undefined' ? this.list = new List():null;
+      this.list.loadJSON(() => this.list.renderViewings(), "viewings");
       // let modal = new Modal(list);
     }
     if (url == '/filmer') {
       $('main').empty();
       let moviepage = new MoviePage();
       moviepage.render('main');
-      if (typeof modal == 'undefined') {
-        modal = new Modal(app.film, app.lists);
-      }
 
-      let list = new List();
-      list.loadJSON(() => list.renderMovies(), "movies");
+      typeof this.modal == 'undefined' ? this.modal = new Modal(app.film, app.lists):null;
+      typeof this.list == 'undefined' ? this.list = new List():null;
+
+      this.list.loadJSON(() => this.list.renderMovies(), "movies");
     }
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen

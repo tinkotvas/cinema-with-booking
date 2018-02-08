@@ -22,7 +22,7 @@ class List extends Base {
     renderMovies() {
         $('main').append(`
         <div class="d-flex mt-2">
-            <div id="movieCards" class="d-flex flex-wrap justify-content-center">
+            <div id="movieCards" class="d-flex flex-wrap justify-content-center mt-1">
                 <!-- Movie cards -->
             </div>
         </div>`);
@@ -33,7 +33,7 @@ class List extends Base {
             for (let i = 0; i < this.movies.length; i++) {
                 if (typeof this.movies[i] != 'undefined') {
                     moviesArea.append(`
-                <div class="card rounded-0">
+                <div class="card bg-dark">
                     <a id="infoModalToggle${this.movies[i].title.replace(/\s+/g, '')}" class="btn-info"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images[0]}" alt=""></a>
                 </div>
                 `);

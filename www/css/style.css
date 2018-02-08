@@ -1,19 +1,22 @@
+.text-red {
+  color: #FB515C !important;
+}
 .modal-lg p {
   color: white;
 }
 @media (min-width: 576px) {
   .modal-lg {
-    max-width: 90vw!important;
+    max-width: 90vw !important;
   }
 }
 @media (min-width: 992px) {
   .modal-lg {
-    max-width: 70vw!important;
+    max-width: 70vw !important;
   }
 }
 @media (min-width: 1400px) {
   .modal-lg {
-    max-width: 60vw!important;
+    max-width: 60vw !important;
   }
 }
 .youtube {
@@ -23,7 +26,15 @@
   position: absolute;
   right: 0px;
   top: 0px;
-  overflow: hidden;
+}
+.checked {
+  color: orange;
+}
+.review {
+  height: 100%;
+}
+.review p {
+  font-size: 0.8em;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -82,28 +93,24 @@ footer .social-media {
 html {
   position: relative;
 }
-#board-holder {
-  overflow: hidden;
-  margin: 0 auto;
-}
-#board-holder #board {
+#auditorium-holder #auditorium {
   transform-origin: 0 0;
 }
-#board-holder #board svg {
+#auditorium-holder #auditorium svg {
   transform-origin: 0 0;
 }
-#board-holder #board svg g .seat {
+#auditorium-holder #auditorium svg g .seat {
   fill: #a2f8a2;
   cursor: pointer;
 }
-#board-holder #board svg g .screen {
+#auditorium-holder #auditorium svg g .screen {
   fill: white;
 }
-#board-holder #board svg g .booked {
+#auditorium-holder #auditorium svg g .booked {
   fill: red;
   pointer-events: none;
 }
-#board-holder #board svg g .proposed {
+#auditorium-holder #auditorium svg g .proposed {
   fill: pink;
 }
 main {
@@ -167,6 +174,7 @@ header #showLoginStatus {
 .card {
   overflow: hidden;
   width: 13em;
+  border: none;
   -webkit-transition: all 2s ease-out;
   transition: all 2s ease-out;
 }
@@ -179,6 +187,7 @@ header #showLoginStatus {
 .card a:focus img {
   -webkit-transform: scale(1.04);
   transform: scale(1.04);
+  cursor: pointer;
 }
 .card .card-body {
   z-index: 2;
