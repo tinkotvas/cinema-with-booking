@@ -4,6 +4,7 @@ class MyPage extends Base {
     JSON._load('dummyBooking').then((dummyBooking)=>{
       this.dummyBooking = dummyBooking;
       this.renderBooking();
+      
     });
   }
 

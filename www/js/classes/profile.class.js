@@ -12,6 +12,7 @@ class Profile extends Base {
     }
 
     set email(val) {
+
         //email address control
         val = val.split('@');
         if (val.length == 2) {
@@ -34,9 +35,10 @@ class Profile extends Base {
             this.pass = val;
             $(".passControl").addClass("d-none");
             $(".signupbtn").prop("disabled", false);
-        } else { $(".signupbtn").prop("disabled", true); 
-    }
-        
+        } else {
+            $(".signupbtn").prop("disabled", true);
+        }
+
     }
 
     keyuplogin(event) {
@@ -48,7 +50,7 @@ class Profile extends Base {
         }
     }
 
-    keyupsignup(event){
+    keyupsignup(event) {
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
         }
@@ -68,7 +70,7 @@ class Profile extends Base {
             this.password = $(".lgPass").val();
         }
     }
-    changesignup(event){
+    changesignup(event) {
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
         }
@@ -82,16 +84,16 @@ class Profile extends Base {
 
 
     clicklogin(event, element, instance) {
-       
+
         if ($(event.target).hasClass('lgin')) {
-            event.preventDefault();
+            // event.preventDefault();
             this.checkLogin(this.usName, function () {
-                alert('You are now Login!');
-                //TODO: Login Succeed
+                
             });
+            this.login();
         }
     }
-    clicksignup(event, element, instance){
+    clicksignup(event, element, instance) {
         if ($(event.target).hasClass('cancelbtn')) {
             $('#signupModal').modal('toggle');
         }
@@ -103,9 +105,16 @@ class Profile extends Base {
 
     sign() {
         this.checkPass();
-        JSON._save(this.usName, { email: this.email, password: this.password });
-        alert("Now you are sign up!");
-        // login
+
+        try {
+            JSON._save(this.usName, { email: this.email, password: this.password });
+            alert("Now you are sign up!");
+        }
+        catch (e) {
+            alert("Please fill in the form!");
+        }
+
+        this.login();
     }
 
     checkPass() {
@@ -117,8 +126,6 @@ class Profile extends Base {
         if (!$('.tAndP').prop('checked')) {
             alert('Please agree the Terms & Privacy!');
         }
-        // check if JSON file exist
-
     }
 
     checkLogin(jsonName, callbackFunc) {
@@ -130,6 +137,7 @@ class Profile extends Base {
 
                 } else {
                     alert("Please check your password!");
+
                 }
             });
         }
@@ -141,20 +149,31 @@ class Profile extends Base {
         return /(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=\D*\d)\w{6,}$/.test(password);
     }
 
+    login() {
+        let that = this;
+        app.getCurrentUser(that.usName);
+        let nav = new Nav();
+        JSON._save('currentUser', {userName: that.usName});
+        nav.showUSname();
+    }
+
+    signOut(){
+        let that=this;
+        that.usName=0;
+        return JSON._save('currentUser', {userName: that.usName});
+    }
+
     toggleLoginModal() {
-        let that=this;
-        //$(document).on("click", '#loginModalToggle', function() {
-          that.render('.modal-container-login', 'login');
-          $('#loginModal').modal('toggle');
-        //});
-      }
-    
+        let that = this;
+        that.render('.modal-container-login', 'login');
+        $('#loginModal').modal('toggle');
+    }
+
     toggleSignupModal() {
-        let that=this;
-        //$(document).on("click", '#opSignup', function() {
-          that.render('.modal-container-signup', 'signup');
-          $('#loginModal').modal('toggle');
-          $('#signupModal').modal('toggle');
-        //});
-      }
+        let that = this; 
+        that.render('.modal-container-signup', 'signup');
+        $('#loginModal').modal('toggle');
+        $('#signupModal').modal('toggle');
+        event.preventDefault();
+    }
 }

@@ -92,6 +92,7 @@ class Modal extends Base{
   toggleInfoModal(){
     let that = this;
     $(document).on("click", '.btn-info', function() {
+      console.log($(this).attr('id'));
       that.idBtn = $(this).attr('id');
       let index = 0;
       for (let film of that.films) {
@@ -131,20 +132,20 @@ class Modal extends Base{
       let id = event.target.id;
       if(id == 'add-adult'){
         adultTickets++;
-        $('.ticketArea').removeClass('d-none');
-        $('#adultTickets').removeClass('d-none');
+//ticketArea').removeClass('d-none');
+  //      $('#adultTickets').removeClass('d-none');
         $('#adultTickets').text(adultTickets);
       }
       else if(id == 'add-child'){
         childTickets++;
-        $('.ticketArea').removeClass('d-none');
-        $('#childTickets').removeClass('d-none');
+       // $('.ticketArea').removeClass('d-none');
+        //$('#childTickets').removeClass('d-none');
         $('#childTickets').text(childTickets);
       }
       else if(id == 'add-senior'){
         seniorTickets++;
-        $('.ticketArea').removeClass('d-none');
-        $('#seniorTickets').removeClass('d-none');
+        //$('.ticketArea').removeClass('d-none');
+        //$('#seniorTickets').removeClass('d-none');
         $('#seniorTickets').text(seniorTickets);
       }
       else if(id == 'sub-adult'){
@@ -179,9 +180,9 @@ class Modal extends Base{
       }
     })
     $('.select-date').change(function(){
-      console.log('träff');
+      //console.log('träff');
         this.selectedDate = $('#date-select option:selected').text()
-        console.log(this.selectedDate);
+        //console.log(this.selectedDate);
       });
   }
 
