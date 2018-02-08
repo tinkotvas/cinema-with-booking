@@ -1,6 +1,23 @@
 Object.assign(MyPage.prototype, {template1(){
     return`
     <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <img class="mt-5 avatar" src="/../imgs/user.svg" alt="">
+          <div class="dropdown mt-2">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User X
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Change password</a>
+              <a class="dropdown-item" href="#">Another action</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 <h3 class="mt-5">Aktuella bokningar</h3>
@@ -32,7 +49,7 @@ Object.assign(MyPage.prototype, {template1(){
             </div>
         </div>
         <div class="modal-item">
-          
+
         </div>
     </div>
     `;

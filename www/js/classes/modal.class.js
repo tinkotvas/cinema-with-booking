@@ -1,4 +1,3 @@
-
 class Modal extends Base{
 
   constructor(films, viewings){
@@ -116,7 +115,7 @@ class Modal extends Base{
     let that = this;
     $(document).on('click', '.confirm-booking', function() {
       // first check if logged in otherwise open the login modal
-      
+
       //console.log(that.bookingDate);
       that.render('.modal-container-info', 3);
       $('#summaryModal').modal('toggle');
@@ -168,7 +167,7 @@ class Modal extends Base{
         seniorTickets--;
         $('#seniorTickets').text(seniorTickets);
       }
-      
+
       let totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
       $('.total-price').text('Summa: ' + totalPrice + ' kr');
       if(totalPrice > 0){

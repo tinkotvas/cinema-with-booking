@@ -34,10 +34,11 @@ class MyPage extends Base {
   }
 
   toggleOrderModal(){
-    let that = this;
+    let that = this
     $(document).on("click", '.mypage-item', function() {
       that.idBtn = $(this).attr('id');
       let index = 0;
+      let movieIndex = 0;
       for (let film of that.dummyBooking) {
         let idFilm ='orderModalToggle'+film.filmTitle.replace(/\s+/g, '');
         if (idFilm == that.idBtn) {
