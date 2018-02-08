@@ -92,6 +92,7 @@ class Modal extends Base{
   toggleInfoModal(){
     let that = this;
     $(document).on("click", '.btn-info', function() {
+      console.log($(this).attr('id'));
       that.idBtn = $(this).attr('id');
       let index = 0;
       for (let film of that.films) {
