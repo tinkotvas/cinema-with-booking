@@ -19,6 +19,7 @@ class Modal extends Base{
       this.selectDate;
       this.changedAuditorium;
       this.changedArr;
+      this.auditorium = new Auditorium();
   }
   get selectedDate() {
     return `${this.bookingDate}`
@@ -54,6 +55,7 @@ class Modal extends Base{
 
       that.render('.modal-container-booking', 1);
       $('#bookingModal').modal('toggle');
+      typeof this.auditorium == 'undefined' ? this.auditorium = new Auditorium():null;
       $(".confirm-booking").prop("disabled", true);
       that.renderShowingTime();
       that.showDateAndTime();
@@ -78,16 +80,16 @@ class Modal extends Base{
 
   showDateAndTime() {
     let that = this;
-    let auditorium;
+    this.auditorium;
     that.selectDate = $('#date-select option:selected').text();
     let currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium')
     $('#showTime').text(that.selectDate + ' i ' + currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
       this.changedAuditorium = $(this).find(':selected').attr('data-auditorium')
-      console.log(this.changedAuditorium)
-      typeof auditorium == 'undefined' ? auditorium = new Auditorium():null;
-      auditorium.renderAuditorium(this.changedAuditorium);
+
+
+      that.auditorium.renderAuditorium(this.changedAuditorium);
 
 
       $('#showTime').empty();
@@ -163,10 +165,16 @@ class Modal extends Base{
   }
 
   eventHandler() {
-
+    let that=this;
     $(document).on('hidden.bs.modal','#infoModal', function (e) {
       $('#infoModal').empty();
     })
+
+    $(document).on('shown.bs.modal','#bookingModal', function (e) {
+      that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
+    })
+
+
     let adultTickets = 0;
     let childTickets = 0;
     let seniorTickets = 0;

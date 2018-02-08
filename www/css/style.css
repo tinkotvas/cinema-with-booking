@@ -93,28 +93,24 @@ footer .social-media {
 html {
   position: relative;
 }
-#board-holder {
-  overflow: hidden;
-  margin: 0 auto;
-}
-#board-holder #board {
+#auditorium-holder #auditorium {
   transform-origin: 0 0;
 }
-#board-holder #board svg {
+#auditorium-holder #auditorium svg {
   transform-origin: 0 0;
 }
-#board-holder #board svg g .seat {
+#auditorium-holder #auditorium svg g .seat {
   fill: #a2f8a2;
   cursor: pointer;
 }
-#board-holder #board svg g .screen {
+#auditorium-holder #auditorium svg g .screen {
   fill: white;
 }
-#board-holder #board svg g .booked {
+#auditorium-holder #auditorium svg g .booked {
   fill: red;
   pointer-events: none;
 }
-#board-holder #board svg g .proposed {
+#auditorium-holder #auditorium svg g .proposed {
   fill: pink;
 }
 main {

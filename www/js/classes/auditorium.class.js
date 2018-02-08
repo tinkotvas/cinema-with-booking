@@ -52,9 +52,9 @@ class Auditorium extends Base {
             cy += seatVerticalSpacing;
         }
         let screenWidth = maxSeatsPerRow * seatHorizontalSpacing
-        let board = `
-        <div id="board-holder"">
-            <div id="board"">
+        let htmlAuditorium = `
+        <div id="auditorium-holder" class="mr-auto ml-auto">
+            <div id="auditorium">
                 <svg class="bg-dark" xmlns="http://www.w3.org/2000/svg" version="1.1">
                     <g>
                         <rect class="screen" x="50" y="5" height="20" width="${screenWidth-100}"/>
@@ -67,19 +67,17 @@ class Auditorium extends Base {
         </div>
         `;
         $('#auditoriumContainer').empty();
-        $('#auditoriumContainer').append(board);
+        $('#auditoriumContainer').append(htmlAuditorium);
 
         let auditoriumWidth = maxSeatsPerRow * 50;
         let auditoriumHeight = ((auditorium.seatsPerRow.length + 2) * 55);
 
-        $('#board, svg').width(auditoriumWidth);
-        $('#board, svg').height(auditoriumHeight);
-
-        this.scaleBoard();
+        $('#auditorium, svg').width(auditoriumWidth).height(auditoriumHeight);
+        this.scaleAuditorium(auditoriumWidth,auditoriumHeight);
     }
 
 
-    scaleBoard(orgW = 700, orgH = 600) {
+    scaleAuditorium(orgW = 700, orgH = 600) {
         let w = $('.modal-lg').width()*0.75;
         let h = $('.modal-lg').height()*0.75;
         w -= 20 * 2;
@@ -88,9 +86,9 @@ class Auditorium extends Base {
         const hScale = h / orgH;
         let scaling = Math.min(wScale, hScale);
 
-        $('#board').css('transform', `scale(${scaling})`);
-        $('#board-holder').width(orgW * scaling);
-        $('#board-holder').height(orgH * scaling);
+        $('#auditorium').css('transform', `scale(${scaling})`);
+        $('#auditorium-holder').width(orgW * scaling);
+        $('#auditorium-holder').height(orgH * scaling);
     }
 
     eventHandlers() {
