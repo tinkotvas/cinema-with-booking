@@ -99,19 +99,14 @@ html {
 #auditorium-holder #auditorium svg {
   transform-origin: 0 0;
 }
-#auditorium-holder #auditorium svg g .seat {
-  fill: #a2f8a2;
-  cursor: pointer;
-}
-#auditorium-holder #auditorium svg g .screen {
-  fill: white;
-}
-#auditorium-holder #auditorium svg g .booked {
-  fill: red;
+#auditorium-holder #auditorium svg g image {
   pointer-events: none;
 }
-#auditorium-holder #auditorium svg g .proposed {
-  fill: pink;
+svg {
+  transform-origin: 50% 50% 0px;
+}
+.red {
+  fill: red;
 }
 main {
   margin-top: 64px;
