@@ -1,54 +1,85 @@
-Object.assign(Modal.prototype, {template1(){
-  return `
-    <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content bg-dark">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-25" alt="cmbyn-poster">
-            <h2 class="title-text text-white text-center">
-              ${this.films[this.indexToOpen].title}
-            </h2>
-            <p id="showTime" class="text-center"></p>
-          </div>
-          <div class="modal-footer bg-white col-12 justify-content-center">
-            <div class="flex-row">
-              <h4>Välj antal biljetter:</h4>
-              <div class="row mx-auto">
-                <button type="button" class="btn btn-success mr-1" id="add-adult"> + </button>
-                <p> VUXEN - <span id="adult-price">95</span>kr </p>
-                <button type="button" class="btn btn-danger ml-1" id="sub-adult"> - </button>
-                <button type="button" class="btn btn-success ml-2 mr-1" id="add-child"> + </button>
-                <p>BARN - 55kr</p>
-                <button type="button" class="btn btn-danger ml-1" id="sub-child"> - </button>
-                <button type="button" class="btn btn-success ml-2 mr-1" id="add-senior"> + </button>
-                <p>SENIOR - 65kr</p>
-                <button type="button" class="btn btn-danger ml-1" id="sub-senior"> - </button>     
-              </div>
-              <div class="row mx-auto mt-4">
-                <div class="col-8">
-                  <h5 class="ticketArea"> Antal biljetter </h5>
-                  <p>Vuxen: <span id="adultTickets">0</span></p>
-                  <p>Barn: <span id="childTickets">0</span></p>
-                  <p>Senior: <span id="seniorTickets">0</span></p>
-                  <p class="ticketArea total-price">Summa: <span id="total-sum">0</span> kr</p>
-                </div>
-                <div class="col-4">
-                  <div class='form-group'> 
-                    <label for="exampleSelect1">Välj datum</label> 
-                    <select class='form-control select-date' id='date-select'> 
-                    </select> 
-                  </div> 
-                  <a class="ticketArea btn btn-base btn-booking confirm-booking mx-md-0 mx-lg-2 my-1">BOKA</a>
-                </div>
+Object.assign(Modal.prototype, {template1(){ return `
+<div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-body p-0">
+        <div class="container-fluid m-0">
+
+
+          <div class="row mt-3">
+            <div class="col-3">
+              <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-100" alt="">
+            </div>
+
+            <div class="col-4 mt-4">
+              <p class="mb-0"> VUXEN -
+                <span id="adult-price">95</span>kr</p>
+              <button type="button" class="btn btn-danger" id="sub-adult"> - </button>
+              <button type="button" class="btn btn-success" id="add-adult"> + </button>
+
+              <p class="mb-0">BARN - 55kr</p>
+              <button type="button" class="btn btn-danger" id="sub-child"> - </button>
+              <button type="button" class="btn btn-success" id="add-child"> + </button>
+
+            </div>
+
+            <div class="col-4 mt-4">
+              <p class="mb-0">SENIOR - 65kr</p>
+              <button type="button" class="btn btn-danger" id="sub-senior"> - </button>
+              <button type="button" class="btn btn-success" id="add-senior"> + </button>
+
+              <div class='form-group mt-5'>
+                <label for="exampleSelect1" class="text-red">Välj datum</label>
+                <select class='form-control select-date' id='date-select'>
+                </select>
               </div>
             </div>
+
           </div>
+
+          <div class="row">
+            <div class="col-12">
+              <h2 class="title-text text-white text-center">
+                ${this.films[this.indexToOpen].title} ${this.changedAuditorium}
+              </h2>
+              <p id="showTime" class="text-center"></p>
+            </div>
+          </div>
+
+          <div id="auditoriumContainer" class="row mr-auto ml-auto">
+
+          </div>
+
         </div>
+
+        <div class="row mx-auto mt-4">
+          <div class="col-8">
+            <h5 class="ticketArea text-red"> Antal biljetter </h5>
+            <p>Vuxen:
+              <span id="adultTickets">0</span>
+            </p>
+            <p>Barn:
+              <span id="childTickets">0</span>
+            </p>
+            <p>Senior:
+              <span id="seniorTickets">0</span>
+            </p>
+            <p class="ticketArea total-price">Summa:
+              <span id="total-sum">0</span> kr</p>
+
+
+          </div>
+
+          <div class="col-4">
+            <a class="ticketArea btn btn-base btn-booking confirm-booking mx-md-0 mx-lg-2 my-1">BOKA</a>
+          </div>
+
+        </div>
+
       </div>
     </div>
+  </div>
+</div>
+</div>
+</div>
 `; }});

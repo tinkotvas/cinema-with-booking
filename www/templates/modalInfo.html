@@ -1,8 +1,4 @@
-Object.assign(Modal.prototype, {template2(){
-  let m = this.films[this.indexToOpen].length % 60;
-  let h = (this.films[this.indexToOpen].length-m)/60;
-  let movieRuntime = `${h.toString()} tim ${(m<10? "0": "")}${m.toString()} min`;
-  
+Object.assign(Modal.prototype, {template2(){ 
   return ` <div class="container">
   <div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -18,28 +14,32 @@ Object.assign(Modal.prototype, {template2(){
                 </div>
               </div>
             </div>
-
             <div class="row">
-              <div class="col-8 mr-auto">
-                <h2 class="title-text text-white text-center">${this.films[this.indexToOpen].title}</h2>
-                <h6 class="text-white text-center">${movieRuntime} | ${this.films[this.indexToOpen].genre} | ${this.films[this.indexToOpen].language}</h6>
+
+              <div class="col-12 col-sm-8 mr-auto mt-2">
+                <h2 class="text-red text-center">${this.films[this.indexToOpen].title}</h2>
+                <p class="text-center">${this.movieRuntime} | ${this.films[this.indexToOpen].genre} | ${this.films[this.indexToOpen].language}</p>
               </div>
 
-              <div class="col-3 mr-2 mt-2">
-                <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-75" alt="cmbyn-poster">
+              <div class="col-12 col-sm-3 mr-2 mt-2 d-none d-sm-block">
+                <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-75" alt="">
               </div>
 
-              <div class="col-9 mr-auto">
+              <div class="col-12 col-sm-9 mr-auto mt-3">
                 ${this.films[this.indexToOpen].description}
               </div>
 
-              <div class="col-10 mr-auto">
-                <p class="mb-1">Direktör: ${this.films[this.indexToOpen].director}</p>
-                <p class="mb-1">Skådespelare: ${this.films[this.indexToOpen].actors.join(", ")} </p>
-                <p class="mb-1">Produktionsår: ${this.films[this.indexToOpen].productionYear}</p>
-                <p class="mb-3">Ursprungsland: ${this.films[this.indexToOpen].productionCountries}</p>
+              <div class="col-12 col-sm-8 mr-auto">
+                <p class="mb-1"><span class="text-red">Direktör:</span> ${this.films[this.indexToOpen].director}</p>
+                <p class="mb-1"><span class="text-red">Skådespelare:</span> ${this.films[this.indexToOpen].actors.join('<span class="text-red">, </span>')} </p>
+                <p class="mb-1"><span class="text-red">Produktionsår:</span> ${this.films[this.indexToOpen].productionYear}</p>
+                <p class="mb-1"><span class="text-red">Ursprungsland:</span> ${this.films[this.indexToOpen].productionCountries}</p>
+                <p class="mb-1"><span class="text-red">Undertexter:</span> ${this.films[this.indexToOpen].subtitles}</p>
               </div>
 
+            </div>
+            <div class="row">
+              ${this.htmlStarRatings.join("")}
             </div>
           </div>
         </div>
