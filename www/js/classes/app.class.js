@@ -16,22 +16,23 @@ class App extends Base {
         this.renderNav(this.nav);
         this.renderFooter();
         this.clickEvents();
+        this.clickSignOut();
       });
     });
   }
   renderLoginStatus() {
     $('#showLoginStatus').empty();
     if (this.currentUser == 0) {
-      this.nav.render('#showLoginStatus', 'lginBtn');
+      this.render('#showLoginStatus', 'lginBtn');
     } else {
       this.showUSname();
     }
   }
 
   showUSname() {
-    this.userName = this.currentUser;
+    // this.userName = this.currentUser;
     $('#showLoginStatus').empty();
-    this.nav.render('#showLoginStatus', 'USname');
+    this.render('#showLoginStatus', 'USname');
   }
 
   clickSignOut() {
@@ -39,7 +40,7 @@ class App extends Base {
     $(document).on('click', '#signOut', function () {
       that.signOut().then(() => {
         $('#showLoginStatus').empty();
-        that.nav.render('#showLoginStatus', 'lginBtn');
+        that.render('#showLoginStatus', 'lginBtn');
       });
       location.pathname = '/';
     });
@@ -47,9 +48,9 @@ class App extends Base {
 
   signOut() {
     let that = this;
-    that.usName = 0;
+    that.currentUser = 0;
     return JSON._save('currentUser', {
-      userName: that.usName
+      userName: that.currentUser
     });
   }
 
@@ -87,7 +88,6 @@ class App extends Base {
     });
 
     $(document).on("click", '#loginModalToggle', function () {
-
       that.profile.toggleLoginModal();
     });
 
