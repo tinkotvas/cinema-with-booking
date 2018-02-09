@@ -101,20 +101,26 @@ class Nav extends Base {
 
   showUSname() {
     this.userName = this.currentUser;
-    $('#loginModalToggle').toggleClass('d-none');
+    $('#showLoginStatus').empty();
     this.render('#showLoginStatus', 'USname');
   }
 
   clickSignOut() {
     let that = this;
     $(document).on('click', '#signOut', function () {
-      let profile = new Profile();
-      profile.signOut().then(() => {
+      that.signOut().then(() => {
         $('#showLoginStatus').empty();
         that.render('#showLoginStatus', 'lginBtn');
       });
       location.pathname='/';
     });
   }
+
+  signOut() {
+    let that = this;
+    that.usName = 0;
+    return JSON._save('currentUser', { userName: that.usName });
+    
+}
 
 }

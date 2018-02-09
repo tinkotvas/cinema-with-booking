@@ -10,8 +10,9 @@ class App {
       this.films = movies;
       JSON._load('viewings').then((data)=>{
         this.viewings = data;
-        this.profile = new Profile();
-        this.renderNav();
+        this.nav = new Nav();
+        this.profile = new Profile(this.nav);
+        this.renderNav(this.nav);
         this.renderFooter();
         this.clickEvents();
       });
@@ -20,15 +21,12 @@ class App {
 
   }
 
-  renderNav() {
-    let nav = new Nav(this.currentUser, this.films, this.viewings);
+  renderNav(nav) {
+    
     $('header').empty();
     nav.render('header');
     nav.renderLoginStatus();
     nav.changePage();
-
-    this.profile.render('header', 'login');
-    this.profile.render('header', 'signup');
     window.addEventListener('popstate', nav.changePage);
   }
 
@@ -41,12 +39,12 @@ class App {
   clickEvents() {
     let that = this;
     $(document).on("click", '#loginModalToggle', function () {
+     
       that.profile.toggleLoginModal();
     });
 
     $(document).on("click", '#opSignup', function () {
       that.profile.toggleSignupModal();
-
     });
   }
 
