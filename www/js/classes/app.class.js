@@ -7,9 +7,9 @@ class App {
       this.currentUser=data.userName;
     });
     JSON._load('movies').then((movies) => {
-      this.film = movies;
+      this.films = movies;
       JSON._load('viewings').then((data)=>{
-        this.lists = data;
+        this.viewings = data;
         this.nav = new Nav();
         this.profile = new Profile(this.nav);
         this.renderNav(this.nav);
