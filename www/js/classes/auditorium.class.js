@@ -1,9 +1,7 @@
 class Auditorium extends Base {
-
     constructor() {
         super();
         this.auditoriums;
-        //this.loadJSON();
     }
 
     loadJSON(callbackFunc) {
@@ -27,7 +25,6 @@ class Auditorium extends Base {
             seatHorizontalSpacing = 50,
             seatVerticalSpacing = 60;
 
-        //we add two to max seats on a row because we want 1 to the left and 1 to the right that's empty (no seats drawn)
         let rowsToDraw = auditorium.seatsPerRow.length + 1;
         let maxSeatsPerRow = Math.max(...auditorium.seatsPerRow) + 2;
         let seatNumber = 1;
@@ -76,7 +73,6 @@ class Auditorium extends Base {
         this.scaleAuditorium(auditoriumWidth,auditoriumHeight);
     }
 
-
     scaleAuditorium(orgW = 700, orgH = 600) {
         let w = $('.modal-lg').width()*0.75;
         let h = $('.modal-lg').height()*0.75;
@@ -104,21 +100,10 @@ class Auditorium extends Base {
                 if (seat.hasClass('booked')) {} else {
                     seat.addClass('proposed')
                 }
-
             },
             mouseleave: function () {
-
                 seat.removeClass('proposed')
-
             }
         }, '.seat');
     }
-}
-
-function stora() {
-    let bio = new Auditorium("Stora Salongen");
-}
-
-function lilla() {
-    let bio = new Auditorium("Lilla Salongen");
 }
