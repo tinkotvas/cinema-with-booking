@@ -1,8 +1,13 @@
 class Nav extends Base {
 
-  constructor() {
+  constructor(currentUser, films, viewings) {
     super();
+    this.currentUser = currentUser;
+    this.films = films;
+    this.viewings = viewings;
     this.clickEvents();
+    this.modal;
+    this.list;
     this.userName;
     this.clickSignOut();
   }
@@ -32,17 +37,15 @@ class Nav extends Base {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
-    let modal;
     
     // change menu link active
     $('header a').removeClass('active');
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
       $('main').empty();
-      let mainpage = new MainPage(app.film);
-
-      modal = new Modal(app.film, app.lists);
-
+      let mainpage = new MainPage(this.films);
+      
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings):null;
       //mainpage.render('main');
       //Draw booking modal
 
@@ -50,20 +53,19 @@ class Nav extends Base {
       // // Draw info modal
       // modal.render('.modal-container-booking', 2);
 
-      let list = new List();
-      list.loadJSON(() => list.renderViewings(), "viewings");
+      typeof this.list == 'undefined' ? this.list = new List():null;
+      this.list.loadJSON(() => this.list.renderViewings(), "viewings");
       // let modal = new Modal(list);
     }
     if (url == '/filmer') {
       $('main').empty();
       let moviepage = new MoviePage();
       moviepage.render('main');
-      if (typeof modal == 'undefined') {
-        modal = new Modal(app.film, app.lists);
-      }
 
-      let list = new List();
-      list.loadJSON(() => list.renderMovies(), "movies");
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings):null;
+      typeof this.list == 'undefined' ? this.list = new List():null;
+
+      this.list.loadJSON(() => this.list.renderMovies(), "movies");
     }
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
@@ -90,7 +92,7 @@ class Nav extends Base {
 
   renderLoginStatus() {
     $('#showLoginStatus').empty();
-    if (app.currentUser == 0) {
+    if (this.currentUser == 0) {
       this.render('#showLoginStatus', 'lginBtn');
     } else {
       this.showUSname();
@@ -98,21 +100,27 @@ class Nav extends Base {
   }
 
   showUSname() {
-    this.userName = app.currentUser;
-    $('#loginModalToggle').toggleClass('d-none');
+    this.userName = this.currentUser;
+    $('#showLoginStatus').empty();
     this.render('#showLoginStatus', 'USname');
   }
 
   clickSignOut() {
     let that = this;
     $(document).on('click', '#signOut', function () {
-      let profile = new Profile();
-      profile.signOut().then(() => {
+      that.signOut().then(() => {
         $('#showLoginStatus').empty();
         that.render('#showLoginStatus', 'lginBtn');
       });
       location.pathname='/';
     });
   }
+
+  signOut() {
+    let that = this;
+    that.usName = 0;
+    return JSON._save('currentUser', { userName: that.usName });
+    
+}
 
 }

@@ -3,7 +3,7 @@ class Auditorium extends Base {
     constructor() {
         super();
         this.auditoriums;
-
+        //this.loadJSON();
     }
 
     loadJSON(callbackFunc) {
@@ -12,12 +12,17 @@ class Auditorium extends Base {
             callbackFunc && callbackFunc();
         }).
         catch((e) => {
-            console.log(`No JSON data`);
+            
         });
     }
 
-    renderAuditorium(data) {
-        let auditorium = this.auditoriums[data]
+    renderAuditorium(name){
+        this.loadJSON(() => this.htmlRenderAuditorium(name));
+        this.eventHandlers();
+    }
+
+    htmlRenderAuditorium(name) {
+        let auditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
         let seats = [],
             seatHorizontalSpacing = 50,
             seatVerticalSpacing = 60;
@@ -47,9 +52,9 @@ class Auditorium extends Base {
             cy += seatVerticalSpacing;
         }
         let screenWidth = maxSeatsPerRow * seatHorizontalSpacing
-        let board = `
-        <div id="board-holder"">
-            <div id="board"">
+        let htmlAuditorium = `
+        <div id="auditorium-holder" class="mr-auto ml-auto">
+            <div id="auditorium">
                 <svg class="bg-dark" xmlns="http://www.w3.org/2000/svg" version="1.1">
                     <g>
                         <rect class="screen" x="50" y="5" height="20" width="${screenWidth-100}"/>
@@ -61,36 +66,35 @@ class Auditorium extends Base {
             </div>
         </div>
         `;
+        $('#auditoriumContainer').empty();
+        $('#auditoriumContainer').append(htmlAuditorium);
 
-        $('main').append(board);
-
-        let auditoriumWidth = maxSeatsPerRow * 100;
+        let auditoriumWidth = maxSeatsPerRow * 50;
         let auditoriumHeight = ((auditorium.seatsPerRow.length + 2) * 55);
 
-        $('#board, svg').width(auditoriumWidth);
-        $('#board, svg').height(auditoriumHeight);
-
-        this.scaleBoard();
+        $('#auditorium, svg').width(auditoriumWidth).height(auditoriumHeight);
+        this.scaleAuditorium(auditoriumWidth,auditoriumHeight);
     }
 
 
-    scaleBoard(orgW = 700, orgH = 600) {
-        let w = $(window).width() - $("#board").offset().left;
-        let h = $(window).height();
+    scaleAuditorium(orgW = 700, orgH = 600) {
+        let w = $('.modal-lg').width()*0.75;
+        let h = $('.modal-lg').height()*0.75;
         w -= 20 * 2;
         h -= (20 * 2);
         const wScale = w / orgW;
         const hScale = h / orgH;
         let scaling = Math.min(wScale, hScale);
 
-        $('#board').css('transform', `scale(${scaling})`);
-        $('#board-holder').width(orgW * scaling);
-        $('#board-holder').height(orgH * scaling);
+        $('#auditorium').css('transform', `scale(${scaling})`);
+        $('#auditorium-holder').width(orgW * scaling);
+        $('#auditorium-holder').height(orgH * scaling);
     }
 
     eventHandlers() {
         let seat;
 
+        $(document).off('click mouseenter mouseleave', '.seat')
         $(document).on({
             click: function () {
                 console.log($(this));
@@ -111,9 +115,10 @@ class Auditorium extends Base {
     }
 }
 
-let bio = new Auditorium();
+function stora() {
+    let bio = new Auditorium("Stora Salongen");
+}
 
-function loadAndRender() {
-    bio.loadJSON(() => bio.renderAuditorium(1));
-    bio.eventHandlers();
+function lilla() {
+    let bio = new Auditorium("Lilla Salongen");
 }
