@@ -1,7 +1,10 @@
 class Nav extends Base {
 
-  constructor() {
+  constructor(currentUser, films, viewings) {
     super();
+    this.currentUser = currentUser;
+    this.films = films;
+    this.viewings = viewings;
     this.clickEvents();
     this.modal;
     this.list;
@@ -40,9 +43,9 @@ class Nav extends Base {
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
       $('main').empty();
-      let mainpage = new MainPage(app.film);
+      let mainpage = new MainPage(this.films);
       
-      typeof this.modal == 'undefined' ? this.modal = new Modal(app.film, app.lists):null;
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings):null;
       //mainpage.render('main');
       //Draw booking modal
 
@@ -59,7 +62,7 @@ class Nav extends Base {
       let moviepage = new MoviePage();
       moviepage.render('main');
 
-      typeof this.modal == 'undefined' ? this.modal = new Modal(app.film, app.lists):null;
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings):null;
       typeof this.list == 'undefined' ? this.list = new List():null;
 
       this.list.loadJSON(() => this.list.renderMovies(), "movies");
@@ -89,7 +92,7 @@ class Nav extends Base {
 
   renderLoginStatus() {
     $('#showLoginStatus').empty();
-    if (app.currentUser == 0) {
+    if (this.currentUser == 0) {
       this.render('#showLoginStatus', 'lginBtn');
     } else {
       this.showUSname();
@@ -97,7 +100,7 @@ class Nav extends Base {
   }
 
   showUSname() {
-    this.userName = app.currentUser;
+    this.userName = this.currentUser;
     $('#loginModalToggle').toggleClass('d-none');
     this.render('#showLoginStatus', 'USname');
   }

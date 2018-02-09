@@ -7,9 +7,9 @@ class App {
       this.currentUser=data.userName;
     });
     JSON._load('movies').then((movies) => {
-      this.film = movies;
+      this.films = movies;
       JSON._load('viewings').then((data)=>{
-        this.lists = data;
+        this.viewings = data;
         this.profile = new Profile();
         this.renderNav();
         this.renderFooter();
@@ -21,7 +21,7 @@ class App {
   }
 
   renderNav() {
-    let nav = new Nav();
+    let nav = new Nav(this.currentUser, this.films, this.viewings);
     $('header').empty();
     nav.render('header');
     nav.renderLoginStatus();
