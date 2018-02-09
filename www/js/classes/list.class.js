@@ -18,6 +18,7 @@ class List extends Base {
         });
     }
 
+
     renderMovies() {
         $('main').append(`
         <div class="d-flex mt-2">
@@ -33,12 +34,16 @@ class List extends Base {
                 if (typeof this.movies[i] != 'undefined') {
                     moviesArea.append(`
                 <div class="card rounded-0">
-                    <a href="#"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images[0]}" alt=""></a>
+                    <a id="infoModalToggle${this.movies[i].title.replace(/\s+/g, '')}" class="btn-info"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images[0]}" alt=""></a>
                 </div>
                 `);
                 }
             }
         //}
+    }
+    
+    eventHandlers(){
+
     }
 
     renderViewings() {
