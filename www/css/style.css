@@ -136,15 +136,15 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-header .brand-modal {
+.brand-modal {
   width: 80px;
 }
-header #loginModal .modal-header,
-header #signupModal .modal-header {
+#loginModal .modal-header,
+#signupModal .modal-header {
   background-color: #FB515C !important;
 }
-header #loginModal .close,
-header #signupModal .close {
+#loginModal .close,
+#signupModal .close {
   cursor: pointer;
 }
 header #showLoginStatus {
