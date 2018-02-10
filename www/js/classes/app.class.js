@@ -146,8 +146,8 @@ class App extends Base {
     }
     if (url == '/minasidor') {
       $('main').empty();
-      let mypage = new MyPage();
-
+      typeof this.myPage == 'undefined' ? this.myPage = new MyPage  () : null;
+      this.myPage.renderBooking(); 
     }
 
   }

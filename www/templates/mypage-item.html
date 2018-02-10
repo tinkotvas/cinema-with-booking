@@ -1,6 +1,6 @@
 Object.assign(MyPage.prototype, {template2(){
     return`
-    <tr class="mypage-item" id="orderModalToggle${this.dummyBooking[this.index].filmTitle.replace(/\s+/g, '')}">
+    <tr class="mypage-item" id="orderModalToggle${this.dummyBooking[this.index].bookingID}">
       <th scope="row">${this.dummyBooking[this.index].date}</th>
       <td class="w-50">${this.dummyBooking[this.index].filmTitle}</td>
     </tr>
