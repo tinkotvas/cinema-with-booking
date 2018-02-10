@@ -1,6 +1,6 @@
 class Nav extends Base {
 
-  constructor() {
+  constructor(currentUser, films, viewings) {
     super();
   }
   
