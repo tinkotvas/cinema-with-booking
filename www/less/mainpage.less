@@ -1,16 +1,46 @@
 main{
   margin-top: 64px;
+  .header-film{
+    border: 3px solid @main-color !important;
+    width: fit-content;
+    color: @main-light;
+  }
+  .carousel{
+    position: relative;
+  }
+  .carousel:hover .carousel-details{
+    height: 40%;
+  }
+  
+  .carousel-details{
+    background-color: @main-color;
+    right: 0;
+    bottom: 0;
+    height:60%;
+    width: 30%;
+    position: absolute;
+  }
   .list-group-item{
     background-color: transparent;
+    color: #FFF;
+    transition: background-color 200ms cubic-bezier(1, 0, 0, 1);
+    border-bottom: 1px solid @main-dark;
   }
+  .list-group-item:hover{
+    background-color: #343A39;
+    color: #FFF;;
+    cursor: pointer;
+    transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
+
+  }  
 	.list-element{
 		width: fit-content;
 		height: fit-content;
-	}
-  .header-film{
-    border: 3px solid #FFF !important;
-    width: fit-content;
   }
+  .card{
+    background-color: transparent;
+  }
+  
   .mainbanner {
     width: 100%;
   }

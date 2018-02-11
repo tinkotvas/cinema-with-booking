@@ -1,6 +1,6 @@
 header nav {
   height: fit-content;
-  background-color: #FB515C !important;
+  background-color: #5cfda5 !important;
 }
 header nav .nav-link {
   border-bottom: 1px solid transparent;
@@ -17,7 +17,7 @@ header .brand-modal {
 }
 header #loginModal .modal-header,
 header #signupModal .modal-header {
-  background-color: #FB515C !important;
+  background-color: #5cfda5 !important;
 }
 header #loginModal .close,
 header #signupModal .close {
@@ -33,8 +33,15 @@ body main {
   color: white;
   padding-bottom: 80px;
 }
+body main .pageTitle {
+  border-bottom: 2px solid #5cfda5;
+  width: fit-content;
+}
 .text-red {
-  color: #FB515C !important;
+  color: #5cfda5 !important;
+}
+.modal-content {
+  background-color: #343A39;
 }
 .modal-lg p {
   color: white;
@@ -87,22 +94,23 @@ footer {
   position: absolute;
   left: 0;
   right: 0;
-  color: white;
-  background-color: black;
+  color: #ffffff;
+  background-color: #343a39;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 80px;
 }
 footer a {
-  color: white;
+  color: #ffffff;
 }
 footer a:hover {
-  color: #FB515C !important;
+  color: #ffffff !important;
+  text-decoration: none;
 }
 footer .social-media {
   font-size: 2.5em;
-  color: #FB515C;
+  color: #5cfda5;
 }
 @media screen and (min-width: 769px) and (max-width: 937px) {
   footer {
@@ -146,33 +154,60 @@ svg {
 main {
   margin-top: 64px;
 }
+main .header-film {
+  border: 3px solid #5cfda5 !important;
+  width: fit-content;
+  color: #ffffff;
+}
+main .carousel {
+  position: relative;
+}
+main .carousel:hover .carousel-details {
+  height: 40%;
+}
+main .carousel-details {
+  background-color: #5cfda5;
+  right: 0;
+  bottom: 0;
+  height: 60%;
+  width: 30%;
+  position: absolute;
+}
 main .list-group-item {
   background-color: transparent;
+  color: #FFF;
+  transition: background-color 200ms cubic-bezier(1, 0, 0, 1);
+  border-bottom: 1px solid #343a39;
+}
+main .list-group-item:hover {
+  background-color: #343A39;
+  color: #FFF;
+  cursor: pointer;
+  transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
 }
 main .list-element {
   width: fit-content;
   height: fit-content;
 }
-main .header-film {
-  border: 3px solid #FFF !important;
-  width: fit-content;
+main .card {
+  background-color: transparent;
 }
 main .mainbanner {
   width: 100%;
 }
 .btn-base {
-  border: 2px solid black;
-  background-color: white;
   border-radius: 0;
-  color: black;
+  border: 2px solid #5cfda5;
+  background-color: transparent;
+  color: #FFF !important;
   text-decoration: none;
   transition: all 200ms cubic-bezier(1, 0, 0, 1);
 }
 .btn-base:hover {
   cursor: pointer;
-  border: 2px solid #000;
-  background-color: #FB515C;
-  color: black;
+  border: 2px solid transparent;
+  background-color: #5cfda5;
+  color: #FFF !important;
   text-decoration: none;
   transition: all 400ms cubic-bezier(1, 0, 0, 1);
 }
@@ -220,6 +255,14 @@ main .mainbanner {
 main .mypage-item {
   cursor: pointer;
 }
+main .mypage-item:hover {
+  background-color: #343A39 !important;
+  color: #FFF;
+  transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
+}
 main .avatar {
   width: 15%;
+}
+main .booking-state {
+  border-top: 2px solid #5cfda5 !important;
 }
