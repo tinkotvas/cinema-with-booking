@@ -1,5 +1,5 @@
 class MyPage extends Base {
-  constructor(){
+  constructor(films){
     super();
     this.toggleOrderModal();
   }
@@ -40,10 +40,8 @@ class MyPage extends Base {
     $(document).on("click", '.mypage-item', function() {
       that.idBtn = $(this).attr('id');
       let index = 0;
-      let movieIndex = 0;
       for (let film of that.dummyBooking) {
-        let idFilm ='orderModalToggle'+film.bookingID;
-        if (idFilm == that.idBtn) {
+        if ('orderModalToggle'+film.bookingID == that.idBtn) {
           $('.modal-container-item').empty();
           that.indexToOpen = index;
         }
