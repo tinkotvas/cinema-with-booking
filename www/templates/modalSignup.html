@@ -1,4 +1,4 @@
-Object.assign(Signup.prototype, {template(){ return `
+Object.assign(Profile.prototype, {templatesignup(){ return `
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -10,7 +10,7 @@ Object.assign(Signup.prototype, {template(){ return `
       </div>
       <div class="modal-body">
         <h5 class="modal-title text-center" id="signupLabel">Sign Up</h5>
-        <form class="mb-4">
+        <form class="mb-4" id="signupForm">
           <!-- <h5>Sign Up</h5> -->
 
 
@@ -27,14 +27,15 @@ Object.assign(Signup.prototype, {template(){ return `
           <div class="form-group">
             <label>Repeat Password</label>
             <input type="password" class="form-control signUpRePass" placeholder="Repeat Password" name="repass" required>
-            
+            <small class="repassCheck d-none">Please check your password!</small>
           </div>
           <div class="form-group">
             <label>
               <small class="form-text text-muted">
                 <input type="checkbox" class="tAndP"> By creating an account you agree to our
                 <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</small>
-            </label>
+              <small class="checkIt d-none text-error">Please agree the Terms & Privacy!</small>
+              </label>
 
 
           </div>

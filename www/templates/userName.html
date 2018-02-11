@@ -1,0 +1,11 @@
+Object.assign(App.prototype, {templateUSname(){ return`
+<div class="btn-group">
+  <a class="dropdown-toggle nav-link pop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${this.currentUser}
+    <i class="fa fa-user" aria-hidden="true"></i>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right nav-item">
+    <a class="dropdown-item" href="/minasidor">My Page</a>
+    <a class="dropdown-item" href="#" id="signOut">Sign Out</a>
+  </div>
+</div>
+`; } });

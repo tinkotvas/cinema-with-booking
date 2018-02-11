@@ -1,44 +1,31 @@
 class List extends Base {
-    constructor() {
+    constructor(films, viewings) {
         super();
-        this.movies;
-        this.viewings;
-    }
-
-    loadJSON(callbackFunc, jsonName) {
-        JSON._load(jsonName).then((data) => {
-            if (jsonName == "movies")
-                this.movies = data;
-            if (jsonName == "viewings")
-                this.viewings = data;
-            callbackFunc && callbackFunc();
-        }).
-        catch((e) => {
-            console.log(`No JSON ${jsonName} data`);
-        });
+        this.films = films;
+        this.viewings = viewings;
     }
 
     renderMovies() {
         $('main').append(`
         <div class="d-flex mt-2">
-            <div id="movieCards" class="d-flex flex-wrap justify-content-center">
+            <div id="movieCards" class="d-flex flex-wrap justify-content-center mt-1">
                 <!-- Movie cards -->
             </div>
         </div>`);
         let moviesArea = $("#movieCards");
 
         //gief us more to watch on screen
-        for (let x = 0; x < 3; x++) {
-            for (let i = 0; i < this.movies.length; i++) {
-                if (typeof this.movies[i] != 'undefined') {
+        //for (let x = 0; x < 3; x++) {
+            for (let i = 0; i < this.films.length; i++) {
+                if (typeof this.films[i] != 'undefined') {
                     moviesArea.append(`
-                <div class="card rounded-0">
-                    <a href="#"><img class="card-img-top rounded-0" src="/imgs/${this.movies[i].images}" alt=""></a>
+                <div class="card bg-dark">
+                    <a id="infoModalToggle${this.films[i].title.replace(/\s+/g, '')}" class="btn-info"><img class="card-img-top rounded-0" src="/imgs/${this.films[i].images[0]}" alt=""></a>
                 </div>
                 `);
                 }
             }
-        }
+        //}
     }
 
     renderViewings() {

@@ -1,3 +1,41 @@
+.text-red {
+  color: #FB515C !important;
+}
+.modal-lg p {
+  color: white;
+}
+@media (min-width: 576px) {
+  .modal-lg {
+    max-width: 90vw !important;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 70vw !important;
+  }
+}
+@media (min-width: 1400px) {
+  .modal-lg {
+    max-width: 60vw !important;
+  }
+}
+.youtube {
+  min-height: 40vh;
+}
+#infoModal img {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.checked {
+  color: orange;
+}
+.review {
+  height: 100%;
+}
+.review p {
+  font-size: 0.8em;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -52,6 +90,24 @@ footer .social-media {
     height: 75px;
   }
 }
+html {
+  position: relative;
+}
+#auditorium-holder #auditorium {
+  transform-origin: 0 0;
+}
+#auditorium-holder #auditorium svg {
+  transform-origin: 0 0;
+}
+#auditorium-holder #auditorium svg g image {
+  pointer-events: none;
+}
+svg {
+  transform-origin: 50% 50% 0px;
+}
+.red {
+  fill: red;
+}
 main {
   margin-top: 64px;
 }
@@ -80,15 +136,18 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-header .brand-modal {
+.brand-modal {
   width: 80px;
 }
-header #loginModal .modal-header,
-header #signupModal .modal-header {
+#loginModal .modal-header,
+#signupModal .modal-header {
   background-color: #FB515C !important;
 }
-header #loginModal .close,
-header #signupModal .close {
+#loginModal .close,
+#signupModal .close {
+  cursor: pointer;
+}
+header #showLoginStatus {
   cursor: pointer;
 }
 .btn-base {
@@ -110,6 +169,7 @@ header #signupModal .close {
 .card {
   overflow: hidden;
   width: 13em;
+  border: none;
   -webkit-transition: all 2s ease-out;
   transition: all 2s ease-out;
 }
@@ -122,6 +182,7 @@ header #signupModal .close {
 .card a:focus img {
   -webkit-transform: scale(1.04);
   transform: scale(1.04);
+  cursor: pointer;
 }
 .card .card-body {
   z-index: 2;
@@ -145,4 +206,10 @@ header #signupModal .close {
 .regler .rulesbanner {
   width: 100%;
   height: 30%;
+}
+main .mypage-item {
+  cursor: pointer;
+}
+main .avatar {
+  width: 15%;
 }
