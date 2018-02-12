@@ -1,32 +1,63 @@
-class App {
-  
+class App extends Base {
+
   constructor() {
+    super();
     // Tell jsonflex to recreate instances of the class Garment
-    JSON._classes(Film, List, Modal, Nav, Profile);
-    JSON._load('currentUser').then((data)=>{
-      this.currentUser=data.userName;
+    JSON._classes(List, Modal, Nav, Profile);
+    JSON._load('currentUser').then((data) => {
+      this.currentUser = data.userName;
     });
     JSON._load('movies').then((movies) => {
       this.films = movies;
-      JSON._load('viewings').then((data)=>{
+      JSON._load('viewings').then((data) => {
         this.viewings = data;
-        this.nav = new Nav();
+        this.nav = new Nav(this.currentUser, this.films, this.viewings);
         this.profile = new Profile(this.nav);
         this.renderNav(this.nav);
         this.renderFooter();
         this.clickEvents();
       });
     });
+  }
+  renderLoginStatus() {
+    $('#showLoginStatus').empty();
+    if (this.currentUser == 0) {
+      this.nav.render('#showLoginStatus', 'lginBtn');
+    } else {
+      this.showUSname();
+    }
+  }
 
+  showUSname() {
+    this.userName = this.currentUser;
+    $('#showLoginStatus').empty();
+    this.nav.render('#showLoginStatus', 'USname');
+  }
 
+  clickSignOut() {
+    let that = this;
+    $(document).on('click', '#signOut', function () {
+      that.signOut().then(() => {
+        $('#showLoginStatus').empty();
+        that.nav.render('#showLoginStatus', 'lginBtn');
+      });
+      location.pathname = '/';
+    });
+  }
+
+  signOut() {
+    let that = this;
+    that.usName = 0;
+    return JSON._save('currentUser', {
+      userName: that.usName
+    });
   }
 
   renderNav(nav) {
-    
     $('header').empty();
-    nav.render('header');
-    nav.renderLoginStatus();
-    nav.changePage();
+    this.nav.render('header');
+    this.renderLoginStatus();
+    this.changePage();
     window.addEventListener('popstate', nav.changePage);
   }
 
@@ -38,8 +69,25 @@ class App {
 
   clickEvents() {
     let that = this;
+    $(document).on("click", '#bookingModalToggle', function () {
+      $('#bookingModal').modal('toggle');
+    });
+
+    $(document).on("click", '#infoModalToggle', function () {
+      $('#infoModal').modal('toggle');
+    });
+    $(document).on('click', 'a.pop', function (e) {
+      //Create a push state preventDefault
+      let href = $(this).attr('href');
+      history.pushState(null, null, href);
+      //Call the change page function
+      that.changePage();
+      //Stop the browers from starting a page reload
+      e.preventDefault();
+    });
+
     $(document).on("click", '#loginModalToggle', function () {
-     
+
       that.profile.toggleLoginModal();
     });
 
@@ -52,7 +100,55 @@ class App {
     this.currentUser = val;
     // console.log(this.currentUser);
   }
- 
 
+  changePage() {
+    //React on page changed, replace parts of DOM
+    // get the current url
+    let url = location.pathname;
 
+    // change menu link active
+    $('header a').removeClass('active');
+    $(`header a[href="${url}"]`).addClass('active')
+    if (url == '/') {
+      $('main').empty();
+      let mainpage = new MainPage(this.films);
+
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
+
+      typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
+      this.list.renderViewings();
+      // let modal = new Modal(list);
+    }
+    if (url == '/filmer') {
+      $('main').empty();
+      let moviepage = new MoviePage();
+      moviepage.render('main');
+
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
+      typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
+
+      this.list.renderMovies();
+    }
+    if (url == '/biograf') {
+      //empty 'main', so that only one render will showen
+      $('main').empty();
+      // create instance here and render
+      let biograf = new Auditorium();
+      biograf.render('main');
+    }
+    if (url == '/regler') {
+      $('main').empty();
+      this.nav.render('main', 'regler');
+    }
+    if (url == '/godis') {
+      $('main').empty();
+      this.nav.render('main', 'godis');
+    }
+    if (url == '/minasidor') {
+      $('main').empty();
+      let mypage = new MyPage();
+
+    }
+
+  }
 }

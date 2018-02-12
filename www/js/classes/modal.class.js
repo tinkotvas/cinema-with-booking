@@ -3,7 +3,6 @@ class Modal extends Base{
 
   constructor(films, viewings){
       super();
-      this.clickedFilm = new Film();
       this.films = films;
       this.viewings = viewings;
       this.movieRuntime;
@@ -21,6 +20,7 @@ class Modal extends Base{
       this.changedArr;
       this.auditorium = new Auditorium();
   }
+  
   get selectedDate() {
     return `${this.bookingDate}`
   }
@@ -77,7 +77,6 @@ class Modal extends Base{
     }
   }
 
-
   showDateAndTime() {
     let that = this;
     this.auditorium;
@@ -96,8 +95,6 @@ class Modal extends Base{
       $('#showTime').text(that.selectDate + ' i ' + that.changedAuditorium);
     })
   }
-
-
 
   htmlMovieRatings() {
     let stars = [];
@@ -229,6 +226,5 @@ class Modal extends Base{
       console.log(this.selectedDate);
     });
   }
-
 
 }
