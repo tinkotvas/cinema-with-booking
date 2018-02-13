@@ -96,70 +96,49 @@ class Auditorium extends Base {
         $(document).on({
             click: function () {
                 console.log($(this));
+                $('.selected').removeClass('selected')
+                $('.proposed').addClass('selected');
             },
             mouseenter: function () {
                 seat = $(this);
-                if (seat.hasClass('booked')) {} else {
-                    if (that.totalSeats > 1) {
-                        let emptySeatsLeft = that.findEmptySeatsLeft(this, that.totalSeats);
-                        let emptySeatsRight = that.findEmptySeatsRight(this, that.totalSeats);
 
-                        let checkForwards = true,
-                            checkBackwards = true;
-                        console.log("emptySeatsLeft", emptySeatsLeft)
-                        console.log("emptySeatsRight", emptySeatsRight)
+                if (seat.hasClass('booked')) {
 
-                        let totalEmptySeatsFromHere = emptySeatsLeft + emptySeatsRight + 1; //+1 for current hoovering seat
-
-                        if (totalEmptySeatsFromHere >= that.totalSeats) {
-                            // seat.addClass('proposed');
-                            let totalSeatsBooked = 0;
-                            for (let i = 0; i < totalEmptySeatsFromHere; i++) {
-                                //console.log($(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).hasClass('booked'));
-
-                                if (checkForwards) {
-                                    if (!$(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`)[0] || $(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`).hasClass('booked')) {
-                                        checkForwards = false;
-                                    } else {
-                                        $(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`).addClass('proposed');
-                                        totalSeatsBooked++;
-                                    }
-
-                                    if (totalSeatsBooked > that.totalSeats) {
-                                        break;
-                                    }
-                                }
-                                if (checkBackwards) {
-                                    if (!$(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`)[0] || $(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).hasClass('booked')) {
-                                        console.log("behind is booked", i)
-                                        checkBackwards= false;
-                                    } else {
-                                        $(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).addClass('proposed');
-                                        totalSeatsBooked++;
-                                    }
-
-                                    if (totalSeatsBooked > that.totalSeats) {
-                                        break;
-                                    }
-                                }
-
-                            }
-                            console.log("totalSeatsBooked", totalSeatsBooked)
-
-
-
-                            // let startingSeat = $(emptySeatsRight
-
-                            // let startingPos = Math.floor(emptySeatsRight / 2);
-                            // for (let i = 0;i < that.totalSeats ; i++) {
-                            //     $()
-                            // }
-
-
+                } else if (that.totalSeats > 1) {
+                    let checkingForwards = true,
+                        checkingBackwards = true;
+                    let totalEmptySeatsFromHere = that.countAdjacentAvailableSeats(seat, that.totalSeats);
+                    let totalSeatsBooked = 0;
+                    //modifier -1 for left +1 for right
+                    let proposedSeatDirection = function (modifier) {
+                        if (!$(`#seatNr${parseInt(seat[0].id.split("Nr")[1])+modifier}`)[0] || $(`#seatNr${parseInt(seat[0].id.split("Nr")[1])+modifier}`).hasClass('booked')) {
+                            modifier > 0 ? checkingForwards = false : checkingBackwards = false;
+                        } else {
+                            $(`#seatNr${parseInt(seat[0].id.split("Nr")[1])+modifier}`).addClass('proposed');
+                            totalSeatsBooked++;
                         }
-                    } else {
-                        seat.addClass('proposed')
                     }
+                    let checkIfWeHaveAllSeats = function(){
+                        if (totalSeatsBooked > that.totalSeats) {
+                            return true;
+                        }
+                    }
+                    if (totalEmptySeatsFromHere >= that.totalSeats) {
+                        for (let i = 0; i < totalEmptySeatsFromHere; i++) {
+                            if (checkingForwards) {
+                                proposedSeatDirection(+i)
+                                if(checkIfWeHaveAllSeats())
+                                break;
+                            }
+                            if (checkingBackwards) {
+                                proposedSeatDirection(-i);
+                                if(checkIfWeHaveAllSeats())
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    seat.addClass('proposed')
                 }
             },
             mouseleave: function () {
@@ -168,29 +147,20 @@ class Auditorium extends Base {
         }, '.seat');
     }
 
-    findEmptySeatsLeft(fromSeat, totalSeats) {
-        let fromSeatNr = parseInt(fromSeat.id.split("Nr")[1]);
-        let emptySeats = 0;
-        for (let i = 1; i <= totalSeats; i++) {
-            let currentSeat = $(`#seatNr${fromSeatNr-i}`)
-            if (!currentSeat[0] || currentSeat.hasClass('booked')) {
-                break;
-            } else {
-                emptySeats++
-            }
-        }
-        return emptySeats;
-    }
+    countAdjacentAvailableSeats(fromSeat, totalSeats) {
+        let emptySeats = 1;
+        let fromSeatNr = parseInt(fromSeat[0].id.split("seatNr")[1]);
+        let modifier;
+        for (let x = 0; x < 2; x++) {
+            for (let i = 1; i <= totalSeats; i++) {
+                x % 2 == 1 ? modifier = -i : modifier = +i;
+                let currentSeat = $(`#seatNr${fromSeatNr+modifier}`)
 
-    findEmptySeatsRight(fromSeat, totalSeats) {
-        let fromSeatNr = parseInt(fromSeat.id.split("Nr")[1]);
-        let emptySeats = 0;
-        for (let i = 1; i <= totalSeats; i++) {
-            let currentSeat = $(`#seatNr${fromSeatNr+i}`)
-            if (!currentSeat[0] || currentSeat.hasClass('booked')) {
-                break;
-            } else {
-                emptySeats++
+                if (!currentSeat[0] || currentSeat.hasClass('booked')) {
+                    break;
+                } else {
+                    emptySeats++
+                }
             }
         }
         return emptySeats;
