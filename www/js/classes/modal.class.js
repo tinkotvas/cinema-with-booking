@@ -32,6 +32,7 @@ class Modal extends Base{
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
+      $('#infoModal').modal('hide');
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
