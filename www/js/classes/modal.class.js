@@ -45,7 +45,6 @@ class Modal extends Base{
             that.viewingToOpen = co;
             //console.log(that.viewings[that.viewingToOpen]);
             that.allMovieDates.push(viewing.date + ' ' + viewing.time + '%' + viewing.auditorium);
-            console.log(that.allMovieDates);
           }
           co++;
         }
@@ -160,6 +159,8 @@ class Modal extends Base{
       $('.modal-container-info').empty();
       that.render('.modal-container-info', 3);
       $('#summaryModal').modal('toggle');
+      //save into currentUser.json
+     
     });
   }
 

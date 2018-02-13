@@ -17,6 +17,7 @@ class App extends Base {
         this.renderFooter();
         this.clickEvents();
         this.clickSignOut();
+        // this.myPage=new MyPage();
       });
     });
   }
@@ -147,8 +148,10 @@ class App extends Base {
     }
     if (url == '/minasidor') {
       $('main').empty();
-      let mypage = new MyPage();
-
+      let myPage= new MyPage();
+      myPage.init(this.currentUser).then(()=>{
+        myPage.renderBooking();
+    });
     }
 
   }
