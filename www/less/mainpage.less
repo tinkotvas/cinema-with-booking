@@ -1,9 +1,73 @@
 main{
   margin-top: 64px;
   .header-film{
-    border: 3px solid @main-color !important;
     width: fit-content;
+  }
+  .header-film h1{
+    border-bottom: 3px solid @main-color !important;
+    //white-space: nowrap;
+    overflow: hidden;
     color: @main-light;
+    font-size: 3.5rem;
+    width: fit-content;
+  }
+
+  .gallery{
+    background-color: @main-dark;
+    width: 100%;
+    height: 560px;
+    position: relative;
+  }
+  .gallery-nav{
+    position: absolute;
+    top: 0;
+    width: 40%;
+  }
+  .gallery-previous,
+  .gallery-next{
+    background-color: transparent !important;
+    border: none; 
+    cursor: pointer;
+  }
+  .gallery-previous:hover,
+  .gallery-next:hover{
+    color: @main-color;
+  }
+  .gallery-details{
+    height: 560px;
+  }
+  .gallery .buy{
+    background-color:#27CFE6;
+    height: 30px;
+    width: 105%;
+    left: 5%;
+    overflow-y: hidden;
+    transition: all 200ms cubic-bezier(1, 0, 0, 1);
+  }
+  .gallery .buy:hover{
+    height: 80px;
+    transition: all 400ms cubic-bezier(1, 0, 0, 1);
+  }
+  .gallery .gallery-info{
+    background-color: @main-color;
+    height: 20%;
+    left: 5%;
+    z-index: 2;
+    width: 120%;
+    overflow-y: hidden;
+    transition: all 200ms cubic-bezier(1, 0, 0, 1);
+  }
+  .gallery .gallery-info:hover{
+    height: 100%;
+    transition: all 400ms cubic-bezier(1, 0, 0, 1);
+  }
+  .gallery-image-container{
+    //transform: translate(0%, 0%);
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .gallery-image{
+   // width: 100%;
   }
   .carousel{
     position: relative;
@@ -20,6 +84,8 @@ main{
     width: 30%;
     position: absolute;
   }
+
+
   .list-group-item{
     background-color: transparent;
     color: #FFF;

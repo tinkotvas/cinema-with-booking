@@ -1,6 +1,6 @@
 Object.assign(MainPage.prototype, { template2(){
   return `
-  <div class="carousel-item">
+  <!-- <div class="carousel-item">
     <div class="card text-white w-100 border-0 rounded-0">
       <img class="d-block w-100" src="/imgs/${this.films[this.index].images[1]}" alt="${this.films[this.index].title}">
       <div class="card-img-overlay">
@@ -9,5 +9,37 @@ Object.assign(MainPage.prototype, { template2(){
         </div>
       </div>
     </div>
+  </div> -->
+  <div class="gallery-nav mt-5 p-5">
+      <div class="mt-3">
+        <button class="gallery-previous">
+          <i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i>
+        </button>
+        <button class="gallery-next">
+          <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true"></i>
+        </button> 
+      </div>
+      <div class="header-film mt-3">
+        <h1 class="header-film-text">${this.films[this.index].title}</h1>
+      </div>
+      
+  </div>
+  <div class="row gallery-details align-items-end m-0 p-0">
+      <div class="col-2 buy">
+        <h5 class="">Boka nu</h5>
+        <a class="btn btn-base btn-booking" id="bookingModalToggle">Biljetter</a>
+      </div>
+      <div class="col-3 gallery-info">
+        <div class="col-12 col-sm-8 m-0 p-0">
+            <p class="my-1"><span class=""></span>Direktör:</span> ${this.films[this.index].director}</p>
+            <p class="my-1"><span class="">Skådespelare:</span> ${this.films[this.index].actors.join('<span class="">, </span>')} </p>
+            <p class="my-1"><span class="">Produktionsår:</span> ${this.films[this.index].productionYear}</p>
+            <p class="my-1"><span class="">Ursprungsland:</span> ${this.films[this.index].productionCountries}</p>
+            <p class="my-1"><span class="">Undertexter:</span> ${this.films[this.index].subtitles}</p>
+        </div>
+      </div>
+      <div class="col-7 gallery-image-container p-0 m-0">
+          <img class="d-block gallery-image" src="/imgs/${this.films[this.index].images[1]}" alt="${this.films[this.index].title}">
+      </div>
   </div>
 `;}});

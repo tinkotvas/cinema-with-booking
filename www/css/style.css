@@ -27,7 +27,7 @@ header #showLoginStatus {
   cursor: pointer;
 }
 body {
-  background-color: black;
+  background-color: #0C1C1B;
 }
 body main {
   color: white;
@@ -155,9 +155,67 @@ main {
   margin-top: 64px;
 }
 main .header-film {
-  border: 3px solid #5cfda5 !important;
   width: fit-content;
+}
+main .header-film h1 {
+  border-bottom: 3px solid #5cfda5 !important;
+  overflow: hidden;
   color: #ffffff;
+  font-size: 3.5rem;
+  width: fit-content;
+}
+main .gallery {
+  background-color: #343a39;
+  width: 100%;
+  height: 560px;
+  position: relative;
+}
+main .gallery-nav {
+  position: absolute;
+  top: 0;
+  width: 40%;
+}
+main .gallery-previous,
+main .gallery-next {
+  background-color: transparent !important;
+  border: none;
+  cursor: pointer;
+}
+main .gallery-previous:hover,
+main .gallery-next:hover {
+  color: #5cfda5;
+}
+main .gallery-details {
+  height: 560px;
+}
+main .gallery .buy {
+  background-color: #27CFE6;
+  height: 30px;
+  width: 105%;
+  left: 5%;
+  overflow-y: hidden;
+  transition: all 200ms cubic-bezier(1, 0, 0, 1);
+}
+main .gallery .buy:hover {
+  height: 80px;
+  transition: all 400ms cubic-bezier(1, 0, 0, 1);
+}
+main .gallery .gallery-info {
+  background-color: #5cfda5;
+  height: 20%;
+  left: 5%;
+  z-index: 2;
+  width: 120%;
+  overflow-y: hidden;
+  transition: all 200ms cubic-bezier(1, 0, 0, 1);
+}
+main .gallery .gallery-info:hover {
+  height: 100%;
+  transition: all 400ms cubic-bezier(1, 0, 0, 1);
+}
+main .gallery-image-container {
+  width: 100%;
+  overflow-x: hidden;
 }
 main .carousel {
   position: relative;
@@ -259,6 +317,10 @@ main .mypage-item:hover {
   background-color: #343A39 !important;
   color: #FFF;
   transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
+}
+main .table td,
+main .table th {
+  border-top: none;
 }
 main .avatar {
   width: 15%;
