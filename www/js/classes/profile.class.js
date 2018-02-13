@@ -1,7 +1,7 @@
 class Profile extends Base {
     constructor() {
         super();
-        // this.nav=nav;
+        this.changeInput();
     }
 
     get email() {
@@ -61,33 +61,18 @@ class Profile extends Base {
         }
     }
 
-    changelogin() {
-        $('.lginEmail').change(function(){
+    changeInput() {
+        $('.lginEmail').on('change', function(){
             this.email = $(".lginEmail").val();
         })
-        // if ($(event.target).hasClass('lginEmail')) {
-            
-        //  }
-        // if ($(event.target).hasClass('lgPass')) {
-        //     this.password = $(".lgPass").val();
-        // }
+        $('.signUpEmail').on('change', function(){
+            this.email = $(".signUpEmail").val();
+        })
     }
 
-    // changesignup(event) {
-    //     if ($(event.target).hasClass('signUpEmail')) {
-    //         this.email = $(".signUpEmail").val();
-    //     }
-    //     if ($(event.target).hasClass('signUpPass')) {
-    //         this.password = $(".signUpPass").val();
-    //     }
-    //     if ($(event.target).hasClass('signUpRePass')) {
-    //         this.repass = $(".signUpRePass").val();
-    //     }
-    // }
-
-
     clicklogin(event, element, instance) {
-
+        console.log(this.email);
+        console.log(this.password);
         if ($(event.target).hasClass('lgin')) {
             this.checkLogin(this.usName);   
         }
@@ -106,15 +91,13 @@ class Profile extends Base {
                 }
             });
         }
-        catch (e) {
+        catch(e) {
             //User name not found
             $('.noUserName').removeClass('d-none');
         }
     }
     login() {
         let that = this;
-        console.log(that.email);
-        console.log(that.password);
         app.getCurrentUser(that.usName);
         app.showUSname();
         JSON._save('currentUser', { userName: that.usName });
