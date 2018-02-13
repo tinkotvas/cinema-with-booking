@@ -1,6 +1,7 @@
 class MyPage extends Base {
   constructor(films){
     super();
+    this.films = films;
     this.toggleOrderModal();
   }
 
@@ -40,10 +41,19 @@ class MyPage extends Base {
     $(document).on("click", '.mypage-item', function() {
       that.idBtn = $(this).attr('id');
       let index = 0;
-      for (let film of that.dummyBooking) {
-        if ('orderModalToggle'+film.bookingID == that.idBtn) {
+      for (let booking of that.dummyBooking) {
+        if ('orderModalToggle'+booking.bookingID == that.idBtn) {
           $('.modal-container-item').empty();
           that.indexToOpen = index;
+          //console.log(booking.filmTitle);
+          for (let film of that.films) {
+            if (film.title == booking.filmTitle) {
+              console.log(film.director);
+              
+            }
+          }
+          //console.log(film.filmTitle);
+          
         }
         index++;
       }
