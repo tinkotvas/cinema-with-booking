@@ -61,26 +61,29 @@ class Profile extends Base {
         }
     }
 
-    changelogin(event) {
-        if ($(event.target).hasClass('lginEmail')) {
+    changelogin() {
+        $('.lginEmail').change(function(){
             this.email = $(".lginEmail").val();
-         }
-        if ($(event.target).hasClass('lgPass')) {
-            this.password = $(".lgPass").val();
-        }
+        })
+        // if ($(event.target).hasClass('lginEmail')) {
+            
+        //  }
+        // if ($(event.target).hasClass('lgPass')) {
+        //     this.password = $(".lgPass").val();
+        // }
     }
 
-    changesignup(event) {
-        if ($(event.target).hasClass('signUpEmail')) {
-            this.email = $(".signUpEmail").val();
-        }
-        if ($(event.target).hasClass('signUpPass')) {
-            this.password = $(".signUpPass").val();
-        }
-        if ($(event.target).hasClass('signUpRePass')) {
-            this.repass = $(".signUpRePass").val();
-        }
-    }
+    // changesignup(event) {
+    //     if ($(event.target).hasClass('signUpEmail')) {
+    //         this.email = $(".signUpEmail").val();
+    //     }
+    //     if ($(event.target).hasClass('signUpPass')) {
+    //         this.password = $(".signUpPass").val();
+    //     }
+    //     if ($(event.target).hasClass('signUpRePass')) {
+    //         this.repass = $(".signUpRePass").val();
+    //     }
+    // }
 
 
     clicklogin(event, element, instance) {
@@ -113,7 +116,7 @@ class Profile extends Base {
         console.log(that.email);
         console.log(that.password);
         app.getCurrentUser(that.usName);
-        that.nav.showUSname();
+        app.showUSname();
         JSON._save('currentUser', { userName: that.usName });
        $('#loginForm')[0].reset();  
     }

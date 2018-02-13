@@ -31,15 +31,15 @@ class App extends Base {
   showUSname() {
     this.userName = this.currentUser;
     $('#showLoginStatus').empty();
-    this.nav.render('#showLoginStatus', 'USname');
+    this.render('#showLoginStatus', 'USname');
   }
 
   clickSignOut() {
-    let that = this;
+     let that = this;
     $(document).on('click', '#signOut', function () {
       that.signOut().then(() => {
         $('#showLoginStatus').empty();
-        that.nav.render('#showLoginStatus', 'lginBtn');
+        that.render('#showLoginStatus', 'lginBtn');
       });
       location.pathname = '/';
     });
@@ -47,10 +47,11 @@ class App extends Base {
 
   signOut() {
     let that = this;
-    that.usName = 0;
+    that.currentUser = 0;
     return JSON._save('currentUser', {
-      userName: that.usName
+      userName: that.currentUser
     });
+
   }
 
   renderNav(nav) {
