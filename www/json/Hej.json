@@ -1,0 +1,14 @@
+{
+  "bookingID": 743,
+  "filmTitle": "Let the sunshine in",
+  "date": "2018-03-16",
+  "time": "20.40",
+  "auditorium": "Lilla Salongen",
+  "seatID": [
+    23,
+    24,
+    24
+  ],
+  "totalPrice": 130,
+  "totalTickets": 2
+}
