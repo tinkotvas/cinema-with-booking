@@ -1,7 +1,7 @@
 class Profile extends Base {
-    constructor(nav) {
+    constructor() {
         super();
-        this.nav=nav;
+        // this.nav=nav;
     }
 
     get email() {

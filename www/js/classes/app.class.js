@@ -16,20 +16,21 @@ class App extends Base {
         this.renderNav(this.nav);
         this.renderFooter();
         this.clickEvents();
+        this.clickSignOut();
       });
     });
   }
   renderLoginStatus() {
     $('#showLoginStatus').empty();
     if (this.currentUser == 0) {
-      this.nav.render('#showLoginStatus', 'lginBtn');
+      this.render('#showLoginStatus', 'lginBtn');
     } else {
       this.showUSname();
     }
   }
 
   showUSname() {
-    this.userName = this.currentUser;
+    // this.userName = this.currentUser;
     $('#showLoginStatus').empty();
     this.render('#showLoginStatus', 'USname');
   }
@@ -88,7 +89,6 @@ class App extends Base {
     });
 
     $(document).on("click", '#loginModalToggle', function () {
-
       that.profile.toggleLoginModal();
     });
 
