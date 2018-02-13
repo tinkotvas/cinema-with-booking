@@ -1,7 +1,9 @@
 class MyPage extends Base {
   constructor(films){
     super();
+    this.films = films;
     this.toggleOrderModal();
+    
   }
 
   renderBooking(){
@@ -36,19 +38,29 @@ class MyPage extends Base {
   }
 
   toggleOrderModal(){
-    let that = this
+    let that = this;
     $(document).on("click", '.mypage-item', function() {
       that.idBtn = $(this).attr('id');
       let index = 0;
-      for (let film of that.dummyBooking) {
-        if ('orderModalToggle'+film.bookingID == that.idBtn) {
+      let indexPoster = 0;
+      for (let booking of that.dummyBooking) {
+        if ('orderModalToggle'+booking.bookingID == that.idBtn) {
           $('.modal-container-item').empty();
           that.indexToOpen = index;
+          for (let film of that.films) {
+            if(film.title == booking.filmTitle ){
+              that.indexToOpenPoster = indexPoster;
+            }
+            indexPoster++
+          }
         }
         index++;
+          
       }
       that.render('.modal-container-item', 3);
       $('#orderModal').modal('toggle');
     });
   }
 }
+
+
