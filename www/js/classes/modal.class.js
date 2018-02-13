@@ -45,6 +45,7 @@ class Modal extends Base{
             that.viewingToOpen = co;
             //console.log(that.viewings[that.viewingToOpen]);
             that.allMovieDates.push(viewing.date + ' ' + viewing.time + '%' + viewing.auditorium);
+            console.log(that.allMovieDates);
           }
           co++;
         }

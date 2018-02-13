@@ -80,8 +80,8 @@ class Profile extends Base {
 
     checkLogin(jsonName, callbackFunc) {
         // Looking for JSON file name as this.usName
-        try {
-            JSON._load(jsonName).then((data) => {
+            JSON._load(jsonName).then(
+                (data) => {
                 if (data.password == this.password) {
                     callbackFunc && callbackFunc();
                     this.login();
@@ -89,12 +89,12 @@ class Profile extends Base {
                 } else {
                     $('.loginFail').removeClass('d-none');
                 }
-            });
-        }
-        catch(e) {
-            //User name not found
-            $('.noUserName').removeClass('d-none');
-        }
+            },
+            (error)=>{
+                $('.noUserName').removeClass('d-none');
+            }
+        );
+        
     }
     login() {
         let that = this;
