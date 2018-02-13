@@ -37,7 +37,7 @@ class Auditorium extends Base {
                 let classes = "seat";
 
                 //check if seat is booked
-                if (seatNumber === 9 || seatNumber === 12) {
+                if (seatNumber === 9 || seatNumber === 12 || seatNumber === 17) {
                     classes += " booked";
                 }
                 //check the position to start from is valid based on number of seats, for centering of seats
@@ -104,6 +104,8 @@ class Auditorium extends Base {
                         let emptySeatsLeft = that.findEmptySeatsLeft(this, that.totalSeats);
                         let emptySeatsRight = that.findEmptySeatsRight(this, that.totalSeats);
 
+                        let checkForwards = true,
+                            checkBackwards = true;
                         console.log("emptySeatsLeft", emptySeatsLeft)
                         console.log("emptySeatsRight", emptySeatsRight)
 
@@ -115,28 +117,30 @@ class Auditorium extends Base {
                             for (let i = 0; i < totalEmptySeatsFromHere; i++) {
                                 //console.log($(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).hasClass('booked'));
 
+                                if (checkForwards) {
+                                    if (!$(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`)[0] || $(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`).hasClass('booked')) {
+                                        checkForwards = false;
+                                    } else {
+                                        $(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`).addClass('proposed');
+                                        totalSeatsBooked++;
+                                    }
 
-                                if (!$(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`)[0] || $(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`).hasClass('booked')) {
-                                    console.log("forward is booked", i)
-                                } else {
-                                    $(`#seatNr${parseInt(this.id.split("Nr")[1])+i}`).addClass('proposed');
-                                    totalSeatsBooked++;
+                                    if (totalSeatsBooked > that.totalSeats) {
+                                        break;
+                                    }
                                 }
+                                if (checkBackwards) {
+                                    if (!$(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`)[0] || $(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).hasClass('booked')) {
+                                        console.log("behind is booked", i)
+                                        checkBackwards= false;
+                                    } else {
+                                        $(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).addClass('proposed');
+                                        totalSeatsBooked++;
+                                    }
 
-                                if (totalSeatsBooked > that.totalSeats) {
-                                    break;
-                                }
-
-                                if (!$(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`)[0] || $(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).hasClass('booked')) {
-                                    console.log("behind is booked", i)
-
-                                } else {
-                                    $(`#seatNr${parseInt(this.id.split("Nr")[1])-i}`).addClass('proposed');
-                                    totalSeatsBooked++;
-                                }
-
-                                if (totalSeatsBooked > that.totalSeats) {
-                                    break;
+                                    if (totalSeatsBooked > that.totalSeats) {
+                                        break;
+                                    }
                                 }
 
                             }
