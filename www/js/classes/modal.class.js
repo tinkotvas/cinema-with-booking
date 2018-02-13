@@ -19,6 +19,8 @@ class Modal extends Base{
       this.changedAuditorium;
       this.changedArr;
       this.auditorium = new Auditorium();
+
+      this.totalTickets = 0;
   }
   
   get selectedDate() {
@@ -85,11 +87,12 @@ class Modal extends Base{
     $('#showTime').text(that.selectDate + ' i ' + currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
-      this.changedAuditorium = $(this).find(':selected').attr('data-auditorium')
+      that.changedAuditorium = $(this).find(':selected').attr('data-auditorium')
 
 
-      that.auditorium.renderAuditorium(this.changedAuditorium);
-
+      that.auditorium.renderAuditorium(that.changedAuditorium);
+      that.auditorium.totalSeats = that.totalTickets;
+      console.log(that.totalTickets,that.auditorium.totalSeats)
 
       $('#showTime').empty();
       $('#showTime').text(that.selectDate + ' i ' + that.changedAuditorium);
@@ -212,6 +215,9 @@ class Modal extends Base{
         $('#seniorTickets').text(seniorTickets);
       }
 
+      that.totalTickets = adultTickets+childTickets+seniorTickets;
+      that.auditorium.totalSeats = that.totalTickets;
+      
       let totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
       $('.total-price').text('Summa: ' + totalPrice + ' kr');
       if (totalPrice > 0) {
