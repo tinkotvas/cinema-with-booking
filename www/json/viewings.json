@@ -3,7 +3,11 @@
     "auditorium": "Stora Salongen",
     "film": "Let the sunshine in",
     "date": "2018-02-14",
-    "time": "16.40"
+    "time": "16.40",
+    "selectedSeats": [
+      "4",
+      "4"
+    ]
   },
   {
     "auditorium": "Lilla Salongen",

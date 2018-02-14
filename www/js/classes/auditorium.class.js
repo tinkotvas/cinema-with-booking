@@ -181,19 +181,15 @@ class Auditorium extends Base {
                                     totalSeatsBooked++;
                                 }
                             }
-                            console.log(seatNumberString);
                             if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).next().hasClass('endSeat')) {
                                 checkingForwards = false;
                             } else if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).prev().hasClass('endSeat')) {
                                 checkingBackwards = false;
                             }
                         }
-                        console.log("totalAdjescantFreeSeats", totalAdjescantFreeSeats)
-                        if($(this).hasClass('endSeat')){
-                            console.log("endSeat")
-                            totalAdjescantFreeSeats-=1;
+                        if ($(this).hasClass('endSeat')) {
+                            totalAdjescantFreeSeats -= 1;
                         }
-                        console.log("totalAdjescantFreeSeats2", totalAdjescantFreeSeats)
                         if (totalAdjescantFreeSeats >= that.totalSeats) {
 
                             for (let i = 0; i < totalAdjescantFreeSeats; i++) {
@@ -229,7 +225,7 @@ class Auditorium extends Base {
         let fromSeatNr = parseInt(fromSeat[0].id.split("seatNr")[1]);
         let modifier;
         let ended;
-    
+
         for (let x = 0; x < 2; x++) {
 
             for (let i = 1; i <= totalSeats; i++) {
@@ -241,8 +237,6 @@ class Auditorium extends Base {
                 } else if (currentSeat.hasClass('endSeat')) {
                     freeSeats++;
                     if ($(currentSeat).prev().hasClass('endSeat') || $(currentSeat).next().hasClass('endSeat')) {
-                        console.log("ended",`${x} ${i}`);
-                        
                         break;
                     }
                 } else {

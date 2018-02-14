@@ -93,7 +93,7 @@ class Booking extends Base {
 		this.modal.viewings[indexOfViewing].selectedSeats.push(...selectedViewing.selectedSeats);
 		
 		JSON._save('viewings',this.modal.viewings).then(function(){
-			console.log("Saved to viewings");
+
 		})
 	}
 

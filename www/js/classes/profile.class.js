@@ -110,8 +110,6 @@ class Profile extends Base {
     }
     login() {
         let that = this;
-        console.log(that.email);
-        console.log(that.password);
         app.getCurrentUser(that.usName);
         that.nav.showUSname();
         JSON._save('currentUser', { userName: that.usName });
