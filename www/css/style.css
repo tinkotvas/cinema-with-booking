@@ -72,6 +72,7 @@ body main {
   font-size: 0.8em;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .modalBokaColor {
   color: #5CFDA5 !important;
 }
@@ -90,6 +91,8 @@ body main {
 .fa-plus-circle:hover {
   color: #5CFDA5;
 =======
+=======
+>>>>>>> fd8119d6ff16390cee29b684f4a8a877431229ab
 .orderModalStyle {
   color: #5CFDA5;
 }
@@ -98,6 +101,9 @@ body main {
 }
 .modal-footer {
   border-top-color: #5CFDA5;
+<<<<<<< HEAD
+>>>>>>> fd8119d6ff16390cee29b684f4a8a877431229ab
+=======
 >>>>>>> fd8119d6ff16390cee29b684f4a8a877431229ab
 }
 /* Sticky footer styles
