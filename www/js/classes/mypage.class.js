@@ -9,7 +9,7 @@ class MyPage extends Base {
   }
   init(jsonName) {
     return JSON._load(jsonName)
-      .then((data) => { // data is undifined that's why sortBooking is not working
+      .then((data) => { 
         this.bookings= data.bookingHistory;
         this.sortBooking(this.bookings);
       });

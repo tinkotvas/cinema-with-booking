@@ -5,7 +5,7 @@
     {
       "bookingID": 778,
       "filmTitle": "Blade Runner 2049",
-      "date": "2018-03-18 17.00",
+      "date": "2018-03-18 17:00",
       "auditorium": "Lilla Salongen",
       "totalPrice": 65,
       "totalTickets": 1
@@ -13,7 +13,7 @@
     {
       "bookingID": 779,
       "filmTitle": "Star Wars - Last Jedi",
-      "date": "2018-02-11 19.00",
+      "date": "2018-02-11 19:00",
       "auditorium": "Lilla Salongen",
       "totalPrice": 130,
       "totalTickets": 2
@@ -21,7 +21,7 @@
     {
       "bookingID": 780,
       "filmTitle": "Star Wars - Last Jedi",
-      "date": "2018-02-11 19.00",
+      "date": "2018-02-11 19:00",
       "auditorium": "Lilla Salongen",
       "totalPrice": 890,
       "totalTickets": 10
@@ -29,7 +29,7 @@
     {
       "bookingID": 781,
       "filmTitle": "Let the sunshine in",
-      "date": "2018-03-16 20.40",
+      "date": "2018-03-16 20:40",
       "auditorium": "Stora Salongen",
       "totalPrice": 985,
       "totalTickets": 11
@@ -45,7 +45,7 @@
     {
       "bookingID": 786,
       "filmTitle": "Let the sunshine in",
-      "date": "2018-03-16 20.40",
+      "date": "2018-03-16 20:40",
       "auditorium": "Stora Salongen",
       "totalPrice": 190,
       "totalTickets": 2
@@ -53,7 +53,7 @@
     {
       "bookingID": 787,
       "filmTitle": "Star Wars - Last Jedi",
-      "date": "2018-02-11 19.00",
+      "date": "2018-02-11 19:00",
       "auditorium": "Stora Salongen",
       "totalPrice": 190,
       "totalTickets": 2
@@ -61,7 +61,7 @@
     {
       "bookingID": 788,
       "filmTitle": "Let the sunshine in",
-      "date": "2018-03-16 20.40",
+      "date": "2018-03-16 20:40",
       "auditorium": "Stora Salongen",
       "totalPrice": 95,
       "totalTickets": 1

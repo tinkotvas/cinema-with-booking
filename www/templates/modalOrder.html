@@ -17,8 +17,8 @@ Object.assign(MyPage.prototype, {template3(){
                         <span>${this.bookings[this.indexToOpen].filmTitle}</span>
                         <h5>Datum: </h5>
                         <span>${this.bookings[this.indexToOpen].date}</span>
-                        <h5>Tid: </h5>
-                        <span>${this.bookings[this.indexToOpen].time}</span>
+                        <!-- <h5>Tid: </h5>
+                        <span>${this.bookings[this.indexToOpen].time}</span> -->
                         <h5>Salong: </h5>
                         <span>${this.bookings[this.indexToOpen].auditorium}</span>
                         <h5>Stolnummer: </h5>
@@ -26,7 +26,7 @@ Object.assign(MyPage.prototype, {template3(){
                         <h5>Totalpris: </h5>
                         <span>${this.bookings[this.indexToOpen].totalPrice}</span>
                     </div>
-                        <div class="col-6">
+                    <div class="col-6">
                         <img class="img-fluid" src='/imgs/${this.films[this.indexToOpenPoster].images[0]}'>
                     </div> 
                 
