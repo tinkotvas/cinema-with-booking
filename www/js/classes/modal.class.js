@@ -106,7 +106,7 @@ class Modal extends Base{
         }
       }
       let review = `
-        <div class="col-6 col-sm-4 mb-3 mt-3 review">
+        <div class="col-6 col-lg-4 mb-3 mt-3 review">
           <h6 class="mb-1"><span class="text-red">${this.films[this.indexToOpen].reviews[i].source}</span></h6>
           <p class="mb-1">${this.films[this.indexToOpen].reviews[i].quote}</p>
           <span class="text-center">${stars[i].join("")}</span>
