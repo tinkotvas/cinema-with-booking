@@ -51,11 +51,19 @@ class Booking extends Base {
   	let findPercent = bookedDateAndTime.indexOf('%');
   	let bookedTime = bookedDateAndTime.slice(findSpace+1, findPercent);
 
+  		let userName;
+  		let userPass;
+  		let bookingHistory;
 
   		JSON._load(app.currentUser).then((data) => {
-          let userName= data.email;
-          let userPass=data.password;
-          let booked=data.bookingHistory;
+          userName= data.email;
+          userPass=data.password;
+          if(!data.bookingHistory){
+          	bookingHistory = [];
+          }
+          else{
+          	bookingHistory=data.bookingHistory;
+          	}
           let newBooking={
             bookingID: this.modal.bookingNumber,
             filmTitle: this.modal.films[this.modal.indexToOpen].title,
@@ -65,16 +73,15 @@ class Booking extends Base {
             totalPrice: this.modal.totalPrice,
             totalTickets: this.modal.totalTickets
           }
-          booked.push(newBooking);
-
+          bookingHistory.push(newBooking);
+        }).then(()=>
       JSON._save(app.currentUser, {
-        userName,
-        userPass,
-        booked  
-     })
+        email: userName,
+        password: userPass,
+        bookingHistory  
+     }));
      this.saveToViewing();
-   });
- 	}
+   };
 
       //this.userHistory = data;
       //console.log(this.userHistory.filmTitle);
