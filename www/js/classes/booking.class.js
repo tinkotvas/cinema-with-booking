@@ -25,8 +25,7 @@ class Booking extends Base {
 			}*/
 			that.getSelectedSeatNumbers();
 			that.createBookingNumber()
-			// i jsonfilen blir det inte "" runt numret (för att det är ett nummer?)    	
-
+			console.log(this.selectedSeats)
 			that.selectDate = $('#date-select option:selected').text();
 			$('.modal-container-info').empty();
 			that.modal.render('.modal-container-info', 3);
@@ -44,31 +43,58 @@ class Booking extends Base {
 	}
 
   saveBooking(){
-  	let currentUser = app.currentUser;
+  	this.getSelectedSeatNumbers();
+  	//let currentUser = app.currentUser;
   	let bookedDateAndTime = this.modal.dateString;
   	let findSpace = bookedDateAndTime.indexOf(' ');
   	let bookedDate = bookedDateAndTime.slice(0,findSpace);
   	let findPercent = bookedDateAndTime.indexOf('%');
   	let bookedTime = bookedDateAndTime.slice(findSpace+1, findPercent);
-  	let seatsTaken = [23, 24, 25]; // Placeholder for booked seats
 
-  	JSON._load(currentUser).then((data) => {
-      this.userData = data;
-      let stringifiedUserData = JSON.stringify(this.userData);
-      	console.log(stringifiedUserData);
-    });
+
+  		JSON._load(app.currentUser).then((data) => {
+          let userName= data.email;
+          let userPass=data.password;
+          let booked=data.bookingHistory;
+          let newBooking={
+            bookingID: this.modal.bookingNumber,
+            filmTitle: this.modal.films[this.modal.indexToOpen].title,
+            date: bookedDate + ' ' +bookedTime,
+            auditorium: this.modal.currentAuditorium,
+            seatID: this.seatsTaken,
+            totalPrice: this.modal.totalPrice,
+            totalTickets: this.modal.totalTickets
+          }
+          booked.push(newBooking);
+
+      JSON._save(app.currentUser, {
+        userName,
+        userPass,
+        booked  
+     })
+     this.saveToViewing();
+   });
+ 	}
+
+      //this.userHistory = data;
+      //console.log(this.userHistory.filmTitle);
+      //let stringifiedUserData = JSON.stringify(this.userData);
+      	//console.log(stringifiedUserData);
+      /*JSON._save(app.currentUser, {
+      	data,
+      	bookingHistory: {
+		    bookingID: this.modal.bookingNumber,
+		    filmTitle: this.modal.films[this.modal.indexToOpen].title,
+		    date: bookedDate,
+		    time: bookedTime,
+		    auditorium: this.modal.currentAuditorium,
+		    totalPrice: this.modal.totalPrice,
+		    totalTickets: this.modal.totalTickets,
+		    selectedSeats: this.selectedSeats
+		    }
+  		})
+    });*/
   	
-  	JSON._save(currentUser, {
-	    bookingID: this.modal.bookingNumber,
-	    filmTitle: this.modal.films[this.modal.indexToOpen].title,
-	    date: bookedDate,
-	    time: bookedTime,
-	    auditorium: this.modal.currentAuditorium,
-	    seatID: seatsTaken,
-	    totalPrice: this.modal.totalPrice,
-	    totalTickets: this.modal.totalTickets
-  	})
-  }
   /*checkIfLoggedIn(){
   	console.log(true);
   	// if(app.currentuser == 0){
@@ -78,21 +104,8 @@ class Booking extends Base {
       // first check if logged in otherwise open the login modal
   }*/
 
-		JSON._save(currentUser, {
-			bookingID: this.modal.bookingNumber,
-			filmTitle: this.modal.films[this.modal.indexToOpen].title,
-			date: bookedDate,
-			time: bookedTime,
-			auditorium: this.modal.currentAuditorium,
-			seatID: seatsTaken,
-			totalPrice: this.modal.totalPrice,
-			totalTickets: this.modal.totalTickets,
-			selectedSeats: this.selectedSeats
-		})
 
-		this.saveToViewing();
-
-	}
+		
 
 	saveToViewing() {
 		let date = `2018-${this.modal.selectDate.split('/')[0]}-${this.modal.selectDate.split('/')[1].split(" ")[0]}`
@@ -121,18 +134,6 @@ class Booking extends Base {
 
 		})
 	}
-
-
-
-
-	/*checkIfLoggedIn(){
-		console.log(true);
-		// if(app.currentuser == 0){
-	    //  open login modal
-	    // }
-	    // else{}
-	    // first check if logged in otherwise open the login modal
-	}*/
 
 }
 
