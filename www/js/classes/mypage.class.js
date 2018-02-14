@@ -5,14 +5,14 @@ class MyPage extends Base {
     this.toggleOrderModal();
     
   }
-
+ 
   renderBooking(){
     JSON._load('dummyBooking').then((dummyBooking)=>{
       this.dummyBooking = dummyBooking;
       this.listBookingInfo();
     });
   }
-
+ 
   listBookingInfo(){
     let date = new Date();
     let month = date.getMonth() + 1;
@@ -36,7 +36,7 @@ class MyPage extends Base {
       this.index++;
     }
   }
-
+ 
   toggleOrderModal(){
     let that = this;
     $(document).on("click", '.mypage-item', function() {
@@ -61,6 +61,4 @@ class MyPage extends Base {
       $('#orderModal').modal('toggle');
     });
   }
-}
-
-
+ }
