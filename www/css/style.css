@@ -43,10 +43,22 @@ body main .pageTitle {
 .modal-content {
   background-color: #343A39;
 }
+.modal-lg .close {
+  color: #dc3545;
+  text-shadow: 0 1px 0 #666c6b;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.modal-lg .close:focus {
+  outline: -webkit-focus-ring-color auto 0;
+  outline-color: inherit;
+  outline-style: none;
+  outline-width: 0;
+}
 .modal-lg p {
   color: white;
 }
-@media (min-width: 576px) {
+@media (min-width: 668) {
   .modal-lg {
     min-width: 90vw !important;
   }
@@ -61,8 +73,20 @@ body main .pageTitle {
     min-width: 80vw !important;
   }
 }
-.youtube {
-  min-height: 40vh;
+@media (max-width: 576px) {
+  .youtube {
+    min-height: inherit;
+  }
+}
+@media (min-width: 992px) {
+  .youtube {
+    min-width: 90vw !important;
+  }
+}
+@media (min-width: 1400px) {
+  .youtube {
+    min-width: 80vw !important;
+  }
 }
 #infoModal img {
   position: absolute;
@@ -94,7 +118,7 @@ footer {
   position: absolute;
   left: 0;
   right: 0;
-  color: #FFF;
+  color: #FCFBE3;
   background-color: #343A39;
   bottom: 0;
   width: 100%;
@@ -102,10 +126,10 @@ footer {
   height: 80px;
 }
 footer a {
-  color: #FFF;
+  color: #FCFBE3;
 }
 footer a:hover {
-  color: #FFF !important;
+  color: #FCFBE3 !important;
   text-decoration: none;
 }
 footer .social-media {
@@ -162,9 +186,6 @@ html {
 svg {
   transform-origin: 50% 50% 0px;
 }
-.red {
-  fill: red;
-}
 main {
   margin-top: 64px;
 }
@@ -188,7 +209,7 @@ main .gallery .gallery-film-title .header-film .header-film-text {
   text-decoration: underline;
   text-decoration-color: #5CFDA5;
   overflow: hidden;
-  color: #FFF;
+  color: #FCFBE3;
   font-size: 4.5rem;
 }
 main .gallery .gallery-details {
@@ -209,7 +230,7 @@ main .gallery .gallery-details .gallery-details-text .gallery-buttons-container 
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-previous,
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-next {
   background-color: transparent !important;
-  color: #FFF;
+  color: #FCFBE3;
   border: none;
   cursor: pointer;
 }
