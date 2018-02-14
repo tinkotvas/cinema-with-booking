@@ -8,7 +8,7 @@ Object.assign(Modal.prototype, {template3(){
           <h3>Du har bokat: ${this.films[this.indexToOpen].title}</h3>
           <h5 class="title-text text-white">
             ${this.selectDate} i ${this.currentAuditorium}
-            Plats: (säteX1, säteX2...)
+            Plats: ${this.selectedSeats}
             Antal biljetter: ${this.totalTickets}, totalpris ${this.totalPrice} kr. Betalning sker kontant i kassan, ange ditt bokningsnummer ${this.bookingNumber}.
             <a href="#">Logga in</a> för att se dina bokningar.
           </h5>

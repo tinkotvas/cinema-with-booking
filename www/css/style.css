@@ -1,6 +1,6 @@
 header nav {
   height: fit-content;
-  background-color: #5CFDA5 !important;
+  background-color: #5cfda5 !important;
 }
 header nav .nav-link {
   border-bottom: 1px solid transparent;
@@ -12,18 +12,18 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-header .brand-modal {
-  width: 80px;
-}
-header #loginModal .modal-header,
-header #signupModal .modal-header {
-  background-color: #5CFDA5 !important;
-}
-header #loginModal .close,
-header #signupModal .close {
+header #showLoginStatus {
   cursor: pointer;
 }
-header #showLoginStatus {
+.brand-modal {
+  width: 80px;
+}
+#loginModal .modal-header,
+#signupModal .modal-header {
+  background-color: #5cfda5 !important;
+}
+#loginModal .close,
+#signupModal .close {
   cursor: pointer;
 }
 body {
@@ -34,14 +34,18 @@ body main {
   padding-bottom: 80px;
 }
 body main .pageTitle {
-  border-bottom: 2px solid #5CFDA5;
+  border-bottom: 2px solid #5cfda5;
   width: fit-content;
 }
 .text-red {
-  color: #5CFDA5 !important;
+  color: #5cfda5 !important;
 }
 .modal-content {
   background-color: #343A39;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 95vh;
+  padding: 10px;
 }
 .modal-lg .close {
   color: #dc3545;
@@ -118,23 +122,23 @@ footer {
   position: absolute;
   left: 0;
   right: 0;
-  color: #FCFBE3;
-  background-color: #343A39;
+  color: #fcfbe3;
+  background-color: #343a39;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 80px;
 }
 footer a {
-  color: #FCFBE3;
+  color: #fcfbe3;
 }
 footer a:hover {
-  color: #FCFBE3 !important;
+  color: #fcfbe3 !important;
   text-decoration: none;
 }
 footer .social-media {
   font-size: 2.5em;
-  color: #5CFDA5;
+  color: #5cfda5;
 }
 @media screen and (min-width: 769px) and (max-width: 937px) {
   footer {
@@ -178,7 +182,7 @@ html {
   pointer-events: none;
 }
 #auditorium-holder #auditorium svg g .selected {
-  fill: #5CFDA5;
+  fill: #5cfda5;
 }
 #auditorium-holder #auditorium svg g .proposed {
   fill: #989ea4;
@@ -190,7 +194,7 @@ main {
   margin-top: 64px;
 }
 main .gallery {
-  background-color: #343A39;
+  background-color: #343a39;
   width: 100%;
   height: 100%;
   position: relative;
@@ -207,9 +211,9 @@ main .gallery .gallery-film-title .header-film {
 }
 main .gallery .gallery-film-title .header-film .header-film-text {
   text-decoration: underline;
-  text-decoration-color: #5CFDA5;
+  text-decoration-color: #5cfda5;
   overflow: hidden;
-  color: #FCFBE3;
+  color: #fcfbe3;
   font-size: 4.5rem;
 }
 main .gallery .gallery-details {
@@ -230,13 +234,13 @@ main .gallery .gallery-details .gallery-details-text .gallery-buttons-container 
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-previous,
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-next {
   background-color: transparent !important;
-  color: #FCFBE3;
+  color: #fcfbe3;
   border: none;
   cursor: pointer;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-previous:hover,
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-next:hover {
-  color: #5CFDA5;
+  color: #5cfda5;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container {
   height: 100%;
@@ -248,19 +252,19 @@ main .gallery .gallery-details .gallery-details-text .gallery-info-container {
 main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text {
   position: absolute;
   bottom: 0;
-  background-color: #5CFDA5;
+  background-color: #5cfda5;
   height: 25%;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text h5 {
-  color: #0C1C1B;
+  color: #0c1c1b;
   text-decoration: underline;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text p {
-  color: #0C1C1B;
+  color: #0c1c1b;
   font-weight: 500;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text span {
-  color: #343A39;
+  color: #343a39;
   font-weight: 300;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text .gallery-info-text-sub {
@@ -305,13 +309,13 @@ main .gallery .gallery-details .gallery-image-container .slices .slice2,
 main .gallery .gallery-details .gallery-image-container .slices .slice3,
 main .gallery .gallery-details .gallery-image-container .slices .slice4 {
   height: 0;
-  background-color: #343A39;
+  background-color: #343a39;
 }
 main .list-group-item {
   background-color: transparent;
   color: #FFF;
   transition: background-color 200ms cubic-bezier(1, 0, 0, 1);
-  border-bottom: 1px solid #343A39;
+  border-bottom: 1px solid #343a39;
 }
 main .list-group-item:hover {
   background-color: #343A39;
@@ -331,7 +335,7 @@ main .mainbanner {
 }
 .btn-base {
   border-radius: 0;
-  border: 2px solid #5CFDA5;
+  border: 2px solid #5cfda5;
   background-color: transparent;
   color: #FFF !important;
   text-decoration: none;
@@ -340,7 +344,7 @@ main .mainbanner {
 .btn-base:hover {
   cursor: pointer;
   border: 2px solid transparent;
-  background-color: #5CFDA5;
+  background-color: #5cfda5;
   color: #FFF !important;
   text-decoration: none;
   transition: all 400ms cubic-bezier(1, 0, 0, 1);
@@ -402,5 +406,5 @@ main .avatar {
   width: 15%;
 }
 main .booking-state {
-  border-top: 2px solid #5CFDA5 !important;
+  border-top: 2px solid #5cfda5 !important;
 }

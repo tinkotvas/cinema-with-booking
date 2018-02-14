@@ -106,7 +106,7 @@ class App extends Base {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
-    console.log(url);
+    // console.log(url);
     
 
     // change menu link active
@@ -150,8 +150,10 @@ class App extends Base {
     if (url == '/minasidor') {
       $('main').empty();
       typeof this.myPage == 'undefined' ? this.myPage = new MyPage  (this.films) : null;
-      this.myPage.renderBooking(); 
-    }
+      this.myPage.init(this.currentUser).then(()=>{
+        this.myPage.renderBooking();
+    });
 
   }
+}
 }
