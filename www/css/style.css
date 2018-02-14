@@ -159,6 +159,7 @@ header #signupModal .close {
   color: black;
   text-decoration: none;
   transition: all 200ms cubic-bezier(1, 0, 0, 1);
+  height:40px;
 }
 .btn-base:hover {
   cursor: pointer;

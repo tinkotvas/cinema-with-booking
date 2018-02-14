@@ -32,6 +32,7 @@ class Modal extends Base{
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
+      $('#infoModal').modal('hide');
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
@@ -158,6 +159,8 @@ class Modal extends Base{
       $('.modal-container-info').empty();
       that.render('.modal-container-info', 3);
       $('#summaryModal').modal('toggle');
+      //save into currentUser.json
+     
     });
   }
 
@@ -168,7 +171,12 @@ class Modal extends Base{
     })
 
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
-      that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
+      if(that.allMovieDates=[]){
+        console.log("Not showing at all!");
+      }else{
+        that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
+      }
+      
     })
 
 
