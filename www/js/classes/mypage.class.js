@@ -1,14 +1,19 @@
 class MyPage extends Base {
-  constructor(){
+  constructor(films){
     super();
-    JSON._load('dummyBooking').then((dummyBooking)=>{
-      this.dummyBooking = dummyBooking;
-      this.renderBooking();
-      
-    });
+    this.films = films;
+    this.toggleOrderModal();
+    
   }
 
   renderBooking(){
+    JSON._load('dummyBooking').then((dummyBooking)=>{
+      this.dummyBooking = dummyBooking;
+      this.listBookingInfo();
+    });
+  }
+
+  listBookingInfo(){
     let date = new Date();
     let month = date.getMonth() + 1;
     if (month < 10) {
@@ -21,7 +26,6 @@ class MyPage extends Base {
     let todayDate = date.getFullYear()+month+day+date.getHours()+date.getMinutes();
     this.render('main', 1);
     this.index = 0;
-
     for (let booking of this.dummyBooking) {
       let bookingDate = booking.date.replace(/-/g, '')+booking.time.replace(/\./g, '')
       if (bookingDate > todayDate) {
@@ -32,4 +36,31 @@ class MyPage extends Base {
       this.index++;
     }
   }
+
+  toggleOrderModal(){
+    let that = this;
+    $(document).on("click", '.mypage-item', function() {
+      that.idBtn = $(this).attr('id');
+      let index = 0;
+      let indexPoster = 0;
+      for (let booking of that.dummyBooking) {
+        if ('orderModalToggle'+booking.bookingID == that.idBtn) {
+          $('.modal-container-item').empty();
+          that.indexToOpen = index;
+          for (let film of that.films) {
+            if(film.title == booking.filmTitle ){
+              that.indexToOpenPoster = indexPoster;
+            }
+            indexPoster++
+          }
+        }
+        index++;
+          
+      }
+      that.render('.modal-container-item', 3);
+      $('#orderModal').modal('toggle');
+    });
+  }
 }
+
+
