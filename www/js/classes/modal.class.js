@@ -168,15 +168,15 @@ class Modal extends Base{
       $('#infoModal').empty();
     });
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
-      that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
-    });
-
-
       if(that.allMovieDates=[]){
         console.log("Not showing at all!");
       }else{
         that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
       }
+    });
+
+
+      
       
     
 

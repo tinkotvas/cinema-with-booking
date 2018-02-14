@@ -18,9 +18,16 @@ Object.assign(Modal.prototype, {template2(){ return `
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
+                    
+            </div>
+            <div class="col-12 col-lg-8 mt-2">
                 <h2 class="text-red text-center" id="infoModalTitle">${this.films[this.indexToOpen].title}</h2>
-                
+
                 <p class="text-center">${this.movieRuntime} | ${this.films[this.indexToOpen].genre} | ${this.films[this.indexToOpen].language}</p>
+              </div>
+              <div class="col-12 col-lg-4 mt-2">
+                  <a class="btn btn-base btn-booking float-right mr-5 mt-3" id="bookingModalToggle${this.films[this.indexToOpen].title.replace(/\s+/g, '')}">Biljetter</a>
+              </div>
                 
               </div>
             </div>
@@ -46,6 +53,8 @@ Object.assign(Modal.prototype, {template2(){ return `
               </div>
 
             </div>
+            
+             
           
           <div class="row">
             ${this.htmlStarRatings.join("")}

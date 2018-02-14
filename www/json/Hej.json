@@ -1,5 +1,4 @@
 {
-
   "email": "Hej",
   "password": "Aa1111",
   "bookingHistory": [
@@ -66,7 +65,14 @@
       "auditorium": "Stora Salongen",
       "totalPrice": 95,
       "totalTickets": 1
+    },
+    {
+      "bookingID": 792,
+      "filmTitle": "The party",
+      "date": "2018-03-17 20.30",
+      "auditorium": "Lilla Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
     }
-
   ]
 }
