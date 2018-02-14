@@ -21,7 +21,6 @@ class Modal extends Base{
       this.auditorium = new Auditorium();
       this.booking = new Booking(this);
       JSON._load('bookingNumber').then((data) => {
-        console.log(data);
         this.bookingNumber = data.bookingNumber;
       });
   }

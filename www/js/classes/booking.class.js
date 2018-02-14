@@ -43,6 +43,12 @@ class Booking extends Base {
   	let findPercent = bookedDateAndTime.indexOf('%');
   	let bookedTime = bookedDateAndTime.slice(findSpace+1, findPercent);
   	let seatsTaken = [23, 24, 25]; // Placeholder for booked seats
+
+  	JSON._load(currentUser).then((data) => {
+      this.userData = data;
+      let stringifiedUserData = JSON.stringify(this.userData);
+      	console.log(stringifiedUserData);
+    });
   	
   	JSON._save(currentUser, {
 	    bookingID: this.modal.bookingNumber,
