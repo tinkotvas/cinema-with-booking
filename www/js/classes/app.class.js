@@ -60,7 +60,7 @@ class App extends Base {
     this.renderLoginStatus();
     this.changePage();
     //window.addEventListener('popstate', this.changePage);
-    window.addEventListener('popstate', nav.changePage);
+    window.addEventListener('popstate', this.changePage.bind(this));
   }
 
   renderFooter() {
@@ -106,6 +106,8 @@ class App extends Base {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
+    console.log(url);
+    
 
     // change menu link active
     $('header a').removeClass('active');
