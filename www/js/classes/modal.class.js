@@ -81,12 +81,11 @@ class Modal extends Base{
     let that = this;
     this.auditorium;
     that.selectDate = $('#date-select option:selected').text();
-    that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium')
-    $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
+    that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
+    that.auditorium.renderAuditorium(that.currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
       that.auditorium.totalSeats = that.totalTickets;
-
       that.currentAuditorium = $(this).find(':selected').attr('data-auditorium');
       that.auditorium.renderAuditorium(that.currentAuditorium);
       $('#showTime').empty();
