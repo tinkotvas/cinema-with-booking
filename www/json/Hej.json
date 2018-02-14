@@ -33,6 +33,30 @@
       "auditorium": "Stora Salongen",
       "totalPrice": 985,
       "totalTickets": 11
+    },
+    {
+      "bookingID": 784,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 130,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 786,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 787,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
     }
   ]
 }

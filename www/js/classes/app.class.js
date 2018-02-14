@@ -150,8 +150,10 @@ class App extends Base {
     if (url == '/minasidor') {
       $('main').empty();
       typeof this.myPage == 'undefined' ? this.myPage = new MyPage  (this.films) : null;
-      this.myPage.renderBooking(); 
-    }
+      this.myPage.init(this.currentUser).then(()=>{
+        this.myPage.renderBooking();
+    });
 
   }
+}
 }

@@ -102,7 +102,13 @@
     "auditorium": "Stora Salongen",
     "film": "Star Wars - Last Jedi",
     "date": "2018-02-10",
-    "time": "20.00"
+    "time": "20.00",
+    "selectedSeats": [
+      "33",
+      "34",
+      "33",
+      "34"
+    ]
   },
   {
     "auditorium": "Lilla Salongen",
@@ -513,7 +519,17 @@
     "auditorium": "Stora Salongen",
     "film": "Let the sunshine in",
     "date": "2018-03-16",
-    "time": "17.00"
+    "time": "17.00",
+    "selectedSeats": [
+      "43",
+      "44",
+      "43",
+      "44",
+      "65",
+      "66",
+      "65",
+      "66"
+    ]
   },
   {
     "auditorium": "Stora Salongen",
