@@ -141,15 +141,15 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-.brand-modal {
+header .brand-modal {
   width: 80px;
 }
-#loginModal .modal-header,
-#signupModal .modal-header {
+header #loginModal .modal-header,
+header #signupModal .modal-header {
   background-color: #FB515C !important;
 }
-#loginModal .close,
-#signupModal .close {
+header #loginModal .close,
+header #signupModal .close {
   cursor: pointer;
 }
 .btn-base {
