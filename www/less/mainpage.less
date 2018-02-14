@@ -33,6 +33,7 @@ main{
         height: 100%;
         .gallery-buttons-container{
           position: relative;
+          left: 10%;
           .gallery-buttons{
             position: absolute;
             bottom: 0;
@@ -53,15 +54,14 @@ main{
         }
         .gallery-info-container{
           height: 100%;
-          left: 30%;
+          left: 40%;
           z-index: 3;
           width: 100%;
           overflow-y: hidden;
           .gallery-info-text{
-            position: absolute;
-            bottom: 0;
+            top: 70%;
             background-color: @main-color;
-            height: 25%;
+            height: 100%;
             h5{
               color: @black;
               text-decoration: underline;
@@ -79,21 +79,21 @@ main{
               transition: opacity 400ms cubic-bezier(1, 0, 0, 1);
             }
           }
-        }
-        .buy-container{
-          left: 30%;
+          .buy-container{
+          left: 0;
           height: 100%;
-          z-index: 2;
-          position: relative;
+          z-index: -1;
           .buy{
             background-color: #27CFE6;
             position: absolute;
             bottom: 0;
-            left: -200%;
+            left: -100%;
             width: 100%;
             overflow-y: hidden;
           }
         }
+        }
+        
         
       }
       

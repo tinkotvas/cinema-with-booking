@@ -9,8 +9,8 @@ Object.assign(MainPage.prototype, { template2(){
   <div class="row gallery-details align-items-end m-0 p-0">
     <div class="col-5 gallery-details-text">
         <div class="row p-0 h-100">
-          <div class="gallery-buttons-container col-3 text-center">
-            <div class="gallery-buttons  w-100">
+          <div class="gallery-buttons-container col-2 text-center p-0">
+            <div class="gallery-buttons  w-100 py-2">
               <button class="gallery-previous">
                   <i class="fas fa-arrow-left fa-2x"></i>
               </button>
@@ -19,8 +19,8 @@ Object.assign(MainPage.prototype, { template2(){
               </button> 
             </div>
           </div>
-          <div class="gallery-info-container col-6 p-0 m-0">
-              <div class="col-12 m-0 py-4 gallery-info-text">
+          <div class="gallery-info-container col-10 p-0 m-0 row">
+              <div class="col-8 m-0 py-4 gallery-info-text">
                   <div class="gallery-info-text-main">
                     <h5>
                       ${this.films[this.index].title}
@@ -48,7 +48,7 @@ Object.assign(MainPage.prototype, { template2(){
                     </p>
                     <p class="my-1">
                       Filmens längd:
-                      <span class="">${this.films[this.index].length}</span>
+                      <span class="">${this.films[this.index].length} min</span>
                     </p>
                     <p class="my-1">
                       Filmgenrer:
@@ -59,13 +59,14 @@ Object.assign(MainPage.prototype, { template2(){
                     </div>
                   </div>
               </div>
-            </div>
-            <div class="col-3 buy-container">
-              <div class="col-12 m-0 py-2 buy text-center d-none">
-                <h5 class="">Boka nu</h5>
-                <a class="btn btn-base btn-booking" id="bookingModalToggle">Biljetter</a>
+              <div class="col-4 buy-container">
+                <div class="col-12 m-0 py-3 buy text-center d-none">
+                  <!-- <h5 class="">Boka nu</h5> -->
+                  <a class="btn btn-base btn-booking" id="bookingModalToggle">Biljetter</a>
+                </div>
               </div>
             </div>
+            
         </div>
     </div>
     <div class="col-7 gallery-image-container p-0 m-0">

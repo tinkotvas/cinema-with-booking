@@ -21,15 +21,15 @@ class MainPage extends Base{
         that.renderCarouselItem();
         that.animateItemIn();
       });
-      $(document).on('mouseenter', '.gallery-info-text, .buy-container', function() { 
-        $('.gallery-info-text').animate({height: '100%'},400);
+      $(document).on('mouseenter', '.gallery-info-container', function() { 
+        $('.gallery-info-text').animate({top: '0%'},400);
         $('.gallery-info-text-sub').animate({opacity: '1'},200);
-        $('.buy').toggleClass('d-none').animate({left: '0%'},600);
+        $('.buy').delay(1000).toggleClass('d-none').animate({left: '0'},600);
       });
-      $(document).on('mouseleave', '.gallery-info-text', function() { 
-        $('.gallery-info-text').animate({height: '25%'},400);
+      $(document).on('mouseleave', '.gallery-info-container', function() { 
+        $('.gallery-info-text').animate({top: '70%'},400);
         $('.gallery-info-text-sub').animate({opacity: '0'},0);
-        $('.buy').animate({left: '-200%'},300).toggleClass('d-none');
+        $('.buy').animate({left: '-100%'},300).delay(300).toggleClass('d-none');
       });
     }
     renderCarousel(){
@@ -45,6 +45,6 @@ class MainPage extends Base{
       $('.slice2').css({height: '100%'}).animate({height: '0'},500);
       $('.slice3').css({height: '100%'}).animate({height: '0'},750);
       $('.slice4').css({height: '100%'}).animate({height: '0'},1000);
-      $('.gallery-info-text').css({height: '0'}).animate({height: '25%'},1000);
+      $('.gallery-info-text').css({top: '100%'}).animate({top: '70%'},1000);
     }
 }

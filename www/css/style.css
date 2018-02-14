@@ -185,6 +185,7 @@ main .gallery .gallery-details .gallery-details-text {
 }
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container {
   position: relative;
+  left: 10%;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons {
   position: absolute;
@@ -205,16 +206,15 @@ main .gallery .gallery-details .gallery-details-text .gallery-buttons-container 
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container {
   height: 100%;
-  left: 30%;
+  left: 40%;
   z-index: 3;
   width: 100%;
   overflow-y: hidden;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text {
-  position: absolute;
-  bottom: 0;
+  top: 70%;
   background-color: #5cfda5;
-  height: 25%;
+  height: 100%;
 }
 main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text h5 {
   color: #0c1c1b;
@@ -232,17 +232,16 @@ main .gallery .gallery-details .gallery-details-text .gallery-info-container .ga
   opacity: 0;
   transition: opacity 400ms cubic-bezier(1, 0, 0, 1);
 }
-main .gallery .gallery-details .gallery-details-text .buy-container {
-  left: 30%;
+main .gallery .gallery-details .gallery-details-text .gallery-info-container .buy-container {
+  left: 0;
   height: 100%;
-  z-index: 2;
-  position: relative;
+  z-index: -1;
 }
-main .gallery .gallery-details .gallery-details-text .buy-container .buy {
+main .gallery .gallery-details .gallery-details-text .gallery-info-container .buy-container .buy {
   background-color: #27CFE6;
   position: absolute;
   bottom: 0;
-  left: -200%;
+  left: -100%;
   width: 100%;
   overflow-y: hidden;
 }
