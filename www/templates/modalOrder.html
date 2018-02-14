@@ -26,9 +26,10 @@ Object.assign(MyPage.prototype, {template3(){
                         <h5>Totalpris: </h5>
                         <span>${this.bookings[this.indexToOpen].totalPrice}</span>
                     </div>
-                    <div class="col-6">
-                        <img class="img-fluid" src="imgs/${this.films[this.indexToOpenPoster].images[0]}">
-                    </div>
+                        <div class="col-6">
+                        <img class="img-fluid" src='/imgs/${this.films[this.indexToOpenPoster].images[0]}'>
+                    </div> 
+                
                 </div>
             </div>
             <div class="modal-footer">

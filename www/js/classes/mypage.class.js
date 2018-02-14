@@ -1,13 +1,15 @@
 class MyPage extends Base {
-  constructor() {
+  constructor(films) {
     super();
     this.render('main', 1);
     this.bookings = [];
     this.toggleOrderModal();
+    this.films=films;
+    console.log(this.films);
   }
   init(jsonName) {
     return JSON._load(jsonName)
-      .then((data) => {
+      .then((data) => { // data is undifined that's why sortBooking is not working
         this.bookings= data.bookingHistory;
         this.sortBooking(this.bookings);
       });
@@ -53,23 +55,24 @@ class MyPage extends Base {
     let that = this;
     $(document).on("click", '.mypage-item', function() {
       that.idBtn = $(this).attr('id');
-      console.log(that.idBtn);
       let index = 0;
       let indexPoster = 0;
+      // might be something wrong with the loops, 
+      //it runs many times and undifined for the first 3 loops that.indexToOpenPoster is not correct
       for (let booking of that.bookings) {
-        console.log(booking.bookingID);
-        if ('orderModalToggle'+booking.bookingID == that.idBtn) {
+        if ('orderModalToggle'+booking.filmTitle == that.idBtn) {
           $('.modal-container-item').empty();
           that.indexToOpen = index;
           for (let film of that.films) {
+            console.log(film.title);
             if(film.title == booking.filmTitle ){
               that.indexToOpenPoster = indexPoster;
             }
-            indexPoster++
+            indexPoster++;
           }
         }
         index++;
-          
+          console.log(that.indexToOpenPoster);
       }
       that.render('.modal-container-item', 3);
       $('#orderModal').modal('toggle');

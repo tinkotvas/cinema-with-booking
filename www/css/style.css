@@ -383,3 +383,7 @@ main .avatar {
 main .booking-state {
   border-top: 2px solid #5cfda5 !important;
 }
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+}

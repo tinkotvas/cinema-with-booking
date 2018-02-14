@@ -57,6 +57,14 @@
       "auditorium": "Stora Salongen",
       "totalPrice": 190,
       "totalTickets": 2
+    },
+    {
+      "bookingID": 788,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
     }
   ]
 }
