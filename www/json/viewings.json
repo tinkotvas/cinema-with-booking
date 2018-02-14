@@ -2,26 +2,25 @@
   {
     "auditorium": "Stora Salongen",
     "film": "Let the sunshine in",
-    "date": "2018-02-08",
+    "date": "2018-02-14",
     "time": "16.40"
   },
   {
     "auditorium": "Lilla Salongen",
     "film": "Star Wars - Last Jedi",
-    "date": "2018-02-08",
+    "date": "2018-02-14",
     "time": "17.00"
   },
   {
     "auditorium": "Stora Salongen",
     "film": "The party",
-    "date": "2018-02-08",
+    "date": "2018-02-14",
     "time": "19.00"
   },
-
   {
     "auditorium": "Lilla Salongen",
     "film": "Blade Runner 2049",
-    "date": "2018-02-08",
+    "date": "2018-02-14",
     "time": "19.30"
   },
   {
@@ -147,7 +146,7 @@
   {
     "auditorium": "Stora Salongen",
     "film": "Baby Driver",
-    "date": "2018-02-16", 
+    "date": "2018-02-16",
     "time": "17.00"
   },
   {
@@ -198,7 +197,6 @@
     "date": "2018-03-01",
     "time": "21.00"
   },
-
   {
     "auditorium": "Stora Salongen",
     "film": "Blade Runner 2049",
@@ -451,7 +449,6 @@
     "date": "2018-03-15",
     "time": "21.00"
   },
-
   {
     "auditorium": "Stora Salongen",
     "film": "Let the sunshine in",
@@ -506,5 +503,4 @@
     "date": "2018-03-18",
     "time": "21.00"
   }
-
 ]

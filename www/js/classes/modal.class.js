@@ -18,7 +18,7 @@ class Modal extends Base{
       this.dateString;
       this.changedArr;
       this.totalPrice;
-      this.auditorium = new Auditorium();
+      this.auditorium = new Auditorium(this);
 
       this.totalTickets = 0;
       this.booking = new Booking(this);
@@ -85,15 +85,10 @@ class Modal extends Base{
     $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
-      that.changedAuditorium = $(this).find(':selected').attr('data-auditorium')
-
-
-      that.auditorium.renderAuditorium(that.changedAuditorium);
       that.auditorium.totalSeats = that.totalTickets;
-      console.log(that.totalTickets,that.auditorium.totalSeats)
 
       that.currentAuditorium = $(this).find(':selected').attr('data-auditorium');
-      //that.auditorium.renderAuditorium(that.currentAuditorium);
+      that.auditorium.renderAuditorium(that.currentAuditorium);
       $('#showTime').empty();
       $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
     })

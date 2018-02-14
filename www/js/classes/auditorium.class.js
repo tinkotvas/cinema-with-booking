@@ -1,6 +1,7 @@
 class Auditorium extends Base {
-    constructor() {
+    constructor(modal) {
         super();
+        this.modal = modal;
         this.auditoriums;
         this.currentAuditorium;
         this.totalSeats = 0;
@@ -14,12 +15,16 @@ class Auditorium extends Base {
         catch((e) => {
 
         });
+
     }
 
     renderAuditorium(name) {
         this.loadJSON(() => this.htmlRenderAuditorium(name));
         this.eventHandlers();
     }
+
+
+
 
     htmlRenderAuditorium(name) {
         this.currentAuditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
@@ -32,6 +37,17 @@ class Auditorium extends Base {
         let seatNumber = 1,
             seatCount = 0;
 
+        let viewing = this.modal.viewings[this.getViewing()];
+
+        let bookedSeats = 0;
+        let bookedSeatsLength = 0;
+        let markedBookedSeats = 0;
+
+        if (viewing.selectedSeats) {
+            bookedSeats = viewing.selectedSeats;
+            bookedSeatsLength = viewing.selectedSeats.length;
+        }
+
         for (let y = 0, cy = 20; y <= rowsToDraw; y++) {
             let first = true,
                 last = false;
@@ -40,13 +56,10 @@ class Auditorium extends Base {
                 let endBeforeX = maxSeatsPerRow - Math.floor((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y - 1]) / 2);
                 let classes = "seat";
 
-                //check if seat is booked
-                if (seatNumber === 9 || seatNumber === 12 || seatNumber === 17) {
+                if (viewing.selectedSeats && bookedSeats.includes(seatNumber.toString())) {
                     classes += " booked";
                 }
 
-
-                //check the position to start from is valid based on number of seats, for centering of seats
                 if (x >= startFromX && x < endBeforeX) {
 
                     if (first || seatCount == this.currentAuditorium.seatsPerRow[y - 1] - 1) {
@@ -110,6 +123,23 @@ class Auditorium extends Base {
         $('#auditorium-holder').height(orgH * scaling);
     }
 
+    getViewing() {
+        let date = `2018-${this.modal.selectDate.split('/')[0]}-${this.modal.selectDate.split('/')[1].split(" ")[0]}`
+        let selectedViewing = {
+            auditorium: this.modal.currentAuditorium,
+            film: this.modal.films[this.modal.indexToOpen].title,
+            date: date,
+            time: this.modal.selectDate.split('/')[1].split(" ")[1],
+        }
+
+        let indexOfViewing = this.modal.viewings.findIndex(viewing =>
+            viewing.auditorium == selectedViewing.auditorium &&
+            viewing.film == selectedViewing.film &&
+            viewing.date == selectedViewing.date &&
+            viewing.time == selectedViewing.time);
+        return indexOfViewing;
+    }
+
     eventHandlers() {
         let seat;
         let that = this;
@@ -117,19 +147,17 @@ class Auditorium extends Base {
         $(document).off('click mouseenter mouseleave', '.seat')
         $(document).on({
                 click: function () {
-                    console.log($(this));
                     $('.selected').removeClass('selected')
                     $('.proposed').addClass('selected');
                 },
                 mouseenter: function () {
                     seat = $(this);
-
+                    let totalSeatsBooked = 0;
                     if (seat.hasClass('booked')) {
                         //nada
                     } else if (that.totalSeats > 1) {
                         let checkingForwards = true,
                             checkingBackwards = true,
-                            totalSeatsBooked = 0,
                             totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats);
                         let originalSeatNumber = parseInt(seat[0].id.split("Nr")[1])
 
@@ -153,32 +181,40 @@ class Auditorium extends Base {
                                     totalSeatsBooked++;
                                 }
                             }
-
+                            console.log(seatNumberString);
                             if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).next().hasClass('endSeat')) {
                                 checkingForwards = false;
                             } else if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).prev().hasClass('endSeat')) {
                                 checkingBackwards = false;
                             }
                         }
-
+                        console.log("totalAdjescantFreeSeats", totalAdjescantFreeSeats)
+                        if($(this).hasClass('endSeat')){
+                            console.log("endSeat")
+                            totalAdjescantFreeSeats-=1;
+                        }
+                        console.log("totalAdjescantFreeSeats2", totalAdjescantFreeSeats)
                         if (totalAdjescantFreeSeats >= that.totalSeats) {
+
                             for (let i = 0; i < totalAdjescantFreeSeats; i++) {
                                 if (checkingForwards) {
+                                    proposedSeatDirection(+i)
                                     if (totalSeatsBooked >= that.totalSeats) {
                                         break;
                                     }
-                                    proposedSeatDirection(+i)
-
                                 }
                                 if (checkingBackwards) {
+                                    proposedSeatDirection(-i);
                                     if (totalSeatsBooked >= that.totalSeats) {
                                         break;
                                     }
-                                    proposedSeatDirection(-i);
                                 }
                             }
                         }
 
+                    } else {
+                        $(this).addClass('proposed');
+                        totalSeatsBooked++
                     }
                 },
                 mouseleave: function () {
@@ -192,7 +228,10 @@ class Auditorium extends Base {
         let freeSeats = 1;
         let fromSeatNr = parseInt(fromSeat[0].id.split("seatNr")[1]);
         let modifier;
+        let ended;
+    
         for (let x = 0; x < 2; x++) {
+
             for (let i = 1; i <= totalSeats; i++) {
                 x % 2 == 1 ? modifier = -i : modifier = +i;
                 let currentSeat = $(`#seatNr${fromSeatNr+modifier}`)
@@ -201,7 +240,11 @@ class Auditorium extends Base {
                     break;
                 } else if (currentSeat.hasClass('endSeat')) {
                     freeSeats++;
-                    break;
+                    if ($(currentSeat).prev().hasClass('endSeat') || $(currentSeat).next().hasClass('endSeat')) {
+                        console.log("ended",`${x} ${i}`);
+                        
+                        break;
+                    }
                 } else {
                     freeSeats++
                 }
