@@ -24,6 +24,7 @@ class Modal extends Base{
       this.adultTickets = 0;
       this.childTickets = 0;
       this.seniorTickets = 0;
+      this.seatsAreProposed = false;
       this.booking = new Booking(this);
       JSON._load('bookingNumber').then((data) => {
         this.bookingNumber = data.bookingNumber;
@@ -219,11 +220,12 @@ class Modal extends Base{
       
       that.totalPrice = that.childTickets * 55 + that.adultTickets * 95 + that.seniorTickets * 65;
       $('.total-price').text('Summa: ' + that.totalPrice + ' kr');
-      if (that.totalPrice > 0) {
+      /*console.log(that.seatsAreProposed)
+      if (that.totalPrice > 0 && that.seatsAreProposed==true){
         $(".confirm-booking").prop("disabled", false);
       } else {
         $(".confirm-booking").prop("disabled", true);
-      }
+      }*/
     })
   }
 
