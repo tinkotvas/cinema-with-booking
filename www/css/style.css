@@ -71,6 +71,35 @@ body main {
 .review p {
   font-size: 0.8em;
 }
+<<<<<<< HEAD
+.modalBokaColor {
+  color: #5CFDA5 !important;
+}
+#adultTickets {
+  font-size: 20px;
+}
+#childTickets {
+  font-size: 20px;
+}
+#seniorTickets {
+  font-size: 20px;
+}
+.fa-minus-circle:hover {
+  color: #FB515C;
+}
+.fa-plus-circle:hover {
+  color: #5CFDA5;
+=======
+.orderModalStyle {
+  color: #5CFDA5;
+}
+.modal-header {
+  border-bottom-color: #5CFDA5;
+}
+.modal-footer {
+  border-top-color: #5CFDA5;
+>>>>>>> fd8119d6ff16390cee29b684f4a8a877431229ab
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -138,8 +167,8 @@ html {
   fill: #FCFBE3;
   cursor: pointer;
 }
-svg {
-  transform-origin: 50% 50% 0px;
+#auditorium-holder #auditorium svg g .screen {
+  fill: white;
 }
 #auditorium-holder #auditorium svg g .booked {
   fill: #FB515C;
@@ -150,6 +179,12 @@ svg {
 }
 #auditorium-holder #auditorium svg g .proposed {
   fill: #989ea4;
+}
+svg {
+  transform-origin: 50% 50% 0px;
+}
+.red {
+  fill: red;
 }
 main {
   margin-top: 64px;
@@ -167,31 +202,6 @@ main .header-film {
 }
 main .mainbanner {
   width: 100%;
-}
-header nav {
-  height: fit-content;
-  background-color: #FB515C !important;
-}
-header nav .nav-link {
-  border-bottom: 1px solid transparent;
-  width: fit-content;
-}
-header nav .nav-link.active {
-  border-bottom: 1px solid black;
-}
-header nav .brand {
-  width: 80px;
-}
-header .brand-modal {
-  width: 80px;
-}
-header #loginModal .modal-header,
-header #signupModal .modal-header {
-  background-color: #FB515C !important;
-}
-header #loginModal .close,
-header #signupModal .close {
-  cursor: pointer;
 }
 .btn-base {
   border: 2px solid black;

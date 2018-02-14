@@ -1,7 +1,7 @@
 Object.assign(Modal.prototype, {template1(){ return `
 <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+    <div class="modal-conten bg-dark">
       <div class="modal-body p-0">
 
         <div class="container-fluid">
@@ -11,44 +11,44 @@ Object.assign(Modal.prototype, {template1(){ return `
             </div>
             <div class="col-8 mt-2">
               <div class='form-group'>
-                <h4 class="selectdate text-red">Välj datum</h4>
+                <h2 class="modalBokaColor selectdate">Välj datum</h2>
                 <select class='form-control select-date' id='date-select'></select>
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-dark">VUXEN</p>
-                  <button type="button" class="btn btn-danger mr-3" id="sub-adult"> - </button>
+                  <p class="modalBokaColor">Ordinarie</p>
+                  <i class="fas fa-minus-circle fa-2x mr-3" id="sub-adult"></i>
                   <span id="adultTickets">0</span>
-                  <button type="button" class="btn btn-success ml-3" id="add-adult"> + </button>
+                  <i class="fas fa-plus-circle fa-2x ml-3" id="add-adult"></i>
                 </div>
                 <div class="col-4">
-                  <p class="text-dark">BARN</p>
-                  <button type="button" class="btn btn-danger mr-3" id="sub-child"> - </button>
+                  <p class="modalBokaColor">Barn</p>
+                  <i class="fas fa-minus-circle fa-2x mr-3" id="sub-child"></i>
                   <span id="childTickets">0</span>
-                  <button type="button" class="btn btn-success ml-3" id="add-child"> + </button>
+                  <i class="fas fa-plus-circle fa-2x ml-3" id="add-child"></i>
                 </div>
                 <div class="col-4">
-                  <p class="text-dark">SENIOR</p>
-                  <button type="button" class="btn btn-danger mr-3" id="sub-senior"> - </button>
+                  <p class="modalBokaColor">Pensionär</p>
+                  <i class="fas fa-minus-circle fa-2x mr-3" id="sub-senior"></i>
                   <span id="seniorTickets">0</span>
-                  <button type="button" class="btn btn-success ml-3" id="add-senior"> + </button>
+                  <i class="fas fa-plus-circle fa-2x ml-3" id="add-senior"></i>
                 </div>
               </div>
               <div class="row">
                 <div class="col-8 mt-5">
-                  <h1 class="ticketArea total-price text-dark">Summa:
-                    <span id="total-sum">0</span>kr</h1>
+                  <h2 class="ticketArea total-price text-white">Summa:
+                    <span id="total-sum">0</span>kr</h2>
                 </div>
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-secondary">Vuxen: 95kr</p>
+                  <p class="text-secondary">Ordinarie á pris: 95kr</p>
                 </div>
                 <div class="col-4">
-                  <p class="text-secondary">Barn: 55kr</p>
+                  <p class="text-secondary">Barn á pris: 55kr</p>
                 </div>
                 <div class="col-4">
-                  <p class="text-secondary">Senior: 65kr</p>
+                  <p class="text-secondary">Pensionär á pris: 65kr</p>
                 </div>
               </div>
             </div>
@@ -56,10 +56,10 @@ Object.assign(Modal.prototype, {template1(){ return `
 
           <div class="row">
             <div class="col-12 mt-5">
-              <h2 class="title-text text-dark text-center">
+              <h2 class="modalBokaColor title-text text-center">
                 ${this.films[this.indexToOpen].title} ${this.changedAuditorium}
               </h2>
-              <p id="showTime" class="text-center text-dark"></p>
+              <p id="showTime" class="text-center text-white"></p>
             </div>
 
           </div>
