@@ -30,6 +30,7 @@ class Modal extends Base{
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
+      $('#infoModal').modal('hide');
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
@@ -142,7 +143,26 @@ class Modal extends Base{
     this.movieRuntime = `${h.toString()} tim ${(m<10? "0": "")}${m.toString()} min`;
   }
 
+
   
+
+  confirmBooking() {
+    let that = this;
+    $(document).on('click', '.confirm-booking', function() {
+      // if(app.currentuser == 0){
+      //  open login modal
+      // }
+      // else{}
+      // first check if logged in otherwise open the login modal
+      that.selectDate = $('#date-select option:selected').text();
+      $('.modal-container-info').empty();
+      that.render('.modal-container-info', 3);
+      $('#summaryModal').modal('toggle');
+      //save into currentUser.json
+     
+    });
+  }
+
 
   eventHandler() {
     let that=this;
@@ -152,6 +172,15 @@ class Modal extends Base{
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
       that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
     });
+
+      if(that.allMovieDates=[]){
+        console.log("Not showing at all!");
+      }else{
+        that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
+      }
+      
+    
+
     let adultTickets = 0;
     let childTickets = 0;
     let seniorTickets = 0;

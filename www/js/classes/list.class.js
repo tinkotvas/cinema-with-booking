@@ -6,7 +6,7 @@ class List extends Base {
     }
 
     renderMovies() {
-        $('main').append(`
+        $('.movie-container').append(`
         <div class="d-flex mt-2">
             <div id="movieCards" class="d-flex flex-wrap justify-content-center mt-1">
                 <!-- Movie cards -->
@@ -48,15 +48,15 @@ class List extends Base {
             if (this.viewings[i].date == dateString) {
                 viewingsArea.append(`
                   <div href="#" class="list-group-item list-group-item-action">
-                      <div class="row">
+                      <div class="row d-flex align-items-center">
                           <div class="list-element col-6 col-md-2">
-                              <h4>${this.viewings[i].time}</h4>
+                              <h4 class="my-auto">${this.viewings[i].time}</h4>
                           </div>
                           <div class="list-element col-6 col-md-4">
-                              <h4 class="float-right float-md-left">${this.viewings[i].film}</h4>
+                              <h4 class="float-right float-md-left my-auto">${this.viewings[i].film}</h4>
                           </div>
                           <div class="list-element col-6 col-md-3">
-                              <p>${this.viewings[i].auditorium}</p>
+                              <p class="my-auto">${this.viewings[i].auditorium}</p>
                           </div>
                           <div class="list-element col-12 col-sm-6 col-md-3">
                               <a class="btn btn-base btn-booking float-right mx-md-0 mx-lg-2 my-1" id="bookingModalToggle${this.viewings[i].film.replace(/\s+/g, '')}">Biljetter</a>

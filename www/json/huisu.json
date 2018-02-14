@@ -1,0 +1,31 @@
+{
+  "email": "huisu",
+  "password": "Huisu1",
+  "bookingHistory":[
+    {
+      "bookingID": "#0001",
+      "filmTitle": "The party",
+      "date": "2018-01-26 19:00",
+      "auditorium": "Stora Salongen",
+      "seatID": 23,
+      "totalPrice": 95
+    },
+    {
+      "bookingID": "#0002",
+      "filmTitle": "Gisslan",
+      "date": "2018-02-22 19:00",
+      "auditorium": "Lilla Salongen",
+      "seatID": 23,
+      "totalPrice": 95
+    },
+    {
+      "bookingID": "#0003",
+      "filmTitle": "Nattskuggor",
+      "date": "2018-02-22 17:00",
+      "auditorium": "Lilla Salongen",
+      "seatID": 23,
+      "totalPrice": 95
+    }
+  ]
+
+}

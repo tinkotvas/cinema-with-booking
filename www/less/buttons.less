@@ -1,16 +1,17 @@
 .btn-base{
-  border: 2px solid black;
-  background-color: white;
   border-radius: 0;
-  color: black;
+  border: 2px solid @main-color;
+  background-color: transparent;
+  color: #FFF !important;
   text-decoration: none;
   transition: all 200ms cubic-bezier(1, 0, 0, 1);
 }
 .btn-base:hover{
   cursor: pointer;
-  border: 2px solid #000;
-  background-color: #FB515C;
-  color: black;
+  border: 2px solid transparent;
+  background-color: @main-color;
+  color: #FFF !important;
+  
   text-decoration: none;
   transition: all 400ms cubic-bezier(1, 0, 0, 1);
 }

@@ -1,5 +1,5 @@
 {
-  "bookingID": 744,
+  "bookingID": 745,
   "filmTitle": "Let the sunshine in",
   "date": "2018-03-16",
   "time": "20.40",
@@ -9,10 +9,20 @@
     24,
     25
   ],
-  "totalPrice": 95,
-  "totalTickets": 1,
+  "totalPrice": 570,
+  "totalTickets": 6,
   "selectedSeats": [
-    "4",
-    "4"
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"
   ]
 }
