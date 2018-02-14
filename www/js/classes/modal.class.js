@@ -155,7 +155,7 @@ class Modal extends Base{
     let adultTickets = 0;
     let childTickets = 0;
     let seniorTickets = 0;
-    $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function () {
+    $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function (event) {
       let id = event.target.id;
       if (id == 'add-adult') {
         adultTickets++;
