@@ -2,6 +2,7 @@ class MyPage extends Base {
   constructor() {
     super();
     this.bookingHistory = [];
+    this.render('main', 1);
   }
   init(jsonName) {
     return JSON._load(jsonName)
@@ -31,7 +32,7 @@ class MyPage extends Base {
     //   day = "0" + day;
     // }
     // let todayDate = date.getFullYear() + month + day + date.getHours() + date.getMinutes();
-    this.render('main', 1);
+  
     this.index = 0;
 
     for (let booking of this.bookingHistory) {
