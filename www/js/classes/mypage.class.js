@@ -1,13 +1,15 @@
 class MyPage extends Base {
   constructor() {
     super();
-    this.bookingHistory = [];
+    this.render('main', 1);
+    this.bookings = [];
+    this.toggleOrderModal();
   }
   init(jsonName) {
     return JSON._load(jsonName)
       .then((data) => {
-        this.bookingHistory = data.bookingHistory;
-        this.sortBooking(this.bookingHistory);
+        this.bookings= data.bookingHistory;
+        this.sortBooking(this.bookings);
       });
   }
 
@@ -31,10 +33,10 @@ class MyPage extends Base {
     //   day = "0" + day;
     // }
     // let todayDate = date.getFullYear() + month + day + date.getHours() + date.getMinutes();
-    this.render('main', 1);
+    
     this.index = 0;
 
-    for (let booking of this.bookingHistory) {
+    for (let booking of this.bookings) {
       let bookingDate = new Date(booking.date).getTime();
       if (bookingDate > date) {
         this.render('.activeBooking', 2);
@@ -51,9 +53,11 @@ class MyPage extends Base {
     let that = this;
     $(document).on("click", '.mypage-item', function() {
       that.idBtn = $(this).attr('id');
+      console.log(that.idBtn);
       let index = 0;
       let indexPoster = 0;
-      for (let booking of that.bookingHistory) {
+      for (let booking of that.bookings) {
+        console.log(booking.bookingID);
         if ('orderModalToggle'+booking.bookingID == that.idBtn) {
           $('.modal-container-item').empty();
           that.indexToOpen = index;
