@@ -3,7 +3,7 @@ class Booking extends Base {
 		super();
 		this.modal = modal;
 		this.confirmBooking();
-		this.selectedSeats = [];
+		//this.selectedSeats = [];
 
 	}
 
@@ -11,8 +11,9 @@ class Booking extends Base {
 
 	getSelectedSeatNumbers() {
 		let selectedSeatsElements = $('.selected');
+		this.modal.selectedSeats = [];
 		for (let i = 0; i < selectedSeatsElements.length; i++) {
-			this.selectedSeats.push(selectedSeatsElements[i].id.split('seatNr')[1])
+			this.modal.selectedSeats.push(selectedSeatsElements[i].id.split('seatNr')[1])
 		}
 	}
 
@@ -25,12 +26,14 @@ class Booking extends Base {
 			}*/
 			that.getSelectedSeatNumbers();
 			that.createBookingNumber()
-			console.log(this.selectedSeats)
 			that.selectDate = $('#date-select option:selected').text();
 			$('.modal-container-info').empty();
 			that.modal.render('.modal-container-info', 3);
 			$('#summaryModal').modal('toggle');
 			that.saveBooking();
+			that.modal.adultTickets = 0;
+      that.modal.childTickets = 0;
+      that.modal.seniorTickets = 0;
 		});
 	}
 
@@ -122,7 +125,7 @@ class Booking extends Base {
 			film: this.modal.films[this.modal.indexToOpen].title,
 			date: date,
 			time: this.modal.selectDate.split('/')[1].split(" ")[1],
-			selectedSeats: this.selectedSeats
+			selectedSeats: this.modal.selectedSeats
 		}
 
 		let indexOfViewing = this.modal.viewings.findIndex(viewing =>
@@ -142,14 +145,4 @@ class Booking extends Base {
 		})
 	}
 
-}
-
-let selectedSeats = [];
-
-function getSelectedSeatNumbers() {
-	let selectedSeatsElements = $('.selected');
-
-	for (let i = 0; i < selectedSeatsElements.length; i++) {
-		selectedSeats.push(selectedSeatsElements[i].id.split('seatNr')[1])
-	}
 }

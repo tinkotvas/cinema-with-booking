@@ -57,6 +57,142 @@
       "auditorium": "Stora Salongen",
       "totalPrice": 190,
       "totalTickets": 2
+    },
+    {
+      "bookingID": 788,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 789,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 790,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 791,
+      "filmTitle": "Blade Runner 2049",
+      "date": "2018-03-18 17.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 792,
+      "filmTitle": "Blade Runner 2049",
+      "date": "2018-03-18 17.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 300,
+      "totalTickets": 4
+    },
+    {
+      "bookingID": 793,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 794,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 795,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 796,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 797,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 510,
+      "totalTickets": 6
+    },
+    {
+      "bookingID": 798,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 799,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 800,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 285,
+      "totalTickets": 3
+    },
+    {
+      "bookingID": 801,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 802,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Lilla Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 803,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 920,
+      "totalTickets": 10
+    },
+    {
+      "bookingID": 804,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 855,
+      "totalTickets": 9
     }
   ]
 }
