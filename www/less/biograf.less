@@ -10,21 +10,33 @@ html {
             transform-origin: 0 0;
             g {
                 .seat {
-                    fill:#a2f8a2;
+                    fill:#FCFBE3;
                     cursor:pointer;
                 }
                 .screen{
                     fill:white;
                 }
                 .booked {
-                    fill: red;
+                    fill: #FB515C;
                     pointer-events:none;
                 }
+                .selected{
+                    fill:#74d874;
+                }
                 .proposed{
-                    fill:pink;
+                    fill:#343a40 + 100;
                 }
             }
         }
     }
 }
 
+
+svg {
+    transform-origin: 50% 50% 0px;
+}
+
+.red {
+    fill: red;
+
+}

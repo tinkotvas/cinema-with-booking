@@ -1,7 +1,7 @@
 class Profile extends Base {
-    constructor(nav) {
+    constructor() {
         super();
-        this.nav=nav;
+        // this.nav=nav;
     }
 
     get email() {
@@ -110,10 +110,8 @@ class Profile extends Base {
     }
     login() {
         let that = this;
-        console.log(that.email);
-        console.log(that.password);
         app.getCurrentUser(that.usName);
-        that.nav.showUSname();
+        app.showUSname();
         JSON._save('currentUser', { userName: that.usName });
        $('#loginForm')[0].reset();  
     }

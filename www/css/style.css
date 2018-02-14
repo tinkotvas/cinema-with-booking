@@ -1,3 +1,38 @@
+header nav {
+  height: fit-content;
+  background-color: #FB515C !important;
+}
+header nav .nav-link {
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+header nav .nav-link.active {
+  border-bottom: 1px solid black;
+}
+header nav .brand {
+  width: 80px;
+}
+header .brand-modal {
+  width: 80px;
+}
+header #loginModal .modal-header,
+header #signupModal .modal-header {
+  background-color: #FB515C !important;
+}
+header #loginModal .close,
+header #signupModal .close {
+  cursor: pointer;
+}
+header #showLoginStatus {
+  cursor: pointer;
+}
+body {
+  background-color: black;
+}
+body main {
+  color: white;
+  padding-bottom: 80px;
+}
 .text-red {
   color: #FB515C !important;
 }
@@ -100,21 +135,27 @@ html {
   transform-origin: 0 0;
 }
 #auditorium-holder #auditorium svg g .seat {
-  fill: #a2f8a2;
+  fill: #FCFBE3;
   cursor: pointer;
 }
-#auditorium-holder #auditorium svg g .screen {
-  fill: white;
+svg {
+  transform-origin: 50% 50% 0px;
 }
 #auditorium-holder #auditorium svg g .booked {
-  fill: red;
+  fill: #FB515C;
   pointer-events: none;
 }
+#auditorium-holder #auditorium svg g .selected {
+  fill: #74d874;
+}
 #auditorium-holder #auditorium svg g .proposed {
-  fill: pink;
+  fill: #989ea4;
 }
 main {
   margin-top: 64px;
+}
+main .list-group-item {
+  background-color: transparent;
 }
 main .list-element {
   width: fit-content;
@@ -124,7 +165,7 @@ main .header-film {
   border: 3px solid #FFF !important;
   width: fit-content;
 }
-.mainbanner {
+main .mainbanner {
   width: 100%;
 }
 header nav {
@@ -141,15 +182,15 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-.brand-modal {
+header .brand-modal {
   width: 80px;
 }
-#loginModal .modal-header,
-#signupModal .modal-header {
+header #loginModal .modal-header,
+header #signupModal .modal-header {
   background-color: #FB515C !important;
 }
-#loginModal .close,
-#signupModal .close {
+header #loginModal .close,
+header #signupModal .close {
   cursor: pointer;
 }
 .btn-base {
@@ -208,4 +249,10 @@ header nav .brand {
 .regler .rulesbanner {
   width: 100%;
   height: 30%;
+}
+main .mypage-item {
+  cursor: pointer;
+}
+main .avatar {
+  width: 15%;
 }
