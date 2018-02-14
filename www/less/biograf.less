@@ -9,8 +9,22 @@ html {
         svg {
             transform-origin: 0 0;
             g {
-                image {
-                    pointer-events: none;
+                .seat {
+                    fill:#FCFBE3;
+                    cursor:pointer;
+                }
+                .screen{
+                    fill:white;
+                }
+                .booked {
+                    fill: #FB515C;
+                    pointer-events:none;
+                }
+                .selected{
+                    fill:#74d874;
+                }
+                .proposed{
+                    fill:#343a40 + 100;
                 }
             }
         }

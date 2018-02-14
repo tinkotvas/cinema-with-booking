@@ -1,0 +1,9 @@
+{
+  "bookingID": 706,
+  "filmTitle": "The party",
+  "date": "2018-01-26",
+  "time": "19.00",
+  "auditorium": "Stora Salongen",
+  "seatID": 23,
+  "totalPrice": 95
+}

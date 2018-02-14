@@ -134,14 +134,22 @@ html {
 #auditorium-holder #auditorium svg {
   transform-origin: 0 0;
 }
-#auditorium-holder #auditorium svg g image {
-  pointer-events: none;
+#auditorium-holder #auditorium svg g .seat {
+  fill: #FCFBE3;
+  cursor: pointer;
 }
 svg {
   transform-origin: 50% 50% 0px;
 }
-.red {
-  fill: red;
+#auditorium-holder #auditorium svg g .booked {
+  fill: #FB515C;
+  pointer-events: none;
+}
+#auditorium-holder #auditorium svg g .selected {
+  fill: #74d874;
+}
+#auditorium-holder #auditorium svg g .proposed {
+  fill: #989ea4;
 }
 main {
   margin-top: 64px;
@@ -159,6 +167,31 @@ main .header-film {
 }
 main .mainbanner {
   width: 100%;
+}
+header nav {
+  height: fit-content;
+  background-color: #FB515C !important;
+}
+header nav .nav-link {
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+header nav .nav-link.active {
+  border-bottom: 1px solid black;
+}
+header nav .brand {
+  width: 80px;
+}
+header .brand-modal {
+  width: 80px;
+}
+header #loginModal .modal-header,
+header #signupModal .modal-header {
+  background-color: #FB515C !important;
+}
+header #loginModal .close,
+header #signupModal .close {
+  cursor: pointer;
 }
 .btn-base {
   border: 2px solid black;
