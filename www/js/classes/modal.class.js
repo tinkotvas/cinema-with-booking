@@ -228,3 +228,5 @@ class Modal extends Base{
   }
 
 }
+
+// modal disabled trots att det är biljetter i den när man öppnar om den, ändra if that.totalprice? rad222

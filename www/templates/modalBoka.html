@@ -18,19 +18,19 @@ Object.assign(Modal.prototype, {template1(){ return `
                 <div class="col-4">
                   <p class="text-dark">VUXEN</p>
                   <button type="button" class="btn btn-danger mr-3" id="sub-adult"> - </button>
-                  <span id="adultTickets">0</span>
+                  <span id="adultTickets">${this.adultTickets}</span>
                   <button type="button" class="btn btn-success ml-3" id="add-adult"> + </button>
                 </div>
                 <div class="col-4">
                   <p class="text-dark">BARN</p>
                   <button type="button" class="btn btn-danger mr-3" id="sub-child"> - </button>
-                  <span id="childTickets">0</span>
+                  <span id="childTickets">${this.childTickets}</span>
                   <button type="button" class="btn btn-success ml-3" id="add-child"> + </button>
                 </div>
                 <div class="col-4">
                   <p class="text-dark">SENIOR</p>
                   <button type="button" class="btn btn-danger mr-3" id="sub-senior"> - </button>
-                  <span id="seniorTickets">0</span>
+                  <span id="seniorTickets">${this.seniorTickets}</span>
                   <button type="button" class="btn btn-success ml-3" id="add-senior"> + </button>
                 </div>
               </div>
