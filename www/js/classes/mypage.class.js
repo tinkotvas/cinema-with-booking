@@ -57,10 +57,12 @@ class MyPage extends Base {
       that.idBtn = $(this).attr('id');
       let index = 0;
       let indexPoster = 0;
+
       for (let booking of that.bookings) {
         if ('orderModalToggle' + booking.filmTitle == that.idBtn) {
           $('.modal-container-item').empty();
           that.indexToOpen = index;
+
         }
         index++;
       }

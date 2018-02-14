@@ -13,6 +13,7 @@ Object.assign(MyPage.prototype, {template3(){
             <div class="modal-body">
                 <div class="row">
                     <div class="col-6">
+
                         <h5>Filmtitel: </h5>
                         <span>${this.bookings[this.indexToOpen].filmTitle}</span>
                         <h5>Datum: </h5>
@@ -25,6 +26,7 @@ Object.assign(MyPage.prototype, {template3(){
                         <span>${this.bookings[this.indexToOpen].seatID}</span>
                         <h5>Totalpris: </h5>
                         <span>${this.bookings[this.indexToOpen].totalPrice}</span>
+
                     </div>
                     <div class="col-6">
                         <img class="img-fluid" src='/imgs/${this.films[this.indexToOpenPoster].images[0]}'>
@@ -34,7 +36,6 @@ Object.assign(MyPage.prototype, {template3(){
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
             </div>
         </div>
