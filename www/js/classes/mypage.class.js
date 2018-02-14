@@ -5,7 +5,7 @@ class MyPage extends Base {
     this.bookings = [];
     this.toggleOrderModal();
     this.films=films;
-    console.log(this.films);
+   
   }
   init(jsonName) {
     return JSON._load(jsonName)
@@ -80,3 +80,5 @@ class MyPage extends Base {
   }
 }
 
+// something went wrong for bookingModal when link from InfoModal
+//It's not scrolling and auditorium render is not currect

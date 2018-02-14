@@ -106,7 +106,7 @@ class App extends Base {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
-    console.log(url);
+    // console.log(url);
     
 
     // change menu link active

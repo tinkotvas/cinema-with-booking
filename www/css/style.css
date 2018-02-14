@@ -12,18 +12,18 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-header .brand-modal {
-  width: 80px;
-}
-header #loginModal .modal-header,
-header #signupModal .modal-header {
-  background-color: #5cfda5 !important;
-}
-header #loginModal .close,
-header #signupModal .close {
+header #showLoginStatus {
   cursor: pointer;
 }
-header #showLoginStatus {
+.brand-modal {
+  width: 80px;
+}
+#loginModal .modal-header,
+#signupModal .modal-header {
+  background-color: #5cfda5 !important;
+}
+#loginModal .close,
+#signupModal .close {
   cursor: pointer;
 }
 body {
