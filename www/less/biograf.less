@@ -9,20 +9,27 @@ html {
         svg {
             transform-origin: 0 0;
             g {
-                image {
-                    pointer-events: none;
+                .seat {
+                    fill:#FCFBE3;
+                    cursor:pointer;
+                }
+                .screen{
+                    fill:white;
+                }
+                .booked {
+                    fill: @main-red;
+                    pointer-events:none;
+                }
+                .selected{
+                    fill:@main-color;
+                }
+                .proposed{
+                    fill:#343a40 + 100;
                 }
             }
         }
     }
 }
-
-
 svg {
     transform-origin: 50% 50% 0px;
-}
-
-.red {
-    fill: red;
-
 }

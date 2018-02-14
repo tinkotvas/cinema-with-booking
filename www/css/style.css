@@ -12,18 +12,18 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-header .brand-modal {
-  width: 80px;
-}
-header #loginModal .modal-header,
-header #signupModal .modal-header {
-  background-color: #5cfda5 !important;
-}
-header #loginModal .close,
-header #signupModal .close {
+header #showLoginStatus {
   cursor: pointer;
 }
-header #showLoginStatus {
+.brand-modal {
+  width: 80px;
+}
+#loginModal .modal-header,
+#signupModal .modal-header {
+  background-color: #5cfda5 !important;
+}
+#loginModal .close,
+#signupModal .close {
   cursor: pointer;
 }
 body {
@@ -42,27 +42,55 @@ body main .pageTitle {
 }
 .modal-content {
   background-color: #343A39;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 95vh;
+  padding: 10px;
+}
+.modal-lg .close {
+  color: #dc3545;
+  text-shadow: 0 1px 0 #666c6b;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.modal-lg .close:focus {
+  outline: -webkit-focus-ring-color auto 0;
+  outline-color: inherit;
+  outline-style: none;
+  outline-width: 0;
 }
 .modal-lg p {
   color: white;
 }
-@media (min-width: 576px) {
+@media (min-width: 668) {
   .modal-lg {
-    max-width: 90vw !important;
+    min-width: 90vw !important;
   }
 }
 @media (min-width: 992px) {
   .modal-lg {
-    max-width: 70vw !important;
+    min-width: 90vw !important;
   }
 }
 @media (min-width: 1400px) {
   .modal-lg {
-    max-width: 60vw !important;
+    min-width: 80vw !important;
   }
 }
-.youtube {
-  min-height: 40vh;
+@media (max-width: 576px) {
+  .youtube {
+    min-height: inherit;
+  }
+}
+@media (min-width: 992px) {
+  .youtube {
+    min-width: 90vw !important;
+  }
+}
+@media (min-width: 1400px) {
+  .youtube {
+    min-width: 80vw !important;
+  }
 }
 #infoModal img {
   position: absolute;
@@ -94,7 +122,7 @@ footer {
   position: absolute;
   left: 0;
   right: 0;
-  color: #ffffff;
+  color: #fcfbe3;
   background-color: #343a39;
   bottom: 0;
   width: 100%;
@@ -102,10 +130,10 @@ footer {
   height: 80px;
 }
 footer a {
-  color: #ffffff;
+  color: #fcfbe3;
 }
 footer a:hover {
-  color: #ffffff !important;
+  color: #fcfbe3 !important;
   text-decoration: none;
 }
 footer .social-media {
@@ -142,14 +170,25 @@ html {
 #auditorium-holder #auditorium svg {
   transform-origin: 0 0;
 }
-#auditorium-holder #auditorium svg g image {
+#auditorium-holder #auditorium svg g .seat {
+  fill: #FCFBE3;
+  cursor: pointer;
+}
+#auditorium-holder #auditorium svg g .screen {
+  fill: white;
+}
+#auditorium-holder #auditorium svg g .booked {
+  fill: #dc3545;
   pointer-events: none;
+}
+#auditorium-holder #auditorium svg g .selected {
+  fill: #5cfda5;
+}
+#auditorium-holder #auditorium svg g .proposed {
+  fill: #989ea4;
 }
 svg {
   transform-origin: 50% 50% 0px;
-}
-.red {
-  fill: red;
 }
 main {
   margin-top: 64px;
@@ -174,7 +213,7 @@ main .gallery .gallery-film-title .header-film .header-film-text {
   text-decoration: underline;
   text-decoration-color: #5cfda5;
   overflow: hidden;
-  color: #ffffff;
+  color: #fcfbe3;
   font-size: 4.5rem;
 }
 main .gallery .gallery-details {
@@ -196,7 +235,7 @@ main .gallery .gallery-details .gallery-details-text .gallery-buttons-container 
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-previous,
 main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-next {
   background-color: transparent !important;
-  color: #ffffff;
+  color: #fcfbe3;
   border: none;
   cursor: pointer;
 }

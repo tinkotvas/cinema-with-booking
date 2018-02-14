@@ -12,23 +12,21 @@ class Modal extends Base{
       this.idBtn;
       this.indexToOpen;
       this.viewingToOpen;
-      this.confirmBooking();
       this.eventHandler();
       this.allMovieDates = [];
       this.selectDate;
-      this.changedAuditorium;
+      this.dateString;
       this.changedArr;
-      this.auditorium = new Auditorium();
-  }
-  
-  get selectedDate() {
-    return `${this.bookingDate}`
-  }
+      this.totalPrice;
+      this.auditorium = new Auditorium(this);
 
-  set selectedDate(val) {
-    this.bookingDate = val;
+      this.totalTickets = 0;
+      this.booking = new Booking(this);
+      JSON._load('bookingNumber').then((data) => {
+        this.bookingNumber = data.bookingNumber;
+      });
   }
-
+      
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
@@ -43,7 +41,6 @@ class Modal extends Base{
           for(let viewing of that.viewings){
           if(film.title == viewing.film){
             that.viewingToOpen = co;
-            //console.log(that.viewings[that.viewingToOpen]);
             that.allMovieDates.push(viewing.date + ' ' + viewing.time + '%' + viewing.auditorium);
           }
           co++;
@@ -63,9 +60,11 @@ class Modal extends Base{
     });
   }
 
+
   renderShowingTime() {
     let that = this;
     for(let i = 0; i < that.allMovieDates.length; i++){
+      that.dateString = that.allMovieDates[i];
       let index = that.allMovieDates[i].indexOf('-');
       let slicedArr = that.allMovieDates[i].slice(index+1);
       that.changedArr = slicedArr.replace('-', '/')
@@ -82,18 +81,15 @@ class Modal extends Base{
     let that = this;
     this.auditorium;
     that.selectDate = $('#date-select option:selected').text();
-    let currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium')
-    $('#showTime').text(that.selectDate + ' i ' + currentAuditorium);
+    that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
+    that.auditorium.renderAuditorium(that.currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
-      this.changedAuditorium = $(this).find(':selected').attr('data-auditorium')
-
-
-      that.auditorium.renderAuditorium(this.changedAuditorium);
-
-
+      that.auditorium.totalSeats = that.totalTickets;
+      that.currentAuditorium = $(this).find(':selected').attr('data-auditorium');
+      that.auditorium.renderAuditorium(that.currentAuditorium);
       $('#showTime').empty();
-      $('#showTime').text(that.selectDate + ' i ' + that.changedAuditorium);
+      $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
     })
   }
 
@@ -109,7 +105,7 @@ class Modal extends Base{
         }
       }
       let review = `
-        <div class="col-6 col-sm-4 mb-3 mt-3 review">
+        <div class="col-6 col-lg-4 mb-3 mt-3 review">
           <h6 class="mb-1"><span class="text-red">${this.films[this.indexToOpen].reviews[i].source}</span></h6>
           <p class="mb-1">${this.films[this.indexToOpen].reviews[i].quote}</p>
           <span class="text-center">${stars[i].join("")}</span>
@@ -137,7 +133,6 @@ class Modal extends Base{
       that.htmlMovieRatings();
       that.render('.modal-container-info', 2);
       $('#infoModal').modal('toggle');
-      //$('#'+idBtn).modal('toggle');
     });
   }
 
@@ -146,6 +141,8 @@ class Modal extends Base{
     let h = (this.films[this.indexToOpen].length - m) / 60;
     this.movieRuntime = `${h.toString()} tim ${(m<10? "0": "")}${m.toString()} min`;
   }
+
+
 
   confirmBooking() {
     let that = this;
@@ -164,41 +161,39 @@ class Modal extends Base{
     });
   }
 
+
   eventHandler() {
     let that=this;
     $(document).on('hidden.bs.modal','#infoModal', function (e) {
       $('#infoModal').empty();
-    })
-
+    });
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
       if(that.allMovieDates=[]){
         console.log("Not showing at all!");
       }else{
         that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
       }
+    });
+
+
       
-    })
+      
+    
 
 
     let adultTickets = 0;
     let childTickets = 0;
     let seniorTickets = 0;
-    $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function () {
+    $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function (event) {
       let id = event.target.id;
       if (id == 'add-adult') {
         adultTickets++;
-        $('.ticketArea').removeClass('d-none');
-        $('#adultTickets').removeClass('d-none');
         $('#adultTickets').text(adultTickets);
       } else if (id == 'add-child') {
         childTickets++;
-        $('.ticketArea').removeClass('d-none');
-        $('#childTickets').removeClass('d-none');
         $('#childTickets').text(childTickets);
       } else if (id == 'add-senior') {
         seniorTickets++;
-        $('.ticketArea').removeClass('d-none');
-        $('#seniorTickets').removeClass('d-none');
         $('#seniorTickets').text(seniorTickets);
       } else if (id == 'sub-adult') {
         if (adultTickets == 0) {
@@ -220,19 +215,17 @@ class Modal extends Base{
         $('#seniorTickets').text(seniorTickets);
       }
 
-      let totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
-      $('.total-price').text('Summa: ' + totalPrice + ' kr');
-      if (totalPrice > 0) {
+      that.totalTickets = adultTickets+childTickets+seniorTickets;
+      that.auditorium.totalSeats = that.totalTickets;
+      
+      that.totalPrice = childTickets * 55 + adultTickets * 95 + seniorTickets * 65;
+      $('.total-price').text('Summa: ' + that.totalPrice + ' kr');
+      if (that.totalPrice > 0) {
         $(".confirm-booking").prop("disabled", false);
       } else {
         $(".confirm-booking").prop("disabled", true);
       }
     })
-    $('.select-date').change(function () {
-      console.log('träff');
-      this.selectedDate = $('#date-select option:selected').text()
-      console.log(this.selectedDate);
-    });
   }
 
 }

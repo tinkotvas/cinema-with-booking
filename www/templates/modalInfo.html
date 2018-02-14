@@ -1,55 +1,69 @@
-Object.assign(Modal.prototype, {template2(){ 
-  return ` <div class="container">
-  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
+Object.assign(Modal.prototype, {template2(){ return `
+<div class="container">
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-body p-0">
           <div class="container-fluid m-0">
-
             <div class="row">
               <div class="col-12 p-0">
                 <div class="embed-responsive embed-responsive-21by9 youtube">
                   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${this.films[this.indexToOpen].youtubeTrailers[0]}?enablejsapi=1&amp;showinfo=0&amp;autoplay=0&amp;controls=0&amp;modestbranding=0"
-                    frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                    allow="encrypted-media" allowfullscreen></iframe>
                 </div>
               </div>
             </div>
             <div class="row">
+              <div class="col-12 mt-2">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+            </div>
+            <div class="col-12 col-lg-8 mt-2">
+                <h2 class="text-red text-center" id="infoModalTitle">${this.films[this.indexToOpen].title}</h2>
 
-              <div class="col-12 col-sm-8 mr-auto mt-2">
-                <h2 class="text-red text-center">${this.films[this.indexToOpen].title}</h2>
                 <p class="text-center">${this.movieRuntime} | ${this.films[this.indexToOpen].genre} | ${this.films[this.indexToOpen].language}</p>
               </div>
-
-              <div class="col-12 col-sm-3 mr-2 mt-2 d-none d-sm-block">
-                <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-75" alt="">
+              <div class="col-12 col-lg-4 mt-2">
+                  <a class="btn btn-base btn-booking float-right mr-5 mt-3" id="bookingModalToggle${this.films[this.indexToOpen].title.replace(/\s+/g, '')}">Biljetter</a>
               </div>
-
-              <div class="col-12 col-sm-9 mr-auto mt-3">
-                ${this.films[this.indexToOpen].description}
+                
               </div>
-
-              <div class="col-12 col-sm-8 mr-auto">
-                <p class="mb-1"><span class="text-red">Direktör:</span> ${this.films[this.indexToOpen].director}</p>
-                <p class="mb-1"><span class="text-red">Skådespelare:</span> ${this.films[this.indexToOpen].actors.join('<span class="text-red">, </span>')} </p>
-                <p class="mb-1"><span class="text-red">Produktionsår:</span> ${this.films[this.indexToOpen].productionYear}</p>
-                <p class="mb-1"><span class="text-red">Ursprungsland:</span> ${this.films[this.indexToOpen].productionCountries}</p>
-                <p class="mb-1"><span class="text-red">Undertexter:</span> ${this.films[this.indexToOpen].subtitles}</p>
-              </div>
-             
-              <a class="btn btn-base btn-booking float-right mr-5 mt-3" id="bookingModalToggle${this.films[this.indexToOpen].title.replace(/\s+/g, '')}">Biljetter</a>
             </div>
             <div class="row">
-              ${this.htmlStarRatings.join("")}
+              <div class="col-12 col-lg-10 mr-auto mt-1">
+                ${this.films[this.indexToOpen].description}
+              </div>
             </div>
+
+
+            <div class="row">
+              <div class="col-12 col-lg-10 mr-auto">
+                <p class="mb-1">
+                  <span class="text-red">Direktör:</span> ${this.films[this.indexToOpen].director}</p>
+                <p class="mb-1">
+                  <span class="text-red">Skådespelare:</span> ${this.films[this.indexToOpen].actors.join('<span class="text-red">, </span>')} </p>
+                <p class="mb-1">
+                  <span class="text-red">Produktionsår:</span> ${this.films[this.indexToOpen].productionYear}</p>
+                <p class="mb-1">
+                  <span class="text-red">Ursprungsland:</span> ${this.films[this.indexToOpen].productionCountries}</p>
+                <p class="mb-1">
+                  <span class="text-red">Undertexter:</span> ${this.films[this.indexToOpen].subtitles}</p>
+              </div>
+
+            </div>
+            
+             
+          
+          <div class="row">
+            ${this.htmlStarRatings.join("")}
           </div>
+        </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
+</div>
 
-  `; }});
-
-  
+`; }});
