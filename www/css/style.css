@@ -42,6 +42,8 @@ body main .pageTitle {
 }
 .modal-content {
   background-color: #343A39;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 .modal-lg p {
   color: white;
