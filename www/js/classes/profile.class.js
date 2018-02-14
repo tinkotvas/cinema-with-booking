@@ -1,7 +1,7 @@
 class Profile extends Base {
-    constructor(nav) {
+    constructor() {
         super();
-        this.nav=nav;
+        this.changeInput();
     }
 
     get email() {
@@ -61,30 +61,18 @@ class Profile extends Base {
         }
     }
 
-    changelogin(event) {
-        if ($(event.target).hasClass('lginEmail')) {
+    changeInput() {
+        $('.lginEmail').on('change', function(){
             this.email = $(".lginEmail").val();
-         }
-        if ($(event.target).hasClass('lgPass')) {
-            this.password = $(".lgPass").val();
-        }
-    }
-
-    changesignup(event) {
-        if ($(event.target).hasClass('signUpEmail')) {
+        })
+        $('.signUpEmail').on('change', function(){
             this.email = $(".signUpEmail").val();
-        }
-        if ($(event.target).hasClass('signUpPass')) {
-            this.password = $(".signUpPass").val();
-        }
-        if ($(event.target).hasClass('signUpRePass')) {
-            this.repass = $(".signUpRePass").val();
-        }
+        })
     }
-
 
     clicklogin(event, element, instance) {
-
+        console.log(this.email);
+        console.log(this.password);
         if ($(event.target).hasClass('lgin')) {
             this.checkLogin(this.usName);   
         }
@@ -92,8 +80,8 @@ class Profile extends Base {
 
     checkLogin(jsonName, callbackFunc) {
         // Looking for JSON file name as this.usName
-        try {
-            JSON._load(jsonName).then((data) => {
+            JSON._load(jsonName).then(
+                (data) => {
                 if (data.password == this.password) {
                     callbackFunc && callbackFunc();
                     this.login();
@@ -101,19 +89,17 @@ class Profile extends Base {
                 } else {
                     $('.loginFail').removeClass('d-none');
                 }
-            });
-        }
-        catch (e) {
-            //User name not found
-            $('.noUserName').removeClass('d-none');
-        }
+            },
+            (error)=>{
+                $('.noUserName').removeClass('d-none');
+            }
+        );
+        
     }
     login() {
         let that = this;
-        console.log(that.email);
-        console.log(that.password);
         app.getCurrentUser(that.usName);
-        that.nav.showUSname();
+        app.showUSname();
         JSON._save('currentUser', { userName: that.usName });
        $('#loginForm')[0].reset();  
     }
