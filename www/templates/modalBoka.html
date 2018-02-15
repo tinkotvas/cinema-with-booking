@@ -15,19 +15,19 @@ Object.assign(Modal.prototype, {template1(){ return `
                 <select class='form-control select-date' id='date-select'></select>
               </div>
               <div class="row">
-                <div class="col-4 pr-1 pl-1">
+                <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Ordinarie</p>
                   <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-adult"></i>
                   <span id="adultTickets" class="align-top">0</span>
                   <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-adult"></i>
                 </div>
-                <div class="col-4 pr-1 pl-1">
+                <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Barn</p>
                   <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-child"></i>
                   <span id="childTickets" class="align-top">0</span>
                   <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-child"></i>
                 </div>
-                <div class="col-4 pr-1 pr-1">
+                <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Pensionär</p>
                   <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-senior"></i>
                   <span id="seniorTickets" class="align-top">0</span>
@@ -42,19 +42,19 @@ Object.assign(Modal.prototype, {template1(){ return `
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-secondary">Ordinarie á pris: 95kr</p>
+                  <p class="text-secondary">Pris: 95kr</p>
                 </div>
                 <div class="col-4">
-                  <p class="text-secondary">Barn á pris: 55kr</p>
+                  <p class="text-secondary">Pris: 55kr</p>
                 </div>
                 <div class="col-4">
-                  <p class="text-secondary">Pensionär á pris: 65kr</p>
+                  <p class="text-secondary">Pris: 65kr</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-3 mt-md-5">
               <h2 class="modalBokaColor title-text text-center">
                 ${this.films[this.indexToOpen].title}
               </h2>
