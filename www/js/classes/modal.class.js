@@ -32,6 +32,7 @@ class Modal extends Base{
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
+      that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
       $('#infoModal').modal('hide');
       that.adultTickets = 1;
       that.childTickets = 0;
@@ -60,6 +61,7 @@ class Modal extends Base{
       $(".confirm-booking").prop("disabled", true);
       that.renderShowingTime();
       that.showDateAndTime();
+      $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
     });
   }
 
