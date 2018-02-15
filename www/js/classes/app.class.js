@@ -115,10 +115,9 @@ class App extends Base {
     if (url == '/') {
       $('main').empty();
       let mainpage = new MainPage(this.films);
-
       typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
-
       typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
+      this.scrollTop();
       this.list.renderViewings();
       // let modal = new Modal(list);
     }
@@ -126,10 +125,9 @@ class App extends Base {
       $('main').empty();
       let moviepage = new MoviePage();
       moviepage.render('main');
-
       typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
       typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
-
+      this.scrollTop();
       this.list.renderMovies();
     }
     if (url == '/biograf') {
@@ -137,14 +135,17 @@ class App extends Base {
       $('main').empty();
       // create instance here and render
       let biograf = new Auditorium();
+      this.scrollTop();
       biograf.render('main');
     }
     if (url == '/regler') {
       $('main').empty();
+      this.scrollTop();
       this.nav.render('main', 'regler');
     }
     if (url == '/kiosk') {
       $('main').empty();
+      this.scrollTop();
       this.nav.render('main', 'kiosk');
     }
     if (url == '/minasidor') {
@@ -152,8 +153,12 @@ class App extends Base {
       typeof this.myPage == 'undefined' ? this.myPage = new MyPage  (this.films) : null;
       this.myPage.init(this.currentUser).then(()=>{
         this.myPage.renderBooking();
-    });
+      });
 
+    }
   }
-}
+  scrollTop(){
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0;
+  }
 }
