@@ -38,8 +38,10 @@ class Modal extends Base{
       that.seniorTickets = 0;
       that.totalPrice = that.adultTickets * 95;
 
-      that.totalTickets = 1;
 
+      that.totalTickets = 1;
+      
+      that.auditorium.totalSeats = 1;
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
@@ -150,15 +152,7 @@ class Modal extends Base{
 
 
 
-  confirmBooking() {
-    let that = this;
-    $(document).on('click', '.confirm-booking', function() {
-      that.selectDate = $('#date-select option:selected').text();
-      $('.modal-container-info').empty();
-      that.render('.modal-container-info', 3);
-      $('#summaryModal').modal('toggle');
-    });
-  }
+
 
 
   eventHandler() {
@@ -205,7 +199,6 @@ class Modal extends Base{
         that.seniorTickets--;
         $('#seniorTickets').text(that.seniorTickets);
       }
-
       that.totalTickets = that.adultTickets+that.childTickets+that.seniorTickets;
       that.auditorium.totalSeats = that.totalTickets;
       
