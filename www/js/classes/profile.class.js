@@ -20,13 +20,11 @@ class Profile extends Base {
             this.usName = val[0];
             this.web = val[1];
             $(".signUpEmail").parent().removeClass("has-warning");
-            // $(".signupbtn").prop("disabled", false);
             $(".lginEmail").parent().removeClass("has-warning");
         }
         else {
             $(".lginEmail").parent().addClass("has-warning");
             $(".signUpEmail").parent().addClass("has-warning");
-            // $(".signupbtn").prop("disabled", true);
         }
     }
 
@@ -130,7 +128,6 @@ class Profile extends Base {
         //check passwords
         if (this.password !== this.repass) {
             $('.repassCheck').removeClass('d-none');
-            // $(".signupbtn").prop("disabled", true);
             return false;
         }else if (!$('.tAndP').prop('checked')) {
             //check box
