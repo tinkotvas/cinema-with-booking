@@ -42,7 +42,7 @@ class List extends Base {
         for (let i = 0; i < this.viewings.length; i++) {
             if (this.viewings[i].date == dateString) {
                 viewingsArea.append(`
-                  <div href="#" class="list-group-item list-group-item-action">
+                  <div href="" class="list-group-item list-group-item-action">
                       <div class="row d-flex align-items-center">
                           <div class="list-element col-4 col-md-2">
                               <h4 class="my-auto">${this.viewings[i].time}</h4>

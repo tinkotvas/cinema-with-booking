@@ -322,11 +322,11 @@ main .list-group-item {
   color: #FFF;
   transition: background-color 200ms cubic-bezier(1, 0, 0, 1);
   border-bottom: 1px solid #343a39;
+  cursor: auto;
 }
 main .list-group-item:hover {
   background-color: #343A39;
   color: #FFF;
-  cursor: pointer;
   transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
 }
 main .list-element {
