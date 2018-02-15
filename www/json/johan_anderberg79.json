@@ -1,0 +1,310 @@
+{
+  "email": "johan_anderberg79",
+  "password": "Johan1",
+  "bookingHistory": [
+    {
+      "bookingID": 805,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 245,
+      "totalTickets": 3
+    },
+    {
+      "bookingID": 807,
+      "filmTitle": "Blade Runner 2049",
+      "date": "2018-03-18 17.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 570,
+      "totalTickets": 6
+    },
+    {
+      "bookingID": 808,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 809,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 495,
+      "totalTickets": 7
+    },
+    {
+      "bookingID": 810,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 811,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 55,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 812,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 813,
+      "filmTitle": "Let the sunshine in",
+      "date": "2018-03-16 20.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 814,
+      "filmTitle": "Blade Runner 2049",
+      "date": "2018-03-18 17.00",
+      "auditorium": "Lilla Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 815,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-11 19.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 816,
+      "filmTitle": "The party",
+      "date": "2018-03-17 20.30",
+      "auditorium": "Lilla Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 817,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 818,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 55,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 819,
+      "filmTitle": "The party",
+      "date": "2018-03-17 20.30",
+      "auditorium": "Lilla Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 820,
+      "filmTitle": "The party",
+      "date": "2018-03-17 20.30",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 821,
+      "filmTitle": "The party",
+      "date": "2018-03-17 20.30",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 110,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 822,
+      "filmTitle": "Baby Driver",
+      "date": "2018-02-16 17.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 55,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 823,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 335,
+      "totalTickets": 5
+    },
+    {
+      "bookingID": 824,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 825,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 190,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 826,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 0
+    },
+    {
+      "bookingID": 827,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 3
+    },
+    {
+      "bookingID": 828,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 829,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 830,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 831,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 832,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 833,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 834,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 835,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 836,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 837,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 838,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 839,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 840,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 841,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 3
+    },
+    {
+      "bookingID": 843,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16.40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 844,
+      "filmTitle": "Baby Driver",
+      "date": "2018-02-16 17.00",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 3
+    }
+  ]
+}
