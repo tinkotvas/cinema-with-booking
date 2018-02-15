@@ -113,7 +113,7 @@ body main .pageTitle {
   border-bottom-color: #5CFDA5;
 }
 .modal-footer {
-  border-top-color: #5CFDA5;
+  border-top-color: #5cfda5;
 }
 .modalBokaColor {
   color: #5CFDA5 !important;
@@ -213,12 +213,6 @@ html {
 }
 #auditorium-holder #auditorium svg g .proposed {
   fill: #989ea4;
-}
-svg {
-  transform-origin: 50% 50% 0px;
-}
-.red {
-  fill: red;
 }
 svg {
   transform-origin: 50% 50% 0px;
