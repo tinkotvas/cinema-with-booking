@@ -209,7 +209,6 @@ class Auditorium extends Base {
                             }
                            
                         }
-                        console.log("totalAdjescantFreeSeats",totalAdjescantFreeSeats)
                         if (totalAdjescantFreeSeats >= that.totalSeats) {
 
                             for (let i = 0; i < totalAdjescantFreeSeats; i++) {
