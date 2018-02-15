@@ -11,5 +11,11 @@ class Nav extends Base {
         $(".navbar-collapse").collapse('hide');
       });
     });
+    
+    $( window ).resize(function() {
+      if ($( window ).width() > 991) {
+        $(".navbar-collapse").collapse('hide');
+      }
+    });
   }
 }
