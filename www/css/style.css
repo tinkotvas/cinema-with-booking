@@ -37,40 +37,38 @@ body main .pageTitle {
   border-bottom: 2px solid #5CFDA5;
   width: fit-content;
 }
-.text-red {
-  color: #5CFDA5 !important;
-}
 .modal-content {
   background-color: #343A39;
 }
-.infoModal .close {
+.modal-lg p {
+  color: white;
+}
+.modal-lg .close {
   color: #dc3545;
   text-shadow: 0 1px 0 #666c6b;
   font-size: 2rem;
   cursor: pointer;
 }
-.infoModal .close:focus {
+.modal-lg .close:focus {
   outline: -webkit-focus-ring-color auto 0;
   outline-color: inherit;
   outline-style: none;
   outline-width: 0;
 }
-.infoModal p {
-  color: white;
+.modal-lg .review {
+  height: 100%;
 }
-#infoModal img {
-  position: absolute;
-  right: 0px;
-  top: 0px;
+.modal-lg .review p {
+  font-size: 0.8em;
+}
+.modal-lg .text-main {
+  color: #5CFDA5 !important;
+}
+.modal-lg .smaller-text {
+  font-size: 0.9rem;
 }
 .checked {
   color: orange;
-}
-.review {
-  height: 100%;
-}
-.review p {
-  font-size: 0.8em;
 }
 .orderModalStyle {
   color: #5CFDA5;
