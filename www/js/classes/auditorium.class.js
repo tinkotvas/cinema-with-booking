@@ -198,9 +198,18 @@ class Auditorium extends Base {
                                 checkingBackwards = false;
                             }
                         }
+                        
                         if ($(this).hasClass('endSeat')) {
-                            totalAdjescantFreeSeats -= 1;
+                            if($(this).next().hasClass('endSeat') && !$(this).next().next().hasClass('booked')){
+                                totalAdjescantFreeSeats-=1;
+                            }
+
+                            if($(this).prev().hasClass('endSeat') && !$(this).prev().hasClass('booked')){
+                                totalAdjescantFreeSeats-=1;
+                            }
+                           
                         }
+                        console.log("totalAdjescantFreeSeats",totalAdjescantFreeSeats)
                         if (totalAdjescantFreeSeats >= that.totalSeats) {
 
                             for (let i = 0; i < totalAdjescantFreeSeats; i++) {
