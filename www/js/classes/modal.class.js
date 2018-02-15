@@ -32,7 +32,7 @@ class Modal extends Base{
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
-      that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
+      that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
       $('#infoModal').modal('hide');
       that.adultTickets = 1;
       that.childTickets = 0;
@@ -92,7 +92,6 @@ class Modal extends Base{
     this.auditorium;
     that.selectDate = $('#date-select option:selected').text();
     that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
-    that.auditorium.renderAuditorium(that.currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
       that.auditorium.totalSeats = that.totalTickets;
