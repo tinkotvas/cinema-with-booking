@@ -1,7 +1,8 @@
 class Modal extends Base{
 
-  constructor(films, viewings){
+  constructor(films, viewings,app){
       super();
+      this.app = app;
       this.films = films;
       this.viewings = viewings;
       this.movieRuntime;
@@ -16,7 +17,7 @@ class Modal extends Base{
       this.dateString;
       this.editedDate;
       this.totalPrice;
-      this.auditorium = new Auditorium(this);
+      this.auditorium;
       this.selectedSeats = [];
       this.totalTickets;
       this.adultTickets;
@@ -32,6 +33,7 @@ class Modal extends Base{
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
+      typeof that.app.auditorium == 'undefined' ? that.app.auditorium = new Auditorium(that):null;
       that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
       $('#infoModal').modal('hide');
       that.adultTickets = 1;
@@ -42,7 +44,7 @@ class Modal extends Base{
 
       that.totalTickets = 1;
       
-      that.auditorium.totalSeats = 1;
+      that.app.auditorium.totalSeats = 1;
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
@@ -62,7 +64,7 @@ class Modal extends Base{
 
       that.render('.modal-container-booking', 1);
       $('#bookingModal').modal('toggle');
-      typeof this.auditorium == 'undefined' ? this.auditorium = new Auditorium():null;
+      
       $(".confirm-booking").prop("disabled", true);
       that.renderShowingTime();
       that.showDateAndTime();
@@ -89,14 +91,13 @@ class Modal extends Base{
 
   showDateAndTime() {
     let that = this;
-    this.auditorium;
     that.selectDate = $('#date-select option:selected').text();
     that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
-      that.auditorium.totalSeats = that.totalTickets;
+      that.app.auditorium.totalSeats = that.totalTickets;
       that.currentAuditorium = $(this).find(':selected').attr('data-auditorium');
-      that.auditorium.renderAuditorium(that.currentAuditorium);
+      that.app.auditorium.renderAuditorium(that.currentAuditorium);
       $('#showTime').empty();
       $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
     })
@@ -162,7 +163,7 @@ class Modal extends Base{
       $('#infoModal').empty();
     });
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
-        that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
+      that.app.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
     });
 
 
@@ -205,7 +206,7 @@ class Modal extends Base{
         $('#seniorTickets').text(that.seniorTickets);
       }
       that.totalTickets = that.adultTickets+that.childTickets+that.seniorTickets;
-      that.auditorium.totalSeats = that.totalTickets;
+      that.app.auditorium.totalSeats = that.totalTickets;
       
       that.totalPrice = that.childTickets * 55 + that.adultTickets * 95 + that.seniorTickets * 65;
       $('.total-price').text('Summa: ' + that.totalPrice + ' kr');

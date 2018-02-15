@@ -142,6 +142,16 @@ html {
 #auditorium-holder #auditorium svg {
   transform-origin: 0 0;
 }
+#auditorium-holder #auditorium svg g text {
+  pointer-events: none;
+  fill: black;
+  font-size: 1.1rem;
+}
+@media (min-width: 992px) {
+  #auditorium-holder #auditorium svg g text {
+    font-size: 0.9rem;
+  }
+}
 #auditorium-holder #auditorium svg g .seat {
   fill: #FCFBE3;
   cursor: pointer;
@@ -293,7 +303,6 @@ main .list-group-item {
 main .list-group-item:hover {
   background-color: #343A39;
   color: #FFF;
-  cursor: pointer;
   transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
 }
 main .list-element {

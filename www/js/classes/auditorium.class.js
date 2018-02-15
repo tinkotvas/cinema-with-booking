@@ -5,6 +5,7 @@ class Auditorium extends Base {
         this.auditoriums;
         this.currentAuditorium;
         this.totalSeats = 0;
+        this.eventHandlers();
     }
 
     loadJSON(callbackFunc) {
@@ -15,16 +16,10 @@ class Auditorium extends Base {
         catch((e) => {
 
         });
-
     }
-
     renderAuditorium(name) {
         this.loadJSON(() => this.htmlRenderAuditorium(name));
-        this.eventHandlers();
     }
-
-
-
 
     htmlRenderAuditorium(name) {
         this.currentAuditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
@@ -78,6 +73,7 @@ class Auditorium extends Base {
 
                     seatCount++;
                     seats.push(`<rect id="seatNr${seatNumber}" class="${classes}" x="${cx}" y="${cy}" rx="2" width="48" height="40" />`)
+                    seats.push(`<text x="${cx+ (seatNumber < 10 ? 20:15)}" y="${cy+25}">${seatNumber}</text>`)
                     seatNumber++;
                 }
                 cx += seatHorizontalSpacing;
@@ -153,7 +149,7 @@ class Auditorium extends Base {
         let bookedSeats = 0;
 
         $(window).resize(function () {
-            that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight)
+            that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
         });
 
         $(document).off('click mouseenter mouseleave', '.seat')
@@ -172,11 +168,6 @@ class Auditorium extends Base {
                         $('.selected').removeClass('selected');
                         $('.proposed').addClass('selected');
                     }
-
-
-
-
-
                     if (that.modal.totalPrice > 0) {
                         $(".confirm-booking").prop("disabled", false);
                     } else {

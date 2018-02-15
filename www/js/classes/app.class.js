@@ -18,6 +18,9 @@ class App extends Base {
         this.clickSignOut();
       });
     });
+    this.modal;
+    this.list;
+    this.auditorium;
   }
   renderLoginStatus() {
     $('#showLoginStatus').empty();
@@ -107,7 +110,7 @@ class App extends Base {
     if (url == '/') {
       $('main').empty();
       let mainpage = new MainPage(this.films);
-      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings,this) : null;
       typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
       this.scrollTop();
       this.list.renderViewings();
@@ -116,7 +119,7 @@ class App extends Base {
       $('main').empty();
       let moviepage = new MoviePage();
       moviepage.render('main');
-      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings,this) : null;
       typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
       this.scrollTop();
       this.list.renderMovies();
@@ -125,9 +128,10 @@ class App extends Base {
       //empty 'main', so that only one render will showen
       $('main').empty();
       // create instance here and render
-      let biograf = new Auditorium();
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings, this) : null;
+      typeof this.auditorium == 'undefined' ? this.auditorium = new Auditorium(this.modal) : null;
       this.scrollTop();
-      biograf.render('main');
+      this.auditorium.render('main');
     }
     if (url == '/regler') {
       $('main').empty();

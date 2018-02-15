@@ -20,7 +20,7 @@ class Booking extends Base {
 			// must check if any seats are written to viewings.json since the auditorium was rendered
 			that.getSelectedSeatNumbers();
 			that.createBookingNumber()
-			console.log(that.modal.adultTickets + ' i booking');
+			
 			$('.modal-container-info').empty();
 			that.modal.render('.modal-container-info', 3);
 			$('#summaryModal').modal('toggle');
