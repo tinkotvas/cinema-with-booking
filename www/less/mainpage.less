@@ -1,16 +1,156 @@
+//main: style.less
 main{
   margin-top: 64px;
+  .gallery{
+    background-color: @main-dark;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .gallery-film-title{
+      position: absolute;
+      top: 0;
+      width: 40%;
+      height: 100%;
+      .header-film{
+        width: fit-content;
+        position: relative;
+        .header-film-text{
+          text-decoration: underline;
+          text-decoration-color: @main-color;
+          overflow: hidden;
+          color: @main-light;
+          font-size: 4.5rem;
+        }
+      } 
+    }
+
+    .gallery-details{
+      height: 560px;
+      .gallery-details-text{
+        height: 100%;
+        .gallery-buttons-container{
+          position: relative;
+          left: 10%;
+          .gallery-buttons{
+            position: absolute;
+            bottom: 0;
+            height: fit-content;
+            z-index: 4;
+            .gallery-previous,
+            .gallery-next{
+              background-color: transparent !important;
+              color: @main-light;
+              border: none; 
+              cursor: pointer;
+            }
+            .gallery-previous:hover,
+            .gallery-next:hover{
+              color: @main-color;
+            }
+          }
+        }
+        .gallery-info-container{
+          height: 100%;
+          left: 40%;
+          z-index: 3;
+          width: 100%;
+          overflow-y: hidden;
+          .gallery-info-text{
+            top: 70%;
+            background-color: @main-color;
+            height: 100%;
+            h5{
+              color: @black;
+              text-decoration: underline;
+            }
+            p{
+              color: @black;
+              font-weight: 500;
+            }
+            span{
+              color: @main-dark;
+              font-weight: 300;
+            }
+            .gallery-info-text-sub{
+              opacity: 0;
+              transition: opacity 400ms cubic-bezier(1, 0, 0, 1);
+            }
+          }
+          .buy-container{
+          left: 0;
+          height: 100%;
+          z-index: -1;
+          .buy{
+            background-color: #27CFE6;
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            overflow-y: hidden;
+          }
+        }
+        }
+        
+        
+      }
+      
+      
+      
+      
+      
+      .gallery-image-container{
+        //transform: translate(0%, 0%);
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        //position: relative;
+        .gallery-image{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          position: relative;
+         }
+         .slices{
+           position: absolute;
+           top: -1px;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           .slice1,
+           .slice2,
+           .slice3,
+           .slice4{
+             height: 0;
+             background-color: @main-dark;
+           }
+         }
+      }
+      
+    }
+  }
+  
   .list-group-item{
     background-color: transparent;
+    color: #FFF;
+    transition: background-color 200ms cubic-bezier(1, 0, 0, 1);
+    border-bottom: 1px solid @main-dark;
   }
+  .list-group-item:hover{
+    background-color: #343A39;
+    color: #FFF;;
+    cursor: pointer;
+    transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
+
+  }  
 	.list-element{
 		width: fit-content;
 		height: fit-content;
-	}
-  .header-film{
-    border: 3px solid #FFF !important;
-    width: fit-content;
   }
+  .card{
+    background-color: transparent;
+  }
+  
   .mainbanner {
     width: 100%;
   }

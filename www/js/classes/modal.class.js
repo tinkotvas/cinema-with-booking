@@ -30,6 +30,7 @@ class Modal extends Base{
   toggleBookingModal() {
     let that = this;
     $(document).on("click", '.btn-booking', function() {
+      $('#infoModal').modal('hide');
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
@@ -80,12 +81,11 @@ class Modal extends Base{
     let that = this;
     this.auditorium;
     that.selectDate = $('#date-select option:selected').text();
-    that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium')
-    $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
+    that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
+    that.auditorium.renderAuditorium(that.currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
       that.auditorium.totalSeats = that.totalTickets;
-
       that.currentAuditorium = $(this).find(':selected').attr('data-auditorium');
       that.auditorium.renderAuditorium(that.currentAuditorium);
       $('#showTime').empty();
@@ -105,7 +105,7 @@ class Modal extends Base{
         }
       }
       let review = `
-        <div class="col-6 col-sm-4 mb-3 mt-3 review">
+        <div class="col-6 col-lg-4 mb-3 mt-3 review">
           <h6 class="mb-1"><span class="text-red">${this.films[this.indexToOpen].reviews[i].source}</span></h6>
           <p class="mb-1">${this.films[this.indexToOpen].reviews[i].quote}</p>
           <span class="text-center">${stars[i].join("")}</span>
@@ -142,7 +142,25 @@ class Modal extends Base{
     this.movieRuntime = `${h.toString()} tim ${(m<10? "0": "")}${m.toString()} min`;
   }
 
-  
+
+
+  confirmBooking() {
+    let that = this;
+    $(document).on('click', '.confirm-booking', function() {
+      // if(app.currentuser == 0){
+      //  open login modal
+      // }
+      // else{}
+      // first check if logged in otherwise open the login modal
+      that.selectDate = $('#date-select option:selected').text();
+      $('.modal-container-info').empty();
+      that.render('.modal-container-info', 3);
+      $('#summaryModal').modal('toggle');
+      //save into currentUser.json
+     
+    });
+  }
+
 
   eventHandler() {
     let that=this;
@@ -150,12 +168,23 @@ class Modal extends Base{
       $('#infoModal').empty();
     });
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
-      that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
+      if(that.allMovieDates=[]){
+        console.log("Not showing at all!");
+      }else{
+        that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
+      }
     });
+
+
+      
+      
+    
+
+
     let adultTickets = 0;
     let childTickets = 0;
     let seniorTickets = 0;
-    $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function () {
+    $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function (event) {
       let id = event.target.id;
       if (id == 'add-adult') {
         adultTickets++;

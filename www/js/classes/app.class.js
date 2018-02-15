@@ -59,7 +59,8 @@ class App extends Base {
     this.nav.render('header');
     this.renderLoginStatus();
     this.changePage();
-    window.addEventListener('popstate', nav.changePage);
+    //window.addEventListener('popstate', this.changePage);
+    window.addEventListener('popstate', this.changePage.bind(this));
   }
 
   renderFooter() {
@@ -105,6 +106,8 @@ class App extends Base {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
+    // console.log(url);
+    
 
     // change menu link active
     $('header a').removeClass('active');
@@ -140,15 +143,17 @@ class App extends Base {
       $('main').empty();
       this.nav.render('main', 'regler');
     }
-    if (url == '/godis') {
+    if (url == '/kiosk') {
       $('main').empty();
-      this.nav.render('main', 'godis');
+      this.nav.render('main', 'kiosk');
     }
     if (url == '/minasidor') {
       $('main').empty();
       typeof this.myPage == 'undefined' ? this.myPage = new MyPage  (this.films) : null;
-      this.myPage.renderBooking(); 
-    }
+      this.myPage.init(this.currentUser).then(()=>{
+        this.myPage.renderBooking();
+    });
 
   }
+}
 }

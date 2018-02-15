@@ -1,25 +1,55 @@
 //main: style.less
 .text-red {
-    color: #FB515C !important;
+    color: @main-color  !important;
 }
 
+.modal-content{
+    background-color: #343A39;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height:95vh;
+    padding:10px;
+}
+
+
 .modal-lg {
+    .close {
+        color: @main-red;
+        text-shadow: 0 1px 0 @main-dark+50;
+        font-size: 2rem;
+        cursor: pointer;
+        &:focus {
+            outline: -webkit-focus-ring-color auto 0;
+            outline-color: inherit;
+            outline-style: none;
+            outline-width: 0;
+        }
+    }
     p {
         color: white;
     }
-    @media (min-width:576px) {
-        max-width: 90vw !important;
+    @media (min-width:668) {
+        min-width: 90vw !important;
     }
     @media (min-width: 992px) {
-        max-width: 70vw !important;
+        min-width: 90vw !important;
     }
     @media (min-width: 1400px) {
-        max-width: 60vw !important;
+        min-width: 80vw !important;
     }
 }
 
 .youtube {
-    min-height: 40vh;
+    //min-height: 40vh;
+    @media (max-width: 576px) {
+        min-height: inherit;
+    }
+    @media (min-width: 992px) {
+        min-width: 90vw !important;
+    }
+    @media (min-width: 1400px) {
+        min-width: 80vw !important;
+    }
 }
 
 #infoModal {

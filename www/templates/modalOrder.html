@@ -27,8 +27,9 @@ Object.assign(MyPage.prototype, {template3(){
                         <p class>${this.dummyBooking[this.indexToOpen].totalPrice}kr</p>
                     </div>
                     <div class="col-6">
-                        <img class="img-fluid" src="imgs/${this.films[this.indexToOpenPoster].images[0]}">
-                    </div>
+                        <img class="img-fluid" src='/imgs/${this.films[this.indexToOpenPoster].images[0]}'>
+                    </div> 
+                
                 </div>
             </div>
             <div class="modal-footer">

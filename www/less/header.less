@@ -1,7 +1,8 @@
+//main: style.less
 header{
   nav{
     height: fit-content;
-    background-color: #FB515C !important;
+    background-color: @main-color !important;
     .nav-link{
       border-bottom: 1px solid transparent;
       width: fit-content;
@@ -13,19 +14,20 @@ header{
       width: 80px;
     }
   }
-  .brand-modal{
-    width: 80px;
-  }
-  #loginModal, #signupModal{
-    .modal-header{
-      background-color: #FB515C !important;
-    }
-    .close{
-      cursor: pointer;
-    }
-  }
+  
   #showLoginStatus{
     cursor: pointer;
   }
 
+}
+.brand-modal{
+  width: 80px;
+}
+#loginModal, #signupModal{
+  .modal-header{
+    background-color: @main-color !important;
+  }
+  .close{
+    cursor: pointer;
+  }
 }
