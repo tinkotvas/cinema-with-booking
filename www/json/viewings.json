@@ -232,7 +232,11 @@
     "auditorium": "Stora Salongen",
     "film": "Call me by your name",
     "date": "2018-02-27",
-    "time": "20:00"
+    "time": "20:00",
+    "selectedSeats": [
+      "34",
+      "34"
+    ]
   },
   {
     "auditorium": "Lilla Salongen",

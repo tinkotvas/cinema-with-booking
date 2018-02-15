@@ -1,16 +1,13 @@
 Object.assign(MainPage.prototype, { template2(){
   return `
-  <div class="gallery-film-title p-5">
-      <div class="header-film mt-3">
-        <h1 class="header-film-text">${this.films[this.index].title}</h1>
-      </div>
-      
-  </div>
-  <div class="row gallery-details align-items-end m-0 p-0">
-    <div class="col-5 gallery-details-text">
-        <div class="row p-0 h-100">
-          <div class="gallery-buttons-container col-2 text-center p-0">
-            <div class="gallery-buttons  w-100 py-2">
+  <div class="row gallery-content align-items-end m-0 p-0">
+    <div class="col-12 col-md-5 gallery-info order-2 order-md-1">
+        <div class="row h-100">
+          <div class="gallery-info-title col-12 p-2 p-md-5 m-0">
+            <div class="header-film">
+                <h1 class="header-film-text display-1">${this.films[this.index].title}</h1>
+            </div>
+            <div class="gallery-buttons m-0 py-1 py-md-4">
               <button class="gallery-previous">
                   <i class="fas fa-arrow-left fa-2x"></i>
               </button>
@@ -19,56 +16,9 @@ Object.assign(MainPage.prototype, { template2(){
               </button> 
             </div>
           </div>
-          <div class="gallery-info-container col-10 p-0 m-0 row">
-              <div class="col-8 m-0 py-4 gallery-info-text">
-                  <div class="gallery-info-text-main">
-                    <h5>
-                      ${this.films[this.index].title}
-                    </h5>
-                    <p class="my-1">
-                      Direktör: 
-                      <span class="">${this.films[this.index].director}</span>
-                    </p>
-                    <p class="my-1">
-                      Skådespelare:
-                      <span class="">${this.films[this.index].actors.join(', ')}</span> 
-                    </p>
-                  </div>
-                  <div class="gallery-info-text-sub">
-                    <p class="my-1">Produktionsår: 
-                      <span class="">${this.films[this.index].productionYear}</span>
-                    </p>
-                    <p class="my-1">
-                      Ursprungsland:
-                      <span class="">${this.films[this.index].productionCountries}</span>
-                    </p>
-                    <p class="my-1">
-                      Undertexter:
-                      <span class="">${this.films[this.index].subtitles}</span>
-                    </p>
-                    <p class="my-1">
-                      Filmens längd:
-                      <span class="">${this.films[this.index].length} min</span>
-                    </p>
-                    <p class="my-1">
-                      Filmgenrer:
-                      <span class="">${this.films[this.index].genre}</span>
-                    </p>
-                    <div class="text-center my-4">
-                      <img src="/imgs/${this.films[this.index].images[0]}" alt="" class="img-fluid w-50">
-                    </div>
-                  </div>
-              </div>
-              <div class="col-4 buy-container">
-                <div class="col-12 m-0 py-3 buy text-center d-none">
-                  <!-- <h5 class="">Boka nu</h5> -->
-                  <a class="btn btn-base btn-booking" id="bookingModalToggle">Biljetter</a>
-                </div>
-              </div>
-            </div>
         </div>
     </div>
-    <div class="col-7 gallery-image-container p-0 m-0">
+    <div class="col-12 col-md-7 gallery-image-container p-0 m-0 order-1 order-md-2">
       <img class="d-block gallery-image" src="/imgs/${this.films[this.index].images[1]}" alt="${this.films[this.index].title}">
       <div class="slices row p-0 m-0">
         <div class="col-3 slice1"></div>
@@ -76,6 +26,47 @@ Object.assign(MainPage.prototype, { template2(){
         <div class="col-3 slice3"></div>
         <div class="col-3 slice4"></div>
       </div>
+    </div>
+    <div class="gallery-info-container d-none d-lg-block">
+        <div class="m-0 p-4 gallery-info-text ">
+            <div class="gallery-info-text-main">
+              <h5>
+                ${this.films[this.index].title}
+              </h5>
+              <p class="my-1">
+                Direktör: 
+                <span class="">${this.films[this.index].director}</span>
+              </p>
+              <p class="my-1">
+                Skådespelare:
+                <span class="">${this.films[this.index].actors.join(', ')}</span> 
+              </p>
+            </div>
+            <div class="gallery-info-text-sub">
+              <p class="my-1">Produktionsår: 
+                <span class="">${this.films[this.index].productionYear}</span>
+              </p>
+              <p class="my-1">
+                Ursprungsland:
+                <span class="">${this.films[this.index].productionCountries}</span>
+              </p>
+              <p class="my-1">
+                Undertexter:
+                <span class="">${this.films[this.index].subtitles}</span>
+              </p>
+              <p class="my-1">
+                Filmens längd:
+                <span class="">${this.films[this.index].length} min</span>
+              </p>
+              <p class="my-1">
+                Filmgenrer:
+                <span class="">${this.films[this.index].genre}</span>
+              </p>
+              <div class="text-center my-4">
+                <img src="/imgs/${this.films[this.index].images[0]}" alt="" class="img-fluid w-50">
+              </div>
+            </div>
+        </div>
     </div>
   </div>
 `;}});

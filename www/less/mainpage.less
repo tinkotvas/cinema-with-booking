@@ -2,40 +2,51 @@
 main{
   margin-top: 64px;
   .gallery{
+    @media screen and (min-width: 0) and (max-width: 767px){  
+      //height: 75vh; 
+      height: 50vh;
+    }
     background-color: @main-dark;
     width: 100%;
-    height: 100%;
-    position: relative;
-    .gallery-film-title{
-      position: absolute;
-      top: 0;
-      width: 40%;
-      height: 100%;
-      .header-film{
-        width: fit-content;
-        position: relative;
-        .header-film-text{
-          text-decoration: underline;
-          text-decoration-color: @main-color;
-          overflow: hidden;
-          color: @main-light;
-          font-size: 4.5rem;
-        }
-      } 
-    }
-
-    .gallery-details{
-      height: 560px;
-      .gallery-details-text{
+    height: 75vh;
+    .gallery-content{
+      height: inherit;
+      // @media screen and (min-width: 0) and (max-width: 768px){  
+      //   height: 60vh; 
+      // }
+      .gallery-info{
         height: 100%;
-        .gallery-buttons-container{
-          position: relative;
-          left: 10%;
+        @media screen and (min-width: 0) and (max-width: 767px){  
+          //height: 70vh; 
+          position: absolute;
+          z-index: 5;
+          top: 0;
+        }
+        .gallery-info-title{
+          .header-film{
+            height: 100%;
+            width: fit-content;
+            .header-film-text{
+              text-decoration: underline;
+              text-decoration-color: @main-color;
+              overflow: hidden;
+              color: @main-light;
+              font-size: 4.5rem;
+              @media screen and (min-width: 0) and (max-width: 767px){  
+                font-size: 3rem;
+              }
+            }
+          }
           .gallery-buttons{
+            @media screen and (min-width: 0) and (max-width: 767px){  
+              //position: relative; 
+              bottom: 0%; 
+            }
             position: absolute;
             bottom: 0;
             height: fit-content;
-            z-index: 4;
+            width: fit-content;
+            //z-index: 4;
             .gallery-previous,
             .gallery-next{
               background-color: transparent !important;
@@ -49,61 +60,13 @@ main{
             }
           }
         }
-        .gallery-info-container{
-          height: 100%;
-          left: 40%;
-          z-index: 3;
-          width: 100%;
-          overflow-y: hidden;
-          .gallery-info-text{
-            top: 70%;
-            background-color: @main-color;
-            height: 100%;
-            h5{
-              color: @black;
-              text-decoration: underline;
-            }
-            p{
-              color: @black;
-              font-weight: 500;
-            }
-            span{
-              color: @main-dark;
-              font-weight: 300;
-            }
-            .gallery-info-text-sub{
-              opacity: 0;
-              transition: opacity 400ms cubic-bezier(1, 0, 0, 1);
-            }
-          }
-          .buy-container{
-          left: 0;
-          height: 100%;
-          z-index: -1;
-          .buy{
-            background-color: #27CFE6;
-            position: absolute;
-            bottom: 0;
-            left: -100%;
-            width: 100%;
-            overflow-y: hidden;
-          }
-        }
-        }
-        
-        
       }
-      
-      
-      
-      
-      
       .gallery-image-container{
         //transform: translate(0%, 0%);
         width: 100%;
         height: 100%;
         overflow-x: hidden;
-        //position: relative;
+        position: relative;
         .gallery-image{
           width: 100%;
           height: 100%;
@@ -126,10 +89,43 @@ main{
            }
          }
       }
+      .gallery-info-container{
+        height: 100%;
+        left: 30%;
+        z-index: 2;
+        width: 300px;
+        overflow-y: hidden;
+        position: absolute;
+        .gallery-info-text{
+          position: absolute;
+          top: 70%;
+          background-color: @main-color;
+          height: 100%;
+          width: 100%;
+          h5{
+            color: @black;
+            text-decoration: underline;
+          }
+          p{
+            color: @black;
+            font-weight: 500;
+          }
+          span{
+            color: @main-dark;
+            font-weight: 300;
+          }
+          .gallery-info-text-sub{
+            opacity: 0;
+            transition: opacity 400ms cubic-bezier(1, 0, 0, 1);
+          }
+        }
+      }
       
     }
   }
-  
+  .list-group{
+    position: relative;
+  }
   .list-group-item{
     background-color: transparent;
     color: #FFF;
@@ -155,4 +151,3 @@ main{
     width: 100%;
   }
 }
-

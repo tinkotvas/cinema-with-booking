@@ -49,10 +49,10 @@ class List extends Base {
                 viewingsArea.append(`
                   <div href="#" class="list-group-item list-group-item-action">
                       <div class="row d-flex align-items-center">
-                          <div class="list-element col-6 col-md-2">
+                          <div class="list-element col-4 col-md-2">
                               <h4 class="my-auto">${this.viewings[i].time}</h4>
                           </div>
-                          <div class="list-element col-6 col-md-4">
+                          <div class="list-element col-8 col-md-4">
                               <h4 class="float-right float-md-left my-auto">${this.viewings[i].film}</h4>
                           </div>
                           <div class="list-element col-6 col-md-3">
