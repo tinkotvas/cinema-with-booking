@@ -5,13 +5,15 @@ Object.assign(Modal.prototype, {template3(){
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content bg-dark">
         <div class="modal-body text-white">
-          <h3>Du har bokat: ${this.films[this.indexToOpen].title}</h3>
-          <h5 class="title-text text-white">
-            ${this.selectDate} i ${this.currentAuditorium}
-            Plats: (säteX1, säteX2...)
-            Antal biljetter: ${this.totalTickets}, totalpris ${this.totalPrice} kr. Betalning sker kontant i kassan, ange ditt bokningsnummer ${this.bookingNumber}.
-            <a href="#">Logga in</a> för att se dina bokningar.
-          </h5>
+          <h3>Du har bokat: <b>${this.films[this.indexToOpen].title}</b></h3>
+          <div class="title-text text-white">
+            <p>${this.selectDate} i ${this.currentAuditorium}<p>
+            <p>Stolnummer: ${this.selectedSeats}<p>
+            <p>Antal biljetter: ${this.totalTickets}
+            <p>Totalpris ${this.totalPrice} kr.<p>
+            <p>Betalning sker i kassan, ange ditt bokningsnummer <b>${this.bookingNumber}</b>.
+            <p>Du kan se dina bokningar under mina sidor.</p>
+          </div>
           <h3>Tack för att du bokat film hos oss!</h3>
         </div>
       </div>

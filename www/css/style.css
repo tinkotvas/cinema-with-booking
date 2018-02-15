@@ -12,18 +12,18 @@ header nav .nav-link.active {
 header nav .brand {
   width: 80px;
 }
-header .brand-modal {
-  width: 80px;
-}
-header #loginModal .modal-header,
-header #signupModal .modal-header {
-  background-color: #5CFDA5 !important;
-}
-header #loginModal .close,
-header #signupModal .close {
+header #showLoginStatus {
   cursor: pointer;
 }
-header #showLoginStatus {
+.brand-modal {
+  width: 80px;
+}
+#loginModal .modal-header,
+#signupModal .modal-header {
+  background-color: #5CFDA5 !important;
+}
+#loginModal .close,
+#signupModal .close {
   cursor: pointer;
 }
 body {
@@ -58,39 +58,6 @@ body main .pageTitle {
 .infoModal p {
   color: white;
 }
-@media (min-width: 668) {
-  .infoModal {
-    min-width: 90vw !important;
-  }
-}
-@media (min-width: 992px) {
-  .infoModal {
-    min-width: 90vw !important;
-  }
-}
-@media (min-width: 1400px) {
-  .infoModal {
-    min-width: 80vw !important;
-  }
-}
-.youtube {
-  max-height: 55vh;
-}
-@media (max-width: 576px) {
-  .youtube {
-    min-height: inherit;
-  }
-}
-@media (min-width: 992px) {
-  .youtube {
-    min-width: 90vw !important;
-  }
-}
-@media (min-width: 1400px) {
-  .youtube {
-    min-width: 80vw !important;
-  }
-}
 #infoModal img {
   position: absolute;
   right: 0px;
@@ -104,6 +71,33 @@ body main .pageTitle {
 }
 .review p {
   font-size: 0.8em;
+}
+.orderModalStyle {
+  color: #5CFDA5;
+}
+.modal-header {
+  border-bottom-color: #5CFDA5;
+}
+.modal-footer {
+  border-top-color: #5CFDA5;
+}
+.modalBokaColor {
+  color: #5CFDA5 !important;
+}
+#adultTickets {
+  font-size: 20px;
+}
+#childTickets {
+  font-size: 20px;
+}
+#seniorTickets {
+  font-size: 20px;
+}
+.fa-minus-circle:hover {
+  color: #FB515C;
+}
+.fa-plus-circle:hover {
+  color: #5CFDA5;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -139,27 +133,6 @@ footer .social-media {
   font-size: 2.5em;
   color: #5CFDA5;
 }
-@media screen and (min-width: 769px) and (max-width: 937px) {
-  footer {
-    height: 90px;
-  }
-}
-@media screen and (min-width: 540px) and (max-width: 768px) {
-  body {
-    margin-bottom: 200px;
-  }
-  footer {
-    height: 185px;
-  }
-}
-@media screen and (max-width: 576px) {
-  body {
-    margin-bottom: 200px;
-  }
-  footer {
-    height: 75px;
-  }
-}
 html {
   position: relative;
 }
@@ -169,12 +142,19 @@ html {
 #auditorium-holder #auditorium svg {
   transform-origin: 0 0;
 }
+#auditorium-holder #auditorium svg g text {
+  pointer-events: none;
+  fill: black;
+  font-size: 1.1rem;
+}
+@media (min-width: 992px) {
+  #auditorium-holder #auditorium svg g text {
+    font-size: 0.9rem;
+  }
+}
 #auditorium-holder #auditorium svg g .seat {
   fill: #FCFBE3;
   cursor: pointer;
-}
-#auditorium-holder #auditorium svg g .screen {
-  fill: white;
 }
 #auditorium-holder #auditorium svg g .booked {
   fill: #dc3545;
@@ -195,120 +175,124 @@ main {
 main .gallery {
   background-color: #343A39;
   width: 100%;
-  height: 100%;
-  position: relative;
+  height: 75vh;
 }
-main .gallery .gallery-film-title {
-  position: absolute;
-  top: 0;
-  width: 40%;
+@media screen and (min-width: 0) and (max-width: 767px) {
+  main .gallery {
+    height: 50vh;
+  }
+}
+main .gallery .gallery-content {
+  height: inherit;
+}
+main .gallery .gallery-content .gallery-info {
   height: 100%;
 }
-main .gallery .gallery-film-title .header-film {
+@media screen and (min-width: 0) and (max-width: 767px) {
+  main .gallery .gallery-content .gallery-info {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+  }
+}
+main .gallery .gallery-content .gallery-info .gallery-info-title .header-film {
+  height: 100%;
   width: fit-content;
-  position: relative;
 }
-main .gallery .gallery-film-title .header-film .header-film-text {
+main .gallery .gallery-content .gallery-info .gallery-info-title .header-film .header-film-text {
   text-decoration: underline;
   text-decoration-color: #5CFDA5;
   overflow: hidden;
   color: #FCFBE3;
   font-size: 4.5rem;
 }
-main .gallery .gallery-details {
-  height: 560px;
+@media screen and (min-width: 0) and (max-width: 767px) {
+  main .gallery .gallery-content .gallery-info .gallery-info-title .header-film .header-film-text {
+    font-size: 3rem;
+  }
 }
-main .gallery .gallery-details .gallery-details-text {
-  height: 100%;
-}
-main .gallery .gallery-details .gallery-details-text .gallery-buttons-container {
-  position: relative;
-}
-main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons {
+main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons {
   position: absolute;
   bottom: 0;
   height: fit-content;
-  z-index: 4;
+  width: fit-content;
 }
-main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-previous,
-main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-next {
+@media screen and (min-width: 0) and (max-width: 767px) {
+  main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons {
+    bottom: 0%;
+  }
+}
+main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-previous,
+main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-next {
   background-color: transparent !important;
   color: #FCFBE3;
   border: none;
   cursor: pointer;
 }
-main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-previous:hover,
-main .gallery .gallery-details .gallery-details-text .gallery-buttons-container .gallery-buttons .gallery-next:hover {
+main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-previous:hover,
+main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-next:hover {
   color: #5CFDA5;
 }
-main .gallery .gallery-details .gallery-details-text .gallery-info-container {
-  height: 100%;
-  left: 30%;
-  z-index: 3;
-  width: 100%;
-  overflow-y: hidden;
-}
-main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text {
-  position: absolute;
-  bottom: 0;
-  background-color: #5CFDA5;
-  height: 25%;
-}
-main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text h5 {
-  color: #0C1C1B;
-  text-decoration: underline;
-}
-main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text p {
-  color: #0C1C1B;
-  font-weight: 500;
-}
-main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text span {
-  color: #343A39;
-  font-weight: 300;
-}
-main .gallery .gallery-details .gallery-details-text .gallery-info-container .gallery-info-text .gallery-info-text-sub {
-  opacity: 0;
-  transition: opacity 400ms cubic-bezier(1, 0, 0, 1);
-}
-main .gallery .gallery-details .gallery-details-text .buy-container {
-  left: 30%;
-  height: 100%;
-  z-index: 2;
-  position: relative;
-}
-main .gallery .gallery-details .gallery-details-text .buy-container .buy {
-  background-color: #27CFE6;
-  position: absolute;
-  bottom: 0;
-  left: -200%;
-  width: 100%;
-  overflow-y: hidden;
-}
-main .gallery .gallery-details .gallery-image-container {
+main .gallery .gallery-content .gallery-image-container {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  position: relative;
 }
-main .gallery .gallery-details .gallery-image-container .gallery-image {
+main .gallery .gallery-content .gallery-image-container .gallery-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   position: relative;
 }
-main .gallery .gallery-details .gallery-image-container .slices {
+main .gallery .gallery-content .gallery-image-container .slices {
   position: absolute;
   top: -1px;
   left: 0;
   width: 100%;
   height: 100%;
 }
-main .gallery .gallery-details .gallery-image-container .slices .slice1,
-main .gallery .gallery-details .gallery-image-container .slices .slice2,
-main .gallery .gallery-details .gallery-image-container .slices .slice3,
-main .gallery .gallery-details .gallery-image-container .slices .slice4 {
+main .gallery .gallery-content .gallery-image-container .slices .slice1,
+main .gallery .gallery-content .gallery-image-container .slices .slice2,
+main .gallery .gallery-content .gallery-image-container .slices .slice3,
+main .gallery .gallery-content .gallery-image-container .slices .slice4 {
   height: 0;
   background-color: #343A39;
+}
+main .gallery .gallery-content .gallery-info-container {
+  height: 100%;
+  left: 30%;
+  z-index: 2;
+  width: 300px;
+  overflow-y: hidden;
+  position: absolute;
+}
+main .gallery .gallery-content .gallery-info-container .gallery-info-text {
+  position: absolute;
+  top: 70%;
+  background-color: #5CFDA5;
+  height: 100%;
+  width: 100%;
+}
+main .gallery .gallery-content .gallery-info-container .gallery-info-text h5 {
+  color: #0C1C1B;
+  text-decoration: underline;
+}
+main .gallery .gallery-content .gallery-info-container .gallery-info-text p {
+  color: #0C1C1B;
+  font-weight: 500;
+}
+main .gallery .gallery-content .gallery-info-container .gallery-info-text span {
+  color: #343A39;
+  font-weight: 300;
+}
+main .gallery .gallery-content .gallery-info-container .gallery-info-text .gallery-info-text-sub {
+  opacity: 0;
+  transition: opacity 400ms cubic-bezier(1, 0, 0, 1);
+}
+main .list-group {
+  position: relative;
 }
 main .list-group-item {
   background-color: transparent;
@@ -319,7 +303,6 @@ main .list-group-item {
 main .list-group-item:hover {
   background-color: #343A39;
   color: #FFF;
-  cursor: pointer;
   transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
 }
 main .list-element {

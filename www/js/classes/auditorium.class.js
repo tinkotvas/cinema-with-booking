@@ -5,6 +5,7 @@ class Auditorium extends Base {
         this.auditoriums;
         this.currentAuditorium;
         this.totalSeats = 0;
+        this.eventHandlers();
     }
 
     loadJSON(callbackFunc) {
@@ -15,16 +16,10 @@ class Auditorium extends Base {
         catch((e) => {
 
         });
-
     }
-
     renderAuditorium(name) {
         this.loadJSON(() => this.htmlRenderAuditorium(name));
-        this.eventHandlers();
     }
-
-
-
 
     htmlRenderAuditorium(name) {
         this.currentAuditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
@@ -48,7 +43,7 @@ class Auditorium extends Base {
             bookedSeatsLength = viewing.selectedSeats.length;
         }
 
-        for (let y = 0, cy = 20; y <= rowsToDraw; y++) {
+        for (let y = 0, cy = 0; y <= rowsToDraw; y++) {
             let first = true,
                 last = false;
             for (let x = 0, cx = 0; x < maxSeatsPerRow; x++) {
@@ -78,6 +73,7 @@ class Auditorium extends Base {
 
                     seatCount++;
                     seats.push(`<rect id="seatNr${seatNumber}" class="${classes}" x="${cx}" y="${cy}" rx="2" width="48" height="40" />`)
+                    seats.push(`<text x="${cx+ (seatNumber < 10 ? 20:15)}" y="${cy+25}">${seatNumber}</text>`)
                     seatNumber++;
                 }
                 cx += seatHorizontalSpacing;
@@ -89,8 +85,15 @@ class Auditorium extends Base {
         <div id="auditorium-holder" class="mr-auto ml-auto">
             <div id="auditorium">
                 <svg class="bg-dark" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <g>
-                        <rect class="screen" x="50" y="5" height="20" width="${screenWidth-100}"/>
+                <defs>
+                    <linearGradient id="screenGradient" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stop-color="white"/>
+                        <stop offset="2%" stop-color="white" stop-opacity="0.1"/>
+                        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                    <g class="screenGroup">
+                        <polygon points="100,0 ${screenWidth-100},0 ${screenWidth},250 0,250" fill="url(#screenGradient)"/>
                     </g>
                     <g class="seatsGroup">
                         ${seats.join("")}
@@ -102,16 +105,16 @@ class Auditorium extends Base {
         $('#auditoriumContainer').empty();
         $('#auditoriumContainer').append(htmlAuditorium);
 
-        let auditoriumWidth = maxSeatsPerRow * 50;
-        let auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
+        this.auditoriumWidth = maxSeatsPerRow * 50;
+        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
 
-        $('#auditorium, svg').width(auditoriumWidth).height(auditoriumHeight);
-        this.scaleAuditorium(auditoriumWidth, auditoriumHeight);
+        $('#auditorium, svg').width(this.auditoriumWidth).height(this.auditoriumHeight);
+        this.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
     }
 
     scaleAuditorium(orgW = 700, orgH = 600) {
-        let w = $('.modal-lg').width() * 0.75;
-        let h = $('.modal-lg').height() * 0.75;
+        let w = $('.modal-lg').width();
+        let h = $('.modal-lg').height();
         w -= 20 * 2;
         h -= (20 * 2);
         const wScale = w / orgW;
@@ -143,64 +146,79 @@ class Auditorium extends Base {
     eventHandlers() {
         let seat;
         let that = this;
+        let bookedSeats = 0;
+
+        $(window).resize(function () {
+            that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
+        });
 
         $(document).off('click mouseenter mouseleave', '.seat')
         $(document).on({
                 click: function () {
-                    $('.selected').removeClass('selected')
-                    $('.proposed').addClass('selected');
+                    let selectedSeats = $('.selected');
+
+                    if ($('.separateSeat-check-input').is(':checked')) {
+                        if ($(this).hasClass('selected')) {
+                            $(this).removeClass('selected');
+                        } else {
+                            if(selectedSeats.length < that.totalSeats)
+                            $('.proposed').addClass('selected');
+                        }
+                    } else {
+                        $('.selected').removeClass('selected');
+                        $('.proposed').addClass('selected');
+                    }
+                    if (that.modal.totalPrice > 0) {
+                        $(".confirm-booking").prop("disabled", false);
+                    } else {
+                        $(".confirm-booking").prop("disabled", true);
+                    }
                 },
                 mouseenter: function () {
                     seat = $(this);
                     let totalSeatsBooked = 0;
+
                     if (seat.hasClass('booked')) {
                         //nada
-                    } else if (that.totalSeats > 1) {
+                    } else if (that.totalSeats > 1 && !$('.separateSeat-check-input').is(':checked')) {
                         let checkingForwards = true,
                             checkingBackwards = true,
-                            totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats);
-                        let originalSeatNumber = parseInt(seat[0].id.split("Nr")[1])
+                            totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats),
+                            fromSeatNr = parseInt(seat[0].id.split("Nr")[1]);
 
-                        let swapModifier = function (modifier) {
-                            modifier > 0 ? checkingForwards = false : checkingBackwards = false;
+                        let stopCheckingThisDirection = function (direction) {
+                            direction > 0 ? checkingForwards = false : checkingBackwards = false;
                         }
 
-                        let seatNumberString;
+                        let checkValidSeatAndPropose = function (modifier, direction) {
+                            let adjacentSeat = $(`#seatNr${fromSeatNr+modifier+direction}`);
+                            let currentSeat = $(`#seatNr${fromSeatNr+modifier}`)
 
-                        //modifier -1 for left +1 for right
-                        let proposedSeatDirection = function (modifier) {
-                            seatNumberString = `#seatNr${originalSeatNumber+modifier}`;
-
-                            if (!$(seatNumberString)[0] || $(seatNumberString).hasClass('booked')) {
-                                swapModifier(modifier);
+                            if (!currentSeat[0] || currentSeat.hasClass('booked')) {
+                                stopCheckingThisDirection(direction);
                             } else {
-                                if ($(seatNumberString).hasClass('proposed')) {
+                                if (currentSeat.hasClass('proposed')) {
 
                                 } else {
-                                    $(seatNumberString).addClass('proposed');
+                                    currentSeat.addClass('proposed');
                                     totalSeatsBooked++;
                                 }
                             }
-                            if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).next().hasClass('endSeat')) {
-                                checkingForwards = false;
-                            } else if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).prev().hasClass('endSeat')) {
-                                checkingBackwards = false;
+                            if (currentSeat.hasClass('endSeat') && adjacentSeat.hasClass('endSeat')) {
+                                stopCheckingThisDirection(direction);
                             }
                         }
-                        if ($(this).hasClass('endSeat')) {
-                            totalAdjescantFreeSeats -= 1;
-                        }
-                        if (totalAdjescantFreeSeats >= that.totalSeats) {
 
+                        if (totalAdjescantFreeSeats >= that.totalSeats) {
                             for (let i = 0; i < totalAdjescantFreeSeats; i++) {
                                 if (checkingForwards) {
-                                    proposedSeatDirection(+i)
+                                    checkValidSeatAndPropose(+i, +1)
                                     if (totalSeatsBooked >= that.totalSeats) {
                                         break;
                                     }
                                 }
                                 if (checkingBackwards) {
-                                    proposedSeatDirection(-i);
+                                    checkValidSeatAndPropose(-i, -1);
                                     if (totalSeatsBooked >= that.totalSeats) {
                                         break;
                                     }
@@ -210,7 +228,7 @@ class Auditorium extends Base {
 
                     } else {
                         $(this).addClass('proposed');
-                        totalSeatsBooked++
+                        totalSeatsBooked++;
                     }
                 },
                 mouseleave: function () {
@@ -221,26 +239,30 @@ class Auditorium extends Base {
     }
 
     countAdjacentAvailableSeats(fromSeat, totalSeats) {
-        let freeSeats = 1;
+        //-1 since we check originseat twice
+        let freeSeats = -1;
         let fromSeatNr = parseInt(fromSeat[0].id.split("seatNr")[1]);
         let modifier;
-        let ended;
+        let direction;
 
         for (let x = 0; x < 2; x++) {
-
-            for (let i = 1; i <= totalSeats; i++) {
-                x % 2 == 1 ? modifier = -i : modifier = +i;
+            for (let i = 0; i < totalSeats; i++) {
+                if (x % 2 == 1) {
+                    modifier = -i;
+                    direction = -1;
+                } else {
+                    modifier = +i;
+                    direction = +1;
+                }
+                let adjacentSeat = $(`#seatNr${fromSeatNr+modifier+direction}`);
                 let currentSeat = $(`#seatNr${fromSeatNr+modifier}`)
-
                 if (!currentSeat[0] || currentSeat.hasClass('booked')) {
                     break;
-                } else if (currentSeat.hasClass('endSeat')) {
+                } else if (currentSeat.hasClass('endSeat') && adjacentSeat.hasClass('endSeat')) {
                     freeSeats++;
-                    if ($(currentSeat).prev().hasClass('endSeat') || $(currentSeat).next().hasClass('endSeat')) {
-                        break;
-                    }
+                    break;
                 } else {
-                    freeSeats++
+                    freeSeats++;
                 }
             }
         }

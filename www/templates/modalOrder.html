@@ -5,7 +5,7 @@ Object.assign(MyPage.prototype, {template3(){
         <div class="modal-dialog" role="document">
             <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h5 class="modal-title">Order ID: ${this.dummyBooking[this.indexToOpen].bookingID}</h5>
+                <h5 class="modal-title orderModalStyle">Order ID: ${this.bookings[this.indexToOpen].bookingID}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,22 +13,21 @@ Object.assign(MyPage.prototype, {template3(){
             <div class="modal-body">
                 <div class="row">
                     <div class="col-6">
-                        <p class="mb-0">Filmtitel: </p>
-                        <p class="mb-2">${this.dummyBooking[this.indexToOpen].filmTitle}</p>
-                        <p class="mb-0">Datum: </p>
-                        <p class="mb-2">${this.dummyBooking[this.indexToOpen].date}</p>
-                        <p class="mb-0">Tid: </p>
-                        <p class="mb-2">${this.dummyBooking[this.indexToOpen].time}</p>
-                        <p class="mb-0">Salong: </p>
-                        <p class="mb-2">${this.dummyBooking[this.indexToOpen].auditorium}</p>
-                        <p class="mb-0">Stolnummer: </p>
-                        <p class="mb-2">${this.dummyBooking[this.indexToOpen].seatID}</p>
-                        <p class="mb-0">Totalpris: </p>
-                        <p class>${this.dummyBooking[this.indexToOpen].totalPrice}</p>
+                        <p class="mb-0 orderModalStyle">Filmtitel: </p>
+                        <p class="mb-2">${this.bookings[this.indexToOpen].filmTitle}</p>
+                        <p class="mb-0 orderModalStyle">Datum: </p>
+                        <p class="mb-2">${this.bookings[this.indexToOpen].date}</p>
+                        <p class="mb-0 orderModalStyle">Tid: </p>
+                        <p class="mb-2">${this.bookings[this.indexToOpen].auditorium}</p>
+                        <p class="mb-0 orderModalStyle">Stolnummer: </p>
+                        <p class="mb-2">${this.bookings[this.indexToOpen].seatID}</p>
+                        <p class="mb-0 orderModalStyle">Totalpris: </p>
+                        <p class>${this.bookings[this.indexToOpen].totalPrice}kr</p>
                     </div>
                     <div class="col-6">
-                        <img class="img-fluid" src="imgs/${this.films[this.indexToOpenPoster].images[0]}">
-                    </div>
+                        <img class="img-fluid" src='/imgs/${this.films[this.indexToOpenPoster].images[0]}'>
+                    </div> 
+                
                 </div>
             </div>
             <div class="modal-footer">

@@ -2,7 +2,6 @@ class App extends Base {
 
   constructor() {
     super();
-    // Tell jsonflex to recreate instances of the class Garment
     JSON._classes(List, Modal, Nav, Profile);
     JSON._load('currentUser').then((data) => {
       this.currentUser = data.userName;
@@ -19,6 +18,9 @@ class App extends Base {
         this.clickSignOut();
       });
     });
+    this.modal;
+    this.list;
+    this.auditorium;
   }
   renderLoginStatus() {
     $('#showLoginStatus').empty();
@@ -30,7 +32,6 @@ class App extends Base {
   }
 
   showUSname() {
-    // this.userName = this.currentUser;
     $('#showLoginStatus').empty();
     this.render('#showLoginStatus', 'USname');
   }
@@ -38,10 +39,9 @@ class App extends Base {
   clickSignOut() {
     let that = this;
     $(document).on('click', '#signOut', function () {
-      that.signOut().then(() => {
-        $('#showLoginStatus').empty();
+      $('#showLoginStatus').empty();
         that.render('#showLoginStatus', 'lginBtn');
-      });
+      that.signOut();
       location.pathname = '/';
     });
   }
@@ -59,7 +59,6 @@ class App extends Base {
     this.nav.render('header');
     this.renderLoginStatus();
     this.changePage();
-    //window.addEventListener('popstate', this.changePage);
     window.addEventListener('popstate', this.changePage.bind(this));
   }
 
@@ -99,59 +98,62 @@ class App extends Base {
 
   getCurrentUser(val) {
     this.currentUser = val;
-    // console.log(this.currentUser);
   }
 
   changePage() {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
-    console.log(url);
-    
-
     // change menu link active
     $('header a').removeClass('active');
     $(`header a[href="${url}"]`).addClass('active')
     if (url == '/') {
       $('main').empty();
       let mainpage = new MainPage(this.films);
-
-      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
-
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings,this) : null;
       typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
+      this.scrollTop();
       this.list.renderViewings();
-      // let modal = new Modal(list);
     }
     if (url == '/filmer') {
       $('main').empty();
       let moviepage = new MoviePage();
       moviepage.render('main');
-
-      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings) : null;
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings,this) : null;
       typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
-
+      this.scrollTop();
       this.list.renderMovies();
     }
     if (url == '/biograf') {
       //empty 'main', so that only one render will showen
       $('main').empty();
       // create instance here and render
-      let biograf = new Auditorium();
-      biograf.render('main');
+      typeof this.modal == 'undefined' ? this.modal = new Modal(this.films, this.viewings, this) : null;
+      typeof this.auditorium == 'undefined' ? this.auditorium = new Auditorium(this.modal) : null;
+      this.scrollTop();
+      this.auditorium.render('main');
     }
     if (url == '/regler') {
       $('main').empty();
+      this.scrollTop();
       this.nav.render('main', 'regler');
     }
     if (url == '/kiosk') {
       $('main').empty();
+      this.scrollTop();
       this.nav.render('main', 'kiosk');
     }
     if (url == '/minasidor') {
       $('main').empty();
       typeof this.myPage == 'undefined' ? this.myPage = new MyPage  (this.films) : null;
-      this.myPage.renderBooking(); 
-    }
+      this.myPage.init(this.currentUser).then(()=>{
+        this.myPage.renderBooking();
+      });
 
+    }
+  }
+  scrollTop(){
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0;
   }
 }

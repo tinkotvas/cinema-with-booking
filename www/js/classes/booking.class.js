@@ -3,31 +3,24 @@ class Booking extends Base {
 		super();
 		this.modal = modal;
 		this.confirmBooking();
-		this.selectedSeats = [];
-
 	}
-
-
 
 	getSelectedSeatNumbers() {
 		let selectedSeatsElements = $('.selected');
+		this.modal.selectedSeats = [];
 		for (let i = 0; i < selectedSeatsElements.length; i++) {
-			this.selectedSeats.push(selectedSeatsElements[i].id.split('seatNr')[1])
+			this.modal.selectedSeats.push(selectedSeatsElements[i].id.split('seatNr')[1])
 		}
 	}
-
-
 
 	confirmBooking() {
 		let that = this;
 		$(document).on('click', '.confirm-booking', function () {
-			/*checkIfLoggedIn(){
-			}*/
+			$('#bookingModal').modal('hide');
+			// must check if any seats are written to viewings.json since the auditorium was rendered
 			that.getSelectedSeatNumbers();
 			that.createBookingNumber()
-			// i jsonfilen blir det inte "" runt numret (för att det är ett nummer?)    	
-
-			that.selectDate = $('#date-select option:selected').text();
+			
 			$('.modal-container-info').empty();
 			that.modal.render('.modal-container-info', 3);
 			$('#summaryModal').modal('toggle');
@@ -40,34 +33,50 @@ class Booking extends Base {
 		JSON._save('bookingNumber', {
 			bookingNumber: this.modal.bookingNumber
 		});
-		return this.modal.bookingNumber;
 	}
 
-	saveBooking() {
-		this.getSelectedSeatNumbers();
-		let currentUser = app.currentUser;
-		let bookedDateAndTime = this.modal.dateString;
-		let findSpace = bookedDateAndTime.indexOf(' ');
-		let bookedDate = bookedDateAndTime.slice(0, findSpace);
-		let findPercent = bookedDateAndTime.indexOf('%');
-		let bookedTime = bookedDateAndTime.slice(findSpace + 1, findPercent);
-		let seatsTaken = [23, 24, 25]; // Placeholder for booked seats
+  saveBooking(){
+  	this.getSelectedSeatNumbers();
+  	let bookedDateAndTime = this.modal.dateString;
+  	let findSpace = bookedDateAndTime.indexOf(' ');
+  	let bookedDate = bookedDateAndTime.slice(0,findSpace);
+  	let findPercent = bookedDateAndTime.indexOf('%');
+  	let bookedTime = bookedDateAndTime.slice(findSpace+1, findPercent);
+  	let userName;
+  	let userPass;
+  	let bookingHistory;
 
-		JSON._save(currentUser, {
-			bookingID: this.modal.bookingNumber,
-			filmTitle: this.modal.films[this.modal.indexToOpen].title,
-			date: bookedDate,
-			time: bookedTime,
-			auditorium: this.modal.currentAuditorium,
-			seatID: seatsTaken,
-			totalPrice: this.modal.totalPrice,
-			totalTickets: this.modal.totalTickets,
-			selectedSeats: this.selectedSeats
-		})
-
-		this.saveToViewing();
-
-	}
+  		if(app.currentUser == 0){
+  			app.currentUser = 'NotSignedUp';
+  		}
+  		
+  		JSON._load(app.currentUser).then((data) => {
+        userName= data.email;
+        userPass=data.password;
+        if(!data.bookingHistory){
+        	bookingHistory = [];
+        }
+        else{
+        	bookingHistory=data.bookingHistory;
+        	}
+        let newBooking={
+          bookingID: this.modal.bookingNumber,
+          filmTitle: this.modal.films[this.modal.indexToOpen].title,
+          date: bookedDate + ' ' +bookedTime,
+          auditorium: this.modal.currentAuditorium,
+          seatID: this.modal.selectedSeats,
+          totalPrice: this.modal.totalPrice,
+          totalTickets: this.modal.totalTickets
+        }
+        bookingHistory.push(newBooking);
+      }).then(()=>
+      JSON._save(app.currentUser, {
+        email: userName,
+        password: userPass,
+        bookingHistory  
+     	}));
+     this.saveToViewing();
+   };
 
 	saveToViewing() {
 		let date = `2018-${this.modal.selectDate.split('/')[0]}-${this.modal.selectDate.split('/')[1].split(" ")[0]}`
@@ -77,7 +86,7 @@ class Booking extends Base {
 			film: this.modal.films[this.modal.indexToOpen].title,
 			date: date,
 			time: this.modal.selectDate.split('/')[1].split(" ")[1],
-			selectedSeats: this.selectedSeats
+			selectedSeats: this.modal.selectedSeats
 		}
 
 		let indexOfViewing = this.modal.viewings.findIndex(viewing =>
@@ -97,26 +106,4 @@ class Booking extends Base {
 		})
 	}
 
-
-
-
-	/*checkIfLoggedIn(){
-		console.log(true);
-		// if(app.currentuser == 0){
-	    //  open login modal
-	    // }
-	    // else{}
-	    // first check if logged in otherwise open the login modal
-	}*/
-
-}
-
-let selectedSeats = [];
-
-function getSelectedSeatNumbers() {
-	let selectedSeatsElements = $('.selected');
-
-	for (let i = 0; i < selectedSeatsElements.length; i++) {
-		selectedSeats.push(selectedSeatsElements[i].id.split('seatNr')[1])
-	}
 }

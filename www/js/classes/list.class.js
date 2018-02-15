@@ -13,9 +13,6 @@ class List extends Base {
             </div>
         </div>`);
         let moviesArea = $("#movieCards");
-
-        //gief us more to watch on screen
-        //for (let x = 0; x < 3; x++) {
             for (let i = 0; i < this.films.length; i++) {
                 if (typeof this.films[i] != 'undefined') {
                     moviesArea.append(`
@@ -25,11 +22,9 @@ class List extends Base {
                 `);
                 }
             }
-        //}
     }
 
     renderViewings() {
-        //     $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
 
@@ -49,10 +44,10 @@ class List extends Base {
                 viewingsArea.append(`
                   <div href="#" class="list-group-item list-group-item-action">
                       <div class="row d-flex align-items-center">
-                          <div class="list-element col-6 col-md-2">
+                          <div class="list-element col-4 col-md-2">
                               <h4 class="my-auto">${this.viewings[i].time}</h4>
                           </div>
-                          <div class="list-element col-6 col-md-4">
+                          <div class="list-element col-8 col-md-4">
                               <h4 class="float-right float-md-left my-auto">${this.viewings[i].film}</h4>
                           </div>
                           <div class="list-element col-6 col-md-3">
