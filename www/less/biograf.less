@@ -9,6 +9,14 @@ html {
         svg {
             transform-origin: 0 0;
             g {
+                text{
+                    pointer-events: none;
+                    fill:black;
+                    font-size:1.1rem;
+                    @media (min-width: 992px) {
+                        font-size:0.9rem;
+                    }
+                }
                 .seat {
                     fill:#FCFBE3;
                     cursor:pointer;

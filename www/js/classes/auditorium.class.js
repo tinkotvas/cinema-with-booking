@@ -5,6 +5,7 @@ class Auditorium extends Base {
         this.auditoriums;
         this.currentAuditorium;
         this.totalSeats = 0;
+        this.eventHandlers();
     }
 
     loadJSON(callbackFunc) {
@@ -15,16 +16,10 @@ class Auditorium extends Base {
         catch((e) => {
 
         });
-
     }
-
     renderAuditorium(name) {
         this.loadJSON(() => this.htmlRenderAuditorium(name));
-        this.eventHandlers();
     }
-
-
-
 
     htmlRenderAuditorium(name) {
         this.currentAuditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
@@ -78,6 +73,7 @@ class Auditorium extends Base {
 
                     seatCount++;
                     seats.push(`<rect id="seatNr${seatNumber}" class="${classes}" x="${cx}" y="${cy}" rx="2" width="48" height="40" />`)
+                    seats.push(`<text x="${cx+ (seatNumber < 10 ? 20:15)}" y="${cy+25}">${seatNumber}</text>`)
                     seatNumber++;
                 }
                 cx += seatHorizontalSpacing;
@@ -90,14 +86,14 @@ class Auditorium extends Base {
             <div id="auditorium">
                 <svg class="bg-dark" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
-                    <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+                    <linearGradient id="screenGradient" x1="0" x2="0" y1="0" y2="1">
                         <stop offset="0%" stop-color="white"/>
-                        <stop offset="5%" stop-color="white" stop-opacity="0.3"/>
+                        <stop offset="2%" stop-color="white" stop-opacity="0.1"/>
                         <stop offset="100%" stop-color="white" stop-opacity="0"/>
                     </linearGradient>
                 </defs>
                     <g class="screenGroup">
-                        <polygon points="100,0 ${screenWidth-100},0 ${screenWidth},250 0,250" fill="url(#Gradient2)"/>
+                        <polygon points="100,0 ${screenWidth-100},0 ${screenWidth},250 0,250" fill="url(#screenGradient)"/>
                     </g>
                     <g class="seatsGroup">
                         ${seats.join("")}
@@ -153,7 +149,7 @@ class Auditorium extends Base {
         let bookedSeats = 0;
 
         $(window).resize(function () {
-            that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight)
+            that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
         });
 
         $(document).off('click mouseenter mouseleave', '.seat')
@@ -172,11 +168,6 @@ class Auditorium extends Base {
                         $('.selected').removeClass('selected');
                         $('.proposed').addClass('selected');
                     }
-
-
-
-
-
                     if (that.modal.totalPrice > 0) {
                         $(".confirm-booking").prop("disabled", false);
                     } else {
