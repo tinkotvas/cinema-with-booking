@@ -9,36 +9,34 @@ Object.assign(Profile.prototype, {templatesignup(){ return `
         </button>
       </div>
       <div class="modal-body">
-        <h5 class="modal-title text-center" id="signupLabel">Sign Up</h5>
+        <h5 class="modal-title text-center" id="signupLabel">Registrera ny användare</h5>
         <form class="mb-4" id="signupForm">
           <div class="form-group ">
-            <label>Email</label>
-            <input type="text" class="form-control signUpEmail" placeholder="Enter Email" name="email" required>
+            <label>Mailadress</label>
+            <input type="text" class="form-control signUpEmail" placeholder="Ange mailadress" name="email" required>
           </div>
           <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control signUpPass" placeholder="Enter Password" name="pass" required>
-            <small class="passControl">Longer password!</small>
+            <label>Lösenord</label>
+            <input type="password" class="form-control signUpPass" placeholder="Ange lösenord" name="pass" required>
+            <small class="passControl">Måste vara minst 6 tecken, innehålla minst en siffra en stor och en liten bokstav!</small>
           </div>
           <div class="form-group">
-            <label>Repeat Password</label>
-            <input type="password" class="form-control signUpRePass" placeholder="Repeat Password" name="repass" required>
-            <small class="repassCheck d-none">Please check your password!</small>
+            <label>Repetera lösenord</label>
+            <input type="password" class="form-control signUpRePass" placeholder="Repetera lösenord" name="repass" required>
+            <small class="repassCheck d-none">Kontrollera lösenordet!</small>
           </div>
           <div class="form-group">
             <label>
               <small class="form-text text-muted">
-                <input type="checkbox" class="tAndP"> By creating an account you agree to our
-                <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</small>
-              <small class="checkIt d-none text-error">Please agree the Terms & Privacy!</small>
-            </label>
+                <input type="checkbox" class="tAndP"> Genom att skapa ett konto godkänner du vårt
+                <a href="#" style="color:dodgerblue">Användaravtal</a>.</small>
+              <small class="checkIt d-none text-error">Var vänlig och godkänn Användaravtalet!</small>
+              </label>
           </div>
-
           <div class="clearfix">
-            <button type="button" class="cancelbtn btn-base">Cancel</button>
-            <button type="button" class="signupbtn btn-base float-right">Sign Up</button>
+            <button type="button" class="cancelbtn btn-base">Avbryt</button>
+            <button type="button" class="signupbtn btn-base float-right">Registrera</button>
           </div>
-
         </form>
       </div>
     </div>
