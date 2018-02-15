@@ -305,6 +305,45 @@
       "auditorium": "Stora Salongen",
       "totalPrice": 95,
       "totalTickets": 3
+    },
+    {
+      "bookingID": 747,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16:40",
+      "auditorium": "Lilla Salongen",
+      "totalPrice": 95
+    },
+    {
+      "bookingID": 748,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16:40",
+      "auditorium": "Stora Salongen",
+      "totalPrice": 95,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 749,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16:40",
+      "auditorium": "Stora Salongen",
+      "seatID": [
+        "77",
+        "78"
+      ],
+      "totalPrice": 95,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 750,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16:40",
+      "auditorium": "Stora Salongen",
+      "seatID": [
+        "22",
+        "23"
+      ],
+      "totalPrice": 95,
+      "totalTickets": 2
     }
   ]
 }

@@ -62,7 +62,7 @@ class Booking extends Base {
           filmTitle: this.modal.films[this.modal.indexToOpen].title,
           date: bookedDate + ' ' +bookedTime,
           auditorium: this.modal.currentAuditorium,
-          seatID: this.seatsTaken,
+          seatID: this.modal.selectedSeats,
           totalPrice: this.modal.totalPrice,
           totalTickets: this.modal.totalTickets
         }

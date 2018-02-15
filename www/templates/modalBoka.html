@@ -18,19 +18,19 @@ Object.assign(Modal.prototype, {template1(){ return `
                 <div class="col-4">
                   <p class="modalBokaColor">Ordinarie</p>
                   <i class="fas fa-minus-circle fa-2x mr-3" id="sub-adult"></i>
-                  <span id="adultTickets">0</span>
+                  <span id="adultTickets">${this.adultTickets}</span>
                   <i class="fas fa-plus-circle fa-2x ml-3" id="add-adult"></i>
                 </div>
                 <div class="col-4">
                   <p class="modalBokaColor">Barn</p>
                   <i class="fas fa-minus-circle fa-2x mr-3" id="sub-child"></i>
-                  <span id="childTickets">0</span>
+                  <span id="childTickets">${this.childTickets}</span>
                   <i class="fas fa-plus-circle fa-2x ml-3" id="add-child"></i>
                 </div>
                 <div class="col-4">
                   <p class="modalBokaColor">Pensionär</p>
                   <i class="fas fa-minus-circle fa-2x mr-3" id="sub-senior"></i>
-                  <span id="seniorTickets">0</span>
+                  <span id="seniorTickets">${this.seniorTickets}</span>
                   <i class="fas fa-plus-circle fa-2x ml-3" id="add-senior"></i>
                 </div>
               </div>
