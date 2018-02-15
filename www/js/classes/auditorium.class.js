@@ -48,7 +48,7 @@ class Auditorium extends Base {
             bookedSeatsLength = viewing.selectedSeats.length;
         }
 
-        for (let y = 0, cy = 20; y <= rowsToDraw; y++) {
+        for (let y = 0, cy = 0; y <= rowsToDraw; y++) {
             let first = true,
                 last = false;
             for (let x = 0, cx = 0; x < maxSeatsPerRow; x++) {
@@ -89,8 +89,15 @@ class Auditorium extends Base {
         <div id="auditorium-holder" class="mr-auto ml-auto">
             <div id="auditorium">
                 <svg class="bg-dark" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <g>
-                        <rect class="screen" x="50" y="5" height="20" width="${screenWidth-100}"/>
+                <defs>
+                    <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stop-color="white"/>
+                        <stop offset="5%" stop-color="white" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                    <g class="screenGroup">
+                        <polygon points="100,0 ${screenWidth-100},0 ${screenWidth},250 0,250" fill="url(#Gradient2)"/>
                     </g>
                     <g class="seatsGroup">
                         ${seats.join("")}
@@ -165,7 +172,7 @@ class Auditorium extends Base {
 
                     if (seat.hasClass('booked')) {
                         //nada
-                    } else if (that.totalSeats > 1) {
+                    } else if (that.totalSeats > 1 && that.modal.separateSeats) {
                         let checkingForwards = true,
                             checkingBackwards = true,
                             totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats),
@@ -213,7 +220,7 @@ class Auditorium extends Base {
 
                     } else {
                         $(this).addClass('proposed');
-                        totalSeatsBooked++
+                        totalSeatsBooked++;
                     }
                 },
                 mouseleave: function () {

@@ -200,9 +200,6 @@ html {
   fill: #FCFBE3;
   cursor: pointer;
 }
-#auditorium-holder #auditorium svg g .screen {
-  fill: white;
-}
 #auditorium-holder #auditorium svg g .booked {
   fill: #dc3545;
   pointer-events: none;
