@@ -106,6 +106,33 @@ body main .pageTitle {
 .review p {
   font-size: 0.8em;
 }
+.orderModalStyle {
+  color: #5CFDA5;
+}
+.modal-header {
+  border-bottom-color: #5CFDA5;
+}
+.modal-footer {
+  border-top-color: #5CFDA5;
+}
+.modalBokaColor {
+  color: #5CFDA5 !important;
+}
+#adultTickets {
+  font-size: 20px;
+}
+#childTickets {
+  font-size: 20px;
+}
+#seniorTickets {
+  font-size: 20px;
+}
+.fa-minus-circle:hover {
+  color: #FB515C;
+}
+.fa-plus-circle:hover {
+  color: #5CFDA5;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -186,6 +213,12 @@ html {
 }
 #auditorium-holder #auditorium svg g .proposed {
   fill: #989ea4;
+}
+svg {
+  transform-origin: 50% 50% 0px;
+}
+.red {
+  fill: red;
 }
 svg {
   transform-origin: 50% 50% 0px;
