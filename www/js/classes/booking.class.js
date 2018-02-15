@@ -16,9 +16,11 @@ class Booking extends Base {
 	confirmBooking() {
 		let that = this;
 		$(document).on('click', '.confirm-booking', function () {
+			$('#bookingModal').modal('hide');
 			// must check if any seats are written to viewings.json since the auditorium was rendered
 			that.getSelectedSeatNumbers();
 			that.createBookingNumber()
+			console.log(that.modal.adultTickets + ' i booking');
 			$('.modal-container-info').empty();
 			that.modal.render('.modal-container-info', 3);
 			$('#summaryModal').modal('toggle');
@@ -62,7 +64,7 @@ class Booking extends Base {
           filmTitle: this.modal.films[this.modal.indexToOpen].title,
           date: bookedDate + ' ' +bookedTime,
           auditorium: this.modal.currentAuditorium,
-          seatID: this.seatsTaken,
+          seatID: this.modal.selectedSeats,
           totalPrice: this.modal.totalPrice,
           totalTickets: this.modal.totalTickets
         }

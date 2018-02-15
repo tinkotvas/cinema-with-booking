@@ -18,26 +18,26 @@ Object.assign(Modal.prototype, {template1(){ return `
                 <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Ordinarie</p>
                   <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-adult"></i>
-                  <span id="adultTickets" class="align-top">0</span>
+                  <span id="adultTickets">${this.adultTickets}</span>
                   <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-adult"></i>
                 </div>
                 <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Barn</p>
                   <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-child"></i>
-                  <span id="childTickets" class="align-top">0</span>
+                  <span id="childTickets">${this.childTickets}</span>
                   <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-child"></i>
                 </div>
                 <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Pensionär</p>
                   <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-senior"></i>
-                  <span id="seniorTickets" class="align-top">0</span>
+                  <span id="seniorTickets">${this.seniorTickets}</span>
                   <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-senior"></i>
                 </div>
               </div>
               <div class="row">
                 <div class="col-8 mt-5">
                   <h2 class="ticketArea total-price text-white">Summa:
-                    <span id="total-sum">0</span>kr</h2>
+                    <span id="total-sum">${this.totalPrice}</span>kr</h2>
                 </div>
               </div>
               <div class="row">
@@ -69,7 +69,7 @@ Object.assign(Modal.prototype, {template1(){ return `
           </div>
           <div class="row mt-4">
             <div class="col-12 pl-5 pr-5">
-              <button type="button" class="ticketArea btn btn-booking btn-base confirm-booking btn-block mb-4">BOKA</button>
+              <button type="button" class="ticketArea btn btn-base confirm-booking float-right m-2">BOKA</button>
             </div>
           </div>
         </div>

@@ -70,9 +70,7 @@ class Profile extends Base {
         })
     }
 
-    clicklogin(event, element, instance) {
-        console.log(this.email);
-        console.log(this.password);
+    clicklogin(event, element, instance) {  
         if ($(event.target).hasClass('lgin')) {
             this.checkLogin(this.usName);   
         }
