@@ -173,6 +173,7 @@ class Modal extends Base{
 
     $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function (event) {
       let id = event.target.id;
+      
       if (id == 'add-adult') {
         that.adultTickets++;
         $('#adultTickets').text(that.adultTickets);
@@ -186,18 +187,21 @@ class Modal extends Base{
         if (that.adultTickets == 0) {
           return;
         }
+        $('.selected').removeClass('selected');
         that.adultTickets--;
         $('#adultTickets').text(that.adultTickets);
       } else if (id == 'sub-child') {
         if (that.childTickets == 0) {
           return;
         }
+        $('.selected').removeClass('selected');
         that.childTickets--;
         $('#childTickets').text(that.childTickets);
       } else if (id == 'sub-senior') {
         if (that.seniorTickets == 0) {
           return;
         }
+        $('.selected').removeClass('selected');
         that.seniorTickets--;
         $('#seniorTickets').text(that.seniorTickets);
       }

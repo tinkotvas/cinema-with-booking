@@ -36,10 +36,9 @@ class App extends Base {
   clickSignOut() {
     let that = this;
     $(document).on('click', '#signOut', function () {
-      that.signOut().then(() => {
-        $('#showLoginStatus').empty();
+      $('#showLoginStatus').empty();
         that.render('#showLoginStatus', 'lginBtn');
-      });
+      that.signOut();
       location.pathname = '/';
     });
   }

@@ -67,7 +67,16 @@ Object.assign(Modal.prototype, {template1(){ return `
               <div id="auditoriumContainer" class="row mr-auto ml-auto"></div>
             </div>
           </div>
-          <div class="row mt-4">
+
+          <div class="row">
+              <div class="form-check ml-auto mr-auto">
+                <input class="separateSeat-check-input" type="checkbox" id="separateSeatsCheck">
+                <label class="separateSeat-check-label pl-1" for="separateSeatsCheck">
+                  Separata säten
+                </label>
+              </div>
+          </div>
+            <div class="row mt-4">
             <div class="col-12 pl-5 pr-5 mb-4">
               <button type="button" class="ticketArea btn btn-base btn-block confirm-booking float-right">BOKA</button>
             </div>
