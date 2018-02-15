@@ -7,7 +7,7 @@ class Nav extends Base {
 
   navCollapse(){
     $(document).ready(function () {
-      $(".navbar-nav li a").click(function(event) {
+      $(".nav-close").click(function(event) {
         $(".navbar-collapse").collapse('hide');
       });
     });

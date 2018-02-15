@@ -102,6 +102,7 @@ class Profile extends Base {
         app.showUSname();
         JSON._save('currentUser', { userName: that.usName });
        $('#loginForm')[0].reset();  
+       $(".navbar-collapse").collapse('hide');
     }
 
     clicksignup(event, element, instance) {
