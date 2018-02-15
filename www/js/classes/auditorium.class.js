@@ -90,14 +90,14 @@ class Auditorium extends Base {
             <div id="auditorium">
                 <svg class="bg-dark" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
-                    <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+                    <linearGradient id="screenGradient" x1="0" x2="0" y1="0" y2="1">
                         <stop offset="0%" stop-color="white"/>
-                        <stop offset="5%" stop-color="white" stop-opacity="0.3"/>
+                        <stop offset="2%" stop-color="white" stop-opacity="0.1"/>
                         <stop offset="100%" stop-color="white" stop-opacity="0"/>
                     </linearGradient>
                 </defs>
                     <g class="screenGroup">
-                        <polygon points="100,0 ${screenWidth-100},0 ${screenWidth},250 0,250" fill="url(#Gradient2)"/>
+                        <polygon points="100,0 ${screenWidth-100},0 ${screenWidth},250 0,250" fill="url(#screenGradient)"/>
                     </g>
                     <g class="seatsGroup">
                         ${seats.join("")}
