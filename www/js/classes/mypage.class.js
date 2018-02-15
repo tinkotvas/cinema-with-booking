@@ -38,7 +38,7 @@ class MyPage extends Base {
 
     this.index = 0;
 
-    for (let booking of this.bookingHistory) {
+    for (let booking of this.bookings) {
       let bookingDate = new Date(booking.date).getTime();
       if (bookingDate > date) {
         this.render('.activeBooking', 2);
