@@ -1,13 +1,17 @@
 class MyPage extends Base {
-  constructor() {
+  constructor(films) {
     super();
-    this.bookingHistory = [];
+    this.render('main', 1);
+    this.bookings = [];
+    this.toggleOrderModal();
+    this.films = films;
+
   }
   init(jsonName) {
     return JSON._load(jsonName)
       .then((data) => {
-        this.bookingHistory = data.bookingHistory;
-        this.sortBooking(this.bookingHistory);
+        this.bookings = data.bookingHistory;
+        this.sortBooking(this.bookings);
       });
   }
 
@@ -31,7 +35,7 @@ class MyPage extends Base {
     //   day = "0" + day;
     // }
     // let todayDate = date.getFullYear() + month + day + date.getHours() + date.getMinutes();
-    this.render('main', 1);
+
     this.index = 0;
 
     for (let booking of this.bookingHistory) {
@@ -46,26 +50,28 @@ class MyPage extends Base {
       this.index++;
     }
   }
-  
-  toggleOrderModal(){
+
+  toggleOrderModal() {
     let that = this;
-    $(document).on("click", '.mypage-item', function() {
+    $(document).on("click", '.mypage-item', function () {
       that.idBtn = $(this).attr('id');
       let index = 0;
       let indexPoster = 0;
-      for (let booking of that.bookingHistory) {
-        if ('orderModalToggle'+booking.bookingID == that.idBtn) {
+
+      for (let booking of that.bookings) {
+        if ('orderModalToggle' + booking.filmTitle == that.idBtn) {
           $('.modal-container-item').empty();
           that.indexToOpen = index;
-          for (let film of that.films) {
-            if(film.title == booking.filmTitle ){
-              that.indexToOpenPoster = indexPoster;
-            }
-            indexPoster++
-          }
+
         }
         index++;
-          
+      }
+
+      for (let film of that.films) {
+        if ('orderModalToggle' + film.title == that.idBtn) {
+          that.indexToOpenPoster = indexPoster;
+        }
+        indexPoster++;
       }
       that.render('.modal-container-item', 3);
       $('#orderModal').modal('toggle');

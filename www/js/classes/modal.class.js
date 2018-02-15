@@ -84,8 +84,8 @@ class Modal extends Base{
     let that = this;
     this.auditorium;
     that.selectDate = $('#date-select option:selected').text();
-    that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium')
-    $('#showTime').text(that.selectDate + ' i ' + that.currentAuditorium);
+    that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
+    that.auditorium.renderAuditorium(that.currentAuditorium);
     $('.select-date').change(function () {
       that.selectDate = $('#date-select option:selected').text();
       that.auditorium.totalSeats = that.totalTickets;
@@ -108,7 +108,7 @@ class Modal extends Base{
         }
       }
       let review = `
-        <div class="col-6 col-sm-4 mb-3 mt-3 review">
+        <div class="col-6 col-lg-4 mb-3 mt-3 review">
           <h6 class="mb-1"><span class="text-red">${this.films[this.indexToOpen].reviews[i].source}</span></h6>
           <p class="mb-1">${this.films[this.indexToOpen].reviews[i].quote}</p>
           <span class="text-center">${stars[i].join("")}</span>
@@ -146,6 +146,7 @@ class Modal extends Base{
   }
 
 
+
   confirmBooking() {
     let that = this;
     $(document).on('click', '.confirm-booking', function() {
@@ -163,15 +164,17 @@ class Modal extends Base{
       $('#infoModal').empty();
     });
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
-
       if(that.allMovieDates=[]){
         console.log("Not showing at all!");
       }else{
         that.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
       }
-      
-    })
+    });
 
+
+      
+      
+    
 
     $(document).on('click', '#add-adult, #add-child, #add-senior, #sub-adult, #sub-child, #sub-senior', function (event) {
       let id = event.target.id;

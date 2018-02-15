@@ -1,27 +1,55 @@
 //main: style.less
 .text-red {
-    color:@main-color !important;
+    color: @main-color  !important;
 }
+
 .modal-content{
     background-color: #343A39;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height:95vh;
+    padding:10px;
 }
+
+
 .modal-lg {
+    .close {
+        color: @main-red;
+        text-shadow: 0 1px 0 @main-dark+50;
+        font-size: 2rem;
+        cursor: pointer;
+        &:focus {
+            outline: -webkit-focus-ring-color auto 0;
+            outline-color: inherit;
+            outline-style: none;
+            outline-width: 0;
+        }
+    }
     p {
         color: white;
     }
-    @media (min-width:576px) {
-        max-width: 90vw !important;
+    @media (min-width:668) {
+        min-width: 90vw !important;
     }
     @media (min-width: 992px) {
-        max-width: 70vw !important;
+        min-width: 90vw !important;
     }
     @media (min-width: 1400px) {
-        max-width: 60vw !important;
+        min-width: 80vw !important;
     }
 }
 
 .youtube {
-    min-height: 40vh;
+    //min-height: 40vh;
+    @media (max-width: 576px) {
+        min-height: inherit;
+    }
+    @media (min-width: 992px) {
+        min-width: 90vw !important;
+    }
+    @media (min-width: 1400px) {
+        min-width: 80vw !important;
+    }
 }
 
 #infoModal {
@@ -43,23 +71,39 @@
     height:100%;
 }
 
+.orderModalStyle {
+  color: #5CFDA5;  
+}
 
-// #bookingModal{
-//   //max-width: 1200px;
-//   img{
-//     max-width: 300px;
-//     min-width: 150px;
-//   }
-//   .modal-footer{
-//     height: 200px;
-//      display: block !important;
-//   }
-//
-// }
-// .modal{
-//      img{
-//        max-width: 300px;
-//        min-width: 150px;
-//      }
-//
-//   }
+.modal-header {
+    border-bottom-color: #5CFDA5;
+}
+
+.modal-footer {
+    border-top-color: #5CFDA5
+}
+
+
+.modalBokaColor {
+    color: #5CFDA5 !important;
+
+}
+
+#adultTickets{
+    font-size: 20px;
+}
+#childTickets{
+    font-size: 20px;
+}
+#seniorTickets{
+    font-size: 20px;
+}
+
+.fa-minus-circle:hover  {
+    color: #FB515C;
+
+}
+
+.fa-plus-circle:hover  {
+    color: #5CFDA5;
+}
