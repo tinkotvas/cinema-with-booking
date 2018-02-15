@@ -164,6 +164,11 @@ html {
 #auditorium-holder #auditorium svg g .proposed {
   fill: #989ea4;
 }
+@media (pointer: coarse) {
+  #auditorium-holder #auditorium svg g .proposed {
+    fill: #5CFDA5;
+  }
+}
 svg {
   transform-origin: 50% 50% 0px;
 }

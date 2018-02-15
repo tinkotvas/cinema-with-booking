@@ -21,7 +21,6 @@ html {
                     fill:#FCFBE3;
                     cursor:pointer;
                 }
-
                 .booked {
                     fill: @main-red;
                     pointer-events:none;
@@ -31,7 +30,11 @@ html {
                 }
                 .proposed{
                     fill:#343a40 + 100;
+                    @media (pointer:coarse) {
+                        fill:@main-color;
+                    }
                 }
+
             }
         }
     }
