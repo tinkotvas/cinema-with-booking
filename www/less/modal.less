@@ -4,15 +4,10 @@
 }
 
 .modal-content{
-    background-color: #343A39;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height:95vh;
-    padding:10px;
+    background-color: #343A39;  
 }
 
-
-.modal-lg {
+.infoModal {
     .close {
         color: @main-red;
         text-shadow: 0 1px 0 @main-dark+50;
@@ -40,7 +35,7 @@
 }
 
 .youtube {
-    //min-height: 40vh;
+    max-height: 50vh;
     @media (max-width: 576px) {
         min-height: inherit;
     }
@@ -69,4 +64,41 @@
         font-size: 0.8em;
     }
     height:100%;
+}
+
+.orderModalStyle {
+  color: #5CFDA5;  
+}
+
+.modal-header {
+    border-bottom-color: #5CFDA5;
+}
+
+.modal-footer {
+    border-top-color: #5CFDA5
+}
+
+
+.modalBokaColor {
+    color: #5CFDA5 !important;
+
+}
+
+#adultTickets{
+    font-size: 20px;
+}
+#childTickets{
+    font-size: 20px;
+}
+#seniorTickets{
+    font-size: 20px;
+}
+
+.fa-minus-circle:hover  {
+    color: #FB515C;
+
+}
+
+.fa-plus-circle:hover  {
+    color: #5CFDA5;
 }
