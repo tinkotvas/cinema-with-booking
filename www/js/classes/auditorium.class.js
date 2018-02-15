@@ -150,6 +150,7 @@ class Auditorium extends Base {
     eventHandlers() {
         let seat;
         let that = this;
+        let bookedSeats = 0;
 
         $(window).resize(function () {
             that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight)
@@ -158,8 +159,24 @@ class Auditorium extends Base {
         $(document).off('click mouseenter mouseleave', '.seat')
         $(document).on({
                 click: function () {
-                    $('.selected').removeClass('selected');
-                    $('.proposed').addClass('selected');
+                    let selectedSeats = $('.selected');
+
+                    if ($('.separateSeat-check-input').is(':checked')) {
+                        if ($(this).hasClass('selected')) {
+                            $(this).removeClass('selected');
+                        } else {
+                            if(selectedSeats.length < that.totalSeats)
+                            $('.proposed').addClass('selected');
+                        }
+                    } else {
+                        $('.selected').removeClass('selected');
+                        $('.proposed').addClass('selected');
+                    }
+
+
+
+
+
                     if (that.modal.totalPrice > 0) {
                         $(".confirm-booking").prop("disabled", false);
                     } else {
@@ -172,7 +189,7 @@ class Auditorium extends Base {
 
                     if (seat.hasClass('booked')) {
                         //nada
-                    } else if (that.totalSeats > 1) {
+                    } else if (that.totalSeats > 1 && !$('.separateSeat-check-input').is(':checked')) {
                         let checkingForwards = true,
                             checkingBackwards = true,
                             totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats),
