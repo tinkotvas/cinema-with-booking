@@ -37,6 +37,9 @@ class Modal extends Base{
       that.childTickets = 0;
       that.seniorTickets = 0;
       that.totalPrice = that.adultTickets * 95;
+
+      that.totalTickets = 1;
+
       that.allMovieDates = [];
       that.idBtn = $(this).attr('id');
       let index = 0;
