@@ -102,16 +102,16 @@ class Auditorium extends Base {
         $('#auditoriumContainer').empty();
         $('#auditoriumContainer').append(htmlAuditorium);
 
-        let auditoriumWidth = maxSeatsPerRow * 50;
-        let auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
+        this.auditoriumWidth = maxSeatsPerRow * 50;
+        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
 
-        $('#auditorium, svg').width(auditoriumWidth).height(auditoriumHeight);
-        this.scaleAuditorium(auditoriumWidth, auditoriumHeight);
+        $('#auditorium, svg').width(this.auditoriumWidth).height(this.auditoriumHeight);
+        this.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
     }
 
     scaleAuditorium(orgW = 700, orgH = 600) {
-        let w = $('.modal-lg').width() * 0.75;
-        let h = $('.modal-lg').height() * 0.75;
+        let w = $('.modal-lg').width();
+        let h = $('.modal-lg').height();
         w -= 20 * 2;
         h -= (20 * 2);
         const wScale = w / orgW;
@@ -143,6 +143,12 @@ class Auditorium extends Base {
     eventHandlers() {
         let seat;
         let that = this;
+
+        $(window).resize(function(){
+            that.scaleAuditorium(this.auditoriumWidth,this.auditoriumHeight)
+        }
+            
+        );
 
         $(document).off('click mouseenter mouseleave', '.seat')
         $(document).on({

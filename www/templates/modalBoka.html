@@ -6,32 +6,32 @@ Object.assign(Modal.prototype, {template1(){ return `
 
         <div class="container-fluid">
           <div class="row">
-            <div class="col-4 mt-2">
+            <div class="col-4 mt-2 d-none d-lg-block">
               <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-100" alt="">
             </div>
-            <div class="col-8 mt-2">
+            <div class="col-12 mt-2 col-lg-8 ">
               <div class='form-group'>
                 <h2 class="modalBokaColor selectdate">Välj datum</h2>
                 <select class='form-control select-date' id='date-select'></select>
               </div>
               <div class="row">
-                <div class="col-4">
+                <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Ordinarie</p>
-                  <i class="fas fa-minus-circle fa-2x mr-3" id="sub-adult"></i>
+                  <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-adult"></i>
                   <span id="adultTickets">${this.adultTickets}</span>
-                  <i class="fas fa-plus-circle fa-2x ml-3" id="add-adult"></i>
+                  <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-adult"></i>
                 </div>
-                <div class="col-4">
+                <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Barn</p>
-                  <i class="fas fa-minus-circle fa-2x mr-3" id="sub-child"></i>
+                  <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-child"></i>
                   <span id="childTickets">${this.childTickets}</span>
-                  <i class="fas fa-plus-circle fa-2x ml-3" id="add-child"></i>
+                  <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-child"></i>
                 </div>
-                <div class="col-4">
+                <div class="col-4 pr-1 pl-1 text-center">
                   <p class="modalBokaColor">Pensionär</p>
-                  <i class="fas fa-minus-circle fa-2x mr-3" id="sub-senior"></i>
+                  <i class="fas fa-minus-circle fa-2x mr-1 mr-md-3" id="sub-senior"></i>
                   <span id="seniorTickets">${this.seniorTickets}</span>
-                  <i class="fas fa-plus-circle fa-2x ml-3" id="add-senior"></i>
+                  <i class="fas fa-plus-circle fa-2x ml-1 ml-md-3" id="add-senior"></i>
                 </div>
               </div>
               <div class="row">
@@ -42,21 +42,21 @@ Object.assign(Modal.prototype, {template1(){ return `
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-secondary">Ordinarie á pris: 95kr</p>
+                  <p class="text-secondary">Pris: 95kr</p>
                 </div>
                 <div class="col-4">
-                  <p class="text-secondary">Barn á pris: 55kr</p>
+                  <p class="text-secondary">Pris: 55kr</p>
                 </div>
                 <div class="col-4">
-                  <p class="text-secondary">Pensionär á pris: 65kr</p>
+                  <p class="text-secondary">Pris: 65kr</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-3 mt-md-5">
               <h2 class="modalBokaColor title-text text-center">
-                ${this.films[this.indexToOpen].title} ${this.changedAuditorium}
+                ${this.films[this.indexToOpen].title}
               </h2>
               <p id="showTime" class="text-center text-white"></p>
             </div>
@@ -68,7 +68,7 @@ Object.assign(Modal.prototype, {template1(){ return `
             </div>
           </div>
           <div class="row mt-4">
-            <div class="col-12">
+            <div class="col-12 pl-5 pr-5">
               <button type="button" class="ticketArea btn btn-base confirm-booking float-right m-2">BOKA</button>
             </div>
           </div>

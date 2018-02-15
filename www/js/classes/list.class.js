@@ -13,9 +13,6 @@ class List extends Base {
             </div>
         </div>`);
         let moviesArea = $("#movieCards");
-
-        //gief us more to watch on screen
-        //for (let x = 0; x < 3; x++) {
             for (let i = 0; i < this.films.length; i++) {
                 if (typeof this.films[i] != 'undefined') {
                     moviesArea.append(`
@@ -25,11 +22,9 @@ class List extends Base {
                 `);
                 }
             }
-        //}
     }
 
     renderViewings() {
-        //     $('main').append('<div id="viewingsList" class="row"></div>');
         let viewingsArea = $("#viewingsList");
         viewingsArea.empty();
 

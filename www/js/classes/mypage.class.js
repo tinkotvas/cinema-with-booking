@@ -26,16 +26,6 @@ class MyPage extends Base {
 
   renderBooking() {
     let date = new Date().getTime();
-    // let month = date.getMonth() + 1;
-    // if (month < 10) {
-    //   month = "0" + month;
-    // }
-    // let day = date.getDate();
-    // if (day < 10) {
-    //   day = "0" + day;
-    // }
-    // let todayDate = date.getFullYear() + month + day + date.getHours() + date.getMinutes();
-
     this.index = 0;
 
     for (let booking of this.bookings) {

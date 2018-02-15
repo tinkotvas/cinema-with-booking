@@ -24,7 +24,6 @@ class Base {
     Base.renderingInProgress = true;
 
     let oldBaseEl = this.baseEl;
-    // console.log(selector, templateNo);
 
     this.baseEl = $(this['template' + templateNo]());
     this.addEvents(templateNo);
