@@ -2,7 +2,6 @@ class App extends Base {
 
   constructor() {
     super();
-    // Tell jsonflex to recreate instances of the class Garment
     JSON._classes(List, Modal, Nav, Profile);
     JSON._load('currentUser').then((data) => {
       this.currentUser = data.userName;
@@ -30,7 +29,6 @@ class App extends Base {
   }
 
   showUSname() {
-    // this.userName = this.currentUser;
     $('#showLoginStatus').empty();
     this.render('#showLoginStatus', 'USname');
   }
@@ -59,7 +57,6 @@ class App extends Base {
     this.nav.render('header');
     this.renderLoginStatus();
     this.changePage();
-    //window.addEventListener('popstate', this.changePage);
     window.addEventListener('popstate', this.changePage.bind(this));
   }
 
@@ -99,16 +96,12 @@ class App extends Base {
 
   getCurrentUser(val) {
     this.currentUser = val;
-    // console.log(this.currentUser);
   }
 
   changePage() {
     //React on page changed, replace parts of DOM
     // get the current url
     let url = location.pathname;
-    // console.log(url);
-    
-
     // change menu link active
     $('header a').removeClass('active');
     $(`header a[href="${url}"]`).addClass('active')
@@ -120,7 +113,6 @@ class App extends Base {
 
       typeof this.list == 'undefined' ? this.list = new List(this.films, this.viewings) : null;
       this.list.renderViewings();
-      // let modal = new Modal(list);
     }
     if (url == '/filmer') {
       $('main').empty();
