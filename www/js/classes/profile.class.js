@@ -20,11 +20,13 @@ class Profile extends Base {
             this.usName = val[0];
             this.web = val[1];
             $(".signUpEmail").parent().removeClass("has-warning");
-            $(".lginEmail").parent().removeClass("has-warning");
+            $(".signupbtn").prop("disabled", false);
+            $(".lginEmail").parent().removeClass("has-warning");          
         }
         else {
             $(".lginEmail").parent().addClass("has-warning");
             $(".signUpEmail").parent().addClass("has-warning");
+            $(".signupbtn").prop("disabled", true);
         }
     }
 
@@ -106,7 +108,12 @@ class Profile extends Base {
             $('#signupModal').modal('toggle');
         }
         if ($(event.target).hasClass('signupbtn')) {
-            this.sign();
+            if(!this.usName){
+                alert('Ange mailadress, tack!');
+            }else{
+                this.sign();
+            }
+            
         }
     }
 
