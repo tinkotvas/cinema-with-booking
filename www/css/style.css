@@ -166,7 +166,15 @@ html {
 }
 @media (pointer: coarse) {
   #auditorium-holder #auditorium svg g .proposed {
-    fill: #5CFDA5;
+    fill: #FCFBE3;
+  }
+}
+#auditorium-holder #auditorium svg g .selected {
+  fill: #5CFDA5;
+}
+@media not all and (pointer: coarse) {
+  #auditorium-holder #auditorium svg g .proposed {
+    fill: #989ea4;
   }
 }
 svg {
