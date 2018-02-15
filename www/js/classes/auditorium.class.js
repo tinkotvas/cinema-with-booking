@@ -172,7 +172,7 @@ class Auditorium extends Base {
 
                     if (seat.hasClass('booked')) {
                         //nada
-                    } else if (that.totalSeats > 1 && that.modal.separateSeats) {
+                    } else if (that.totalSeats > 1) {
                         let checkingForwards = true,
                             checkingBackwards = true,
                             totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats),
