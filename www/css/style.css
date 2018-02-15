@@ -43,19 +43,19 @@ body main .pageTitle {
 .modal-content {
   background-color: #343A39;
 }
-.infoModal .close {
+.modal-lg .close {
   color: #dc3545;
   text-shadow: 0 1px 0 #666c6b;
   font-size: 2rem;
   cursor: pointer;
 }
-.infoModal .close:focus {
+.modal-lg .close:focus {
   outline: -webkit-focus-ring-color auto 0;
   outline-color: inherit;
   outline-style: none;
   outline-width: 0;
 }
-.infoModal p {
+.modal-lg p {
   color: white;
 }
 #infoModal img {
