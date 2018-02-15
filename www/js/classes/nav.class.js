@@ -11,7 +11,9 @@ class Nav extends Base {
         $(".navbar-collapse").collapse('hide');
       });
     });
-    
+    $(document).on('click', 'main', function () {
+      $(".navbar-collapse").collapse('hide');
+    });
     $( window ).resize(function() {
       if ($( window ).width() > 991) {
         $(".navbar-collapse").collapse('hide');
