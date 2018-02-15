@@ -144,18 +144,16 @@ class Auditorium extends Base {
         let seat;
         let that = this;
 
-        $(window).resize(function(){
-            that.scaleAuditorium(this.auditoriumWidth,this.auditoriumHeight)
-        }
-            
-        );
+        $(window).resize(function () {
+            that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight)
+        });
 
         $(document).off('click mouseenter mouseleave', '.seat')
         $(document).on({
                 click: function () {
                     $('.selected').removeClass('selected');
                     $('.proposed').addClass('selected');
-                    if (that.modal.totalPrice > 0){
+                    if (that.modal.totalPrice > 0) {
                         $(".confirm-booking").prop("disabled", false);
                     } else {
                         $(".confirm-booking").prop("disabled", true);
@@ -164,62 +162,48 @@ class Auditorium extends Base {
                 mouseenter: function () {
                     seat = $(this);
                     let totalSeatsBooked = 0;
+
                     if (seat.hasClass('booked')) {
                         //nada
                     } else if (that.totalSeats > 1) {
                         let checkingForwards = true,
                             checkingBackwards = true,
-                            totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats);
-                        let originalSeatNumber = parseInt(seat[0].id.split("Nr")[1])
+                            totalAdjescantFreeSeats = that.countAdjacentAvailableSeats(seat, that.totalSeats),
+                            fromSeatNr = parseInt(seat[0].id.split("Nr")[1]);
 
-                        let swapModifier = function (modifier) {
-                            modifier > 0 ? checkingForwards = false : checkingBackwards = false;
+                        let stopCheckingThisDirection = function (direction) {
+                            direction > 0 ? checkingForwards = false : checkingBackwards = false;
                         }
 
-                        let seatNumberString;
+                        let checkValidSeatAndPropose = function (modifier, direction) {
+                            let adjacentSeat = $(`#seatNr${fromSeatNr+modifier+direction}`);
+                            let currentSeat = $(`#seatNr${fromSeatNr+modifier}`)
 
-                        //modifier -1 for left +1 for right
-                        let proposedSeatDirection = function (modifier) {
-                            seatNumberString = `#seatNr${originalSeatNumber+modifier}`;
-
-                            if (!$(seatNumberString)[0] || $(seatNumberString).hasClass('booked')) {
-                                swapModifier(modifier);
+                            if (!currentSeat[0] || currentSeat.hasClass('booked')) {
+                                stopCheckingThisDirection(direction);
                             } else {
-                                if ($(seatNumberString).hasClass('proposed')) {
+                                if (currentSeat.hasClass('proposed')) {
 
                                 } else {
-                                    $(seatNumberString).addClass('proposed');
+                                    currentSeat.addClass('proposed');
                                     totalSeatsBooked++;
                                 }
                             }
-                            if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).next().hasClass('endSeat')) {
-                                checkingForwards = false;
-                            } else if ($(seatNumberString).hasClass('endSeat') && $(seatNumberString).prev().hasClass('endSeat')) {
-                                checkingBackwards = false;
+                            if (currentSeat.hasClass('endSeat') && adjacentSeat.hasClass('endSeat')) {
+                                stopCheckingThisDirection(direction);
                             }
                         }
-                        
-                        if ($(this).hasClass('endSeat')) {
-                            if($(this).next().hasClass('endSeat') && !$(this).next().next().hasClass('booked')){
-                                totalAdjescantFreeSeats-=1;
-                            }
 
-                            if($(this).prev().hasClass('endSeat') && !$(this).prev().hasClass('booked')){
-                                totalAdjescantFreeSeats-=1;
-                            }
-                           
-                        }
                         if (totalAdjescantFreeSeats >= that.totalSeats) {
-
                             for (let i = 0; i < totalAdjescantFreeSeats; i++) {
                                 if (checkingForwards) {
-                                    proposedSeatDirection(+i)
+                                    checkValidSeatAndPropose(+i, +1)
                                     if (totalSeatsBooked >= that.totalSeats) {
                                         break;
                                     }
                                 }
                                 if (checkingBackwards) {
-                                    proposedSeatDirection(-i);
+                                    checkValidSeatAndPropose(-i, -1);
                                     if (totalSeatsBooked >= that.totalSeats) {
                                         break;
                                     }
@@ -240,26 +224,30 @@ class Auditorium extends Base {
     }
 
     countAdjacentAvailableSeats(fromSeat, totalSeats) {
-        let freeSeats = 1;
+        //-1 since we check originseat twice
+        let freeSeats = -1;
         let fromSeatNr = parseInt(fromSeat[0].id.split("seatNr")[1]);
         let modifier;
-        let ended;
+        let direction;
 
         for (let x = 0; x < 2; x++) {
-
-            for (let i = 1; i <= totalSeats; i++) {
-                x % 2 == 1 ? modifier = -i : modifier = +i;
+            for (let i = 0; i < totalSeats; i++) {
+                if (x % 2 == 1) {
+                    modifier = -i;
+                    direction = -1;
+                } else {
+                    modifier = +i;
+                    direction = +1;
+                }
+                let adjacentSeat = $(`#seatNr${fromSeatNr+modifier+direction}`);
                 let currentSeat = $(`#seatNr${fromSeatNr+modifier}`)
-
                 if (!currentSeat[0] || currentSeat.hasClass('booked')) {
                     break;
-                } else if (currentSeat.hasClass('endSeat')) {
+                } else if (currentSeat.hasClass('endSeat') && adjacentSeat.hasClass('endSeat')) {
                     freeSeats++;
-                    if ($(currentSeat).prev().hasClass('endSeat') || $(currentSeat).next().hasClass('endSeat')) {
-                        break;
-                    }
+                    break;
                 } else {
-                    freeSeats++
+                    freeSeats++;
                 }
             }
         }
