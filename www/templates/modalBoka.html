@@ -11,7 +11,11 @@ Object.assign(Modal.prototype, {template1(){ return `
             </div>
             <div class="col-12 mt-2 col-lg-8 ">
               <div class='form-group'>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                 <h2 class="modalBokaColor selectdate">Välj datum</h2>
+                
                 <select class='form-control select-date' id='date-select'></select>
               </div>
               <div class="row">

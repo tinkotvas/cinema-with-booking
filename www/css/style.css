@@ -1,6 +1,6 @@
 header nav {
   height: fit-content;
-  background-color: #5cfda5 !important;
+  background-color: #5CFDA5 !important;
 }
 header nav .nav-link {
   border-bottom: 1px solid transparent;
@@ -20,7 +20,7 @@ header #showLoginStatus {
 }
 #loginModal .modal-header,
 #signupModal .modal-header {
-  background-color: #5cfda5 !important;
+  background-color: #5CFDA5 !important;
 }
 #loginModal .close,
 #signupModal .close {
@@ -34,62 +34,29 @@ body main {
   padding-bottom: 80px;
 }
 body main .pageTitle {
-  border-bottom: 2px solid #5cfda5;
+  border-bottom: 2px solid #5CFDA5;
   width: fit-content;
 }
 .text-red {
-  color: #5cfda5 !important;
+  color: #5CFDA5 !important;
 }
 .modal-content {
   background-color: #343A39;
 }
-.infoModal .close {
+.modal-lg .close {
   color: #dc3545;
   text-shadow: 0 1px 0 #666c6b;
   font-size: 2rem;
   cursor: pointer;
 }
-.infoModal .close:focus {
+.modal-lg .close:focus {
   outline: -webkit-focus-ring-color auto 0;
   outline-color: inherit;
   outline-style: none;
   outline-width: 0;
 }
-.infoModal p {
+.modal-lg p {
   color: white;
-}
-@media (min-width: 668) {
-  .infoModal {
-    min-width: 90vw !important;
-  }
-}
-@media (min-width: 992px) {
-  .infoModal {
-    min-width: 90vw !important;
-  }
-}
-@media (min-width: 1400px) {
-  .infoModal {
-    min-width: 80vw !important;
-  }
-}
-.youtube {
-  max-height: 50vh;
-}
-@media (max-width: 576px) {
-  .youtube {
-    min-height: inherit;
-  }
-}
-@media (min-width: 992px) {
-  .youtube {
-    min-width: 90vw !important;
-  }
-}
-@media (min-width: 1400px) {
-  .youtube {
-    min-width: 80vw !important;
-  }
 }
 #infoModal img {
   position: absolute;
@@ -112,7 +79,7 @@ body main .pageTitle {
   border-bottom-color: #5CFDA5;
 }
 .modal-footer {
-  border-top-color: #5cfda5;
+  border-top-color: #5CFDA5;
 }
 .modalBokaColor {
   color: #5CFDA5 !important;
@@ -148,23 +115,23 @@ footer {
   position: absolute;
   left: 0;
   right: 0;
-  color: #fcfbe3;
-  background-color: #343a39;
+  color: #FCFBE3;
+  background-color: #343A39;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 80px;
 }
 footer a {
-  color: #fcfbe3;
+  color: #FCFBE3;
 }
 footer a:hover {
-  color: #fcfbe3 !important;
+  color: #FCFBE3 !important;
   text-decoration: none;
 }
 footer .social-media {
   font-size: 2.5em;
-  color: #5cfda5;
+  color: #5CFDA5;
 }
 html {
   position: relative;
@@ -184,7 +151,7 @@ html {
   pointer-events: none;
 }
 #auditorium-holder #auditorium svg g .selected {
-  fill: #5cfda5;
+  fill: #5CFDA5;
 }
 #auditorium-holder #auditorium svg g .proposed {
   fill: #989ea4;
@@ -196,7 +163,7 @@ main {
   margin-top: 64px;
 }
 main .gallery {
-  background-color: #343a39;
+  background-color: #343A39;
   width: 100%;
   height: 75vh;
 }
@@ -224,9 +191,9 @@ main .gallery .gallery-content .gallery-info .gallery-info-title .header-film {
 }
 main .gallery .gallery-content .gallery-info .gallery-info-title .header-film .header-film-text {
   text-decoration: underline;
-  text-decoration-color: #5cfda5;
+  text-decoration-color: #5CFDA5;
   overflow: hidden;
-  color: #fcfbe3;
+  color: #FCFBE3;
   font-size: 4.5rem;
 }
 @media screen and (min-width: 0) and (max-width: 767px) {
@@ -248,13 +215,13 @@ main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-button
 main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-previous,
 main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-next {
   background-color: transparent !important;
-  color: #fcfbe3;
+  color: #FCFBE3;
   border: none;
   cursor: pointer;
 }
 main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-previous:hover,
 main .gallery .gallery-content .gallery-info .gallery-info-title .gallery-buttons .gallery-next:hover {
-  color: #5cfda5;
+  color: #5CFDA5;
 }
 main .gallery .gallery-content .gallery-image-container {
   width: 100%;
@@ -281,7 +248,7 @@ main .gallery .gallery-content .gallery-image-container .slices .slice2,
 main .gallery .gallery-content .gallery-image-container .slices .slice3,
 main .gallery .gallery-content .gallery-image-container .slices .slice4 {
   height: 0;
-  background-color: #343a39;
+  background-color: #343A39;
 }
 main .gallery .gallery-content .gallery-info-container {
   height: 100%;
@@ -294,20 +261,20 @@ main .gallery .gallery-content .gallery-info-container {
 main .gallery .gallery-content .gallery-info-container .gallery-info-text {
   position: absolute;
   top: 70%;
-  background-color: #5cfda5;
+  background-color: #5CFDA5;
   height: 100%;
   width: 100%;
 }
 main .gallery .gallery-content .gallery-info-container .gallery-info-text h5 {
-  color: #0c1c1b;
+  color: #0C1C1B;
   text-decoration: underline;
 }
 main .gallery .gallery-content .gallery-info-container .gallery-info-text p {
-  color: #0c1c1b;
+  color: #0C1C1B;
   font-weight: 500;
 }
 main .gallery .gallery-content .gallery-info-container .gallery-info-text span {
-  color: #343a39;
+  color: #343A39;
   font-weight: 300;
 }
 main .gallery .gallery-content .gallery-info-container .gallery-info-text .gallery-info-text-sub {
@@ -321,12 +288,12 @@ main .list-group-item {
   background-color: transparent;
   color: #FFF;
   transition: background-color 200ms cubic-bezier(1, 0, 0, 1);
-  border-bottom: 1px solid #343a39;
-  cursor: auto;
+  border-bottom: 1px solid #343A39;
 }
 main .list-group-item:hover {
   background-color: #343A39;
   color: #FFF;
+  cursor: pointer;
   transition: background-color 400ms cubic-bezier(1, 0, 0, 1);
 }
 main .list-element {
@@ -341,7 +308,7 @@ main .mainbanner {
 }
 .btn-base {
   border-radius: 0;
-  border: 2px solid #5cfda5;
+  border: 2px solid #5CFDA5;
   background-color: transparent;
   color: #FFF !important;
   text-decoration: none;
@@ -350,7 +317,7 @@ main .mainbanner {
 .btn-base:hover {
   cursor: pointer;
   border: 2px solid transparent;
-  background-color: #5cfda5;
+  background-color: #5CFDA5;
   color: #FFF !important;
   text-decoration: none;
   transition: all 400ms cubic-bezier(1, 0, 0, 1);
@@ -412,5 +379,5 @@ main .avatar {
   width: 15%;
 }
 main .booking-state {
-  border-top: 2px solid #5cfda5 !important;
+  border-top: 2px solid #5CFDA5 !important;
 }
