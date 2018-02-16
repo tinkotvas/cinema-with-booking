@@ -40,6 +40,19 @@ body main .pageTitle {
 .modal-content {
   background-color: #343A39;
 }
+#mouseTooltip {
+  width: 200px;
+  position: absolute;
+  display: none;
+  background-color: #dc3545;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  z-index: 10000;
+}
+#mouseTooltip span {
+  color: white;
+}
 .modal-lg p {
   color: white;
 }

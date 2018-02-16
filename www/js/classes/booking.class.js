@@ -3,6 +3,23 @@ class Booking extends Base {
 		super();
 		this.modal = modal;
 		this.confirmBooking();
+
+		this.mouseX;
+		this.mouseY;
+		this.eventHandlers();
+	}
+
+	eventHandlers(){
+		let that = this;
+		$(document).mousemove( function(e) {
+			that.mouseX = e.pageX; 
+			that.mouseY = e.pageY;
+			$('#mouseTooltip').css({'top':that.mouseY - 100,'left':that.mouseX - 240});
+		 });
+
+		 $(document).click(function(e){
+			$('#mouseTooltip').fadeOut('fast');
+		 });
 	}
 
 	getSelectedSeatNumbers() {
@@ -21,6 +38,14 @@ class Booking extends Base {
 		catch((e) => {
 
 		});
+	}
+
+
+	showMouseMessage(){
+		var mouseX;
+		var mouseY;
+		$('#mouseTooltip span').html("En eller flera av dina platser blev tyvärr bokade.");
+		$('#mouseTooltip').stop(false, true).fadeIn('fast');
 	}
 
 	confirmBooking() {
@@ -43,6 +68,7 @@ class Booking extends Base {
 				}
 				if (seatAlreadyBooked) {
 					that.modal.app.auditorium.htmlRenderAuditorium(that.modal.currentAuditorium);
+					that.showMouseMessage();
 				} else {
 					$('#bookingModal').modal('hide');
 					that.createBookingNumber()
