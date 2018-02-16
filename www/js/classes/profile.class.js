@@ -78,7 +78,7 @@ class Profile extends Base {
 
     checkLogin(jsonName, callbackFunc) {
         // Looking for JSON file name as this.usName
-            JSON._load(jsonName).then(
+            JSON._load('/users/'+jsonName).then(
                 (data) => {
                 if (data.password == this.password) {
                     callbackFunc && callbackFunc();
@@ -120,7 +120,7 @@ class Profile extends Base {
     sign() {
         if (this.checkPass()) {
             try {
-                JSON._save(this.usName, { email: this.email, password: this.password });
+                JSON._save('/users/'+this.usName, { email: this.email, password: this.password });
                 this.login();
                 $('#signupModal').modal('toggle');
                 $('#signupForm')[0].reset();

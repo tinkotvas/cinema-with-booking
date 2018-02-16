@@ -13,16 +13,56 @@ class Booking extends Base {
 		}
 	}
 
+
+
+
+	loadViewings(callbackFunc) {
+
+		JSON._load('viewings').then((data) => {
+			this.modal.viewings = data;
+			callbackFunc && callbackFunc();
+		}).
+		catch((e) => {
+
+		});
+	}
+
+
+
+
 	confirmBooking() {
 		let that = this;
 		$(document).on('click', '.confirm-booking', function () {
-			$('#bookingModal').modal('hide');
-			that.getSelectedSeatNumbers();
-			that.createBookingNumber()
-			$('.modal-container-info').empty();
-			that.modal.render('.modal-container-info', 3);
-			$('#summaryModal').modal('toggle');
-			that.saveBooking();
+			let confirmBookingFunc = function () {
+				let seatAlreadyBooked = true;
+				that.getSelectedSeatNumbers();
+
+				let viewing = that.modal.viewings[that.modal.getViewingIndex()]
+				
+				for (let i = 0; i < viewing.selectedSeats.length; i++) {
+					if (viewing.selectedSeats && that.modal.selectedSeats.includes(viewing.selectedSeats[i].toString())) {
+						seatAlreadyBooked = false;
+						break;
+					}
+				}
+				console.log("seatAlreadyBooked",seatAlreadyBooked)
+				if (seatAlreadyBooked) {
+					$('#bookingModal').modal('hide');
+					that.createBookingNumber()
+					$('.modal-container-info').empty();
+					that.modal.render('.modal-container-info', 3);
+					$('#summaryModal').modal('toggle');
+					that.saveBooking();
+				} else {
+					console.log("true");
+					that.modal.app.auditorium.htmlRenderAuditorium(that.modal.currentAuditorium);
+				}
+			};
+			that.loadViewings(() => confirmBookingFunc());
+
+
+
+
 		});
 	}
 
@@ -93,13 +133,12 @@ class Booking extends Base {
 			viewing.time == selectedViewing.time);
 
 
-		if(typeof this.modal.viewings[indexOfViewing].selectedSeats == 'undefined'){
+		if (typeof this.modal.viewings[indexOfViewing].selectedSeats == 'undefined') {
 			this.modal.viewings[indexOfViewing].selectedSeats = [];
 		}
 		this.modal.viewings[indexOfViewing].selectedSeats.push(...selectedViewing.selectedSeats);
-		
-		JSON._save('viewings',this.modal.viewings).then(function(){
-		})
+
+		JSON._save('viewings', this.modal.viewings).then(function () {})
 	}
 
 }
