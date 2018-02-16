@@ -153,10 +153,13 @@ class Modal extends Base{
     this.movieRuntime = `${h.toString()} tim ${(m<10? "0": "")}${m.toString()} min`;
   }
 
-
-
-
-
+  checkIfConfirmBookingIsActive(){
+    if (this.totalTickets <= $('.selected').length) {
+      $(".confirm-booking").prop("disabled", false);
+    } else {
+      $(".confirm-booking").prop("disabled", true);
+    }
+  }
 
   eventHandler() {
     let that=this;
@@ -213,6 +216,7 @@ class Modal extends Base{
       
       that.totalPrice = that.childTickets * 55 + that.adultTickets * 95 + that.seniorTickets * 65;
       $('.total-price').text('Summa: ' + that.totalPrice + ' kr');
+      that.checkIfConfirmBookingIsActive();
     })
   }
 

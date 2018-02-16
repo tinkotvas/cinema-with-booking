@@ -18,10 +18,9 @@ html {
                     }
                 }
                 .seat {
-                    fill:#FCFBE3;
+                    fill:@main-light;
                     cursor:pointer;
                 }
-
                 .booked {
                     fill: @main-red;
                     pointer-events:none;
@@ -31,7 +30,19 @@ html {
                 }
                 .proposed{
                     fill:#343a40 + 100;
+                    @media (pointer:coarse) {
+                        fill:@main-light;
+                    }
                 }
+                .selected{
+                    fill:@main-color;
+                }
+                .proposed{
+                    @media not all and (pointer:coarse) {
+                        fill:#343a40 + 100;
+                    }   
+                }
+
             }
         }
     }

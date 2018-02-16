@@ -168,11 +168,7 @@ class Auditorium extends Base {
                         $('.selected').removeClass('selected');
                         $('.proposed').addClass('selected');
                     }
-                    if (that.modal.totalPrice > 0) {
-                        $(".confirm-booking").prop("disabled", false);
-                    } else {
-                        $(".confirm-booking").prop("disabled", true);
-                    }
+                    that.modal.checkIfConfirmBookingIsActive();
                 },
                 mouseenter: function () {
                     seat = $(this);
