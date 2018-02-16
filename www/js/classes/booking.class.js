@@ -87,7 +87,7 @@ class Booking extends Base {
   		if(app.currentUser == 0){
   			app.currentUser = 'NotSignedUp';
   		}
-  		JSON._load(app.currentUser).then((data) => {
+  		JSON._load('/users/'+app.currentUser).then((data) => {
         userName= data.email;
         userPass=data.password;
         if(!data.bookingHistory){
