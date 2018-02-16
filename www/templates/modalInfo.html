@@ -18,9 +18,9 @@ Object.assign(Modal.prototype, {template2(){ return `
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
-                  <h2 class="text-red text-center" id="infoModalTitle">${this.films[this.indexToOpen].title}</h2>
-                  
-                  <p class="text-center">${this.movieRuntime} | ${this.films[this.indexToOpen].genre} | ${this.films[this.indexToOpen].language}</p>
+                  <h2 class="text-main text-center" id="infoModalTitle">${this.films[this.indexToOpen].title}</h2>
+                  <a class="btn btn-base btn-booking float-right p-2" id="bookingModalToggle${this.films[this.indexToOpen].title.replace(/\s+/g, '')}">Visningar</a>
+                  <p class="text-center smaller-text">${this.movieRuntime} | ${this.films[this.indexToOpen].genre} | ${this.films[this.indexToOpen].language}</p>
                   
                 </div>
               </div>
@@ -34,15 +34,15 @@ Object.assign(Modal.prototype, {template2(){ return `
               <div class="row">
                 <div class="col-12 col-lg-10 mr-auto">
                   <p class="mb-1">
-                    <span class="text-red">Direktör:</span> ${this.films[this.indexToOpen].director}</p>
+                    <span class="text-main smaller-text">Direktör:</span> ${this.films[this.indexToOpen].director}</p>
                   <p class="mb-1">
-                    <span class="text-red">Skådespelare:</span> ${this.films[this.indexToOpen].actors.join('<span class="text-red">, </span>')} </p>
+                    <span class="text-main smaller-text">Skådespelare:</span> ${this.films[this.indexToOpen].actors.join('<span class="text-main">, </span>')} </p>
                   <p class="mb-1">
-                    <span class="text-red">Produktionsår:</span> ${this.films[this.indexToOpen].productionYear}</p>
+                    <span class="text-main smaller-text">Produktionsår:</span> ${this.films[this.indexToOpen].productionYear}</p>
                   <p class="mb-1">
-                    <span class="text-red">Ursprungsland:</span> ${this.films[this.indexToOpen].productionCountries}</p>
+                    <span class="text-main smaller-text">Ursprungsland:</span> ${this.films[this.indexToOpen].productionCountries}</p>
                   <p class="mb-1">
-                    <span class="text-red">Undertexter:</span> ${this.films[this.indexToOpen].subtitles}</p>
+                    <span class="text-main smaller-text">Undertexter:</span> ${this.films[this.indexToOpen].subtitles}</p>
                 </div>
   
               </div>

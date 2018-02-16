@@ -36,6 +36,7 @@ class Modal extends Base{
       typeof that.app.auditorium == 'undefined' ? that.app.auditorium = new Auditorium(that):null;
       that.currentAuditorium = $('#date-select').find(':selected').attr('data-auditorium');
       $('#infoModal').modal('hide');
+
       that.adultTickets = 1;
       that.childTickets = 0;
       that.seniorTickets = 0;
@@ -159,10 +160,12 @@ class Modal extends Base{
 
   eventHandler() {
     let that=this;
-    $(document).on('hidden.bs.modal','#infoModal', function (e) {
+    $(document).on('hide.bs.modal','#infoModal', function (e) {
       $('#infoModal').empty();
     });
+
     $(document).on('shown.bs.modal','#bookingModal', function (e) {
+      $('body').addClass('modal-open');
       that.app.auditorium.renderAuditorium(that.allMovieDates[0].split("%")[1]);
     });
 
