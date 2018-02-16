@@ -13,11 +13,7 @@ class Booking extends Base {
 		}
 	}
 
-
-
-
 	loadViewings(callbackFunc) {
-
 		JSON._load('viewings').then((data) => {
 			this.modal.viewings = data;
 			callbackFunc && callbackFunc();
@@ -27,9 +23,6 @@ class Booking extends Base {
 		});
 	}
 
-
-
-
 	confirmBooking() {
 		let that = this;
 		$(document).on('click', '.confirm-booking', function () {
@@ -38,11 +31,7 @@ class Booking extends Base {
 				let indexOfViewing = that.modal.getViewingIndex();
 				that.getSelectedSeatNumbers();
 				let viewing = that.modal.viewings[indexOfViewing]
-
-
-				if (typeof viewing.selectedSeats == 'undefined') {
-					viewing.selectedSeats = [];
-				}
+				typeof viewing.selectedSeats == 'undefined' ? viewing.selectedSeats = [] : null;
 
 				if (typeof viewing.selectedSeats[0] == 'string') {
 					for (let i = 0; i < viewing.selectedSeats.length; i++) {
@@ -126,16 +115,12 @@ class Booking extends Base {
 			selectedSeats: this.modal.selectedSeats
 		}
 
-		let indexOfViewing = this.modal.viewings.findIndex(viewing =>
-			viewing.auditorium == selectedViewing.auditorium &&
-			viewing.film == selectedViewing.film &&
-			viewing.date == selectedViewing.date &&
-			viewing.time == selectedViewing.time);
+		let viewingIndex = this.modal.getViewingIndex();
 
-		if (typeof this.modal.viewings[indexOfViewing].selectedSeats == 'undefined') {
-			this.modal.viewings[indexOfViewing].selectedSeats = [];
+		if (typeof this.modal.viewings[viewingIndex].selectedSeats == 'undefined') {
+			this.modal.viewings[viewingIndex].selectedSeats = [];
 		}
-		this.modal.viewings[indexOfViewing].selectedSeats.push(...selectedViewing.selectedSeats);
+		this.modal.viewings[viewingIndex].selectedSeats.push(...selectedViewing.selectedSeats);
 		JSON._save('viewings', this.modal.viewings).then(function () {})
 	}
 
