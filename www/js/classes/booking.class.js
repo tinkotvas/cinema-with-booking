@@ -17,10 +17,8 @@ class Booking extends Base {
 		let that = this;
 		$(document).on('click', '.confirm-booking', function () {
 			$('#bookingModal').modal('hide');
-			// must check if any seats are written to viewings.json since the auditorium was rendered
 			that.getSelectedSeatNumbers();
 			that.createBookingNumber()
-			
 			$('.modal-container-info').empty();
 			that.modal.render('.modal-container-info', 3);
 			$('#summaryModal').modal('toggle');
@@ -30,7 +28,7 @@ class Booking extends Base {
 
 	createBookingNumber() {
 		this.modal.bookingNumber++;
-		JSON._save('bookingNumber', {
+		JSON._save('/booking/bookingNumber', {
 			bookingNumber: this.modal.bookingNumber
 		});
 	}
@@ -49,8 +47,7 @@ class Booking extends Base {
   		if(app.currentUser == 0){
   			app.currentUser = 'NotSignedUp';
   		}
-  		
-  		JSON._load(app.currentUser).then((data) => {
+  		JSON._load('/users/'+app.currentUser).then((data) => {
         userName= data.email;
         userPass=data.password;
         if(!data.bookingHistory){
@@ -70,7 +67,7 @@ class Booking extends Base {
         }
         bookingHistory.push(newBooking);
       }).then(()=>
-      JSON._save(app.currentUser, {
+      JSON._save('/users/'+app.currentUser, {
         email: userName,
         password: userPass,
         bookingHistory  
@@ -102,7 +99,6 @@ class Booking extends Base {
 		this.modal.viewings[indexOfViewing].selectedSeats.push(...selectedViewing.selectedSeats);
 		
 		JSON._save('viewings',this.modal.viewings).then(function(){
-
 		})
 	}
 

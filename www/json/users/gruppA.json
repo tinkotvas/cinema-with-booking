@@ -1,0 +1,95 @@
+{
+  "email": "gruppA",
+  "password": "gruppA1",
+  "bookingHistory": [
+    {
+      "bookingID": 750,
+      "filmTitle": "Call me by your name",
+      "date": "2018-03-17 16:40",
+      "auditorium": "Stora Salongen",
+      "seatID": [
+        "22",
+        "23"
+      ],
+      "totalPrice": 95,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 755,
+      "filmTitle": "The party",
+      "date": "2018-03-17 20:30",
+      "auditorium": "Stora Salongen",
+      "seatID": [
+        "1",
+        "2"
+      ],
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 785,
+      "filmTitle": "Gisslan",
+      "date": "2018-03-18 21:00",
+      "auditorium": "Stora Salongen",
+      "seatID": [
+        "6",
+        "7"
+      ],
+      "totalPrice": 160,
+      "totalTickets": 2
+    },
+    {
+      "bookingID": 786,
+      "filmTitle": "Blade Runner 2049",
+      "date": "2018-02-10 17:00",
+      "auditorium": "Lilla Salongen",
+      "seatID": [
+        "7",
+        "9",
+        "11",
+        "13",
+        "14",
+        "16",
+        "18",
+        "32"
+      ],
+      "totalPrice": 480,
+      "totalTickets": 8
+    },
+    {
+      "bookingID": 789,
+      "filmTitle": "Star Wars - Last Jedi",
+      "date": "2018-02-16 18:00",
+      "auditorium": "Stora Salongen",
+      "seatID": [
+        "3"
+      ],
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 790,
+      "filmTitle": "Guardians of the Galaxy, vol. 2",
+      "date": "2018-02-13 20:30",
+      "auditorium": "Lilla Salongen",
+      "seatID": [
+        "49"
+      ],
+      "totalPrice": 95,
+      "totalTickets": 1
+    },
+    {
+      "bookingID": 791,
+      "filmTitle": "Blade Runner 2049",
+      "date": "2018-03-18 17:00",
+      "auditorium": "Lilla Salongen",
+      "seatID": [
+        "27",
+        "28",
+        "29"
+      ],
+      "totalPrice": 285,
+      "totalTickets": 3
+    }
+  ]
+}
