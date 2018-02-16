@@ -151,7 +151,7 @@ html {
   }
 }
 #auditorium-holder #auditorium svg g .seat {
-  fill: #FCFBE3;
+  fill: white;
   cursor: pointer;
 }
 #auditorium-holder #auditorium svg g .booked {
@@ -166,7 +166,7 @@ html {
 }
 @media (pointer: coarse) {
   #auditorium-holder #auditorium svg g .proposed {
-    fill: #FCFBE3;
+    fill: white;
   }
 }
 #auditorium-holder #auditorium svg g .selected {

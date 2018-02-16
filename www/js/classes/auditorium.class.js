@@ -5,6 +5,10 @@ class Auditorium extends Base {
         this.auditoriums;
         this.currentAuditorium;
         this.totalSeats = 0;
+
+        this.seatHorizontalSpacing = 50;
+        this.seatVerticalSpacing = 60;
+
         this.eventHandlers();
     }
 
@@ -24,10 +28,8 @@ class Auditorium extends Base {
     htmlRenderAuditorium(name) {
         this.currentAuditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
         let seats = [],
-            seatHorizontalSpacing = 50,
-            seatVerticalSpacing = 60,
             rowsToDraw = this.currentAuditorium.seatsPerRow.length + 1,
-            maxSeatsPerRow = Math.max(...this.currentAuditorium.seatsPerRow) + 2,
+            maxSeatsPerRow = Math.max(...this.currentAuditorium.seatsPerRow),
             seatNumber = 1,
             viewing = this.modal.viewings[this.modal.getViewingIndex()],
             bookedSeats = 0,
@@ -39,9 +41,10 @@ class Auditorium extends Base {
             bookedSeatsLength = viewing.selectedSeats.length;
         }
 
-        for (let y = 0, cy = 0; y <= rowsToDraw; y++) {
-            let startFromX = Math.round((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y - 1]) / 2);
-            let endBeforeX = maxSeatsPerRow - Math.floor((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y - 1]) / 2);
+        for (let y = 0, cy = this.seatVerticalSpacing/2; y <= rowsToDraw; y++) {
+            let startFromX = Math.round((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y]) / 2);
+            let endBeforeX = maxSeatsPerRow - Math.floor((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y]) / 2);
+
             for (let x = 0, cx = 0; x < maxSeatsPerRow; x++) {
                 let classes = "seat";
                 viewing.selectedSeats && bookedSeats.includes(seatNumber.toString()) ? classes += " booked" : null;
@@ -51,12 +54,13 @@ class Auditorium extends Base {
                                 <text x="${cx+ (seatNumber < 10 ? 20:15)}" y="${cy+25}">${seatNumber}</text>`)
                     seatNumber++;
                 }
-                cx += seatHorizontalSpacing;
+                cx += this.seatHorizontalSpacing;
             }
-            cy += seatVerticalSpacing;
+            cy += this.seatVerticalSpacing;
         }
-        this.auditoriumWidth = maxSeatsPerRow * seatHorizontalSpacing;
-        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
+
+        this.setWidthAndHeight();
+
         let screenDepth = this.auditoriumHeight/2;
         let htmlAuditorium = `
         <div id="auditorium-holder" class="mr-auto ml-auto">
@@ -70,7 +74,7 @@ class Auditorium extends Base {
                     </linearGradient>
                 </defs>
                     <g class="screenGroup">
-                        <polygon points="100,0 ${this.auditoriumWidth-100},0 ${this.auditoriumWidth},${screenDepth} 0,${screenDepth}" fill="url(#screenGradient)"/>
+                        <polygon points="80,0 ${this.auditoriumWidth-80},0 ${this.auditoriumWidth},${screenDepth} 0,${screenDepth}" fill="url(#screenGradient)"/>
                     </g>
                     <g class="seatsGroup">
                         ${seats.join("")}
@@ -78,17 +82,20 @@ class Auditorium extends Base {
                 </svg>
             </div>
         </div>`;
-        $('#auditoriumContainer').empty();
-        $('#auditoriumContainer').append(htmlAuditorium);
+        //$('#auditoriumContainer').empty();
+        $('#auditoriumContainer').html(htmlAuditorium);
         $('#auditorium, svg').width(this.auditoriumWidth).height(this.auditoriumHeight);
         this.scaleAuditorium();
     }
 
+    setWidthAndHeight(){
+        let maxSeatsPerRow = Math.max(...this.currentAuditorium.seatsPerRow);
+        this.auditoriumWidth = maxSeatsPerRow * this.seatHorizontalSpacing;
+        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 1) * this.seatVerticalSpacing);
+    }
 
     scaleAuditorium() {
-        let maxSeatsPerRow = Math.max(...this.currentAuditorium.seatsPerRow) + 2;
-        this.auditoriumWidth = maxSeatsPerRow * 50;
-        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
+        this.setWidthAndHeight();
         let w = $('.modal-lg').width();
         let h = $('.modal-lg').height();
         w -= 20 * 2;
@@ -100,8 +107,6 @@ class Auditorium extends Base {
         $('#auditorium-holder').width(this.auditoriumWidth * scaling);
         $('#auditorium-holder').height(this.auditoriumHeight * scaling);
     }
-
-
 
     eventHandlers() {
         let seat;
