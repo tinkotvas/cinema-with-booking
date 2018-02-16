@@ -8,7 +8,7 @@ class MyPage extends Base {
 
   }
   init(jsonName) {
-    return JSON._load(jsonName)
+    return JSON._load('/users/'+jsonName)
       .then((data) => {
         this.bookings = data.bookingHistory;
         this.sortBooking(this.bookings);

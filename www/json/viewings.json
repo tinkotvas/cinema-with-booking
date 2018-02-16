@@ -1,311 +1,230 @@
 [
   {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sunshine in",
-    "date": "2018-02-14",
-    "time": "16:40",
-    "selectedSeats": [
-      "4",
-      "4",
-      "7",
-      "8",
-      "15",
-      "79",
-      "80",
-      "35",
-      "35",
-      "58",
-      "59",
-      "60",
-      "61",
-      "62",
-      "63",
-      "64",
-      "65",
-      "66",
-      "67",
-      "68",
-      "58",
-      "59",
-      "60",
-      "61",
-      "62",
-      "63",
-      "64",
-      "65",
-      "66",
-      "67",
-      "68"
-    ]
-  },
-  {
     "auditorium": "Lilla Salongen",
-    "film": "Star Wars - Last Jedi",
-    "date": "2018-02-14",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-16",
     "time": "17:00",
     "selectedSeats": [
-      "40",
-      "41",
-      "40",
-      "41",
-      "40",
-      "41",
-      "40",
-      "41"
+      "27",
+      "28",
+      "29"
     ]
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-02-14",
-    "time": "19:00",
-    "selectedSeats": [
-      "56",
-      "56",
-      "22",
-      "23",
-      "22",
-      "23",
-      "1",
-      "2"
-    ]
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Blade Runner 2049",
-    "date": "2018-02-14",
-    "time": "19:30",
-    "selectedSeats": [
-      "40",
-      "41",
-      "40",
-      "41",
-      "40",
-      "41",
-      "40",
-      "41"
-    ]
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-02-09",
-    "time": "22:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-09",
-    "time": "21:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Blade Runner 2049",
-    "date": "2018-02-10",
-    "time": "17:00"
   },
   {
     "auditorium": "Stora Salongen",
     "film": "Star Wars - Last Jedi",
-    "date": "2018-02-10",
-    "time": "20:00",
+    "date": "2018-02-16",
+    "time": "18:00",
     "selectedSeats": [
-      "33",
-      "34",
-      "33",
-      "34",
-      "80",
-      "81",
-      "80",
-      "81",
-      "68",
-      "69",
-      "68",
-      "69",
-      "41",
-      "42",
-      "43",
-      "46"
+      "3"
     ]
   },
   {
     "auditorium": "Lilla Salongen",
+    "film": "Guardians of the Galaxy, vol. 2",
+    "date": "2018-02-16",
+    "time": "20:30",
+    "selectedSeats": [
+      "49"
+    ]
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Baby Driver",
+    "date": "2018-02-16",
+    "time": "21:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-17",
+    "time": "17:30"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Let the sun shine in",
+    "date": "2018-02-17",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Gisslan",
+    "date": "2018-02-17",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Guardians of the Galaxy, vol. 2",
+    "date": "2018-02-18",
+    "time": "17:00"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Let the sun shine in",
+    "date": "2018-02-18",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-18",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-19",
+    "time": "17:00"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Let the sun shine in",
+    "date": "2018-02-19",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Guardians of the Galaxy, vol. 2",
+    "date": "2018-02-19",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Let the sun shine in",
+    "date": "2018-02-20",
+    "time": "17:00"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Baby Driver",
+    "date": "2018-02-20",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Guardians of the Galaxy, vol. 2",
+    "date": "2018-02-20",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Star Wars - Last Jedi",
+    "date": "2018-02-20",
+    "time": "21:00"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Let the sun shine in",
+    "date": "2018-02-21",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Gisslan",
+    "date": "2018-02-21",
+    "time": "18:30"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Baby Driver",
+    "date": "2018-02-21",
+    "time": "21:30"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Guardians of the Galaxy, vol. 2",
+    "date": "2018-02-22",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Gisslan",
+    "date": "2018-02-22",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-22",
+    "time": "20:45"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Guardians of the Galaxy, vol. 2",
+    "date": "2018-02-23",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Gisslan",
+    "date": "2018-02-23",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-23",
+    "time": "21:00"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Star Wars - Last Jedi",
+    "date": "2018-02-24",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Gisslan",
+    "date": "2018-02-24",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-24",
+    "time": "21:00"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Let the sun shine in",
+    "date": "2018-02-25",
+    "time": "18:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Guardians of the Galaxy, vol. 2",
+    "date": "2018-02-25",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Blade Runner 2049",
+    "date": "2018-02-25",
+    "time": "21:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Let the sun shine in",
+    "date": "2018-02-26",
+    "time": "17:00"
+  },
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Gisslan",
+    "date": "2018-02-26",
+    "time": "20:30"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "Gisslan",
+    "date": "2018-02-26",
+    "time": "21:30"
+  },
+  {
+    "auditorium": "Baby Driver",
     "film": "The party",
-    "date": "2018-02-10",
+    "date": "2018-02-27",
     "time": "20:40"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-11",
-    "time": "16:40",
-    "selectedSeats": [
-      "22",
-      "23",
-      "6",
-      "15",
-      "4",
-      "11",
-      "12",
-      "13",
-      "1",
-      "2",
-      "77",
-      "78",
-      "79",
-      "80",
-      "81",
-      "8",
-      "64",
-      "65",
-      "66",
-      "67",
-      "68",
-      "69",
-      "44",
-      "45",
-      "46",
-      "50",
-      "51",
-      "52",
-      "38",
-      "39",
-      "40",
-      "41",
-      "42",
-      "43",
-      "56",
-      "57",
-      "73",
-      "74",
-      "75",
-      "76",
-      "36",
-      "37",
-      "3",
-      "54",
-      "55",
-      "5",
-      "5",
-      "34",
-      "35",
-      "7",
-      "32",
-      "33",
-      "14",
-      "16",
-      "62",
-      "63",
-      "25",
-      "17",
-      "47"
-    ]
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Star Wars - Last Jedi",
-    "date": "2018-02-11",
-    "time": "19:00",
-    "selectedSeats": []
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Baby Driver",
-    "date": "2018-02-12",
-    "time": "20:30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Blade Runner 2049",
-    "date": "2018-02-12",
-    "time": "17:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-02-13",
-    "time": "18:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-13",
-    "time": "21:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Blade Runner 2049",
-    "date": "2018-02-14",
-    "time": "17:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-14",
-    "time": "20:00"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "The party",
-    "date": "2018-02-14",
-    "time": "20:40",
-    "selectedSeats": [
-      "30",
-      "31",
-      "30",
-      "31",
-      "4",
-      "5",
-      "4",
-      "5"
-    ]
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Call me by your name",
-    "date": "2018-02-15",
-    "time": "16:40",
-    "selectedSeats": [
-      "41",
-      "3",
-      "4"
-    ]
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Baby Driver",
-    "date": "2018-02-15",
-    "time": "19:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "The party",
-    "date": "2018-02-15",
-    "time": "20:30"
-  },
-  {
-    "auditorium": "Lilla Salongen",
-    "film": "Blade Runner 2049",
-    "date": "2018-02-16",
-    "time": "17:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Let the sun shine in",
-    "date": "2018-02-16",
-    "time": "18:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Gisslan",
-    "date": "2018-02-16",
-    "time": "21:00"
-  },
-  {
-    "auditorium": "Stora Salongen",
-    "film": "Baby Driver",
-    "date": "2018-02-16",
-    "time": "17:00"
   },
   {
     "auditorium": "Stora Salongen",
@@ -339,7 +258,7 @@
   },
   {
     "auditorium": "Stora Salongen",
-    "film": "The party",
+    "film": "Guardians of the Galaxy, vol. 2",
     "date": "2018-02-28",
     "time": "20:30"
   },
@@ -363,7 +282,7 @@
   },
   {
     "auditorium": "Stora Salongen",
-    "film": "Blade Runner 2049",
+    "film": "Baby Driver",
     "date": "2018-03-02",
     "time": "17:00"
   },
@@ -401,8 +320,7 @@
     "auditorium": "Lilla Salongen",
     "film": "Blade Runner 2049",
     "date": "2018-03-04",
-    "time": "17:00",
-    "selectedSeats": []
+    "time": "17:00"
   },
   {
     "auditorium": "Stora Salongen",
@@ -412,7 +330,7 @@
   },
   {
     "auditorium": "Stora Salongen",
-    "film": "Gisslan",
+    "film": "Guardians of the Galaxy, vol. 2",
     "date": "2018-03-04",
     "time": "21:00"
   },
@@ -460,7 +378,7 @@
   },
   {
     "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
+    "film": "Guardians of the Galaxy, vol. 2",
     "date": "2018-03-07",
     "time": "20:00"
   },
@@ -472,7 +390,7 @@
   },
   {
     "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
+    "film": "Baby Driver",
     "date": "2018-03-08",
     "time": "16:40"
   },
@@ -514,7 +432,7 @@
   },
   {
     "auditorium": "Stora Salongen",
-    "film": "Call me by your name",
+    "film": "Guardians of the Galaxy, vol. 2",
     "date": "2018-03-10",
     "time": "20:00",
     "selectedSeats": [
@@ -535,7 +453,7 @@
   },
   {
     "auditorium": "Lilla Salongen",
-    "film": "Gisslan",
+    "film": "Star Wars - Last Jedi",
     "date": "2018-03-11",
     "time": "19:00"
   },
@@ -547,7 +465,7 @@
   },
   {
     "auditorium": "Lilla Salongen",
-    "film": "Blade Runner 2049",
+    "film": "Baby Driver",
     "date": "2018-03-12",
     "time": "17:00"
   },
@@ -613,7 +531,7 @@
   },
   {
     "auditorium": "Stora Salongen",
-    "film": "Gisslan",
+    "film": "Guardians of the Galaxy, vol. 2",
     "date": "2018-03-15",
     "time": "21:00"
   },
@@ -643,10 +561,9 @@
   },
   {
     "auditorium": "Lilla Salongen",
-    "film": "Let the sunshine in",
+    "film": "Baby Driver",
     "date": "2018-03-16",
-    "time": "20:40",
-    "selectedSeats": []
+    "time": "20:40"
   },
   {
     "auditorium": "Stora Salongen",
