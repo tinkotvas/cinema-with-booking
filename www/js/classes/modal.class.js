@@ -29,6 +29,22 @@ class Modal extends Base{
         this.bookingNumber = data.bookingNumber;
       });
   }
+
+  getViewingIndex() {
+    let date = `2018-${this.selectDate.split('/')[0]}-${this.selectDate.split('/')[1].split(" ")[0]}`
+    let selectedViewing = {
+        auditorium: this.currentAuditorium,
+        film: this.films[this.indexToOpen].title,
+        date: date,
+        time: this.selectDate.split('/')[1].split(" ")[1],
+    }
+    let indexOfViewing = this.viewings.findIndex(viewing =>
+        viewing.auditorium == selectedViewing.auditorium &&
+        viewing.film == selectedViewing.film &&
+        viewing.date == selectedViewing.date &&
+        viewing.time == selectedViewing.time);
+    return indexOfViewing;
+}
       
   toggleBookingModal() {
     let that = this;

@@ -25,18 +25,14 @@ class Auditorium extends Base {
         this.currentAuditorium = this.auditoriums.filter(auditor => auditor.name == name)[0]
         let seats = [],
             seatHorizontalSpacing = 50,
-            seatVerticalSpacing = 60;
-
-        let rowsToDraw = this.currentAuditorium.seatsPerRow.length + 1;
-        let maxSeatsPerRow = Math.max(...this.currentAuditorium.seatsPerRow) + 2;
-        let seatNumber = 1,
-            seatCount = 0;
-
-        let viewing = this.modal.viewings[this.getViewing()];
-
-        let bookedSeats = 0;
-        let bookedSeatsLength = 0;
-        let markedBookedSeats = 0;
+            seatVerticalSpacing = 60,
+            rowsToDraw = this.currentAuditorium.seatsPerRow.length + 1,
+            maxSeatsPerRow = Math.max(...this.currentAuditorium.seatsPerRow) + 2,
+            seatNumber = 1,
+            viewing = this.modal.viewings[this.modal.getViewingIndex()],
+            bookedSeats = 0,
+            bookedSeatsLength = 0,
+            markedBookedSeats = 0;
 
         if (viewing.selectedSeats) {
             bookedSeats = viewing.selectedSeats;
@@ -44,43 +40,24 @@ class Auditorium extends Base {
         }
 
         for (let y = 0, cy = 0; y <= rowsToDraw; y++) {
-            let first = true,
-                last = false;
+            let startFromX = Math.round((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y - 1]) / 2);
+            let endBeforeX = maxSeatsPerRow - Math.floor((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y - 1]) / 2);
             for (let x = 0, cx = 0; x < maxSeatsPerRow; x++) {
-                let startFromX = Math.round((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y - 1]) / 2);
-                let endBeforeX = maxSeatsPerRow - Math.floor((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y - 1]) / 2);
                 let classes = "seat";
-
-                if (viewing.selectedSeats && bookedSeats.includes(seatNumber.toString())) {
-                    classes += " booked";
-                }
-
+                viewing.selectedSeats && bookedSeats.includes(seatNumber.toString()) ? classes += " booked" : null;
                 if (x >= startFromX && x < endBeforeX) {
-
-                    if (first || seatCount == this.currentAuditorium.seatsPerRow[y - 1] - 1) {
-                        if (last) {
-                            seatCount = 0;
-                            last = false;
-                        }
-
-                        if (first) {
-                            seatCount = 0;
-                            last = true;
-                        }
-                        first = false;
-                        classes += " endSeat"
-                    }
-
-                    seatCount++;
-                    seats.push(`<rect id="seatNr${seatNumber}" class="${classes}" x="${cx}" y="${cy}" rx="2" width="48" height="40" />`)
-                    seats.push(`<text x="${cx+ (seatNumber < 10 ? 20:15)}" y="${cy+25}">${seatNumber}</text>`)
+                    x == startFromX || x == endBeforeX-1 ? classes += " endSeat" : null;
+                    seats.push(`<rect id="seatNr${seatNumber}" class="${classes}" x="${cx}" y="${cy}" rx="2" width="48" height="40" />
+                                <text x="${cx+ (seatNumber < 10 ? 20:15)}" y="${cy+25}">${seatNumber}</text>`)
                     seatNumber++;
                 }
                 cx += seatHorizontalSpacing;
             }
             cy += seatVerticalSpacing;
         }
-        let screenWidth = maxSeatsPerRow * seatHorizontalSpacing
+        this.auditoriumWidth = maxSeatsPerRow * seatHorizontalSpacing;
+        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
+        let screenDepth = this.auditoriumHeight/2;
         let htmlAuditorium = `
         <div id="auditorium-holder" class="mr-auto ml-auto">
             <div id="auditorium">
@@ -88,60 +65,43 @@ class Auditorium extends Base {
                 <defs>
                     <linearGradient id="screenGradient" x1="0" x2="0" y1="0" y2="1">
                         <stop offset="0%" stop-color="white"/>
-                        <stop offset="2%" stop-color="white" stop-opacity="0.1"/>
+                        <stop offset="1%" stop-color="white" stop-opacity="0.1"/>
                         <stop offset="100%" stop-color="white" stop-opacity="0"/>
                     </linearGradient>
                 </defs>
                     <g class="screenGroup">
-                        <polygon points="100,0 ${screenWidth-100},0 ${screenWidth},250 0,250" fill="url(#screenGradient)"/>
+                        <polygon points="100,0 ${this.auditoriumWidth-100},0 ${this.auditoriumWidth},${screenDepth} 0,${screenDepth}" fill="url(#screenGradient)"/>
                     </g>
                     <g class="seatsGroup">
                         ${seats.join("")}
                     </g>
                 </svg>
             </div>
-        </div>
-        `;
+        </div>`;
         $('#auditoriumContainer').empty();
         $('#auditoriumContainer').append(htmlAuditorium);
-
-        this.auditoriumWidth = maxSeatsPerRow * 50;
-        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
-
         $('#auditorium, svg').width(this.auditoriumWidth).height(this.auditoriumHeight);
-        this.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
+        this.scaleAuditorium();
     }
 
-    scaleAuditorium(orgW = 700, orgH = 600) {
+
+    scaleAuditorium() {
+        let maxSeatsPerRow = Math.max(...this.currentAuditorium.seatsPerRow) + 2;
+        this.auditoriumWidth = maxSeatsPerRow * 50;
+        this.auditoriumHeight = ((this.currentAuditorium.seatsPerRow.length + 2) * 55);
         let w = $('.modal-lg').width();
         let h = $('.modal-lg').height();
         w -= 20 * 2;
         h -= (20 * 2);
-        const wScale = w / orgW;
-        const hScale = h / orgH;
+        const wScale = w / this.auditoriumWidth;
+        const hScale = h / this.auditoriumHeight;
         let scaling = Math.min(wScale, hScale);
-
         $('#auditorium').css('transform', `scale(${scaling})`);
-        $('#auditorium-holder').width(orgW * scaling);
-        $('#auditorium-holder').height(orgH * scaling);
+        $('#auditorium-holder').width(this.auditoriumWidth * scaling);
+        $('#auditorium-holder').height(this.auditoriumHeight * scaling);
     }
 
-    getViewing() {
-        let date = `2018-${this.modal.selectDate.split('/')[0]}-${this.modal.selectDate.split('/')[1].split(" ")[0]}`
-        let selectedViewing = {
-            auditorium: this.modal.currentAuditorium,
-            film: this.modal.films[this.modal.indexToOpen].title,
-            date: date,
-            time: this.modal.selectDate.split('/')[1].split(" ")[1],
-        }
 
-        let indexOfViewing = this.modal.viewings.findIndex(viewing =>
-            viewing.auditorium == selectedViewing.auditorium &&
-            viewing.film == selectedViewing.film &&
-            viewing.date == selectedViewing.date &&
-            viewing.time == selectedViewing.time);
-        return indexOfViewing;
-    }
 
     eventHandlers() {
         let seat;
@@ -149,7 +109,9 @@ class Auditorium extends Base {
         let bookedSeats = 0;
 
         $(window).resize(function () {
-            that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
+            if ($('#bookingModal')[0]) {
+                that.scaleAuditorium(this.auditoriumWidth, this.auditoriumHeight);
+            }
         });
 
         $(document).off('click mouseenter mouseleave', '.seat')
@@ -161,8 +123,8 @@ class Auditorium extends Base {
                         if ($(this).hasClass('selected')) {
                             $(this).removeClass('selected');
                         } else {
-                            if(selectedSeats.length < that.totalSeats)
-                            $('.proposed').addClass('selected');
+                            if (selectedSeats.length < that.totalSeats)
+                                $('.proposed').addClass('selected');
                         }
                     } else {
                         $('.selected').removeClass('selected');

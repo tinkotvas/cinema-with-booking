@@ -13,16 +13,56 @@ class Booking extends Base {
 		}
 	}
 
+
+
+
+	loadViewings(callbackFunc) {
+
+		JSON._load('viewings').then((data) => {
+			this.modal.viewings = data;
+			callbackFunc && callbackFunc();
+		}).
+		catch((e) => {
+
+		});
+	}
+
+
+
+
 	confirmBooking() {
 		let that = this;
 		$(document).on('click', '.confirm-booking', function () {
-			$('#bookingModal').modal('hide');
-			that.getSelectedSeatNumbers();
-			that.createBookingNumber()
-			$('.modal-container-info').empty();
-			that.modal.render('.modal-container-info', 3);
-			$('#summaryModal').modal('toggle');
-			that.saveBooking();
+			let confirmBookingFunc = function () {
+				let seatAlreadyBooked = true;
+				that.getSelectedSeatNumbers();
+
+				let viewing = that.modal.viewings[that.modal.getViewingIndex()]
+				
+				for (let i = 0; i < viewing.selectedSeats.length; i++) {
+					if (viewing.selectedSeats && that.modal.selectedSeats.includes(viewing.selectedSeats[i].toString())) {
+						seatAlreadyBooked = false;
+						break;
+					}
+				}
+				console.log("seatAlreadyBooked",seatAlreadyBooked)
+				if (seatAlreadyBooked) {
+					$('#bookingModal').modal('hide');
+					that.createBookingNumber()
+					$('.modal-container-info').empty();
+					that.modal.render('.modal-container-info', 3);
+					$('#summaryModal').modal('toggle');
+					that.saveBooking();
+				} else {
+					console.log("true");
+					that.modal.app.auditorium.htmlRenderAuditorium(that.modal.currentAuditorium);
+				}
+			};
+			that.loadViewings(() => confirmBookingFunc());
+
+
+
+
 		});
 	}
 
@@ -33,47 +73,46 @@ class Booking extends Base {
 		});
 	}
 
-  saveBooking(){
-  	this.getSelectedSeatNumbers();
-  	let bookedDateAndTime = this.modal.dateString;
-  	let findSpace = bookedDateAndTime.indexOf(' ');
-  	let bookedDate = bookedDateAndTime.slice(0,findSpace);
-  	let findPercent = bookedDateAndTime.indexOf('%');
-  	let bookedTime = bookedDateAndTime.slice(findSpace+1, findPercent);
-  	let userName;
-  	let userPass;
-  	let bookingHistory;
+	saveBooking() {
+		this.getSelectedSeatNumbers();
+		let bookedDateAndTime = this.modal.dateString;
+		let findSpace = bookedDateAndTime.indexOf(' ');
+		let bookedDate = bookedDateAndTime.slice(0, findSpace);
+		let findPercent = bookedDateAndTime.indexOf('%');
+		let bookedTime = bookedDateAndTime.slice(findSpace + 1, findPercent);
+		let userName;
+		let userPass;
+		let bookingHistory;
 
-  		if(app.currentUser == 0){
-  			app.currentUser = 'NotSignedUp';
-  		}
-  		JSON._load('/users/'+app.currentUser).then((data) => {
-        userName= data.email;
-        userPass=data.password;
-        if(!data.bookingHistory){
-        	bookingHistory = [];
-        }
-        else{
-        	bookingHistory=data.bookingHistory;
-        	}
-        let newBooking={
-          bookingID: this.modal.bookingNumber,
-          filmTitle: this.modal.films[this.modal.indexToOpen].title,
-          date: bookedDate + ' ' +bookedTime,
-          auditorium: this.modal.currentAuditorium,
-          seatID: this.modal.selectedSeats,
-          totalPrice: this.modal.totalPrice,
-          totalTickets: this.modal.totalTickets
-        }
-        bookingHistory.push(newBooking);
-      }).then(()=>
-      JSON._save('/users/'+app.currentUser, {
-        email: userName,
-        password: userPass,
-        bookingHistory  
-     	}));
-     this.saveToViewing();
-   };
+		if (app.currentUser == 0) {
+			app.currentUser = 'NotSignedUp';
+		}
+		JSON._load('/users/' + app.currentUser).then((data) => {
+			userName = data.email;
+			userPass = data.password;
+			if (!data.bookingHistory) {
+				bookingHistory = [];
+			} else {
+				bookingHistory = data.bookingHistory;
+			}
+			let newBooking = {
+				bookingID: this.modal.bookingNumber,
+				filmTitle: this.modal.films[this.modal.indexToOpen].title,
+				date: bookedDate + ' ' + bookedTime,
+				auditorium: this.modal.currentAuditorium,
+				seatID: this.modal.selectedSeats,
+				totalPrice: this.modal.totalPrice,
+				totalTickets: this.modal.totalTickets
+			}
+			bookingHistory.push(newBooking);
+		}).then(() =>
+			JSON._save('/users/' + app.currentUser, {
+				email: userName,
+				password: userPass,
+				bookingHistory
+			}));
+		this.saveToViewing();
+	};
 
 	saveToViewing() {
 		let date = `2018-${this.modal.selectDate.split('/')[0]}-${this.modal.selectDate.split('/')[1].split(" ")[0]}`
@@ -93,13 +132,12 @@ class Booking extends Base {
 			viewing.time == selectedViewing.time);
 
 
-		if(typeof this.modal.viewings[indexOfViewing].selectedSeats == 'undefined'){
+		if (typeof this.modal.viewings[indexOfViewing].selectedSeats == 'undefined') {
 			this.modal.viewings[indexOfViewing].selectedSeats = [];
 		}
 		this.modal.viewings[indexOfViewing].selectedSeats.push(...selectedViewing.selectedSeats);
-		
-		JSON._save('viewings',this.modal.viewings).then(function(){
-		})
+
+		JSON._save('viewings', this.modal.viewings).then(function () {})
 	}
 
 }
