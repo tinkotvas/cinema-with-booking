@@ -41,7 +41,7 @@ class Auditorium extends Base {
             bookedSeatsLength = viewing.selectedSeats.length;
         }
 
-        for (let y = 0, cy = this.seatVerticalSpacing/2; y <= rowsToDraw; y++) {
+        for (let y = 0, cy = this.seatVerticalSpacing; y <= rowsToDraw; y++) {
             let startFromX = Math.round((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y]) / 2);
             let endBeforeX = maxSeatsPerRow - Math.floor((maxSeatsPerRow - this.currentAuditorium.seatsPerRow[y]) / 2);
 
