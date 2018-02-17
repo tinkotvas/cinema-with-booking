@@ -2,8 +2,6 @@ class Booking extends Base {
 	constructor(modal) {
 		super();
 		this.modal = modal;
-		this.confirmBooking();
-
 		this.mouseX;
 		this.mouseY;
 		this.eventHandlers();
@@ -18,7 +16,38 @@ class Booking extends Base {
 		 });
 
 		 $(document).click(function(e){
-			$('#mouseTooltip').fadeOut('fast');
+			$('#mouseTooltip').hide();
+		 });
+
+		 $(document).on('click', '.confirm-booking', function () {
+			 let confirmBookingFunc = function () {
+				 let seatAlreadyBooked = false;
+				 let indexOfViewing = that.modal.getViewingIndex();
+				 that.getSelectedSeatNumbers();
+				 let viewing = that.modal.viewings[indexOfViewing]
+				 typeof viewing.selectedSeats == 'undefined' ? viewing.selectedSeats = [] : null;
+ 
+				 if (typeof viewing.selectedSeats[0] == 'string') {
+					 for (let i = 0; i < viewing.selectedSeats.length; i++) {
+						 if (viewing.selectedSeats && that.modal.selectedSeats.includes(viewing.selectedSeats[i].toString())) {
+							 seatAlreadyBooked = true;
+							 break;
+						 }
+					 }
+				 }
+				 if (seatAlreadyBooked) {
+					 that.modal.app.auditorium.htmlRenderAuditorium(that.modal.currentAuditorium);
+					 that.showMouseMessage();
+				 } else {
+					 $('#bookingModal').modal('hide');
+					 that.createBookingNumber()
+					 $('.modal-container-info').empty();
+					 that.modal.render('.modal-container-info', 3);
+					 $('#summaryModal').modal('toggle');
+					 that.saveBooking();
+				 }
+			 };
+			 that.loadViewings(() => confirmBookingFunc());
 		 });
 	}
 
@@ -40,46 +69,11 @@ class Booking extends Base {
 		});
 	}
 
-
 	showMouseMessage(){
 		var mouseX;
 		var mouseY;
 		$('#mouseTooltip span').html("En eller flera av dina platser blev tyvärr bokade.");
-		$('#mouseTooltip').stop(false, true).fadeIn('fast');
-	}
-
-	confirmBooking() {
-		let that = this;
-		$(document).on('click', '.confirm-booking', function () {
-			let confirmBookingFunc = function () {
-				let seatAlreadyBooked = false;
-				let indexOfViewing = that.modal.getViewingIndex();
-				that.getSelectedSeatNumbers();
-				let viewing = that.modal.viewings[indexOfViewing]
-				typeof viewing.selectedSeats == 'undefined' ? viewing.selectedSeats = [] : null;
-
-				if (typeof viewing.selectedSeats[0] == 'string') {
-					for (let i = 0; i < viewing.selectedSeats.length; i++) {
-						if (viewing.selectedSeats && that.modal.selectedSeats.includes(viewing.selectedSeats[i].toString())) {
-							seatAlreadyBooked = true;
-							break;
-						}
-					}
-				}
-				if (seatAlreadyBooked) {
-					that.modal.app.auditorium.htmlRenderAuditorium(that.modal.currentAuditorium);
-					that.showMouseMessage();
-				} else {
-					$('#bookingModal').modal('hide');
-					that.createBookingNumber()
-					$('.modal-container-info').empty();
-					that.modal.render('.modal-container-info', 3);
-					$('#summaryModal').modal('toggle');
-					that.saveBooking();
-				}
-			};
-			that.loadViewings(() => confirmBookingFunc());
-		});
+		$('#mouseTooltip').stop(false, true).fadeIn('fast').delay(7000).fadeOut('slow');	
 	}
 
 	createBookingNumber() {
