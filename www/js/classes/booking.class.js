@@ -9,17 +9,24 @@ class Booking extends Base {
 
 	eventHandlers(){
 		let that = this;
-		$(document).mousemove( function(e) {
-			that.mouseX = e.pageX; 
-			that.mouseY = e.pageY;
-			$('#mouseTooltip').css({'top':that.mouseY-80,'left':that.mouseX - 100});
-		 });
 
-		 $(document).click(function(e){
-			$('#mouseTooltip').hide();
-		 });
+		$(document).on({
+			mousemove: function(e){
+				if(!(/hidden/i.test($('#mouseTooltip').css('visibility')))){
+					that.mouseX = e.pageX; 
+					that.mouseY = e.pageY;
+					$('#mouseTooltip').css({'top':that.mouseY-80,'left':that.mouseX - 100});
+				}
+			},
+			click: function(e){
+				that.mouseX = e.pageX; 
+				that.mouseY = e.pageY;
+				$('#mouseTooltip').css({'top':that.mouseY-80,'left':that.mouseX - 100});
+				$('#mouseTooltip').hide();
+			}
+		})
 
-		 $(document).on('click', '.confirm-booking', function () {
+		$(document).on('click', '.confirm-booking', function () {
 			 let confirmBookingFunc = function () {
 				 let seatAlreadyBooked = false;
 				 let indexOfViewing = that.modal.getViewingIndex();
@@ -70,8 +77,6 @@ class Booking extends Base {
 	}
 
 	showMouseMessage(){
-		var mouseX;
-		var mouseY;
 		$('#mouseTooltip span').html("En eller flera av dina platser blev tyvärr bokade.");
 		$('#mouseTooltip').stop(false, true).fadeIn('fast').delay(7000).fadeOut('slow');	
 	}
