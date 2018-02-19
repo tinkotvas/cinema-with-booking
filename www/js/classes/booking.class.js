@@ -12,7 +12,7 @@ class Booking extends Base {
 		$(document).mousemove( function(e) {
 			that.mouseX = e.pageX; 
 			that.mouseY = e.pageY;
-			$('#mouseTooltip').css({'top':that.mouseY - 100,'left':that.mouseX - 240});
+			$('#mouseTooltip').css({'top':that.mouseY-80,'left':that.mouseX - 100});
 		 });
 
 		 $(document).click(function(e){

@@ -1,11 +1,10 @@
 Object.assign(Modal.prototype, {template1(){ return `
+<div id="mouseTooltip"><span></span></div>
 <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content bg-dark">
       <div class="modal-body p-0">
-
         <div class="container-fluid">
-          <div id="mouseTooltip"><span></span></div>
           <div class="row">
             <div class="col-4 mt-2 d-none d-lg-block">
               <img src="/imgs/${this.films[this.indexToOpen].images[0]}" class="float-left w-100" alt="">
