@@ -15,13 +15,13 @@ class Booking extends Base {
 				if(!(/hidden/i.test($('#mouseTooltip').css('visibility')))){
 					that.mouseX = e.pageX; 
 					that.mouseY = e.pageY;
-					$('#mouseTooltip').css({'top':that.mouseY-80,'left':that.mouseX - 100});
+					$('#mouseTooltip').css({'top':that.mouseY-100,'left':that.mouseX - 100});
 				}
 			},
 			click: function(e){
 				that.mouseX = e.pageX; 
 				that.mouseY = e.pageY;
-				$('#mouseTooltip').css({'top':that.mouseY-80,'left':that.mouseX - 100});
+				$('#mouseTooltip').css({'top':that.mouseY-100,'left':that.mouseX - 100});
 				$('#mouseTooltip').hide();
 			}
 		})
